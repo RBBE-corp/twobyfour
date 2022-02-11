@@ -11,9 +11,8 @@ class Instrumental < ApplicationRecord
   end
 
   def bpm_between_forty_and_two_hundred
-    if bpm.present?
+    if bpm.present? && !(bpm > 40 && bpm < 200)
       return errors.add(:bpm, "can't be less than 40bpm or more than 200bpm")
-      unless bpm > 40 && bpm < 200
     end
   end
 end
