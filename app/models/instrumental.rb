@@ -1,4 +1,5 @@
 class Instrumental < ApplicationRecord
+  belongs_to :composition
   validates :title, :artist, :genre, presence: true
   validates :duration, :bpm, numericality: true
   validate  :duration_cannot_be_less_than_eight_seconds,
