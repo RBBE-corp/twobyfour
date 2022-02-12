@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :playlist do
     resources :playlist_entry, only: [:new, :create, :destroy]
   end
+  
+  resources :instrumentals, only: [:index, :show]
+
 end
