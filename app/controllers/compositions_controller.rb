@@ -1,4 +1,4 @@
-class CompositionController < ApplicationController
+class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy]
 
   def index
