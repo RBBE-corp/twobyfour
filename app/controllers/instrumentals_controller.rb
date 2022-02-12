@@ -1,5 +1,5 @@
 class InstrumentalsController < ApplicationController
-  before_action :set_instrumental, only: [:show, :destroy]
+  before_action :set_instrumental, only: :show
 
   def index
     @instrumentals = Instrumental.all
@@ -8,20 +8,22 @@ class InstrumentalsController < ApplicationController
   def show
   end
 
-  def new
-    @instrumental = Instrumental.new
-  end
+  # do not a need a create, destroy function for the mvp
 
-  def create
-    @instrumental = Instrumental.new(instrumental_params)
-    @instrumental.save
-    redirect_to instrumentals_path
-  end
+  # def new
+  #   @instrumental = Instrumental.new
+  # end
 
-  def destroy
-  	@instrumental.destroy
-  	redirect_to instrumentals_path
-  end
+  # def create
+  #   @instrumental = Instrumental.new(instrumental_params)
+  #   @instrumental.save
+  #   redirect_to instrumentals_path
+  # end
+
+  # def destroy
+  # 	@instrumental.destroy
+  # 	redirect_to instrumentals_path
+  # end
 
   private
 
@@ -29,7 +31,7 @@ class InstrumentalsController < ApplicationController
     @instrumental = Instrumental.find(params[:id])
   end
 
-  def instrumental_params
-    params.require(:instrumental).permit(:title, :artist, :genre)
-  end
+  # def instrumental_params
+  #   params.require(:instrumental).permit(:title, :artist, :genre)
+  # end
 end
