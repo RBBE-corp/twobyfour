@@ -2,6 +2,7 @@ class Composition < ApplicationRecord
   validates :name, presence: true
   belongs_to :instrumental
   belongs_to :user
+  belongs_to :memory_list
+  
   has_many :scores
-  validates :memory_list, presence: true
 end
