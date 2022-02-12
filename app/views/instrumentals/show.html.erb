@@ -1,0 +1,13 @@
+<div class="container-show">
+  <div class="show-banner">
+    <h1><%= @instrumental.title %></h1>
+    <p>by <strong><%= @instrumental.artist %></strong></p>
+</div>
+
+<div class="information-section">
+    <p>genre: <%= @instrumental.genre %></p>
+    <p>duration: <%= @instrumental.duration.to_s %></p>
+    <p>bpm: <%= @instrumental.bpm.to_s %></p>
+</div>
+
+<p class="link-button"><%= link_to 'Back to Song List', instrumentals_path, class: 'btn btn-primary' %></p>
