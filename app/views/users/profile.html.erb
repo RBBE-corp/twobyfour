@@ -1,0 +1,47 @@
+<div class="profile-banner">
+  <div class="user-info">
+    <img src="https://i.pravatar.cc/150?img=68?u=a042581f4e29026704d" class="avatar-md" alt="Free unsplash image">
+    <div>
+      <h4><strong><%= current_user.username %></strong></h4>
+      <p class="text-secondary"><em><%= current_user.email %></em></p>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="height: 100vh;">
+  <nav>
+    <div class="nav justify-content-between nav-tabs border-0 user-tabs" id="nav-tab" role="tablist">
+      <a class=" active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Compositions</a>
+      <a class="" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Playlists</a>
+      <a class="" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+    </div>
+  </nav>
+  <div class="tab-content bg-secondary p-5 mt-5" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="mx-auto">
+        <ul>
+          <% @compositions.each do |composition| %>
+            <li><%= composition.id %></li>
+          <% end %>
+        </ul>
+      </div>
+      
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="mx-auto">
+        <ul>          
+          <% @playlists.each do |playlist| %>
+            <li><%= playlist.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <div class="mx-auto">
+        <ul>
+          Nothing for now
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
