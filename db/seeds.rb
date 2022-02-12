@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 # //// Instrumental Ideas /////
 # 500 miles
 # country road
@@ -24,16 +25,22 @@
 # major lazer (light it up, lean on)
 # white stripes 7 nation army
 # chainsmoker -closer
+# ////////// end /////////////////
 
 puts "Cleaning up database"
 puts "......"
 puts "......"
 
-Playlist.destroy_all
-User.destroy_all
+
+# Destroy order needs to be in the following order
+# Please do not change the order
+
 Score.destroy_all
+PlaylistEntry.destroy_all
 Playlist.destroy_all
 Composition.destroy_all
+User.destroy_all
+Instrumental.destroy_all
 
 puts "Database is clean"
 puts "Seeding database"
@@ -64,12 +71,13 @@ byron = User.create!(
 #   password: "123456",
 #   email: "erika@gmail.com",
 #   username: "Erika Kawashima"
-)
+# )
 
+# ////////// end /////////////////////////
 
 # //////// Instrumental seeds ////////////
 
-500_miles = Instrumental.create!(
+five_hundred_miles = Instrumental.create!(
   title: "500 Miles",
   artist: "Justin Timberlake",
   genre: "Country",
@@ -78,7 +86,7 @@ byron = User.create!(
 )
 
 
-all_the_small_things = Instrumental.create! (
+all_the_small_things = Instrumental.create!(
   title: "All the Small Things",
   artist: "Blink 182",
   genre: "Pop Punk",
@@ -86,7 +94,7 @@ all_the_small_things = Instrumental.create! (
   bpm: 149
 )
 
-lean_on = Instrumental.create! (
+lean_on = Instrumental.create!(
   title: "Lean On",
   artist: "Major Lazer",
   genre: "Electronic",
@@ -94,15 +102,15 @@ lean_on = Instrumental.create! (
   bpm: 98
 )
 
-closer = Instrumental.create(
+closer = Instrumental.create!(
   title: "Closer",
   artist: "Chainsmokers",
   genre: "Future Bass",
-  duration: 4.04
+  duration: 4.04,
   bpm: 95
 )
 
-seven_nation_army = Intsrumental.create!(
+seven_nation_army = Instrumental.create!(
   title: "Seven Nation Army",
   artist: "White Stripes",
   genre: "Alternative Rock",
@@ -134,38 +142,46 @@ island_in_the_sun = Instrumental.create!(
   bpm: 115
 )
 
-everybody = Instrumental.create(
+everybody = Instrumental.create!(
   title: "Everybody",
   artist: "Backstreet Boys",
   genre: "Pop",
   duration: 3.45,
   bpm: 108
 )
-# ////////// end /////////////////
-
+# ////////// end //////////////////////////
 
 # ///////// Compositions Seeds ////////////
 # Composition.create!(
 #   memory_list: [],
 #   instrumental_id:,
-#   user: babin,
+#   user: ,
 #   rep_count:
 # )
 
+# We need to determine whether this should be an array of arrays
 
 greetings_composition = Composition.create!(
   memory_list: ["Ohayou gozaimasu","Good morning","Konnichiwa","Hello","Konbanwa","Good evening","Oyasuminasai","Goodnight"],
-  instrumental: simple_rap,
+  instrumental: everybody,
   user: byron,
   rep_count: 15
 )
 
-days_of_the_week = Composition.create!(
-  memory_list: ["Ohayou gozaimasu","Good morning","Konnichiwa","Hello","Konbanwa","Good evening","Oyasuminasai","Goodnight"],
-  instrumental: simple_rap,
+days_of_the_week_composition = Composition.create!(
+  memory_list: ["Getsuyoubi","Monday","Kayoubi","Tuesday","Suiyoubi","Wednesday","Mokuyoubi","Thursday", "Kinyoubi", "Friday"],
+  instrumental: closer,
   user: byron,
   rep_count: 10
 )
+
+verbs_composition = Composition.create!(
+  memory_list: ["Suru","To do","Miru","To see","Kiku","To listen","Hanasu","To speak", "Iu","To say","Kaku","To write","Taberu","To eat","Nomu","To drink","Aruku","To walk","Hashiru","To run","Suwaru","To sit","Tatsu","To stand"],
+  instrumental: all_the_small_things,
+  user: byron,
+  rep_count: 20
+)
+# ////////// end //////////////////////////////
 
 
 # /////////// Playlist Seeds //////////////////
@@ -180,14 +196,48 @@ days_of_the_week_playlist = Playlist.create!(
   user: byron
 )
 
-# //////////////////////////////////
+verbs_playlist = Playlist.create!(
+  name: "Japanese Verbs",
+  user: byron
+)
+
+# ///////////// end /////////////////////
+
+# ///////////// PlaylistEntry Seeds /////////////////////
 
 PlaylistEntry.create!(
   composition: greetings_composition,
   playlist: greetings_playlist
 )
 
+PlaylistEntry.create!(
+  composition: days_of_the_week_composition,
+  playlist: days_of_the_week_playlist
+)
+
+PlaylistEntry.create!(
+  composition: verbs_composition,
+  playlist: verbs_playlist
+)
+
+# ///////////// end /////////////////////
+
+
+# ///////////// Score Seeds /////////////////////
+
 Score.create!(
   score: 5,
   composition: greetings_composition
 )
+
+Score.create!(
+  score: 20,
+  composition: days_of_the_week_composition
+)
+
+Score.create!(
+  score: 20,
+  composition: verbs_composition
+)
+
+# ///////////// end /////////////////////
