@@ -33,6 +33,7 @@ class CompositionsController < ApplicationController
 
   def destroy
     @composition.destroy
+    redirect_to compositions_path, notice: "Composition deleted!"
   end
 
   private

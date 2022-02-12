@@ -1,3 +1,8 @@
+
+<%= link_to "Create composition", new_composition_path, class: 'btn btn-primary' %>
+
+
+
 <% @compositions.each do |composition| %>
   <ul>
     <h4>Memory List</h4>
@@ -12,4 +17,6 @@
     <li>Instrumental title: <%= composition.instrumental.title %></li>
     <li>Instrumental duration: <%= composition.instrumental.duration %></li>
   </ul>
+    <%= link_to "Edit composition", edit_composition_path(composition), class: 'btn btn-secondary' %>
+    <%= link_to "Delete composition", composition_path(composition), method: :delete, class: 'btn btn-secondary' %>
 <% end %>
