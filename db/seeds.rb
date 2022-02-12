@@ -81,7 +81,7 @@ five_hundred_miles = Instrumental.create!(
   title: "500 Miles",
   artist: "Justin Timberlake",
   genre: "Country",
-  duration: 3.24,
+  duration: 194.4,
   bpm: 94
 )
 
@@ -90,7 +90,7 @@ all_the_small_things = Instrumental.create!(
   title: "All the Small Things",
   artist: "Blink 182",
   genre: "Pop Punk",
-  duration: 2.48,
+  duration: 148.8,
   bpm: 149
 )
 
@@ -98,7 +98,7 @@ lean_on = Instrumental.create!(
   title: "Lean On",
   artist: "Major Lazer",
   genre: "Electronic",
-  duration: 2.56,
+  duration: 153.6,
   bpm: 98
 )
 
@@ -106,7 +106,7 @@ closer = Instrumental.create!(
   title: "Closer",
   artist: "Chainsmokers",
   genre: "Future Bass",
-  duration: 4.04,
+  duration: 242.4,
   bpm: 95
 )
 
@@ -114,7 +114,7 @@ seven_nation_army = Instrumental.create!(
   title: "Seven Nation Army",
   artist: "White Stripes",
   genre: "Alternative Rock",
-  duration: 3.52,
+  duration: 211.2,
   bpm:124
 )
 
@@ -122,7 +122,7 @@ simple_rap = Instrumental.create!(
   title: "The Simple Rap Song",
   artist: "Plague Doctor",
   genre: "Trap",
-  duration: 2.55,
+  duration: 153,
   bpm: 130
 )
 
@@ -130,7 +130,7 @@ plastic_love = Instrumental.create!(
   title: "Plastic Love",
   artist: "Mariya Takeuchi",
   genre: "City Pop",
-  duration: 4.51,
+  duration: 270.6,
   bpm: 102
 )
 
@@ -138,7 +138,7 @@ island_in_the_sun = Instrumental.create!(
   title: "Island in the Sun",
   artist: "Weezer",
   genre: "Alternative Rock",
-  duration: 3.20,
+  duration: 192,
   bpm: 115
 )
 
@@ -146,7 +146,7 @@ everybody = Instrumental.create!(
   title: "Everybody",
   artist: "Backstreet Boys",
   genre: "Pop",
-  duration: 3.45,
+  duration: 207,
   bpm: 108
 )
 # ////////// end //////////////////////////
