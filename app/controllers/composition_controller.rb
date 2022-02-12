@@ -12,7 +12,6 @@ class CompositionController < ApplicationController
   def create
     @composition = Composition.new(composition_params)
     @composition.user = current_user
-    @composition.save
     if @composition.save
       redirect_to composition_path(@composition)
     else
@@ -21,6 +20,8 @@ class CompositionController < ApplicationController
   end
 
   def show; end
+
+  def edit; end
 
   def update
     if @composition.update(composition_params)

@@ -1,5 +1,5 @@
 class ScoreController < ApplicationController
-  before_action :find_score, only: [:show, :update]
+  before_action :find_score, only: [:show, :update, :edit, :update]
 
   def new
     @score = Score.new
@@ -11,9 +11,12 @@ class ScoreController < ApplicationController
     @score.save
   end
 
+  def edit; end
+
   def update
+    @composition = Composition.find(params[:id])
     if @score.update(score_parms)
-      redirect_to score_path, notice: "Score for composition updated!"
+      redirect_to composition_path(@composition), notice: "Score for composition updated!"
     else
       render :edit
     end
