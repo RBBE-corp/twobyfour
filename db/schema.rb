@@ -10,20 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_131511) do
+ActiveRecord::Schema.define(version: 2022_02_12_081820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "compositions", force: :cascade do |t|
-    t.text "memory_list", default: [], array: true
     t.bigint "instrumental_id", null: false
     t.bigint "user_id", null: false
     t.integer "rep_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "memory_list_id"
     t.index ["instrumental_id"], name: "index_compositions_on_instrumental_id"
     t.index ["user_id"], name: "index_compositions_on_user_id"
+  end
+
+  create_table "flashcards", force: :cascade do |t|
+    t.string "english_word"
+    t.string "japanese_word"
+    t.string "category"
+    t.datetime "last_practiced"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "instrumentals", force: :cascade do |t|
@@ -34,6 +43,14 @@ ActiveRecord::Schema.define(version: 2022_02_10_131511) do
     t.integer "bpm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memory_lists", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_memory_lists_on_user_id"
   end
 
   create_table "playlist_entries", force: :cascade do |t|
@@ -76,6 +93,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_131511) do
 
   add_foreign_key "compositions", "instrumentals"
   add_foreign_key "compositions", "users"
+  add_foreign_key "memory_lists", "users"
   add_foreign_key "playlist_entries", "compositions"
   add_foreign_key "playlist_entries", "playlists"
   add_foreign_key "playlists", "users"

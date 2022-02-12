@@ -1,0 +1,6 @@
+<div class="playlists-card">
+  <% @playlists.each do |playlist| %>
+    <h2> <%= playlist.name %> </h2>
+    <%= link_to 'Playlist info', playlist_path(playlist) %>
+  <% end %>
+</div>
