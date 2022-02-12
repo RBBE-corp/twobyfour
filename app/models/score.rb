@@ -1,4 +1,4 @@
 class Score < ApplicationRecord
   belongs_to :composition
-  validates :score, :playlist_id, presence: true
+  validates :score, presence: true
 end
