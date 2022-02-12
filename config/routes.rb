@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get '/profile', to: "users#profile"
 
   resources :playlists do
-    resources :playlist_entrys, only: [:new, :create]
+    resources :playlist_compositions, only: [:new, :create]
   end
-  resources :playlist_entrys, only: [:destroy]
+  resources :playlist_compositions, only: [:destroy]
 
   resources :instrumentals, only: [:index, :show]
 
