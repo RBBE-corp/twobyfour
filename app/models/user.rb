@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :compositions, dependent: :destroy
   has_many :playlists, dependent: :destroy
   has_many :memory_lists, dependent: :destroy
+  has_many :scores, through: :compositions
 
   validates :username, presence: true
 
