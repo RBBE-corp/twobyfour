@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2022_02_12_084933) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,13 +21,19 @@ ActiveRecord::Schema.define(version: 2022_02_12_084933) do
     t.integer "rep_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-
-    t.string "name"
-
     t.integer "memory_list_id"
-
+    t.string "name"
     t.index ["instrumental_id"], name: "index_compositions_on_instrumental_id"
     t.index ["user_id"], name: "index_compositions_on_user_id"
+  end
+
+  create_table "flashcards", force: :cascade do |t|
+    t.string "english_word"
+    t.string "japanese_word"
+    t.string "category"
+    t.datetime "last_practiced"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "instrumentals", force: :cascade do |t|
@@ -40,6 +44,23 @@ ActiveRecord::Schema.define(version: 2022_02_12_084933) do
     t.integer "bpm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memory_list_flashcards", force: :cascade do |t|
+    t.bigint "flashcard_id", null: false
+    t.bigint "memory_list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flashcard_id"], name: "index_memory_list_flashcards_on_flashcard_id"
+    t.index ["memory_list_id"], name: "index_memory_list_flashcards_on_memory_list_id"
+  end
+
+  create_table "memory_lists", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_memory_lists_on_user_id"
   end
 
   create_table "playlist_entries", force: :cascade do |t|
@@ -82,6 +103,9 @@ ActiveRecord::Schema.define(version: 2022_02_12_084933) do
 
   add_foreign_key "compositions", "instrumentals"
   add_foreign_key "compositions", "users"
+  add_foreign_key "memory_list_flashcards", "flashcards"
+  add_foreign_key "memory_list_flashcards", "memory_lists"
+  add_foreign_key "memory_lists", "users"
   add_foreign_key "playlist_entries", "compositions"
   add_foreign_key "playlist_entries", "playlists"
   add_foreign_key "playlists", "users"
