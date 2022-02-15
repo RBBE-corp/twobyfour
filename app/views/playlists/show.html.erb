@@ -1,8 +1,12 @@
 <div class="row d-flex justify-content-center">
   <div class="col-4">
     <h1>Playlist name: <%= @playlist.name %><h1>
+    <% @playlist.compositions.each do |composition| %> </h2>
+      <h2> <%= composition.name %> </h2>
+    <% end %>
     <%= link_to 'Edit Playlist', edit_playlist_path(@playlist), class: 'btn btn-secondary' %>
+    <%= link_to 'Add composition', new_playlist_playlist_composition_path(playlist_id: @playlist.id), class: 'btn btn-primary' %>
+    <%= link_to 'Go back to Playlists', playlists_path %>
+
   </div>
 </div>
-
-<%= link_to 'Go back to Playlists', playlists_path %>
