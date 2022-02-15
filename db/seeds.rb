@@ -35,8 +35,11 @@ puts "......"
 # Destroy order needs to be in the following order
 # Please do not change the order
 
+
 Score.destroy_all
 PlaylistComposition.destroy_all
+MemoryListFlashcard.destroy_all
+Flashcard.destroy_all
 Playlist.destroy_all
 Composition.destroy_all
 User.destroy_all
@@ -157,24 +160,38 @@ everybody = Instrumental.create!(
   duration: 207,
   bpm: 108
 )
-# ////puts "instrumental added"
 
-#////////////////////////////////
+puts "instrumental added"
+# /////////////////////////////////
+
+# /////////// Flashcard //////////////
+ohayo = Flashcard.create!(
+  english_word: "good morning",
+  japanese_word: "ohayou",
+  category: "greetings"
+)
+puts "Flash card created"
+
+# /////// MemoryList /////////
+greetings_memory_list = MemoryList.create!(
+  name: "Greetings",
+  user: byron,
+)
+
+puts "Memory list created"
+
+# //////////// MemoryListFlashcards ////////////
+greetings_memory_list_flashcards = MemoryListFlashcard.create!(
+  flashcard: ohayo,
+  memory_list: greetings_memory_list
+)
+puts "MemoryListFlashcard"
 
 # ///////// Compositions Seeds ////////////
-# Composition.create!(
-#   memory_list: [],
-#   instrumental_id:,
-#   user: ,
-#   rep_count:
-# )
-
-# We need to determine whether this should be an array of arrays
-puts "composition added"
 
 greetings_composition = Composition.create!(
-  memory_list: ["Ohayou gozaimasu","Good morning","Konnichiwa","Hello","Konbanwa","Good evening","Oyasuminasai","Goodnight"],
-  name: "greetings",
+  name: "Greetings",
+  memory_list: greetings_memory_list,
   instrumental: everybody,
   user: byron,
   rep_count: 15
@@ -182,26 +199,25 @@ greetings_composition = Composition.create!(
 
 puts "composition added"
 
-days_of_the_week_composition = Composition.create!(
-  memory_list: ["Getsuyoubi","Monday","Kayoubi","Tuesday","Suiyoubi","Wednesday","Mokuyoubi","Thursday", "Kinyoubi", "Friday"],
-  name: "days of the week",
-  instrumental: closer,
-  user: byron,
-  rep_count: 10
-)
-puts "composition added"
 
-verbs_composition = Composition.create!(
-  memory_list: ["Suru","To do","Miru","To see","Kiku","To listen","Hanasu","To speak", "Iu","To say","Kaku","To write","Taberu","To eat","Nomu","To drink","Aruku","To walk","Hashiru","To run","Suwaru","To sit","Tatsu","To stand"],
-  name: "verbs",
-  instrumental: all_the_small_things,
-  user: byron,
-  rep_count: 20
-)
+# days_of_the_week_composition = Composition.create!(
+#   memory_list: "days of the week",
+#   instrumental: closer,
+#   user: byron,
+#   rep_count: 10
+# )
+# puts "composition added"
 
-puts "composition added"
+# verbs_composition = Composition.create!(
+#   memory_list: "verbs",
+#   instrumental: all_the_small_things,
+#   user: byron,
+#   rep_count: 20
+# )
+
+
+# puts "composition added"
 # //////////////////////////////////////
-
 
 # /////////// Playlist Seeds //////////////////
 puts "playlist"
@@ -232,19 +248,19 @@ PlaylistComposition.create!(
   composition: greetings_composition,
   playlist: greetings_playlist
 )
-puts "playlist_entry added"
 
-PlaylistComposition.create!(
-  composition: days_of_the_week_composition,
-  playlist: days_of_the_week_playlist
-)
-puts "playlist_entry added"
+# PlaylistComposition.create!(
+#   composition: days_of_the_week_composition,
+#   playlist: days_of_the_week_playlist
+# )
+# puts "playlist composition"
 
-PlaylistComposition.create!(
-  composition: verbs_composition,
-  playlist: verbs_playlist
-)
-puts "playlist_entry added"
+# PlaylistComposition.create!(
+#   composition: verbs_composition,
+#   playlist: verbs_playlist
+# )
+
+puts "playlist composition"
 
 # ///////////// end /////////////////////
 
@@ -257,17 +273,17 @@ Score.create!(
 )
 puts "score added"
 
-Score.create!(
-  score: 20,
-  composition: days_of_the_week_composition
-)
-puts "score added"
+# Score.create!(
+#   score: 20,
+#   composition: days_of_the_week_composition
+# )
+# puts "score added"
 
-Score.create!(
-  score: 20,
-  composition: verbs_composition
-)
-puts "score added"
+# Score.create!(
+#   score: 20,
+#   composition: verbs_composition
+# )
+# puts "score added"
 
 puts "Database Seeded!"
 # //////////////////////////////////
