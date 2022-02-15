@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2022_02_13_122753) do
     t.index ["user_id"], name: "index_memory_lists_on_user_id"
   end
 
-
   create_table "playlist_compositions", force: :cascade do |t|
     t.bigint "composition_id", null: false
     t.bigint "playlist_id", null: false
