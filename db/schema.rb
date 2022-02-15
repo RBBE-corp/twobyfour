@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_084933) do
+
+ActiveRecord::Schema.define(version: 2022_02_13_122753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +24,8 @@ ActiveRecord::Schema.define(version: 2022_02_12_084933) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.integer "memory_list_id"
+    t.integer "memory_list_id"
+    t.string "name"
     t.index ["instrumental_id"], name: "index_compositions_on_instrumental_id"
     t.index ["user_id"], name: "index_compositions_on_user_id"
   end
@@ -63,13 +66,13 @@ ActiveRecord::Schema.define(version: 2022_02_12_084933) do
     t.index ["user_id"], name: "index_memory_lists_on_user_id"
   end
 
-  create_table "playlist_entries", force: :cascade do |t|
+  create_table "playlist_compositions", force: :cascade do |t|
     t.bigint "composition_id", null: false
     t.bigint "playlist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["composition_id"], name: "index_playlist_entries_on_composition_id"
-    t.index ["playlist_id"], name: "index_playlist_entries_on_playlist_id"
+    t.index ["composition_id"], name: "index_playlist_compositions_on_composition_id"
+    t.index ["playlist_id"], name: "index_playlist_compositions_on_playlist_id"
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -106,8 +109,8 @@ ActiveRecord::Schema.define(version: 2022_02_12_084933) do
   add_foreign_key "memory_list_flashcards", "flashcards"
   add_foreign_key "memory_list_flashcards", "memory_lists"
   add_foreign_key "memory_lists", "users"
-  add_foreign_key "playlist_entries", "compositions"
-  add_foreign_key "playlist_entries", "playlists"
+  add_foreign_key "playlist_compositions", "compositions"
+  add_foreign_key "playlist_compositions", "playlists"
   add_foreign_key "playlists", "users"
   add_foreign_key "scores", "compositions"
 end

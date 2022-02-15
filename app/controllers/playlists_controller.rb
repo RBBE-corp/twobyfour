@@ -13,6 +13,12 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(playlist_params)
+    @playlist.user = current_user
+    if @playlist.save
+      redirect_to playlists_path
+    else
+      render :new
+    end
   end
 
   def edit; end
@@ -27,6 +33,7 @@ class PlaylistsController < ApplicationController
 
   def destroy
     @playlist.destroy
+    redirect_to playlists_path
   end
 
   private
