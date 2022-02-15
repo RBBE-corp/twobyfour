@@ -36,7 +36,7 @@ puts "......"
 # Please do not change the order
 
 Score.destroy_all
-PlaylistEntry.destroy_all
+PlaylistComposition.destroy_all
 Playlist.destroy_all
 Composition.destroy_all
 User.destroy_all
@@ -174,6 +174,7 @@ puts "composition added"
 
 greetings_composition = Composition.create!(
   memory_list: ["Ohayou gozaimasu","Good morning","Konnichiwa","Hello","Konbanwa","Good evening","Oyasuminasai","Goodnight"],
+  name: "greetings",
   instrumental: everybody,
   user: byron,
   rep_count: 15
@@ -183,6 +184,7 @@ puts "composition added"
 
 days_of_the_week_composition = Composition.create!(
   memory_list: ["Getsuyoubi","Monday","Kayoubi","Tuesday","Suiyoubi","Wednesday","Mokuyoubi","Thursday", "Kinyoubi", "Friday"],
+  name: "days of the week",
   instrumental: closer,
   user: byron,
   rep_count: 10
@@ -191,6 +193,7 @@ puts "composition added"
 
 verbs_composition = Composition.create!(
   memory_list: ["Suru","To do","Miru","To see","Kiku","To listen","Hanasu","To speak", "Iu","To say","Kaku","To write","Taberu","To eat","Nomu","To drink","Aruku","To walk","Hashiru","To run","Suwaru","To sit","Tatsu","To stand"],
+  name: "verbs",
   instrumental: all_the_small_things,
   user: byron,
   rep_count: 20
@@ -225,19 +228,19 @@ puts "playlist added"
 
 # ///////////// PlaylistEntry Seeds /////////////////////
 
-PlaylistEntry.create!(
+PlaylistComposition.create!(
   composition: greetings_composition,
   playlist: greetings_playlist
 )
 puts "playlist_entry added"
 
-PlaylistEntry.create!(
+PlaylistComposition.create!(
   composition: days_of_the_week_composition,
   playlist: days_of_the_week_playlist
 )
 puts "playlist_entry added"
 
-PlaylistEntry.create!(
+PlaylistComposition.create!(
   composition: verbs_composition,
   playlist: verbs_playlist
 )
