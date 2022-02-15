@@ -41,7 +41,7 @@ class CompositionsController < ApplicationController
   private
 
   def composition_params
-    params.require(:composition).permit(:memory_list, :name)
+    params.require(:composition).permit(:instrumental_id, :memory_list_id)
   end
 
   def find_composition
