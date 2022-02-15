@@ -25,7 +25,7 @@ class MemoryListsController < ApplicationController
 
   def update
     if @memory_list.update(memory_list_params)
-      redirect_to memory_list_path, notice: "Memory list created!"
+      redirect_to memory_list_path(@memory_list), notice: "Memory list created!"
     else
       render :edit
     end
@@ -33,6 +33,7 @@ class MemoryListsController < ApplicationController
 
   def destroy
     @memory_list.destroy
+    redirect_to memory_list_index
   end
 
   private
