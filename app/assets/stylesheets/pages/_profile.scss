@@ -1,0 +1,72 @@
+.profile-banner {
+  box-sizing: border-box;
+  
+  height: 500px;
+  width: 100%;
+
+  // backdrop-filter: blur(5px);
+  overflow: hidden;
+  
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    // z-index: 10;
+    background-image:
+    linear-gradient(to bottom, rgba(42, 47, 77, 0.62), rgba(42, 47, 77, 0.72)),
+    url('https://i.pravatar.cc/150?img=68?u=a042581f4e29026704d');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    top: -20%;
+    left: -20%;
+    image-rendering: pixelated;
+    width: 140%;
+    height: 140%;
+    filter: blur(18px);
+    -webkit-filter: blur(18px);
+  }
+
+  .user-info  {
+    // background-color: blanchedalmond;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    .avatar-md {
+      border-radius: 50%;
+      margin-bottom: 16px;
+      box-shadow: 2px 2px 4px whitesmoke,
+                  0px 0px 6px whitesmoke;
+    }
+
+    div {
+      text-align: center;
+    }
+  }
+}
+
+.user-tabs {
+    position: relative;
+    z-index: 100;
+    margin-top: -56px;
+    height: 56px;
+    line-height: 56px;
+    a {
+      text-align: center;
+      color: white;
+      flex-grow: 1;
+      transition: all 0.3s;
+      &:hover {
+        text-decoration: none;
+      }
+      &.active, &:hover{
+        background-color: rgba(42, 47, 77, 1);
+      }
+    }
+}

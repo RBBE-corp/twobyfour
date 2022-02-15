@@ -9,4 +9,16 @@ class User < ApplicationRecord
   has_many :memory_lists, dependent: :destroy
 
   validates :username, presence: true
+
+  def avg_scores
+
+    return 0 unless compositions.count.positive?
+    sum = 0
+    counter = compositions.count;
+    compositions.each do |composition|
+
+      sum = composition.scores.average(:score).round(2).to_f
+    end
+    (sum / counter).round(2)
+  end
 end

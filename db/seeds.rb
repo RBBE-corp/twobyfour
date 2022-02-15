@@ -35,12 +35,13 @@ puts "......"
 # Destroy order needs to be in the following order
 # Please do not change the order
 
-# Score.destroy_all
-# PlaylistComposition.destroy_all
-# Playlist.destroy_all
-# Composition.destroy_all
-# User.destroy_all
-# Instrumental.destroy_all
+
+Score.destroy_all
+PlaylistComposition.destroy_all
+Playlist.destroy_all
+Composition.destroy_all
+User.destroy_all
+Instrumental.destroy_all
 
 puts "Database is clean"
 puts "Seeding database"
@@ -192,6 +193,7 @@ greetings_composition = Composition.create!(
 
 puts "composition added"
 
+
 # days_of_the_week_composition = Composition.create!(
 #   memory_list: "days of the week",
 #   instrumental: closer,
@@ -206,6 +208,7 @@ puts "composition added"
 #   user: byron,
 #   rep_count: 20
 # )
+
 
 # puts "composition added"
 # //////////////////////////////////////
@@ -239,8 +242,6 @@ PlaylistComposition.create!(
   composition: greetings_composition,
   playlist: greetings_playlist
 )
-
-puts "playlist composition"
 
 PlaylistComposition.create!(
   composition: days_of_the_week_composition,
