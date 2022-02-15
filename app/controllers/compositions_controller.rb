@@ -7,6 +7,7 @@ class CompositionsController < ApplicationController
 
   def new
     @composition = Composition.new
+    @user = current_user
   end
 
   def create
@@ -40,7 +41,7 @@ class CompositionsController < ApplicationController
   private
 
   def composition_params
-    params.require(:composition).permit(:memory_list)
+    params.require(:composition).permit(:memory_list, :name)
   end
 
   def find_composition

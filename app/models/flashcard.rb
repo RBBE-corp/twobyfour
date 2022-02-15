@@ -1,2 +1,3 @@
 class Flashcard < ApplicationRecord
+
 end

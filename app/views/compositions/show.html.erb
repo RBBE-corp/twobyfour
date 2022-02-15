@@ -1,11 +1,7 @@
 <div class="card" style="width: 36rem;">
 
     <h4>Memory List</h4>
-    <% @composition.memory_list.each do |phrase| %>
-    <ul>
-      <li><%= phrase  %></li>
-    </ul>
-    <% end %>
+
 
     <h4>Instrumental Details</h4>
     <li>Rep count: <%= @composition.rep_count %></li>
