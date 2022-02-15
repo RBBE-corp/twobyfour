@@ -65,7 +65,10 @@
       &:hover {
         text-decoration: none;
       }
-      &.active, &:hover{
+      &.active {
+        background: linear-gradient(to bottom, rgba(42, 47, 77, 0.4),rgba(42, 47, 77, 1));
+      }
+      &:hover, &.active:hover {
         background-color: rgba(42, 47, 77, 1);
       }
     }
