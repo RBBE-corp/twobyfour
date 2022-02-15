@@ -33,7 +33,7 @@ class MemoryListsController < ApplicationController
 
   def destroy
     @memory_list.destroy
-    redirect_to memory_list_index
+    redirect_to memory_lists
   end
 
   private
