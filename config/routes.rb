@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :instrumentals, only: [:index, :show]
 
-  resources :compositions, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resources :score, only: [:new, :create, :edit, :update]
+  resources :compositions do
+    resources :score, only: [:new, :create]
   end
+  resources :memory_list
+  resources :flashcards, only: [:index, :show]
 end
