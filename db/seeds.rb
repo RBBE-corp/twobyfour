@@ -38,6 +38,8 @@ puts "......"
 
 Score.destroy_all
 PlaylistComposition.destroy_all
+MemoryListFlashcard.destroy_all
+Flashcard.destroy_all
 Playlist.destroy_all
 Composition.destroy_all
 User.destroy_all
@@ -158,12 +160,15 @@ everybody = Instrumental.create!(
   duration: 207,
   bpm: 108
 )
+
+puts "instrumental added"
 # /////////////////////////////////
 
 # /////////// Flashcard //////////////
 ohayo = Flashcard.create!(
   english_word: "good morning",
-  japanese_word: "ohayou"
+  japanese_word: "ohayou",
+  category: "greetings"
 )
 puts "Flash card created"
 
@@ -185,7 +190,8 @@ puts "MemoryListFlashcard"
 # ///////// Compositions Seeds ////////////
 
 greetings_composition = Composition.create!(
-  memory_list: greetings_memory_list_flashcards,
+  name: "Greetings",
+  memory_list: greetings_memory_list,
   instrumental: everybody,
   user: byron,
   rep_count: 15
@@ -243,16 +249,16 @@ PlaylistComposition.create!(
   playlist: greetings_playlist
 )
 
-PlaylistComposition.create!(
-  composition: days_of_the_week_composition,
-  playlist: days_of_the_week_playlist
-)
-puts "playlist composition"
+# PlaylistComposition.create!(
+#   composition: days_of_the_week_composition,
+#   playlist: days_of_the_week_playlist
+# )
+# puts "playlist composition"
 
-PlaylistComposition.create!(
-  composition: verbs_composition,
-  playlist: verbs_playlist
-)
+# PlaylistComposition.create!(
+#   composition: verbs_composition,
+#   playlist: verbs_playlist
+# )
 
 puts "playlist composition"
 
@@ -267,17 +273,17 @@ Score.create!(
 )
 puts "score added"
 
-Score.create!(
-  score: 20,
-  composition: days_of_the_week_composition
-)
-puts "score added"
+# Score.create!(
+#   score: 20,
+#   composition: days_of_the_week_composition
+# )
+# puts "score added"
 
-Score.create!(
-  score: 20,
-  composition: verbs_composition
-)
-puts "score added"
+# Score.create!(
+#   score: 20,
+#   composition: verbs_composition
+# )
+# puts "score added"
 
 puts "Database Seeded!"
 # //////////////////////////////////
