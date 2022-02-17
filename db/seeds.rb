@@ -291,7 +291,7 @@ puts "MemoryListFlashcards added"
 # ///////// Compositions Seeds ////////////
 
 greetings_composition = Composition.create!(
-  name: "Greetings",
+  name: "Greetings 1",
   memory_list: greetings_memory_list,
   instrumental: everybody,
   user: byron,
@@ -299,6 +299,62 @@ greetings_composition = Composition.create!(
 )
 
 puts "composition added"
+
+greetings_composition = Composition.create!(
+  name: "Greetings 2",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 3",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 4",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 5",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 6",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 7",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+
 
 
 # days_of_the_week_composition = Composition.create!(
