@@ -26,34 +26,32 @@
 # white stripes 7 nation army
 # chainsmoker -closer
 
-
 puts "Cleaning up database"
 puts "......"
 puts "......"
-
 
 # Destroy order needs to be in the following order
 # Please do not change the order
 
 
   MemoryListFlashcard.destroy_all
-  puts MemoryListFlashcard.count
+    puts MemoryListFlashcard.count
   Flashcard.destroy_all
-  puts Flashcard.count
+    puts Flashcard.count
   MemoryList.destroy_all
-  puts MemoryList.count
+    puts MemoryList.count
   Playlist.destroy_all
-  puts Playlist.count
+    puts Playlist.count
   Composition.destroy_all
-  puts Composition.count
+    puts Composition.count
   Instrumental.destroy_all
-  puts Instrumental.count
+    puts Instrumental.count
   User.destroy_all
-  puts User.count
+    puts User.count
   PlaylistComposition.destroy_all
-  puts PlaylistComposition.count
+    puts PlaylistComposition.count
   Score.destroy_all
-  puts Score.count
+    puts Score.count
 
 # ActiveRecord::Base.connection.disable_referential_integrity do
 #   Flashcard.destroy_all
@@ -66,7 +64,6 @@ puts "......"
 #   PlaylistComposition.destroy_all
 #   Score.destroy_all
 # end
-
 
 puts "Database is clean"
 puts "Seeding database"
@@ -184,7 +181,7 @@ everybody = Instrumental.create!(
   bpm: 108
 )
 
-puts "instrumental added"
+puts "all instrumentals created"
 # /////////////////////////////////
 
 # /////////// Flashcards //////////////
@@ -247,7 +244,7 @@ greetings_memory_list = MemoryList.create!(
   user: byron
 )
 
-puts "Memory list created"
+puts "Memorylist created"
 
 # [konnichiwa, ohayo, hajimemashite, sumimasen, gomen, arigatou, onegai, oyasumi],
 
@@ -289,7 +286,7 @@ MemoryListFlashcard.create!(
   memory_list: greetings_memory_list
 )
 
-puts "MemoryListFlashcard"
+puts "MemoryListFlashcards added"
 
 # ///////// Compositions Seeds ////////////
 
@@ -364,7 +361,7 @@ PlaylistComposition.create!(
 #   playlist: verbs_playlist
 # )
 
-puts "playlist composition"
+puts "playlist compositions created"
 
 # ///////////// end /////////////////////
 
