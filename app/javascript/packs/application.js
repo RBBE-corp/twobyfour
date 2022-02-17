@@ -20,11 +20,16 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-
+import { filesPlayer } from '../components/files_player';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  const audio = document.querySelector('audio');
+  if ( audio ) {
+    filesPlayer();
+  }
+
 });
