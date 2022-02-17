@@ -1,0 +1,32 @@
+<div class="banner">
+  <div class="container">
+    <h1><%= @memory_list.name %></h1>
+    <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
+    <ul>
+      <li class="link-button"><%= link_to 'Edit List Name', edit_memory_list_path, class: 'btn btn-primary' %></li>
+      <li><em>List Creator: </em> <%= @memory_list.user.username %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="memory-list-cards-holder">
+  <ul>
+    <li class="link-button"><%= link_to 'Add Flashcards to Memory List', memory_list_flashcards_path(@memory_list), class: 'btn btn-primary' %></li>
+    <div class="memory-list-card">
+      <ul class="list-group">
+        <% if @memory_list.flashcards.present? %>
+          <li><h2>Memory List Flashcards</h2>
+          <% @memory_list.flashcards.each do |flashcard| %>
+              <li class="list-group-item"><%= flashcard.english_word %> = <%= flashcard.japanese_word %></li>
+              <li><em>Category: <%= flashcard.category %></em></li>
+          <% end %>
+        <%end%>
+      </ul>
+    </div>
+    <li class="link-button"><%= link_to "Delete #{@memory_list.name} Memory List",
+            memory_list_path(@memory_list),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %></li>
+    <li class="link-button"><%= link_to 'Back to Memory List Index', memory_lists_path, class: 'btn btn-primary' %></li>
+  </ul>
+</div>

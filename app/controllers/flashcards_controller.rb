@@ -1,8 +1,9 @@
 class FlashcardsController < ApplicationController
   before_action :find_flashcard, only: :show
+  before_action :find_memory_list, only: [:index, :show]
 
   def index
-    @flashcard = Flashcard.all
+    @flashcards = Flashcard.all
   end
 
   # def new
@@ -42,5 +43,9 @@ class FlashcardsController < ApplicationController
 
   def find_flashcard
     @flashcard = Flashcard.find(params[:id])
+  end
+
+  def find_memory_list
+    @memory_list = MemoryList.find(params[:memory_list_id])
   end
 end
