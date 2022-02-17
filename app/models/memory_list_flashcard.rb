@@ -1,4 +1,4 @@
 class MemoryListFlashcard < ApplicationRecord
-  belongs_to :flashcard, dependent: :destroy
-  belongs_to :memory_list, dependent: :destroy
+  belongs_to :flashcard
+  belongs_to :memory_list
 end

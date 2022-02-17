@@ -1,4 +1,4 @@
-class ScoreController < ApplicationController
+class ScoresController < ApplicationController
   before_action :find_score, only: [:show, :update, :edit, :update]
 
   def new

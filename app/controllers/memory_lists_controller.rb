@@ -2,15 +2,15 @@ class MemoryListsController < ApplicationController
   before_action :find_memory_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @memory_lists = Memory_list.all
+    @memory_lists = MemoryList.all
   end
 
   def new
-    @memory_list = Memory_list.new
+    @memory_list = MemoryList.new
   end
 
   def create
-    @memory_list = Memory_list.new(memory_list_params)
+    @memory_list = MemoryList.new(memory_list_params)
     @memory_list.user = current_user
     if @memory_list.save
       redirect_to memory_list_path(@memory_list)
@@ -33,7 +33,7 @@ class MemoryListsController < ApplicationController
 
   def destroy
     @memory_list.destroy
-    redirect_to memory_lists
+    redirect_to memory_lists_path
   end
 
   private
@@ -43,6 +43,6 @@ class MemoryListsController < ApplicationController
   end
 
   def find_memory_list
-    @memory_list = Memory_list.find(params[:id])
+    @memory_list = MemoryList.find(params[:id])
   end
 end
