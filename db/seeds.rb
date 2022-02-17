@@ -36,14 +36,37 @@ puts "......"
 # Please do not change the order
 
 
-Score.destroy_all
-PlaylistComposition.destroy_all
-MemoryListFlashcard.destroy_all
-Flashcard.destroy_all
-Playlist.destroy_all
-Composition.destroy_all
-User.destroy_all
-Instrumental.destroy_all
+  MemoryListFlashcard.destroy_all
+  puts MemoryListFlashcard.count
+  Flashcard.destroy_all
+  puts Flashcard.count
+  MemoryList.destroy_all
+  puts MemoryList.count
+  Playlist.destroy_all
+  puts Playlist.count
+  Composition.destroy_all
+  puts Composition.count
+  Instrumental.destroy_all
+  puts Instrumental.count
+  User.destroy_all
+  puts User.count
+  PlaylistComposition.destroy_all
+  puts PlaylistComposition.count
+  Score.destroy_all
+  puts Score.count
+
+# ActiveRecord::Base.connection.disable_referential_integrity do
+#   Flashcard.destroy_all
+#   MemoryList.destroy_all
+#   Playlist.destroy_all
+#   MemoryListFlashcard.destroy_all
+#   Composition.destroy_all
+#   Instrumental.destroy_all
+#   User.destroy_all
+#   PlaylistComposition.destroy_all
+#   Score.destroy_all
+# end
+
 
 puts "Database is clean"
 puts "Seeding database"
@@ -164,27 +187,108 @@ everybody = Instrumental.create!(
 puts "instrumental added"
 # /////////////////////////////////
 
-# /////////// Flashcard //////////////
-ohayo = Flashcard.create!(
-  english_word: "good morning",
-  japanese_word: "ohayou",
+# /////////// Flashcards //////////////
+
+# Hello - konnichiwa
+konnichiwa = Flashcard.create!(
+  english_word: "hello",
+  japanese_word: "konnichiwa",
   category: "greetings"
 )
-puts "Flash card created"
+
+# Good morning - ohayou gozaimasu
+ohayo = Flashcard.create!(
+  english_word: "good_morning",
+  japanese_word: "ohayou_gozaimasu",
+  category: "greetings"
+)
+# Nice to meet you - hajimemashite
+hajimemashite = Flashcard.create!(
+  english_word: "nice_to_meet_you",
+  japanese_word: "hajimemashite",
+  category: "greetings"
+)
+# Excuse me - sumimasen
+sumimasen = Flashcard.create!(
+  english_word: "excuse_me",
+  japanese_word: "sumimasen",
+  category: "greetings"
+)
+# I'm sorry - gomen nasai
+gomen = Flashcard.create!(
+  english_word: "im_sorry",
+  japanese_word: "gomen_nasai",
+  category: "greetings"
+)
+# Thank you - arigatou gozaimasu
+arigatou = Flashcard.create!(
+  english_word: "thank_you",
+  japanese_word: "arigaou_gozaimasu",
+  category: "greetings"
+)
+# Please - onegaishimasu
+onegai = Flashcard.create!(
+  english_word: "please",
+  japanese_word: "onegaishimasu",
+  category: "greetings"
+)
+# Good night - oyasumi nasai
+oyasumi = Flashcard.create!(
+  english_word: "good_night",
+  japanese_word: "oyasumi_nasai",
+  category: "greetings"
+)
+
+puts "Flash cards created"
 
 # /////// MemoryList /////////
 greetings_memory_list = MemoryList.create!(
   name: "Greetings",
-  user: byron,
+  user: byron
 )
 
 puts "Memory list created"
 
+# [konnichiwa, ohayo, hajimemashite, sumimasen, gomen, arigatou, onegai, oyasumi],
+
+
 # //////////// MemoryListFlashcards ////////////
-greetings_memory_list_flashcards = MemoryListFlashcard.create!(
+
+MemoryListFlashcard.create!(
   flashcard: ohayo,
   memory_list: greetings_memory_list
 )
+
+MemoryListFlashcard.create!(
+  flashcard: hajimemashite,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: sumimasen,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: gomen,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: arigatou,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: onegai,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: oyasumi,
+  memory_list: greetings_memory_list
+)
+
 puts "MemoryListFlashcard"
 
 # ///////// Compositions Seeds ////////////
@@ -228,17 +332,17 @@ greetings_playlist = Playlist.create!(
 )
 puts "playlist added"
 
-days_of_the_week_playlist = Playlist.create!(
-  name: "Days of the Week",
-  user: byron
-)
-puts "playlist added"
+# days_of_the_week_playlist = Playlist.create!(
+#   name: "Days of the Week",
+#   user: byron
+# )
+# puts "playlist added"
 
-verbs_playlist = Playlist.create!(
-  name: "Japanese Verbs",
-  user: byron
-)
-puts "playlist added"
+# verbs_playlist = Playlist.create!(
+#   name: "Japanese Verbs",
+#   user: byron
+# )
+# puts "playlist added"
 
 # //////////////////////////////////
 
