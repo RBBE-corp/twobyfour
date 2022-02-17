@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :compositions do
     resources :score, only: [:new, :create]
   end
-  resources :memory_lists
-  resources :flashcards, only: [:index, :show]
+  resources :memory_lists do
+    resources :memory_list_flashcards, only: [:new, :create]
+    resources :flashcards, only: [:index, :show]
+  end
+  resources :memory_list_flashcards, only: [:destroy]
 end

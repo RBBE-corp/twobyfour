@@ -1,0 +1,22 @@
+<div class="banner">
+  <div class="container">
+    <h1>Index Page for Memory Lists</h1>
+  </div>
+</div>
+
+<div class="memory-list-cards-holder">
+  <li class="link-button"><%= link_to 'Create New Memory List', new_memory_list_path, class: 'btn btn-primary' %></li>
+  <% @memory_lists.each do |memory_list|%>
+      <div class="memory-list-card">
+        <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
+        <div class="profile-content">
+          <ul>
+            <h2> <%= memory_list.name %></h2>
+            <li><em>List Name: </em> <%= memory_list.user.username %></li>
+            <li class="link-button"><%= link_to 'Details', memory_list_path(memory_list), class: 'btn btn-secondary' %></li>
+          </ul>
+        </div>
+     </div>
+  <% end %>
+  <p class="link-button"><%= link_to 'Back to Profile', profile_path, class: 'btn btn-primary' %></p>
+</div>
