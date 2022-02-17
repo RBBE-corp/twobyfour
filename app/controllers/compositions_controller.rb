@@ -3,16 +3,17 @@ class CompositionsController < ApplicationController
 
   def index
     @compositions = Composition.all
+    @memory_list_flashcards = MemoryListFlashcard.all
   end
 
   def new
     @composition = Composition.new
-    @user = current_user
   end
 
   def create
     @composition = Composition.new(composition_params)
     @composition.user = current_user
+    @composition.rep_count = 0
     if @composition.save
       redirect_to composition_path(@composition)
     else

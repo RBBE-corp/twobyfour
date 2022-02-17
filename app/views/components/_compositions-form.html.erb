@@ -1,6 +1,7 @@
-  <%= simple_form_for(@composition) do |f| %>
+
+  <%= simple_form_for(composition) do |f| %>
     <%= f.input :name %>
-    <%= f.input :memory_list, as: :select %>
-    <%= f.input :instrumental, as: :select %>
+    <%= f.association :memory_list %>
+    <%= f.association :instrumental %>
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
