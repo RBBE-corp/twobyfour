@@ -1,0 +1,23 @@
+
+<%= link_to "Create composition", new_composition_path, class: 'btn btn-primary' %>
+
+<div class="container">
+  <div class="card m-5 p-5" style="width: 36rem;">
+  <% @compositions.each do |composition| %>
+    <div class="card-body">
+        <ul>
+          <h4>Memory List</h4>
+          <p>Coming soon - waiting for seeds -</p>
+
+          <h4>Instrumental Details</h4>
+          <li>Rep count: <%= composition.rep_count %></li>
+          <li>Instrumental title: <%= composition.instrumental.title %></li>
+          <li>Instrumental duration: <%= composition.instrumental.duration %></li>
+        </ul>
+          <%#<%= link_to "Edit composition", edit_composition_path(composition), class: 'btn btn-secondary' %>
+          <%#<%= link_to "Delete composition", composition_path(composition), method: :delete, class: 'btn btn-secondary' %>
+          <%= link_to "Details", composition_path(composition), class: 'btn btn-secondary' %>
+    </div>
+      <% end %>
+  </div>
+</div>

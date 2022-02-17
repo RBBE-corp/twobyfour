@@ -26,21 +26,44 @@
 # white stripes 7 nation army
 # chainsmoker -closer
 
-
 puts "Cleaning up database"
 puts "......"
 puts "......"
 
-
 # Destroy order needs to be in the following order
 # Please do not change the order
 
-Score.destroy_all
-PlaylistComposition.destroy_all
-Playlist.destroy_all
-Composition.destroy_all
-User.destroy_all
-Instrumental.destroy_all
+
+  MemoryListFlashcard.destroy_all
+    puts MemoryListFlashcard.count
+  Flashcard.destroy_all
+    puts Flashcard.count
+  MemoryList.destroy_all
+    puts MemoryList.count
+  Playlist.destroy_all
+    puts Playlist.count
+  Composition.destroy_all
+    puts Composition.count
+  Instrumental.destroy_all
+    puts Instrumental.count
+  User.destroy_all
+    puts User.count
+  PlaylistComposition.destroy_all
+    puts PlaylistComposition.count
+  Score.destroy_all
+    puts Score.count
+
+# ActiveRecord::Base.connection.disable_referential_integrity do
+#   Flashcard.destroy_all
+#   MemoryList.destroy_all
+#   Playlist.destroy_all
+#   MemoryListFlashcard.destroy_all
+#   Composition.destroy_all
+#   Instrumental.destroy_all
+#   User.destroy_all
+#   PlaylistComposition.destroy_all
+#   Score.destroy_all
+# end
 
 puts "Database is clean"
 puts "Seeding database"
@@ -157,24 +180,119 @@ everybody = Instrumental.create!(
   duration: 207,
   bpm: 108
 )
-# ////puts "instrumental added"
 
-#////////////////////////////////
+puts "all instrumentals created"
+# /////////////////////////////////
+
+# /////////// Flashcards //////////////
+
+# Hello - konnichiwa
+konnichiwa = Flashcard.create!(
+  english_word: "hello",
+  japanese_word: "konnichiwa",
+  category: "greetings"
+)
+
+# Good morning - ohayou gozaimasu
+ohayo = Flashcard.create!(
+  english_word: "good_morning",
+  japanese_word: "ohayou_gozaimasu",
+  category: "greetings"
+)
+# Nice to meet you - hajimemashite
+hajimemashite = Flashcard.create!(
+  english_word: "nice_to_meet_you",
+  japanese_word: "hajimemashite",
+  category: "greetings"
+)
+# Excuse me - sumimasen
+sumimasen = Flashcard.create!(
+  english_word: "excuse_me",
+  japanese_word: "sumimasen",
+  category: "greetings"
+)
+# I'm sorry - gomen nasai
+gomen = Flashcard.create!(
+  english_word: "im_sorry",
+  japanese_word: "gomen_nasai",
+  category: "greetings"
+)
+# Thank you - arigatou gozaimasu
+arigatou = Flashcard.create!(
+  english_word: "thank_you",
+  japanese_word: "arigaou_gozaimasu",
+  category: "greetings"
+)
+# Please - onegaishimasu
+onegai = Flashcard.create!(
+  english_word: "please",
+  japanese_word: "onegaishimasu",
+  category: "greetings"
+)
+# Good night - oyasumi nasai
+oyasumi = Flashcard.create!(
+  english_word: "good_night",
+  japanese_word: "oyasumi_nasai",
+  category: "greetings"
+)
+
+puts "Flash cards created"
+
+# /////// MemoryList /////////
+greetings_memory_list = MemoryList.create!(
+  name: "Greetings",
+  user: byron
+)
+
+puts "Memorylist created"
+
+# [konnichiwa, ohayo, hajimemashite, sumimasen, gomen, arigatou, onegai, oyasumi],
+
+
+# //////////// MemoryListFlashcards ////////////
+
+MemoryListFlashcard.create!(
+  flashcard: ohayo,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: hajimemashite,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: sumimasen,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: gomen,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: arigatou,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: onegai,
+  memory_list: greetings_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: oyasumi,
+  memory_list: greetings_memory_list
+)
+
+puts "MemoryListFlashcards added"
 
 # ///////// Compositions Seeds ////////////
-# Composition.create!(
-#   memory_list: [],
-#   instrumental_id:,
-#   user: ,
-#   rep_count:
-# )
-
-# We need to determine whether this should be an array of arrays
-puts "composition added"
 
 greetings_composition = Composition.create!(
-  memory_list: ["Ohayou gozaimasu","Good morning","Konnichiwa","Hello","Konbanwa","Good evening","Oyasuminasai","Goodnight"],
-  name: "greetings",
+  name: "Greetings 1",
+  memory_list: greetings_memory_list,
   instrumental: everybody,
   user: byron,
   rep_count: 15
@@ -182,26 +300,81 @@ greetings_composition = Composition.create!(
 
 puts "composition added"
 
-days_of_the_week_composition = Composition.create!(
-  memory_list: ["Getsuyoubi","Monday","Kayoubi","Tuesday","Suiyoubi","Wednesday","Mokuyoubi","Thursday", "Kinyoubi", "Friday"],
-  name: "days of the week",
-  instrumental: closer,
+greetings_composition = Composition.create!(
+  name: "Greetings 2",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
   user: byron,
-  rep_count: 10
-)
-puts "composition added"
-
-verbs_composition = Composition.create!(
-  memory_list: ["Suru","To do","Miru","To see","Kiku","To listen","Hanasu","To speak", "Iu","To say","Kaku","To write","Taberu","To eat","Nomu","To drink","Aruku","To walk","Hashiru","To run","Suwaru","To sit","Tatsu","To stand"],
-  name: "verbs",
-  instrumental: all_the_small_things,
-  user: byron,
-  rep_count: 20
+  rep_count: 15
 )
 
 puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 3",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 4",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 5",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 6",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+greetings_composition = Composition.create!(
+  name: "Greetings 7",
+  memory_list: greetings_memory_list,
+  instrumental: everybody,
+  user: byron,
+  rep_count: 15
+)
+
+puts "composition added"
+
+
+
+# days_of_the_week_composition = Composition.create!(
+#   memory_list: "days of the week",
+#   instrumental: closer,
+#   user: byron,
+#   rep_count: 10
+# )
+# puts "composition added"
+
+# verbs_composition = Composition.create!(
+#   memory_list: "verbs",
+#   instrumental: all_the_small_things,
+#   user: byron,
+#   rep_count: 20
+# )
+
+
+# puts "composition added"
 # //////////////////////////////////////
-
 
 # /////////// Playlist Seeds //////////////////
 puts "playlist"
@@ -212,17 +385,17 @@ greetings_playlist = Playlist.create!(
 )
 puts "playlist added"
 
-days_of_the_week_playlist = Playlist.create!(
-  name: "Days of the Week",
-  user: byron
-)
-puts "playlist added"
+# days_of_the_week_playlist = Playlist.create!(
+#   name: "Days of the Week",
+#   user: byron
+# )
+# puts "playlist added"
 
-verbs_playlist = Playlist.create!(
-  name: "Japanese Verbs",
-  user: byron
-)
-puts "playlist added"
+# verbs_playlist = Playlist.create!(
+#   name: "Japanese Verbs",
+#   user: byron
+# )
+# puts "playlist added"
 
 # //////////////////////////////////
 
@@ -232,19 +405,19 @@ PlaylistComposition.create!(
   composition: greetings_composition,
   playlist: greetings_playlist
 )
-puts "playlist_entry added"
 
-PlaylistComposition.create!(
-  composition: days_of_the_week_composition,
-  playlist: days_of_the_week_playlist
-)
-puts "playlist_entry added"
+# PlaylistComposition.create!(
+#   composition: days_of_the_week_composition,
+#   playlist: days_of_the_week_playlist
+# )
+# puts "playlist composition"
 
-PlaylistComposition.create!(
-  composition: verbs_composition,
-  playlist: verbs_playlist
-)
-puts "playlist_entry added"
+# PlaylistComposition.create!(
+#   composition: verbs_composition,
+#   playlist: verbs_playlist
+# )
+
+puts "playlist compositions created"
 
 # ///////////// end /////////////////////
 
@@ -257,17 +430,17 @@ Score.create!(
 )
 puts "score added"
 
-Score.create!(
-  score: 20,
-  composition: days_of_the_week_composition
-)
-puts "score added"
+# Score.create!(
+#   score: 20,
+#   composition: days_of_the_week_composition
+# )
+# puts "score added"
 
-Score.create!(
-  score: 20,
-  composition: verbs_composition
-)
-puts "score added"
+# Score.create!(
+#   score: 20,
+#   composition: verbs_composition
+# )
+# puts "score added"
 
 puts "Database Seeded!"
 # //////////////////////////////////

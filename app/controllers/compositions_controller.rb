@@ -1,4 +1,4 @@
-class CompositionController < ApplicationController
+class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -7,6 +7,7 @@ class CompositionController < ApplicationController
 
   def new
     @composition = Composition.new
+    @user = current_user
   end
 
   def create
@@ -19,7 +20,8 @@ class CompositionController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+  end
 
   def edit; end
 
@@ -33,12 +35,13 @@ class CompositionController < ApplicationController
 
   def destroy
     @composition.destroy
+    redirect_to compositions_path, notice: "Composition deleted!"
   end
 
   private
 
   def composition_params
-    params.require(:composition).permit(:memory_list)
+    params.require(:composition).permit(:name, :instrumental_id, :memory_list_id)
   end
 
   def find_composition

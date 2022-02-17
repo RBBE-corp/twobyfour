@@ -1,0 +1,14 @@
+<div class="card" style="width: 36rem;">
+
+    <h4>Memory List</h4>
+
+
+    <h4>Instrumental Details</h4>
+    <li>Rep count: <%= @composition.rep_count %></li>
+    <li>Instrumental title: <%= @composition.instrumental.title %></li>
+    <li>Instrumental duration: <%= @composition.instrumental.duration %></li>
+  </ul>
+    <%= link_to "Edit composition", edit_composition_path(@composition), class: 'btn btn-secondary' %>
+    <%= link_to "Delete composition", composition_path(@composition), method: :delete, class: 'btn btn-secondary' %>
+    <%= link_to "Back to top", compositions_path, class: 'btn btn-secondary' %>
+</div>
