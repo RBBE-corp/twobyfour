@@ -1,3 +1,60 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<p>Test Push</p>
+<div class="home-wrapper">
+<header class="home-hero" role="banner">
+<%= video_tag("waves3.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "video")%>
+
+<section class="hero-banner py-5">
+    <div class="container">
+        <div class="row row align-items-center">
+
+            <div class="banner-text justify-content-center col-lg-6">
+            <h1 class= "d-block font-weight-bold">Two By Four</h1>
+                <p class="lead text-secondary my-5">Beats it into your brain! <br> Learn with the power of music with Two By Four</p>
+                <% if user_signed_in? %>
+                  <%= link_to "Start learning", profile_path, class: "btn btn-outline-light btn-lg border" %>
+                <% else %>
+                  <%= link_to "Start today", new_user_registration_path, class: "btn btn-outline-light btn-lg border"%>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+</header>
+
+<div class="details-container">
+    <div class="h1 text-center">
+      <h1> How it works</h1>
+    </div>
+  <div class="row h-100">
+
+    <div class="col-sm-12 col-lg-6 my-auto text-center">
+      <div class="card">
+        <h2 class="circle">1</h2>
+        <h2>Select a word list </h2>
+        <div class="home-image"><%= image_tag("comment.png") %></div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-6 my-auto text-center">
+       <div class="card">
+        <h2 class="circle">2</h2>
+         <h2>Select a beat</h2>
+        <div class="home-image"><%= image_tag("play.png") %></div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-6 my-auto text-center">
+    <div class="card">
+        <h2 class="circle">3</h2>
+         <h2>Create a song </h2>
+         <div class="home-image"><%= image_tag("laptop.png") %></div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-6 my-auto text-center">
+     <div class="card">
+        <h2 class="circle">4</h2>
+         <h2>Sing and enjoy!</h2>
+         <div class="home-image"><%= image_tag("hand.png") %></div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
