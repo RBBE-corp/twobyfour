@@ -39,19 +39,19 @@ header.home-hero video {
   margin-top: 68px;
 }
 
-.circle {
+.number{
   display: flex;
   flex-direction: column;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   justify-content: center;
   align-items: center;
-  border-radius: 70px;
-  background-color: #B063DE;
   position: relative;
+  border: 1px solid #794DC5;
+  border-radius: 18px;
   left: 24px;
   bottom: -18px;
-  color: white;
+  color: #794DC5;
 }
 
 .home-wrapper {
@@ -62,10 +62,12 @@ padding: 0;
 overflow-x: hidden;
 }
 
-.card{
- margin: 40px 40px 40px 40px;
+.home-card{
+  margin: 40px 40px 40px 40px;
   height: 600px;
   border-radius: 18px;
+  background-color: white;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .home-image {
