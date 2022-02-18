@@ -1,4 +1,6 @@
 
+<h1>My Compositions</h1>
+
 <%= link_to "Create composition", new_composition_path, class: 'btn btn-primary' %>
 
 <div class="container">
@@ -10,10 +12,10 @@
       <img class="card-img-top" src="<%=image%>" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><%=composition.name %></h5>
-        <p class="card-text">Practiced:<%= composition.rep_count %> times</p>
+        <p class="card-text">Practiced: <%= composition.rep_count %> times</p>
         <p class="card-text">Memory list: <%= composition.memory_list.name %></p>
 
-        <p><%= link_to "Details", composition_path(composition), class: 'btn btn-secondary' %></p>
+        <p><%= link_to "Practice", composition_path(composition), class: 'btn btn-secondary' %></p>
       </div>
       <div class="card-footer">
         <small class="text-muted">Created: <%= composition.created_at.strftime("%a %b %e at %l:%M%p")  %></small>
