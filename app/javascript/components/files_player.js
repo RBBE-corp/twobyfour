@@ -22,11 +22,13 @@ export const filesPlayer = () =>{
   const playPause = () => {
     if (player.dataset.status == "paused") {
       player.dataset.status = "playing";
+      player.textContent = "Playing..";
       sound.forEach((sou) => {
         sou.play();
       });
     } else {
       player.dataset.status = "paused";
+      player.textContent = "Paused";
       sound.forEach((sou) => {
          sou.pause();
       });
