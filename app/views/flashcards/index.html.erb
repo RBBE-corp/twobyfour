@@ -10,37 +10,13 @@
         <div class="flashcard-card">
           <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
           <div class="profile-content">
-              <ul>
-                <li><strong>English: </strong> <%= flashcard.english_word %></li>
-                <li><strong>Japanese: </strong> <%= flashcard.japanese_word %></li>
-                <li><strong>Category: </strong> <%= flashcard.category %></li>
-              </ul>
-            <%# <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-button">
-                  <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"></a>
-                </div>
-              </div>
-              <input type="text" class="form-control" aria-label="Text input with checkbox">
-            </div>
- %>
-            <!-- <li class="simple form">
-                <% if flashcard.status = :pending %>
-                  <%= simple_form_for(flashcard, as: :flashcard, method: :patch, url: sponsor_flashcard_path(flashcard)) do |f| %>
-                    <%= f.input :status, :as => :hidden, :input_html => { :value => "accepted" }%>
-                    <%= f.button :submit, "Accept" %>
-                  <% end %>
-                  <%= simple_form_for(flashcard, as: :flashcard, method: :patch, url: sponsor_flashcard_path(flashcard)) do |f| %>
-                    <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" }%>
-                    <%= f.button :submit, "Deny" %>
-                  <% end %>
-                <% else %>
-                  <li class="link-button"><%= flashcard.status %></li>
-                <% end %>
-                <li class="link-button"><%= link_to 'Details (to flashcard#show)', sponsor_flashcard_path(flashcard), class: 'btn btn-secondary' %></li>
-            </li>-->
+            <ul>
+              <li><strong>English: </strong> <%= flashcard.english_word %></li>
+              <li><strong>Japanese: </strong> <%= flashcard.japanese_word %></li>
+              <li><strong>Category: </strong> <%= flashcard.category %></li>
+            </ul>
+          </div>
         </div>
-      </div>
     <% end %>
   <% end %>
   <p class="link-button"><%= link_to 'Back', memory_list_path(@memory_list), class: 'btn btn-primary' %></p>
