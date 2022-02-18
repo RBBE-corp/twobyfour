@@ -1,7 +1,7 @@
 export const filesPlayer = () =>{ 
   const player = document.querySelector('.player');
   console.log(player);
-  const working = () => {console.log("working");
+  console.log("working");
   const audio = document.querySelector('audio');
   const children = audio.children;
   console.log(children);
@@ -9,6 +9,7 @@ export const filesPlayer = () =>{
   for (let i = 0; i < children.length; i++) {
     console.log(i);
     sound[i] = new Audio();
+    sound[i].loop = true;
     let srcl = document.createElement('source');
     srcl.type = children[i].type;
     console.log(children[i].src);
@@ -18,11 +19,18 @@ export const filesPlayer = () =>{
     console.log(sound[i]);
     // sound
   }
-  console.log(sound);
-  sound[0].play();
-  sound.forEach((sou) => {
-    console.log(sou);
-    sou.play();
-  })}
-  player.addEventListener('click', working);
+  const playPause = () => {
+    if (player.dataset.status == "paused") {
+      player.dataset.status = "playing";
+      sound.forEach((sou) => {
+        sou.play();
+      });
+    } else {
+      player.dataset.status = "paused";
+      sound.forEach((sou) => {
+         sou.pause();
+      });
+    }
+  }
+  player.addEventListener('click', playPause);
 }
