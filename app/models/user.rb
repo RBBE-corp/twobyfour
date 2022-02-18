@@ -17,8 +17,8 @@ class User < ApplicationRecord
     sum = 0
     counter = compositions.count;
     compositions.each do |composition|
-
-      sum = composition.scores.average(:score).round(2).to_f
+      next if composition.scores.count.zero?
+      sum += composition.scores.average(:score).round(2).to_f
     end
     (sum / counter).round(2)
   end
