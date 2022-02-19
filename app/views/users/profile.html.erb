@@ -59,6 +59,10 @@
 
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-playlists-tab">
     <div class="mx-auto" style="min-height: 100vh;">
+      <div class="d-flex justify-content-end">
+        <%= link_to "New Playlist", new_playlist_path, class: 'btn btn-primary' %>
+      </div>
+
       <div class="row">
         <% @playlists.each do |playlist| %>
           <div class="card-deck" style="width: 24rem;">
@@ -85,6 +89,10 @@
 
   <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-memorylists-tab">
     <div class="mx-auto" style="min-height: 100vh;">
+      <div class="d-flex justify-content-end">
+        <%= link_to "New Memory List", new_memory_list_path, class: 'btn btn-primary' %>
+      </div>
+
       <% @memory_lists.each do |memory_list| %>
         <div class="card-deck" style="width: 24rem;">
           <div class="container mt-4">
