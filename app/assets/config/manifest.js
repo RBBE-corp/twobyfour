@@ -1,7 +1,5 @@
 //= link_tree ../images
 //= link_directory ../stylesheets .css
-  //= link greeting.WAV
-  //= link saigon.mp3
   //= link instrumentals/inst_saigon_relafriendship.mp3
   //= link flashcard_greetings/hello.wav
   //= link flashcard_greetings/goodmorning.wav
