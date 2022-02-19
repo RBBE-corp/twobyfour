@@ -22,3 +22,19 @@
 </audio>
 
 <button class='btn btn-primary player' data-status="paused">Play</button>
+
+
+<div class="range-slider" data-controller="range-slider">
+  <label for="customRange"></label>
+  <input type="range"
+         name="customRange"
+         class="range-slider__range"
+         data-target="range-slider.range"
+         data-action="input->range-slider#updateValue"
+         value="6"
+         min="0"
+         max="10"
+         step="0.5">
+  <output class="range-slider__value"
+          data-target="range-slider.value">0</output>
+  </div>
