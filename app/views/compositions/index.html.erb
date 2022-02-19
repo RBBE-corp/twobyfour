@@ -3,24 +3,30 @@
 
 <%= link_to "Create composition", new_composition_path, class: 'btn btn-primary' %>
 
-<div class="container">
+<div class="container" style="min-width: 90vw;>
   <div class="card-deck" style="width: 150rem;">
-    <% @compositions.each do |composition| %>
-      <% random_num = rand(10) %>
-      <% image = "https://picsum.photos/500/300?random=r#{random_num}" %>
-    <div class="card">
-      <img class="card-img-top" src="<%=image%>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%=composition.name %></h5>
-        <p class="card-text">Practiced: <%= composition.rep_count %> times</p>
-        <p class="card-text">Memory list: <%= composition.memory_list.name %></p>
+    <div class="d-flex justify-content-center">
+      <% @compositions.each do |composition| %>
+        <div class="p-2 bd-highlight">
+          <% random_num = rand(10) %>
+          <% image = "https://picsum.photos/500/300?random=r#{random_num}" %>
+        <div class="card">
+        <img class="card-img-top" src="<%=image%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%=composition.name %></h5>
+          <p class="card-text">Practiced: <%= composition.rep_count %> times</p>
+          <p class="card-text">Memory list: <%= composition.memory_list.name %></p>
 
-        <p><%= link_to "Practice", composition_path(composition), class: 'btn btn-secondary' %></p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Created: <%= composition.created_at.strftime("%a %b %e at %l:%M%p")  %></small>
-      </div>
+          <p><%= link_to "Practice", composition_path(composition), class: 'btn btn-secondary' %></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Created: <%= composition.created_at.strftime("%a %b %e at %l:%M%p")  %></small>
+        </div>
     </div>
-    <% end %>
+  </div>
+  <% end %>
+</div>
+
+
   </div>
 </div>

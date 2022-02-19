@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :playlists, dependent: :destroy
   has_many :memory_lists, dependent: :destroy
   has_many :scores, through: :compositions
-
+  # has_many :flashcards, through: :memory_list
   validates :username, presence: true
 
   def avg_scores
