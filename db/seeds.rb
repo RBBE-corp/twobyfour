@@ -220,7 +220,7 @@ gomen = Flashcard.create!(
 # Thank you - arigatou gozaimasu
 arigatou = Flashcard.create!(
   english_word: "thankyou",
-  japanese_word: "arigaougozaimasu",
+  japanese_word: "arigatougozaimasu",
   category: "greetings"
 )
 # Please - onegaishimasu
@@ -231,7 +231,7 @@ onegai = Flashcard.create!(
 )
 # Good night - oyasumi nasai
 oyasumi = Flashcard.create!(
-  english_word: "good_night",
+  english_word: "goodnight",
   japanese_word: "oyasuminasai",
   category: "greetings"
 )
