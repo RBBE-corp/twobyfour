@@ -195,32 +195,32 @@ konnichiwa = Flashcard.create!(
 
 # Good morning - ohayou gozaimasu
 ohayo = Flashcard.create!(
-  english_word: "good_morning",
-  japanese_word: "ohayou_gozaimasu",
+  english_word: "goodmorning",
+  japanese_word: "ohayougozaimasu",
   category: "greetings"
 )
 # Nice to meet you - hajimemashite
 hajimemashite = Flashcard.create!(
-  english_word: "nice_to_meet_you",
+  english_word: "nicetomeetyou",
   japanese_word: "hajimemashite",
   category: "greetings"
 )
 # Excuse me - sumimasen
 sumimasen = Flashcard.create!(
-  english_word: "excuse_me",
+  english_word: "excuseme",
   japanese_word: "sumimasen",
   category: "greetings"
 )
 # I'm sorry - gomen nasai
 gomen = Flashcard.create!(
-  english_word: "im_sorry",
-  japanese_word: "gomen_nasai",
+  english_word: "imsorry",
+  japanese_word: "gomennasai",
   category: "greetings"
 )
 # Thank you - arigatou gozaimasu
 arigatou = Flashcard.create!(
-  english_word: "thank_you",
-  japanese_word: "arigaou_gozaimasu",
+  english_word: "thankyou",
+  japanese_word: "arigaougozaimasu",
   category: "greetings"
 )
 # Please - onegaishimasu
@@ -232,7 +232,7 @@ onegai = Flashcard.create!(
 # Good night - oyasumi nasai
 oyasumi = Flashcard.create!(
   english_word: "good_night",
-  japanese_word: "oyasumi_nasai",
+  japanese_word: "oyasuminasai",
   category: "greetings"
 )
 
