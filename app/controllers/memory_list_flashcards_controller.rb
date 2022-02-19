@@ -15,6 +15,7 @@ class MemoryListFlashcardsController < ApplicationController
   def create
     @memory_list = MemoryList.find(params[:memory_list_flashcard][:memory_list_id])
     @memory_list_flashcard = MemoryListFlashcard.new(memory_list_flashcard_params)
+    
     @memory_list_flashcard.user = current_user
     if @memory_list_flashcard.save
       redirect_to memory_list_flashcard_path(@memory_list_flashcard)
