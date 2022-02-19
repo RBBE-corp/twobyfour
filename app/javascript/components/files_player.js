@@ -1,6 +1,5 @@
-var audiosprite = require('audiosprite')
 
-export const filesPlayer = () =>{ 
+export const filesPlayer = () =>{
   const player = document.querySelector('.player');
   const audio = document.querySelector('audio');
   const children = audio.children;
