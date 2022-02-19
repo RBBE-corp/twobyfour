@@ -49,7 +49,7 @@ export const filesPlayer = () =>{
       let index = 0;
       const audioPlayer = (index) => {
         if (index == 0) {
-          pause(2632);
+          pause(658);
         }
         let audio = sound[index];
         audio.play();
