@@ -23,6 +23,7 @@ import "bootstrap";
 import { filesPlayer } from '../components/files_player';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { RangeSliderController } from '..components/range_slider';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -31,7 +32,12 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
   }
+  const volumeChange = document.querySelector('');
+  if (volumeChange) {
+    RangeSliderController();
+  }
 
 });
+
 
 import "controllers"
