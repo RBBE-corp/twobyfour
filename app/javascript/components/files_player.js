@@ -25,31 +25,48 @@ export const filesPlayer = () =>{
     // sound
   }
 
+  function pause(milliseconds) {
+    var dt = new Date();
+    while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
+  }
+
 
   const playPause = () => {
+    // find the sound
+
+    // find the instrumental
+
+    // pause/play
+    // if it is paused, start
+
+    
+    // else if it is playing, pause
+    let timeOutId = [];
     if (player.dataset.status == "paused") {
       player.dataset.status = "playing";
       player.textContent = "Playing..";
       instrumental.play();
       let index = 0;
-      console.log(sound.length);
       const audioPlayer = (index) => {
+        if (index == 0) {
+          pause(2632);
+        }
         let audio = sound[index];
         audio.play();
         audio.onended = function () {
-          console.log(index);
           if (index < sound.length-1 ) {
             index++;
           } else if (index == sound.length - 1) {
             index = 0;
-            console.log(index)
-          }
-          audioPlayer(index);
+          };
+          pause(1316);
+          audioPlayer(index)
         };
       };
-      audioPlayer(index);
+      audioPlayer(index)
+
+
       
-      console.log("instrumental played");
       // for (let i = 0; i < sound.length; i++) {
       //   console.log(i);
       //   // if (i >= 1) {
@@ -64,8 +81,13 @@ export const filesPlayer = () =>{
       player.dataset.status = "paused";
       player.textContent = "Paused";
       instrumental.pause();
+      // console.log(timeOutId);
+      // timeOutId.forEach((bob) => {
+      //   clearTimeout(bob);
+      // });
       sound.forEach((sou) => {
          sou.pause();
+        //  clearTimeout();
       });
     }
   }
