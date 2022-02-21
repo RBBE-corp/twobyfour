@@ -16,6 +16,12 @@
     tr {
       th, td {
         padding: 16px 0;
+        a {
+          color: inherit;
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
       & td:first-child, & th:first-child {
         padding-left: 24px;
