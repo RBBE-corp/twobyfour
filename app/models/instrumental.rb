@@ -13,7 +13,14 @@ class Instrumental < ApplicationRecord
 
   def bpm_between_forty_and_two_hundred
     if bpm.present? && !(bpm > 40 && bpm < 200)
-      return errors.add(:bpm, "can't be less than 40bpm or more than 200bpm")
+      errors.add(:bpm, "can't be less than 40bpm or more than 200bpm")
     end
+  end
+
+  def duration_in_min
+    seconds = (duration % 60).truncate
+    minutes = (duration / 60).truncate
+    "#{minutes}:#{seconds}"
+    # "#{(duration / 60).truncate}:#{(duration % 60).truncate}"
   end
 end
