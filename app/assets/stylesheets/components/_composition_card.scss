@@ -12,15 +12,15 @@
     font-weight: bold;
     color: #347474;
     border-collapse: separate;
-    border-spacing: 0px 8px;
+    border-spacing: 0px 4px;
     tr {
       th, td {
         padding: 16px 0;
         a {
           color: inherit;
-          &:hover {
-            text-decoration: none;
-          }
+          // &:hover {
+          //   text-decoration: none;
+          // }
         }
       }
       & td:first-child, & th:first-child {
@@ -50,11 +50,19 @@
     border-collapse: collapse;
       tr {
         font-size: 0.8em;
+        th, td {
+          padding: 12px 0;
+        }
         & td:first-child, & th:first-child {
           padding: 0 8px;
         }
         & .rep {
           display: none;
+        }
+      }
+      .hover-effect:hover {
+        a {
+          text-decoration: underline;
         }
       }
     }
