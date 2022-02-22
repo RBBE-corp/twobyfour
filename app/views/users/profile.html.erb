@@ -61,16 +61,7 @@
         <div class="row px-2 pt-5">
           <% @playlists.each do |playlist| %>
             <%# Playlist composition %>
-            <div class="col-md-3 col-sm-6 col-6">
-              <div class="playlist-card">
-                <div class="playlist-name">
-                  <%= playlist.name %>
-                </div>
-                <div class="png-playlist-count">
-                  <%= image_tag 'playlist', alt: "playlist icon"%>
-                </div>
-              </div>
-            </div>
+            <%= render 'components/playlist-card', playlist: playlist %>
           <% end %>
         </div>
       </div>
