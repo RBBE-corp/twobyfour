@@ -5,9 +5,12 @@ export const filesPlayer = () =>{
   const children = audio.children;
   const sound = [];
 
-  // instrumental 
+  // instrumental
   const instrumental = new Audio();
   instrumental.loop = true;
+  //changes the instrumental in the wineow only
+  window.current_audio = instrumental;
+
   let srcl = document.createElement('source');
   srcl.type = children[0].type;
   srcl.src = children[0].src;
@@ -38,7 +41,7 @@ export const filesPlayer = () =>{
     // pause/play
     // if it is paused, start
 
-    
+
     // else if it is playing, pause
     let timeOutId = [];
     if (player.dataset.status == "paused") {
@@ -65,7 +68,7 @@ export const filesPlayer = () =>{
       audioPlayer(index)
 
 
-      
+
       // for (let i = 0; i < sound.length; i++) {
       //   console.log(i);
       //   // if (i >= 1) {
