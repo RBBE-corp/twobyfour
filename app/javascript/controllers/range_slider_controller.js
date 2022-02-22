@@ -6,7 +6,6 @@ export default class extends Controller {
 
   connect() {
     console.log('Hello, Stimulus!')
-    console.log(this.rangeTarget)
   }
 
   updateValue(){
