@@ -13,61 +13,59 @@
   <%# nav for bootstrap tabs %>
   <nav>
     <div class="nav justify-content-between nav-tabs border-0 user-tabs" id="nav-tab" role="tablist">
-      <a class=" active" id="nav-compositions-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-compositions" aria-selected="true">My Compositions</a>
+      <a class="active" id="nav-compositions-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-compositions" aria-selected="true">My Compositions</a>
       <a class="" id="nav-playlists-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-playlists" aria-selected="false">My Playlists</a>
       <a class="" id="nav-memorylists-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-memorylists" aria-selected="false">My Memory Lists</a>
     </div>
   </nav>
 
   <%# content for bootstrap tabs %>
-  <div class="tab-content shadow-lg mb-2 rounded bg-secondary p-2 mt-10" style="min-height: 100vh;" id="nav-tabContent">
+  <div class="tab-content shadow-lg my-5 bg-white rounded" style="min-height: 100vh;" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-compositions-tab">
-      <div class="mx-auto" style="min-height: 100vh;">
-          <div class="d-flex justify-content-end">
-            <%= link_to "New Composition", new_composition_path, class: 'btn btn-primary' %>
+      <div class="composition-container">
+          <div class="mx-5 pt-5">
+            <%= link_to "Compose your Song", new_composition_path, class: 'btn btn-block btn-outline-primary' %>
           </div>
+          <div class="compositions-box">
 
-          <div class="row">
-            <% @compositions.each do |composition| %>
-              <div class="card-deck" style="width: 24rem;">
-                <div class="container mt-4">
-                  <div class="col-sm mb-4">
-                    <% random_num = rand(10) %>
-                    <% image = "https://picsum.photos/500/300?random=r#{random_num}" %>
-
-                    <div class="card">
-                      <img class="card-img-top" src="<%=image%>" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title"><%=composition.name %></h5>
-                        <p class="card-text">Practiced: <%= composition.rep_count %> times</p>
-                        <p class="card-text">Memory list: <%= composition.memory_list.name %></p>
-                        <p><%= link_to "Practice", composition_path(composition), class: 'btn btn-secondary' %></p>
-                      </div>
-
-                      <div class="card-footer">
-                        <small class="text-muted">Created: <%= composition.created_at.strftime("%a %b %e at %l:%M%p")  %></small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+            <TABLE style="width: 100%" CELLPADDING=”8px″>
+              <TR>
+                <TH>#</TH>
+                <TH>Title</TH>
+                <TH class="rep">Rep.</TH>
+                <TH>Duration</TH>
+                <TH>Instrumental</TH>
+              </TR>
+              <% @compositions.each_with_index do |composition, index| %>
+                <TR class="hover-effect">
+                  <TD><%= index + 1 %></TD>
+                  <TD>
+                    <%= link_to composition_path(composition) do  %>
+                      <%= composition.name %>
+                    <% end %>
+                  </TD>
+                  <TD class="rep"><%= composition.rep_count %></TD>
+                  <TD><%= composition.instrumental.duration_in_min %></TD>
+                  <TD><%= composition.instrumental.title %></TD>
+                </TR>
+              <% end %>
+            </TABLE>
           </div>
       </div>
     </div>
 
 
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-playlists-tab">
-    <div class="mx-auto" style="min-height: 100vh;">
-      <div class="d-flex justify-content-end">
-        <%= link_to "New Playlist", new_playlist_path, class: 'btn btn-primary' %>
-      </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-playlists-tab">
+      <div class="mx-auto" style="min-height: 100vh;">
+        <div class="d-flex justify-content-end">
+          <%= link_to "New Playlist", new_playlist_path, class: 'btn btn-primary' %>
+        </div>
 
-      <div class="row">
-        <% @playlists.each do |playlist| %>
-          <div class="card-deck" style="width: 24rem;">
-            <div class="container mt-4">
-              <div class="col-sm mb-4">
+        <div class="row">
+          <% @playlists.each do |playlist| %>
+            <div class="card-deck" style="width: 24rem;">
+              <div class="container mt-4">
+                <div class="col-sm mb-4">
                   <% random_num = rand(10) %>
                   <% image = "https://picsum.photos/500/300?random=r#{random_num}" %>
 
@@ -78,40 +76,39 @@
                       <%= link_to "Details", playlist_path(playlist), class: 'btn btn-secondary' %>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-memorylists-tab">
+      <div class="mx-auto" style="min-height: 100vh;">
+        <div class="d-flex justify-content-end">
+          <%= link_to "New Memory List", new_memory_list_path, class: 'btn btn-primary' %>
+        </div>
+
+        <% @memory_lists.each do |memory_list| %>
+          <div class="card-deck" style="width: 24rem;">
+            <div class="container mt-4">
+              <div class="col-sm mb-4">
+                <% random_num = rand(10) %>
+                <% image = "https://picsum.photos/500/300?random=r#{random_num}" %>
+
+                <div class="card">
+                  <img class="card-img-top" src="<%=image%>" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><%=memory_list.name %></h5>
+                    <%= link_to "Details", memory_list_path(memory_list), class: 'btn btn-secondary' %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
-
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-memorylists-tab">
-    <div class="mx-auto" style="min-height: 100vh;">
-      <div class="d-flex justify-content-end">
-        <%= link_to "New Memory List", new_memory_list_path, class: 'btn btn-primary' %>
-      </div>
-
-      <% @memory_lists.each do |memory_list| %>
-        <div class="card-deck" style="width: 24rem;">
-          <div class="container mt-4">
-            <div class="col-sm mb-4">
-              <% random_num = rand(10) %>
-              <% image = "https://picsum.photos/500/300?random=r#{random_num}" %>
-
-              <div class="card">
-                <img class="card-img-top" src="<%=image%>" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title"><%=memory_list.name %></h5>
-                  <%= link_to "Details", memory_list_path(memory_list), class: 'btn btn-secondary' %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
   </div>
 </div>
