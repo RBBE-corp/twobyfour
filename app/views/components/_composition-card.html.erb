@@ -1,0 +1,11 @@
+<TR class="hover-effect">
+  <TD><%= index + 1 %></TD>
+  <TD>
+    <%= link_to composition_path(composition) do  %>
+      <%= composition.name %>
+    <% end %>
+  </TD>
+  <TD class="rep"><%= composition.rep_count %></TD>
+  <TD><%= composition.instrumental.duration_in_min %></TD>
+  <TD><%= composition.instrumental.title %></TD>
+</TR>
