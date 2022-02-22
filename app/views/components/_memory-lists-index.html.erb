@@ -1,18 +1,19 @@
 
 <div class="memory-list-cards-holder">
   <% @memory_lists.each do |memory_list|%>
-      <div class="memory-list-card">
-        <div class="profile-content">
-          <ul>
-            <h2> <%= memory_list.name %></h2>
+          <div class="container">
+            <div class="form-container">
+              <div class="w-150 mx-auto shadow p-5 py-5 my-5 bg-body rounded">
+            <h3> <%= memory_list.name %></h3>
             <% memory_list.flashcards.each do |flashcard| %>
-              <ul style="list-style-type: style type none">
-                <li><%= flashcard.english_word %> = <%= flashcard.japanese_word %></li>
+              <ul style="list-group list-style-type: style type none">
+                <li class="list-group-item"><%= flashcard.english_word %> = <%= flashcard.japanese_word %></li>
               </ul>
             <% end %>
             <%# <li><em>List Name: </em> <%= memory_list.user.username %></li>
-            <li class="link-button"><%= link_to 'Details', memory_list_path(memory_list), class: 'btn btn-secondary' %></li>
+            <p class="link-button ml-3"><%= link_to 'Edit memory list', memory_list_path(memory_list), class: 'btn btn-secondary' %></p>
           </ul>
+        </div>
         </div>
      </div>
   <% end %>
