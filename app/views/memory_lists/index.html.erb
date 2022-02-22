@@ -4,10 +4,10 @@
   </div>
 </div>
 
+<p class="link-button"><%= link_to 'Create New Memory List', new_memory_list_path, class: 'btn btn-primary' %></p>
 <div class="memory-list-cards-holder">
-  <li class="link-button"><%= link_to 'Create New Memory List', new_memory_list_path, class: 'btn btn-primary' %></li>
   <% @memory_lists.each do |memory_list|%>
-      <div class="memory-list-card">
+      <div class="card-memory-list">
         <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
         <div class="profile-content">
           <ul>
@@ -18,5 +18,5 @@
         </div>
      </div>
   <% end %>
-  <p class="link-button"><%= link_to 'Back to Profile', profile_path, class: 'btn btn-primary' %></p>
 </div>
+<p class="link-button"><%= link_to 'Back to Profile', profile_path, class: 'btn btn-primary' %></p>
