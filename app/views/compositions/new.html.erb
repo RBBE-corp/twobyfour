@@ -1,9 +1,42 @@
+
+<%= link_to "Back to My Compositions", compositions_path, class: 'btn btn-secondary' %>
+
+<div class="container">
+  <div class="form-container">
+    <div class="w-150 mx-auto shadow p-5 py-5 my-5 bg-body rounded">
+      <h2>Choose a memory list</h2>
+      <%= render 'components/memory-lists-index' %>
+
+      <div class="container">
+  <div class="form-container">
+    <div class="w-150 mx-auto shadow p-5 py-5 my-5 bg-body rounded">
+      <h2>Create a new Memory List </h2>
+      <%= render 'components/memory-list-form'  %>
+      <h4>Note: Should render newly created memorylist in realtime.</h4>
+    </div>
+  </div>
+  <p class="link-button"><%= link_to 'Back', memory_lists_path, class: 'btn btn-primary' %></p>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-container">
+    <div class="w-150 mx-auto shadow p-5 py-5 my-5 bg-body rounded">
+      <h2>Choose Your Instrumental</h2>
+      <%= render 'components/instrumentals-index' %>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="form-container">
     <div class="w-150 mx-auto shadow p-5 py-5 my-5 bg-body rounded">
       <h2>Create a composition</h2>
       <%= render 'components/compositions-form', composition: @composition %>
     </div>
-     <%= link_to "Back to My Compositions", compositions_path, class: 'btn btn-secondary' %>
   </div>
 </div>

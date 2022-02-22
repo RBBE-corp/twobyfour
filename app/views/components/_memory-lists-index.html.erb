@@ -1,0 +1,19 @@
+
+<div class="memory-list-cards-holder">
+  <% @memory_lists.each do |memory_list|%>
+      <div class="memory-list-card">
+        <div class="profile-content">
+          <ul>
+            <h2> <%= memory_list.name %></h2>
+            <% memory_list.flashcards.each do |flashcard| %>
+              <ul style="list-style-type: style type none">
+                <li><%= flashcard.english_word %> = <%= flashcard.japanese_word %></li>
+              </ul>
+            <% end %>
+            <%# <li><em>List Name: </em> <%= memory_list.user.username %></li>
+            <li class="link-button"><%= link_to 'Details', memory_list_path(memory_list), class: 'btn btn-secondary' %></li>
+          </ul>
+        </div>
+     </div>
+  <% end %>
+</div>

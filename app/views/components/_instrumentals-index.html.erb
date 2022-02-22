@@ -1,0 +1,12 @@
+<div class ="instrumentals-master-container">
+  <div class ="instrumentals-card-container">
+    <% @instrumentals.each do |instrumental|%>
+      <div class="instrumental-card">
+        <div class="instrumental-card-stats">
+          <h4><strong><%= instrumental.title %></strong></h4><p>by <%= instrumental.artist %></p>
+          <p class="link-button"><%= link_to 'Details', instrumental_path(instrumental), class: 'btn btn-secondary' %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

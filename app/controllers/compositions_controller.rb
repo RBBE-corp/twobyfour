@@ -1,6 +1,6 @@
 class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy]
- 
+
   def index
     @compositions = Composition.all
     @memory_list_flashcards = MemoryListFlashcard.all
@@ -8,6 +8,10 @@ class CompositionsController < ApplicationController
 
   def new
     @composition = Composition.new
+    @memory_list = MemoryList.new
+    @instrumentals = Instrumental.all
+    @memory_lists = MemoryList.all
+    # @memory_list = MemoryList.find(params[id])
   end
 
   def create
@@ -22,6 +26,7 @@ class CompositionsController < ApplicationController
   end
 
   def show
+    # @memory_list = MemoryList.find(params[:id])
   end
 
   def edit; end
