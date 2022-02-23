@@ -1,8 +1,7 @@
-<div class ="instrumentals-master-container">
+
   <div class ="instrumentals-card-container">
     <% @instrumentals.each do |instrumental|%>
       <div class="instrumental-card">
-    <div class="border m-3 p-3">
         <div class="instrumental-card-stats">
           <div class="playlist-card">
             <%= image_tag 'playlist', alt: "playlist icon"%>
@@ -10,8 +9,6 @@
             <p class="link-button"><%= link_to 'Sample the track', instrumental_path(instrumental), class: 'btn btn-secondary' %></p>
           </div>
         </div>
-    </div>
       </div>
     <% end %>
   </div>
-</div>

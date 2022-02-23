@@ -1,18 +1,22 @@
 <h1>Composition Builder</h1>
 
-  <h3>Name your memorylist</h3>
+  <h3>1. Give a name to your memory list</h3>
   <%= simple_form_for(@memory_list) do |f| %>
-    <%= f.input :name, label: "Memorylist Name" %>
+    <%= f.input :name, label: "Memory list Name" %>
     <%= f.submit class: "btn btn-primary" %>
+
+    <h4>Available memory lists</h4>
+    <p>Newly added memory lists will be displayed here.</p>
     <%= render 'components/memory-lists-index' %>
   <% end %>
 
-<h3>Make your flashcards</h3>
+<h3>2. Add flashcards to your list</h3>
 <%= simple_form_for(@flashcard) do |f| %>
   <%= f.input :english_word %>
   <%= f.input :japanese_word %>
   <%= f.input :category %>
   <%# <%= f.association :memory_list_flashcards %>
   <%= f.association :memory_lists, label: "Choose a memory list to store your flashcard"  %>
+  <p>You can repeat the process to add more flashcards!</p>
   <%= f.submit 'Create a flashcard', class: "btn btn-primary" %>
 <% end %>
