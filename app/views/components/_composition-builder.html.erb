@@ -1,0 +1,26 @@
+<h1>Composition Builder</h1>
+
+
+<%= simple_form_for(@composition) do |f| %>
+  <%= simple_form_for(@flashcard) do |f| %>
+    <%= f.input :english_word %>
+    <%= f.input :japanese_word %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  <%= f.input :name, label: "Composition Name" %>
+  <%= f.association :memory_list %>
+  <%= f.association :instrumental %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+
+<%= simple_form_for(@memory_list) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+
+
+<p>Need to link all the create to one button</p>
+<p>Ajax route submit the data but retain html input</p>
+<p>Create flashcard should have nested form</p>
