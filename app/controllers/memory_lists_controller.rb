@@ -19,6 +19,12 @@ class MemoryListsController < ApplicationController
     end
   end
 
+  # get the flashcards which are not already in the memory list - AR Query
+  # store in an instance variable so can access in the view
+  # @flashcards.instancevar.each render a partial - pass instance into the partial
+  # simple form to toggle selected or not (checkbox or otherwise)
+  # check everything then click a button to add
+  # remote: true form (JS get request) - in AJAX?
   def show; end
 
   def edit; end
