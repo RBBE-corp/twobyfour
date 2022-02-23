@@ -25,7 +25,12 @@ class MemoryListsController < ApplicationController
   # simple form to toggle selected or not (checkbox or otherwise)
   # check everything then click a button to add
   # remote: true form (JS get request) - in AJAX?
-  def show; end
+  def show;
+    @flashcards = Flashcard.all
+    # @flashcards_not_selected = Flashcard.find_each do |flashcard|
+    #   @memory_list.memory_list_flashcards.where.not(flashcard_id: flashcard.id)
+    # end
+  end
 
   def edit; end
 

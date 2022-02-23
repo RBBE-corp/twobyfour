@@ -1,12 +1,12 @@
 .profile-banner {
   box-sizing: border-box;
-  
+
   height: 500px;
   width: 100%;
 
   // backdrop-filter: blur(5px);
   overflow: hidden;
-  
+
   position: relative;
 
   &::after {
