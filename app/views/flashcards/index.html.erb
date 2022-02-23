@@ -7,7 +7,8 @@
 <div class="flashcard-cards-holder">
   <% if @flashcards.present? %>
     <% @flashcards.each do |flashcard|%>
-        <div class="flashcard-card">
+      <div class="row">
+        <div class="card-flashcard">
           <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
           <div class="profile-content">
             <ul>
@@ -17,7 +18,8 @@
             </ul>
           </div>
         </div>
+      </div>
     <% end %>
   <% end %>
-  <p class="link-button"><%= link_to 'Back', memory_list_path(@memory_list), class: 'btn btn-primary' %></p>
 </div>
+<p class="link-button"><%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %></p>
