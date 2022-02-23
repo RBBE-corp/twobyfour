@@ -2,11 +2,24 @@
   display: flex;
   flex-direction: row;
   margin-left: 20px;
-  justify-content: center;
   width: auto;
   // justify-content: space-around;
   // gap: 10px 20px;
 }
+
+.vertical-scrollable> .row {
+          position: absolute;
+          top: 120px;
+          bottom: 100px;
+          left: 180px;
+          width: 50%;
+          overflow-y: scroll;
+        }
+            .col-sm-8 {
+            font-size: 24px;
+            padding-bottom: 20px;
+            padding-top: 18px;
+        }
 
 
 .instrumentals-container {
@@ -14,4 +27,18 @@
 }
 .create-container {
   width: 26vw;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    border: 2px solid rgb(0, 255, 221);
+    margin: 8px;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
 }

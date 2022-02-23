@@ -1,26 +1,28 @@
 <h1>Composition Builder</h1>
 
-
-<%= simple_form_for(@composition) do |f| %>
-  <%= simple_form_for(@flashcard) do |f| %>
-    <%= f.input :english_word %>
-    <%= f.input :japanese_word %>
+  <h3>Name your memorylist</h3>
+  <%= simple_form_for(@memory_list) do |f| %>
+    <%= f.input :name, label: "Memorylist Name" %>
     <%= f.submit class: "btn btn-primary" %>
+    <%= render 'components/memory-lists-index' %>
   <% end %>
+
+<h3>Make your flashcards</h3>
+<%= simple_form_for(@flashcard) do |f| %>
+  <%= f.input :english_word %>
+  <%= f.input :japanese_word %>
+  <%= f.input :category %>
+  <%# <%= f.association :memory_list_flashcards %>
+  <%= f.association :memory_lists, label: "Choose a memory list to store your flashcard"  %>
+  <%= f.submit 'Create a flashcard', class: "btn btn-primary" %>
+<% end %>
+
+<br/>
+<h3>Make your composition</h3>
+<%= simple_form_for(@composition) do |f| %>
   <%= f.input :name, label: "Composition Name" %>
   <%= f.association :memory_list %>
   <%= f.association :instrumental %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
-
-
-<%= simple_form_for(@memory_list) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
-
-
-
-<p>Need to link all the create to one button</p>
-<p>Ajax route submit the data but retain html input</p>
-<p>Create flashcard should have nested form</p>
+<br/>

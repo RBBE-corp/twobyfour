@@ -7,6 +7,7 @@ class CompositionsController < ApplicationController
   end
 
   def new
+    @memory_list_flashcard = MemoryListFlashcard.new
     @flashcard = Flashcard.new
     @composition = Composition.new
     @memory_list = MemoryList.new

@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     resources :memory_list_flashcards, only: [:new, :create]
   end
   resources :memory_list_flashcards, only: [:destroy]
-  resources :flashcards, only: [:index, :show]
+  resources :flashcards, only: [:index, :show, :create, :destroy]
 end
