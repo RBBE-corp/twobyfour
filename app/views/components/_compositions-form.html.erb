@@ -1,5 +1,5 @@
 <%= simple_form_for(@composition) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: "Composition name" %>
   <%= f.association :memory_list %>
   <%= f.association :instrumental %>
   <%= f.submit class: "btn btn-primary" %>
