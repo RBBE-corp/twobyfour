@@ -30,21 +30,19 @@
       <source src="<%= asset_path("flashcard_greetings/#{mlf.flashcard.japanese_word}.wav") %>" type="audio/mpeg">
     <% end %>
   </audio>
-  
-
 </div>
 
-<!--<div class="range-slider" data-controller="range-slider">
-  <label for="customRange"></label>
+<div class="range-slider" data-controller="range-slider">
+  <label for="customRange">volume</label>
   <input type="range"
          name="customRange"
          class="range-slider__range"
-         data-target="range-slider.range"
+         data-range-slider-target="range"
          data-action="input->range-slider#updateValue"
-         value="6"
+         value="0.5"
          min="0"
-         max="10"
-         step="0.5">
+         max="1"
+         step="0.001">
   <output class="range-slider__value"
-          data-target="range-slider.value">0</output>
-  </div>-->
+          data-range-slider-target= "play"></output>
+  </div>
