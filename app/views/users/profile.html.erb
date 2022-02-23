@@ -62,23 +62,39 @@
         <div class="mx-5 pt-5">
           <%= link_to "Personalize your list", new_memory_list_path, class: 'btn btn-block btn-outline-primary' %>
         </div>
-        <% @memory_lists.each do |memory_list| %>
-          <div class="card-deck" style="width: 24rem;">
+         <% @memory_lists.each do |memory_list| %>
+          <!--<div class="card-deck" style="width: 24rem;">
             <div class="container mt-4">
               <div class="col-sm mb-4">
-                <% random_num = rand(10) %>
-                <% image = "https://picsum.photos/500/300?random=r#{random_num}" %>
+                <%# random_num = rand(10) %>
+                <%# image = "https://picsum.photos/500/300?random=r#{random_num}" %>
 
                 <div class="card">
-                  <img class="card-img-top" src="<%=image%>" alt="Card image cap">
+                  <img class="card-img-top" src="<%#=image%>" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title"><%=memory_list.name %></h5>
-                    <%= link_to "Details", memory_list_path(memory_list), class: 'btn btn-secondary' %>
+                    <%#= link_to "Details", memory_list_path(memory_list), class: 'btn btn-secondary' %>
                   </div>
                 </div>
               </div>
             </div>
+          </div>-->
+          <div class="memory-list-card">
+            <% memory_list.flashcards.each do |flashcard| %>
+              <div class="flashcard-box">
+                <div class="flashcard-box-inner">
+                  <div class="flashcard-inner-front">
+                    <%= flashcard.english_word  %>
+                  </div>
+                  <div class="flashcard-inner-back">
+                    <%= flashcard.japanese_word %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            
           </div>
+
         <% end %>
       </div>
     </div>
