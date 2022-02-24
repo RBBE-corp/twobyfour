@@ -1,5 +1,5 @@
 $animation-timing: 36s;
-$carousel-items: 8;
+$carousel-items: 7;
 $animation-delay-fraction: $animation-timing / $carousel-items;
 $animation-steps-fraction: 100 / $carousel-items;
 $slide-change-timing: 4; // percentage of total animation cycle
@@ -54,6 +54,7 @@ $slide-change-timing: 4; // percentage of total animation cycle
 .flashcard-box {
   position: absolute;
   opacity: 0;
+  z-index: 100;
   filter: drop-shadow(0 2px 2px #555);
   // will-change: transform, opacity;
   width: 150px;
@@ -64,7 +65,7 @@ $slide-change-timing: 4; // percentage of total animation cycle
 
 @for $i from 1 to ($carousel-items) {
   .flashcard-box:nth-child(#{$i}) {
-    animation-delay: calc((#{$animation-delay-fraction} * (#{$i} - 2 )) );
+    animation-delay: calc((-#{$animation-delay-fraction} * (#{$i})) );
   }
 }
 
@@ -111,39 +112,39 @@ $slide-change-timing: 4; // percentage of total animation cycle
   0% {
     transform: translateX(140%) scale(0.5);
     opacity: 0;
-    visibility: hidden;
+    // visibility: hidden;
 
   }
   #{$slide-change-timing}%,
   #{$animation-steps-fraction}% {
     transform: translateX(140%) scale(0.7);
     opacity: .5;
-    visibility: visible;
+    // visibility: visible;
 
   }
   #{$animation-steps-fraction + $slide-change-timing}%,
   #{$animation-steps-fraction * 2}% {
     transform: translateX(0) scale(1);
     opacity: 1;
-    visibility: visible;
+    // visibility: visible;
 
   }
   #{($animation-steps-fraction * 2) + $slide-change-timing}%,
   #{$animation-steps-fraction * 3}% {
     transform: translateX(-140%) scale(0.7);
     opacity: .5;
-    visibility: visible;
+    // visibility: visible;
   }
   #{($animation-steps-fraction * 3) + $slide-change-timing}% {
     transform: translateX(-140%) scale(0.5);
     opacity: 0;
-    visibility: visible;
+    // visibility: visible;
 
   }
   100% {
     transform: translateX(-140%) scale(0.5);
     opacity: 0;
-    visibility: hidden;
+    // visibility: hidden;
   }
 }
 
