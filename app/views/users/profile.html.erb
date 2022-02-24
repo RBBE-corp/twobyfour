@@ -62,7 +62,8 @@
         <div class="mx-5 pt-5">
           <%= link_to "Personalize your list", new_memory_list_path, class: 'btn btn-block btn-outline-primary' %>
         </div>
-         <% @memory_lists.each do |memory_list| %>
+        <div class="row px-5 pt-5 justify-content-between">
+        <% @memory_lists.each do |memory_list| %>
           <!--<div class="card-deck" style="width: 24rem;">
             <div class="container mt-4">
               <div class="col-sm mb-4">
@@ -79,23 +80,84 @@
               </div>
             </div>
           </div>-->
-          <div class="memory-list-card">
-            <% memory_list.flashcards.each do |flashcard| %>
-              <div class="flashcard-box">
-                <div class="flashcard-box-inner">
-                  <div class="flashcard-inner-front">
-                    <%= flashcard.english_word  %>
-                  </div>
-                  <div class="flashcard-inner-back">
-                    <%= flashcard.japanese_word %>
+          <div class="col-md-4 col-sm-6 col-6 mx-auto border">
+            <div class="memory-list-card">
+              <div class="flashcard-collection">
+              <% memory_list.flashcards.each do |flashcard| %>
+                <div class="flashcard-box">
+                  <div class="flashcard-box-inner">
+                    <div class="flashcard-inner-front">
+                      <%= flashcard.english_word  %>
+                    </div>
+                    <div class="flashcard-inner-back">
+                      <%= flashcard.japanese_word %>
+                    </div>
                   </div>
                 </div>
+              <% end %>
               </div>
-            <% end %>
-            
+              <h2><%= memory_list.name %></h2>
+            </div>
           </div>
-
+          <div class="col-md-4 col-sm-6 col-6 mx-auto border">
+            <div class="memory-list-card">
+              <div class="flashcard-collection">
+              <% memory_list.flashcards.each do |flashcard| %>
+                <div class="flashcard-box">
+                  <div class="flashcard-box-inner">
+                    <div class="flashcard-inner-front">
+                      <%= flashcard.english_word  %>
+                    </div>
+                    <div class="flashcard-inner-back">
+                      <%= flashcard.japanese_word %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              </div>
+              <h2><%= memory_list.name %></h2>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6 mx-auto border">
+            <div class="memory-list-card">
+              <div class="flashcard-collection">
+              <% memory_list.flashcards.each do |flashcard| %>
+                <div class="flashcard-box">
+                  <div class="flashcard-box-inner">
+                    <div class="flashcard-inner-front">
+                      <%= flashcard.english_word  %>
+                    </div>
+                    <div class="flashcard-inner-back">
+                      <%= flashcard.japanese_word %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              </div>
+              <h2><%= memory_list.name %></h2>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6 mx-auto border">
+            <div class="memory-list-card">
+              <div class="flashcard-collection">
+              <% memory_list.flashcards.each do |flashcard| %>
+                <div class="flashcard-box">
+                  <div class="flashcard-box-inner">
+                    <div class="flashcard-inner-front">
+                      <%= flashcard.english_word  %>
+                    </div>
+                    <div class="flashcard-inner-back">
+                      <%= flashcard.japanese_word %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              </div>
+              <h2><%= memory_list.name %></h2>
+            </div>
+          </div>
         <% end %>
+        </div>
       </div>
     </div>
   </div>

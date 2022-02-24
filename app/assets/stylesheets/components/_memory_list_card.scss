@@ -1,60 +1,90 @@
-$animation-timing: 32s;
+$animation-timing: 36s;
 $carousel-items: 8;
 $animation-delay-fraction: $animation-timing / $carousel-items;
 $animation-steps-fraction: 100 / $carousel-items;
-$slide-change-timing: 3; // percentage of total animation cycle
+$slide-change-timing: 4; // percentage of total animation cycle
 
 .memory-list-card {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.flashcard-collection {
   display: flex;
   height: 100px;
   align-items: center;
   justify-content: center;
-  width: 200px;
+  width: 240px;
   position: relative;
   overflow: hidden;
-  background-color: gray;
+  // background-color: gray;
+}
 
-  .flashcard-box {
-    position: absolute;
-    opacity: 0;
-    filter: drop-shadow(0 2px 2px #555);
-    will-change: transform, opacity;
-    width: 150px;
-    height: 50%;
-    // margin: 0 calc((200px - 80%)) 0;
-    position: relative;
-    border: 2px solid black;
-    background-color: aquamarine;
-    position: absolute;
-    animation: carousel-animate-vertical $animation-timing linear infinite;
+.flashcard-box {
+  position: absolute;
+  opacity: 0;
+  filter: drop-shadow(0 2px 2px #555);
+  // will-change: transform, opacity;
+  width: 150px;
+  height: 50%;
+  margin: 0 16px;
+  animation: carousel-animate-vertical $animation-timing linear infinite;    
+}
 
-    .flashcard-box-inner {
-      width: 100%;
-      margin: 0 auto;
-      .flashcard-box-front, .flashcard-box-back {
-        width: 100%;
-        padding: 8px;
-      }
-    }
+@for $i from 1 to ($carousel-items) {
+  .flashcard-box:nth-child(#{$i}) {
+    animation-delay: calc((#{$animation-delay-fraction} * (#{$i} - 2 )) );
   }
+}
 
-  @for $i from 1 to ($carousel-items) {
-    .flashcard-box:nth-child(#{$i}) {
-      animation-delay: calc((#{$animation-delay-fraction} * (#{$i} - 1 )) - #{$animation-delay-fraction});
-    }
+// @for $i from 1 through ($carousel-items - 1) {
+//   .carousel__item:nth-child(#{$i}) {
+//     animation-delay: calc(#{$animation-delay-fraction} * #{$i - 2});
+//   }
+// }
+
+// .carousel__item:last-child {
+//   animation-delay: calc(-#{$animation-delay-fraction} * 2);
+// }
+
+.flashcard-box-inner {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  perspective: 800px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  .flashcard-inner-front, .flashcard-inner-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center  ;
+    padding: 8px;
+    backface-visibility: hidden;
+    // background-color: aqua;
   }
+  .flashcard-inner-back {
+    transform: rotateY(180deg);
+    // background-color: brown;
+  }
+}
+
+.flashcard-box:hover .flashcard-box-inner  {
+  transform: rotateY(180deg);
 }
 
 @keyframes carousel-animate-vertical {
   0% {
-    transform: translateX(100%) scale(0.5);
+    transform: translateX(140%) scale(0.5);
     opacity: 0;
     visibility: hidden;
 
   }
   #{$slide-change-timing}%,
   #{$animation-steps-fraction}% {
-    transform: translateX(100%) scale(0.7);
+    transform: translateX(140%) scale(0.7);
     opacity: .5;
     visibility: visible;
 
@@ -68,19 +98,19 @@ $slide-change-timing: 3; // percentage of total animation cycle
   }
   #{($animation-steps-fraction * 2) + $slide-change-timing}%,
   #{$animation-steps-fraction * 3}% {
-    transform: translateX(-100%) scale(0.7);
+    transform: translateX(-140%) scale(0.7);
     opacity: .5;
     visibility: visible;
 
   }
   #{($animation-steps-fraction * 3) + $slide-change-timing}% {
-    transform: translateX(-100%) scale(0.5);
+    transform: translateX(-140%) scale(0.5);
     opacity: 0;
     visibility: visible;
 
   }
   100% {
-    transform: translateX(-100%) scale(0.5);
+    transform: translateX(-140%) scale(0.5);
     opacity: 0;
     visibility: hidden;
   }
