@@ -20,11 +20,11 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-import { filesPlayer } from '../components/files_player';
-import { allowDrop, drag, drop } from '../components/draggable_card';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { filesPlayer } from '../components/files_player';
+import { allowDrop, drag, drop } from '../components/draggable_card';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -33,8 +33,10 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
   }
-
+  window.allowDrop = allowDrop
+  window.drag = drag
+  window.drop = drop
+  // window is a global object
 });
-
 
 import "controllers"

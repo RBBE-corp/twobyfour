@@ -7,6 +7,7 @@ function drag(ev) {
 }
 
 function drop(ev) {
+  console.log("inside drop")
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
