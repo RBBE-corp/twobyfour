@@ -63,11 +63,12 @@ $slide-change-timing: 4; // percentage of total animation cycle
   animation: carousel-animate-vertical $animation-timing linear infinite;    
 }
 
-@for $i from 1 to ($carousel-items) {
-  .flashcard-box:nth-child(#{$i}) {
-    animation-delay: calc((-#{$animation-delay-fraction} * (#{$i})) );
-  }
-}
+// @for $i from 1 to ($carousel-items) {
+//   .flashcard-box:nth-child(#{$i}) {
+//     animation-delay: calc((-#{$animation-delay-fraction} * #{$i} ));
+//     animation-delay: calc((-(32 / $carousel-items) * (index + 1) ));
+//   }
+// }
 
 // @for $i from 1 through ($carousel-items - 1) {
 //   .carousel__item:nth-child(#{$i}) {

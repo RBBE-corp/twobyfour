@@ -1,8 +1,8 @@
 <div class="col-md-4 col-sm-6 col-12 mx-auto ">
     <div class="memory-list-card">
       <div class="flashcard-collection">
-      <% memory_list.flashcards.each do |flashcard| %>
-        <div class="flashcard-box">
+      <% memory_list.flashcards.each_with_index do |flashcard, index| %>
+        <div class="flashcard-box" style="animation-delay: calc( -1 * (( 36s / <%= memory_list.flashcards.count %> ) * (<%= index + 1 %> )));">
           <div class="flashcard-box-inner">
             <div class="flashcard-inner-front">
               <%= flashcard.english_word  %>
