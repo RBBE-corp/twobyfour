@@ -64,27 +64,7 @@
         </div>
         <div class="row px-5 pt-5 justify-content-between">
         <% @memory_lists.each do |memory_list| %>
-          <div class="col-md-4 col-sm-6 col-12 mx-auto ">
-            <%= link_to memory_list_path(memory_list), class: "memory-list-link" do %>
-              <div class="memory-list-card">
-                <div class="flashcard-collection">
-                <% memory_list.flashcards.each do |flashcard| %>
-                  <div class="flashcard-box">
-                    <div class="flashcard-box-inner">
-                      <div class="flashcard-inner-front">
-                        <%= flashcard.english_word  %>
-                      </div>
-                      <div class="flashcard-inner-back">
-                        <%= flashcard.japanese_word %>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-                </div>
-                <strong><%= memory_list.name %></strong>
-              </div>
-            <% end %>
-          </div>
+          <%= render 'components/memory-list-card', memory_list: memory_list %>
         <% end %>
         </div>
       </div>

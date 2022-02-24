@@ -4,9 +4,8 @@ $animation-delay-fraction: $animation-timing / $carousel-items;
 $animation-steps-fraction: 100 / $carousel-items;
 $slide-change-timing: 4; // percentage of total animation cycle
 
-.memory-list-link{
-  display: block;
-  // margin-bottom: 32px;
+
+.memory-list-card {
   padding: 0 16px;
   margin: 0 16px 3em;
   transition: all 0.5s;
@@ -15,7 +14,16 @@ $slide-change-timing: 4; // percentage of total animation cycle
   background-color: rgba(52, 116, 116, .04);
   box-shadow: 0px 0px 8px rgba(52, 116, 116, .02),
               2px 6px 12px rgba(52, 116, 116, .02);
-  &:hover{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+
+  strong {
+    color: #347474;
+    font-size: 0.9em;
+  }
+  &:hover {
     opacity: 1;
     text-decoration: none;
     background-color: white;
@@ -23,19 +31,6 @@ $slide-change-timing: 4; // percentage of total animation cycle
     box-shadow: 0px 0px 8px rgba(99, 183, 175, 0.4),
                   2px 6px 12px rgba(99, 183, 175, 0.4),
                   4px 8px 16px rgba(99, 183, 175, 0.4);
-  }
-}
-.memory-list-card {
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: black;
-  strong {
-    color: #347474;
-    font-size: 0.9em;
-  }
-  &:hover {
     strong {
       color: black;
     }
