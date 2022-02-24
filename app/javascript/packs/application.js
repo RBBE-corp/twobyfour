@@ -21,6 +21,7 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import { filesPlayer } from '../components/files_player';
+import { allowDrop, drag, drop } from '../components/draggable_card';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
