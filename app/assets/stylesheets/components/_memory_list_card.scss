@@ -4,21 +4,56 @@ $animation-delay-fraction: $animation-timing / $carousel-items;
 $animation-steps-fraction: 100 / $carousel-items;
 $slide-change-timing: 4; // percentage of total animation cycle
 
+.memory-list-link{
+  display: block;
+  // margin-bottom: 32px;
+  padding: 0 16px;
+  margin: 0 16px 3em;
+  transition: all 0.5s;
+  transition-delay: background-color .6s;
+  border-radius: 20px;
+  background-color: rgba(52, 116, 116, .04);
+  box-shadow: 0px 0px 8px rgba(52, 116, 116, .02),
+              2px 6px 12px rgba(52, 116, 116, .02);
+  &:hover{
+    opacity: 1;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 8px rgba(99, 183, 175, 0.4),
+                  2px 6px 12px rgba(99, 183, 175, 0.4),
+                  4px 8px 16px rgba(99, 183, 175, 0.4);
+  }
+}
 .memory-list-card {
   display: flex;
   // justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-.flashcard-collection {
-  display: flex;
-  height: 100px;
-  align-items: center;
-  justify-content: center;
-  width: 240px;
-  position: relative;
-  overflow: hidden;
-  // background-color: gray;
+  color: black;
+  strong {
+    color: #347474;
+    font-size: 0.9em;
+  }
+  &:hover {
+    strong {
+      color: black;
+    }
+  }
+  .flashcard-collection {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    filter: blur(2px) grayscale(80%);;
+    position: relative;
+    overflow: hidden;
+    // background-color: gray;
+  }
+  &:hover .flashcard-collection {
+    filter: blur(0);
+  }
 }
 
 .flashcard-box {
@@ -27,7 +62,7 @@ $slide-change-timing: 4; // percentage of total animation cycle
   filter: drop-shadow(0 2px 2px #555);
   // will-change: transform, opacity;
   width: 150px;
-  height: 50%;
+  height: 40%;
   margin: 0 16px;
   animation: carousel-animate-vertical $animation-timing linear infinite;    
 }
@@ -56,6 +91,8 @@ $slide-change-timing: 4; // percentage of total animation cycle
   perspective: 800px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  font-size: 1.2em;
+  font-weight: bold;
   .flashcard-inner-front, .flashcard-inner-back {
     position: absolute;
     width: 100%;
@@ -101,7 +138,6 @@ $slide-change-timing: 4; // percentage of total animation cycle
     transform: translateX(-140%) scale(0.7);
     opacity: .5;
     visibility: visible;
-
   }
   #{($animation-steps-fraction * 3) + $slide-change-timing}% {
     transform: translateX(-140%) scale(0.5);
@@ -113,5 +149,11 @@ $slide-change-timing: 4; // percentage of total animation cycle
     transform: translateX(-140%) scale(0.5);
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .memory-list-card .flashcard-collection {
+    filter: blur(0);
   }
 }
