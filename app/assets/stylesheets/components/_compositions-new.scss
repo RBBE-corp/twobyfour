@@ -1,10 +1,10 @@
 
 .differentiator {
 //  differentiator from main instrumental views
-
+   font-family: Arial, Helvetica, sans-serif;
   .instrumentals-card-container {
     width: 236px;
-    background-color: #888888;
+    background-color: #a8a8a8;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,31 +17,62 @@
       word-break: break-all;
       width: 180px;
       height: 220px;
-      background-color: rgb(190, 190, 190);
+      background-color: rgb(221, 221, 221);
       display: flex;
       border-radius: 16px;
       flex-direction: column;
       align-items: center;
       color: rgb(65, 65, 65);
+      box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
 
       img {
         width: 80px;
       }
     }
+    .playlist-card:hover {
+      background: #00C9FF;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
   }
 }
 .master-box-memory-list {
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  justify-content: center;
   width: auto;
   // justify-content: space-around;
   // gap: 10px 20px;
 }
 
-.instrumentals-container {
-  width: 26vw;
+.speed-track-container {
+  border-radius: 8px;
+  margin: 20px;
+  margin-top: 20px;
+  width: 400px;
+  height: 500px;
+  padding: 8px;
+  background-color: rgba(115, 255, 201, 0.959);
+  box-shadow: 1px 1px 9px 3px#c7c7c7;
 }
+
+
+.instrumentals-container {
+  margin: 16px;
+  margin-top: 20px;
+  width: 279px;
+  height: 786px;
+  // Friday https://uigradients.com/#Friday //
+  background: #83a4d4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 9px 3px#c7c7c7;
+}
+
 .create-container {
   width: 26vw;
 }
@@ -52,9 +83,65 @@
 
 .flex-child {
     flex: 1;
-    margin: 8px;
+    margin: 3px;
 }
 
 .flex-child:first-child {
     margin-right: 20px;
 }
+
+  .memory-list-scroll {
+    padding:24px;
+    height:186px;
+    width: 600px;
+    margin-bottom: 20px;
+    background-color: #cfceced5;
+    overflow:auto;
+    align-items: center;
+    border-radius: 8px;
+    color: black;
+    box-shadow: 1px 1px 3px 3px#3b3b3b55;
+  }
+
+  .combine-your-memorylist {
+    margin-bottom: 36px;
+    background-color: #cfceced5;
+    padding: 18px;
+    border-radius: 8px;
+    width: 600px;
+    box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
+  }
+
+  .name-your-memory-list {
+
+    margin-bottom: 36px;
+    background-color: #cfceced5;
+    padding: 18px;
+    border-radius: 8px;
+    width: 600px;
+    box-shadow: 1px 1px 3px 3px#3b3b3b55;
+  }
+
+  .add-flashcards {
+
+    margin-bottom: 36px;
+    background-color: #cfceced5;
+    padding: 18px;
+    border-radius: 8px;
+    width: 600px;
+    box-shadow: 1px 1px 3px 3px#3b3b3b55;
+  }
+
+  .compsition-builder-container {
+    // Friday https://uigradients.com/#Friday //
+    background: #83a4d4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 1px 1px 9px 3px#c7c7c7;
+    padding: 36px;
+    width: 700px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+  }

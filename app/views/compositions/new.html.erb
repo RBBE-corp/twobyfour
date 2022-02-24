@@ -4,37 +4,34 @@
 
 <div class="master-box-memory-list">
 
-  <div class="create-container">
+  <div class="speed-track-container">
       <div class="container">
         <div class="form-container">
-          <div class="w-150 mx-auto shadow p-5 py-5 my-5 bg-body rounded">
             <h2>Speed Track</h2>
             <p>In a rush?</p>
             <p> You can use the speed track to create a track from existing memory lists.</p>
             <%= render 'components/compositions-form', composition: @composition %>
-          </div>
         </div>
       </div>
-  </div>
-  <div class="form-container">
-    <div class="shadow p-5 py-5 my-5 bg-body rounded">
-      <h1>Composition Builder</h1>
-      <p>You can use the composition builder to create your own flashcards and memory list, which can be combined to create your own composition!</p>
-      <div class="container">
-        <%= render 'components/composition-builder' %>
-      </div>
-    </div>
   </div>
 
-  <div class="instrumentals-container">
-    <div class="container">
-        <div class="w-150 mx-auto shadow p-5 py-5 my-5 bg-body rounded">
-          <h2>Instrumentals Sampler</h2>
-            <div style="height:640px;width:240px; overflow:auto;">
-              <%= render 'components/instrumentals-index' %>
-            </div>
+ <div class="compsition-builder-container">
+    <div class="form-container">
+
+        <h1>Composition Builder</h1>
+        <p>You can use the composition builder to create your own flashcards and memory list, which can be combined to create your own composition!</p>
+        <div class="container">
+          <%= render 'components/composition-builder' %>
         </div>
+
     </div>
+ </div>
+
+  <div class="instrumentals-container">
+    <h2>Instrumental Sampler</h2>
+      <div style="height:640px;width:240px; overflow:auto;">
+        <%= render 'components/instrumentals-index' %>
+      </div>
   </div>
 
 </div>
