@@ -22,14 +22,15 @@
 
   </div>
 
-
-  <audio>
-    <source src="<%= asset_path('instrumentals/inst_saigon_relafriendship.mp3') %>" type="audio/mpeg">
-    <% @composition.memory_list.memory_list_flashcards.each do |mlf| %>
-      <source src="<%= asset_path("flashcard_greetings/#{mlf.flashcard.english_word}.wav") %>" type="audio/mpeg">
-      <source src="<%= asset_path("flashcard_greetings/#{mlf.flashcard.japanese_word}.wav") %>" type="audio/mpeg">
-    <% end %>
-  </audio>
+  <div class="audio-mother-box">
+    <audio>
+      <source src="<%= asset_path('instrumentals/inst_saigon_relafriendship.mp3') %>" type="audio/mpeg">
+      <% @composition.memory_list.memory_list_flashcards.each do |mlf| %>
+        <source src="<%= asset_path("flashcard_greetings/#{mlf.flashcard.english_word}.wav") %>" type="audio/mpeg">
+        <source src="<%= asset_path("flashcard_greetings/#{mlf.flashcard.japanese_word}.wav") %>" type="audio/mpeg">
+      <% end %>
+    </audio>
+  </div>
 </div>
 
 <div class="range-slider" data-controller="range-slider">
@@ -42,7 +43,7 @@
          value="0.5"
          min="0"
          max="1"
-         step="0.001">
+         step="0.00000001">
   <output class="range-slider__value"
           data-range-slider-target= "play"></output>
   </div>
