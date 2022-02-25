@@ -11,8 +11,28 @@
         <li><strong>Instrumental duration:</strong> <%= @composition.instrumental.duration %></li>
         <li><strong>Memorylist:</strong> <%= @composition.memory_list.name %></li>
       </ul>
-      <div class="mx-auto mb-5 mt-2">
+      <div class="mx-auto mb-3 mt-2">
         <button class='btn btn-primary player' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
+      </div>
+      <div class="range-slider mx-auto mb-5 d-flex justify-content-between" data-controller="range-slider" style="width: 200px; display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      position: relative;
+      justify-content: space-between;
+      flex-direction: row;">
+        <label for="customRange" style="margin: 0px 8px;"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
+        <%# hello %>
+        <input type="range"
+              name="customRange"
+              class="range-slider__range inline"
+              data-range-slider-target="range"
+              data-action="input->range-slider#updateValue"
+              value="0.5"
+              min="0"
+              max="1"
+              step="0.00000001">
+        <%# <output class="range-slider__value"
+                data-range-slider-target= "play"></output> %>
       </div>
       <div class="mx-auto">
         <%= link_to "Edit composition", edit_composition_path(@composition), class: 'btn btn-secondary' %>
@@ -33,17 +53,4 @@
   </div>
 </div>
 
-<div class="range-slider" data-controller="range-slider">
-  <label for="customRange">volume</label>
-  <input type="range"
-         name="customRange"
-         class="range-slider__range"
-         data-range-slider-target="range"
-         data-action="input->range-slider#updateValue"
-         value="0.5"
-         min="0"
-         max="1"
-         step="0.00000001">
-  <output class="range-slider__value"
-          data-range-slider-target= "play"></output>
-  </div>
+

@@ -41,7 +41,6 @@ document.addEventListener('turbolinks:load', () => {
     filesPlayer();
     const player = document.querySelector('.player');  
     player.addEventListener('click', (e) => {
-      console.log(e.currentTarget);
       playPause(player)
     });
   }
