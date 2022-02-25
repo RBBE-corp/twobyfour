@@ -11,16 +11,12 @@
         <li><strong>Instrumental duration:</strong> <%= @composition.instrumental.duration %></li>
         <li><strong>Memorylist:</strong> <%= @composition.memory_list.name %></li>
       </ul>
-      <div class="mx-auto mb-3 mt-2">
-        <button class='btn btn-primary player' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
+      <div class="mx-auto mb-3 mt-2 ">
+        <button class="stop-player"><i class="fa fa-stop" aria-hidden="true"></i></button>
+        <button class='player' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
       </div>
-      <div class="range-slider mx-auto mb-5 d-flex justify-content-between" data-controller="range-slider" style="width: 200px; display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      position: relative;
-      justify-content: space-between;
-      flex-direction: row;">
-        <label for="customRange" style="margin: 0px 8px;"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
+      <div class="range-slider" data-controller="range-slider">
+        <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
         <%# hello %>
         <input type="range"
               name="customRange"

@@ -11,7 +11,8 @@ export const playPause = (player) => {
   const sound = document.querySelectorAll(".audios");
   if (player.dataset.status == "paused") {
     player.dataset.status = "playing";
-    player.textContent = "Playing..";
+    player.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+    player.style.color = 'red';
     instrumental.play();
     let index = parseInt(instrumental.dataset.order);
     const audioPlayer = (index) => {
@@ -34,7 +35,8 @@ export const playPause = (player) => {
     audioPlayer(index)
   } else {
     player.dataset.status = "paused";
-    player.textContent = "Paused";
+    // player.textContent = "Paused";
+    player.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
     instrumental.pause();
     sound.forEach((sou) => {
         sou.pause();
