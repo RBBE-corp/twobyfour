@@ -2,14 +2,13 @@
 
     <div class="memory-list-cards-holder">
         <div class="row text-center">
-          <% num = 1 %>
-          <% @memory_lists.each do |memory_list|%>
+          <% @memory_lists.each_with_index do |memory_list, index|%>
               <p>
-                <a class="card p-3" data-toggle="collapse" href="#collapseExample<%= num %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <a class="card p-3" data-toggle="collapse" href="#collapseExample<%= index %>" role="button" aria-expanded="false" aria-controls="collapseExample">
                   <%= memory_list.name %>
                 </a>
               </p>
-                <div class="collapse" id="collapseExample<%= num %>">
+                <div class="collapse" id="collapseExample<%= index %>">
                     <div class="card card-body">
                       <%# <div class="col-sm-8"> %>
                         <% memory_list.flashcards.each do |flashcard| %>
@@ -26,7 +25,6 @@
                       <%# </div> %>
                     </div>
                 </div>
-                <% num += 1 %> <%# increments href id of each collapse item %>
           <% end %>
         </div>
     </div>
