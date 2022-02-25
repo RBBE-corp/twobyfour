@@ -22,6 +22,7 @@ ActiveStorage.start()
 import "bootstrap";
 import { filesPlayer } from '../components/files_player';
 import { playPause } from '../components/composition_player';
+import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 
 // Internal imports, e.g:
@@ -43,6 +44,7 @@ document.addEventListener('turbolinks:load', () => {
     player.addEventListener('click', (e) => {
       playPause(player)
     });
+    stopButtonClick();
   }
     // check if the audio is playing
 
