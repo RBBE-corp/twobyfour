@@ -19,13 +19,20 @@ class MemoryListsController < ApplicationController
     end
   end
 
-  # get the flashcards which are not already in the memory list - AR Query
+  # get the flashcards which are not already in the memory list - AR Query - define in the model
   # store in an instance variable so can access in the view
   # @flashcards.instancevar.each render a partial - pass instance into the partial
   # simple form to toggle selected or not (checkbox or otherwise)
   # check everything then click a button to add
   # remote: true form (JS get request) - in AJAX?
-  def show; end
+  def show
+    @flashcards = Flashcard.all
+    # @flashcards_not_selected = Flashcard.find_each do |flashcard|
+    #   @memory_list.memory_list_flashcards.where.not(flashcard_id: flashcard.id)
+    # end
+    @flashcards_not_selected = @memory_list.flashcards_not_in_memory_list
+    # raise
+  end
 
   def edit; end
 

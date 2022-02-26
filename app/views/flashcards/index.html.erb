@@ -1,25 +1,38 @@
 <div class="banner">
-  <div class="container">
+  <div>
     <h1>Index Page for Flashcards</h1>
   </div>
 </div>
 
-<div class="flashcard-cards-holder">
-  <% if @flashcards.present? %>
-    <% @flashcards.each do |flashcard|%>
-      <div class="row">
-        <div class="card-flashcard">
-          <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
-          <div class="profile-content">
-            <ul>
-              <li><strong>English: </strong> <%= flashcard.english_word %></li>
-              <li><strong>Japanese: </strong> <%= flashcard.japanese_word %></li>
-              <li><strong>Category: </strong> <%= flashcard.category %></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+<div class="container" style="padding-top:30px;">
+  <div class="row">
+    <div class="col-12">
+      <% if @flashcards.present? %>
+        <h2 style="text-align:center;">All Flashcards</h2>
+            <div class="flashcard-cards-holder flex-d justify-content-center ">
+                <% @flashcards.each do |flashcard| %>
+                  <div class="row">
+                    <div class="card-flashcard" style="max-width: 18rem;">
+                      <div class="flip-card-inner">
+                        <div class="card-front">
+                          <ul>
+                            <li class="list-group-item"><%= flashcard.english_word %></li>
+                            <li><strong>Category: </strong> <%= flashcard.category %></li>
+                          </ul >
+                        </div>
+                        <div class="card-back">
+                          <ul>
+                            <li class="list-group-item"><%= flashcard.japanese_word %></li>
+                            <li><strong>Category: </strong> <%= flashcard.category %></li>
+                          </ul >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+            </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<p class="link-button"><%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %></p>
+<p class="link-button" style="text-align:center;"><%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %></p>

@@ -1,32 +1,99 @@
 <div class="banner">
-  <div class="container">
+  <div>
     <h1><strong><%= @memory_list.name %></strong></h1>
+  </div>
+  <div>
     <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
     <p class="link-button m-3"><%= link_to 'Edit List Name', edit_memory_list_path, class: 'btn btn-secondary' %></p>
-    <p><em>List creator: </em><%= @memory_list.user.username %></p>
+  </div>
+  <div>
+    <p><strong>List creator: </strong><%= @memory_list.user.username %></p>
   </div>
 </div>
 
-<div class="memory-list-cards-holder flex-d justify-content-center ">
-    <%# <p class="link-button m-3"><%= link_to 'Add Flashcards to Memory List', memory_list_flashcards_path(@memory_list), class: 'btn btn-secondary' %>
-    <div class="memory-list-card ml-5">
-        <% if @memory_list.flashcards.present? %>
-          <h2>Memory List Flashcards</h2>
-            <div class="row">
-              <% @memory_list.flashcards.each do |flashcard| %>
-                <div class="card-flashcard" style="max-width: 18rem;">
-                  <p class="list-group-item"><%= flashcard.english_word %> = <%= flashcard.japanese_word %></p>
-                </div>
-              <% end %>
-            </div>
-        <%end%>
-    </div>
+<div class="container" style="padding-top:30px;">
+  <%# shows all the flashcards in the memory list %>
+  <div class="row">
+      <div class="col-6">
+        <h2 style="text-align:center;">Memory List Flashcards</h2>
+        <div class="flashcard-cards-holder flex-d justify-content-center" id="MemoryListFlashcardsBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <% if @memory_list.flashcards.present? %>
+                <% @memory_list.flashcards.each do |flashcard| %>
+                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>">
+                    <div class="flip-card-inner">
+                      <div class="card-front">
+                        <ul>
+                          <li class="list-group-item"><%= flashcard.english_word %></li>
+                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                        </ul >
+                      </div>
+                      <div class="card-back">
+                        <ul>
+                          <li class="list-group-item"><%= flashcard.japanese_word %></li>
+                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                        </ul >
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+            <%end%>
+        </div>
+      </div>
 
-    <div class="row">
-      <p class="link-button m-3"><%= link_to "Delete #{@memory_list.name} Memory List",
-              memory_list_path(@memory_list),
-              method: :delete,
-              data: { confirm: "Are you sure?" }, class: 'btn btn-secondary' %></p>
-      <p class="link-button m-3"><%= link_to 'Back to Memory List Index', memory_lists_path, class: 'btn btn-secondary' %></p>
-    </div>
+      <div class="col-6">
+          <h2 style="text-align:center;">All Flashcards</h2>
+          <div class="flashcard-cards-holder flex-d justify-content-center" id="AllFlashcardsBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <% @flashcards_not_selected.each do |flashcard| %>
+                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>">
+                    <div class="flip-card-inner">
+                      <div class="card-front">
+                        <ul>
+                          <li class="list-group-item"><%= flashcard.english_word %></li>
+                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                        </ul>
+                      </div>
+                      <div class="card-back">
+                        <ul>
+                          <li class="list-group-item"><%= flashcard.japanese_word %></li>
+                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                        </ul>
+                      </div>
+                    <!--<%= render 'components/flashcard-add-form'  %>-->
+                    </div>
+                  </div>
+            <% end %>
+          </div>
+      </div>
+  </div>
 </div>
+
+<div style="text-align:center;">
+  <p class="link-button m-3" ><%= link_to "Delete #{@memory_list.name} Memory List",
+          memory_list_path(@memory_list),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class: 'btn btn-secondary' %></p>
+  <p class="link-button m-3"><%= link_to 'Back to Memory List Index', memory_lists_path, class: 'btn btn-secondary' %></p>
+</div>
+
+<%# <p class="link-button m-3"><%= link_to 'Add Flashcards to Memory List', memory_list_flashcards_path(@memory_list), class: 'btn btn-secondary' %>
+
+<%# <script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+  // console.log(ev);
+}
+
+function drop(ev) {
+  console.log("inside drop")
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+  console.log(data);
+  console.log(ev.target);
+  if (ev.target.id == "MemoryListFlashcardsBox") { console.log("check one two")}
+}
+</script> %>
