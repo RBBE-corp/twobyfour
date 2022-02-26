@@ -33,7 +33,7 @@
   //= link flashcard_greetings/ohayou_gozaimasu.wav
   //= link flashcard_greetings/hajimemashite.wav
   //= link flashcard_greetings/sumimasen.wav
-  //= link flashcard_greetings/gomennasai.wav
+  //= link flashcard_greetings/gomen_nasai.wav
   //= link flashcard_greetings/arigatou_gozaimasu.wav
   //= link flashcard_greetings/onegaishimasu.wav
   //= link flashcard_greetings/oyasumi_nasai.wav
