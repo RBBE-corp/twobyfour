@@ -46,7 +46,7 @@
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-playlists-tab">
       <div class="profile-tab-container">
         <div class="mx-5 pt-5">
-          <%= link_to "Create your Playlist", new_playlist_path, class: 'btn btn-block btn-outline-primary' %>
+          <%= link_to "Create your Playlist", playlists_path, class: 'btn btn-block btn-outline-primary' %>
         </div>
         <div class="row px-2 pt-5">
           <% @playlists.each do |playlist| %>

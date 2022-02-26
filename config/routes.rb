@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/profile', to: "users#profile"
 
-  resources :playlists do
+  resources :playlists, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :playlist_compositions, only: [:new, :create]
   end
   resources :playlist_compositions, only: [:destroy]

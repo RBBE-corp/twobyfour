@@ -1,3 +1,4 @@
+//= link application.css
 //= link_tree ../images
 //= link_directory ../stylesheets .css
   //= link instrumentals/inst_saigon_relafriendship.mp3
