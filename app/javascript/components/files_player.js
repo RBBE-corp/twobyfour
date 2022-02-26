@@ -25,8 +25,9 @@ export const filesPlayer = () =>{
     sound[i - 1] = new Audio();
     let srcl = document.createElement('source');
     srcl.type = children[i].type;
-    srcl.src = children[i].src;
+    srcl.src = children[i].src
     sound[i - 1].appendChild(srcl);
+    sound[i - 1].dataset.id = children[i].id; 
     sound[i - 1].classList.add('audios');
     // audios appended to audioBox
     audioBox.appendChild(sound[i - 1]);

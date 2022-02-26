@@ -1,4 +1,5 @@
 const stopPlayer = () => {
+  const subtitles = document.querySelector(".composition-subtitle-list");
   const instrumental = document.querySelector('#instrumental');
   const sound = document.querySelectorAll(".audios");
   const player = document.querySelector('.player');  
@@ -11,9 +12,12 @@ const stopPlayer = () => {
         sou.pause();
     });
   }
+  // location.href = `#${sound[0].dataset.id}`;
   instrumental.dataset.order = 0;
   instrumental.currentTime = 0;
   player.style.color = 'initial';
+  subtitles.scrollLeft = document.getElementById(`${sound[0].dataset.id}`).offsetLeft;
+
 }
 
 export const stopButtonClick = () => {
