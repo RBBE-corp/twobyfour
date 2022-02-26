@@ -13,6 +13,8 @@
       </div>
   <% end %>
 
+<%
+=begin %>
 <div class="add-flashcards">
   <h3>2. Add flashcards to your memory list</h3>
   <%= simple_form_for(@flashcard) do |f| %>
@@ -36,3 +38,5 @@
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>
+<%
+=end %>

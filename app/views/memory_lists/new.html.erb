@@ -1,9 +1,15 @@
-<div class="container">
-  <div class="form-container">
-    <div class="w-50 mx-auto shadow py-5 my-5 bg-body rounded">
-      <h2>Create a new Memory List </h2>
-      <%= render 'components/memory-list-form'  %>
-    </div>
-  </div>
+<div class="memorylist-master-container">
+
+  <div class="compsition-builder-container">
+      <div class="form-container">
+
+          <h1>Memory List Builder</h1>
+          <p>You can use the composition builder to create your own flashcards and memory list, which can be combined to create your own composition!</p>
+          <div class="container">
+            <%= render 'components/composition-builder' %>
+          </div>
+
+      </div>
   <p class="link-button"><%= link_to 'Back', memory_lists_path, class: 'btn btn-primary' %></p>
+  </div>
 </div>
