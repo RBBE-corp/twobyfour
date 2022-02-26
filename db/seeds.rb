@@ -81,7 +81,7 @@ byron = User.create!(
 # naming convention - use underscores for spaces
 
 a1_always = Instrumental.create!(
-  title: "Always",
+  title: "always",
   artist: "A1 ft Chris Brown & Ty Dolla Sign",
   genre: "RnB",
   duration: 53.760,
@@ -90,7 +90,7 @@ a1_always = Instrumental.create!(
 puts "instrumental added"
 
 kap_g_top_5 = Instrumental.create!(
-  title: "Top 5",
+  title: "top_5",
   artist: "Kap G ft Playboi Carti",
   genre: "Trap",
   duration: 49.633,
@@ -99,7 +99,7 @@ kap_g_top_5 = Instrumental.create!(
 puts "instrumental added"
 
 major_lazer_lean_on = Instrumental.create!(
-  title: "Lean On",
+  title: "lean_on",
   artist: "Major Lazer",
   genre: "Moombahton",
   duration: 39.079,
@@ -108,7 +108,7 @@ major_lazer_lean_on = Instrumental.create!(
 puts "instrumental added"
 
 saigon_relafriendship = Instrumental.create!(
-  title: "Relafriendship",
+  title: "relafriendship",
   artist: "Saigon",
   genre: "Hip Hop",
   duration: 42.736,
@@ -117,7 +117,7 @@ saigon_relafriendship = Instrumental.create!(
 puts "instrumental added"
 
 too_short_just_another_day = Instrumental.create!(
-  title: "Just Another Day",
+  title: "just_another_day",
   artist: "Too Short",
   genre: "G-Funk",
   duration: 39.262,
