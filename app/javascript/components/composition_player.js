@@ -7,6 +7,7 @@ function pause(milliseconds) {
 
 export const playPause = (player) => {
   // retrieving audios and instrumental
+  const subtitles = document.querySelector(".composition-subtitle-list");
   const instrumental = document.getElementById("instrumental");
   const sound = document.querySelectorAll(".audios");
   if (player.dataset.status == "paused") {
@@ -20,6 +21,9 @@ export const playPause = (player) => {
         pause(658);
       }
       let audio = sound[index];
+      console.log(audio.offsetLeft)
+      subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
+      // location.href = `#${audio.dataset.id}`;
       audio.play();
       audio.onended = function () {
         if (index < sound.length-1 ) {
@@ -27,6 +31,7 @@ export const playPause = (player) => {
         } else if (index == sound.length - 1) {
           index = 0;
         };
+        subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
         instrumental.dataset.order = index;
         pause(1316);
         audioPlayer(index)
@@ -36,6 +41,7 @@ export const playPause = (player) => {
   } else {
     player.dataset.status = "paused";
     // player.textContent = "Paused";
+    // location.href = "";
     player.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
     instrumental.pause();
     sound.forEach((sou) => {
