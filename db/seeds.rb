@@ -6,26 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# //// Instrumental Ideas /////
-# 500 miles
-# country road
-# maria takeuchi (plastic love) O
-# back street boys everybody
-# weezer island in the sun
-# blink 182 all the small things
-# foo fighter
-# sum 41
-# beatles I wanna hold your hands
-# dancing queen abba
-# yellow submarine
-# never gonna give you up rick roll
-# justin bieber sorry
-# Mike Posner I took a pill in ibiza
-# california love
-# major lazer (light it up, lean on)
-# white stripes 7 nation army
-# chainsmoker -closer
-
 puts "Cleaning up database"
 puts "......"
 puts "......"
@@ -33,42 +13,40 @@ puts "......"
 # Destroy order needs to be in the following order
 # Please do not change the order
 
+  # MemoryListFlashcard.destroy_all
+  #   puts MemoryListFlashcard.count
+  # Flashcard.destroy_all
+  #   puts Flashcard.count
+  # MemoryList.destroy_all
+  #   puts MemoryList.count
+  # Playlist.destroy_all
+  #   puts Playlist.count
+  # Composition.destroy_all
+  #   puts Composition.count
+  # Instrumental.destroy_all
+  #   puts Instrumental.count
+  # User.destroy_all
+  #   puts User.count
+  # PlaylistComposition.destroy_all
+  #   puts PlaylistComposition.count
+  # Score.destroy_all
+  #   puts Score.count
 
-  MemoryListFlashcard.destroy_all
-    puts MemoryListFlashcard.count
+ActiveRecord::Base.connection.disable_referential_integrity do
   Flashcard.destroy_all
-    puts Flashcard.count
   MemoryList.destroy_all
-    puts MemoryList.count
   Playlist.destroy_all
-    puts Playlist.count
+  MemoryListFlashcard.destroy_all
   Composition.destroy_all
-    puts Composition.count
   Instrumental.destroy_all
-    puts Instrumental.count
   User.destroy_all
-    puts User.count
   PlaylistComposition.destroy_all
-    puts PlaylistComposition.count
   Score.destroy_all
-    puts Score.count
-
-# ActiveRecord::Base.connection.disable_referential_integrity do
-#   Flashcard.destroy_all
-#   MemoryList.destroy_all
-#   Playlist.destroy_all
-#   MemoryListFlashcard.destroy_all
-#   Composition.destroy_all
-#   Instrumental.destroy_all
-#   User.destroy_all
-#   PlaylistComposition.destroy_all
-#   Score.destroy_all
-# end
+end
 
 puts "Database is clean"
 puts "Seeding database"
 puts "......"
-
 
 # ////// User Seeds ////////
 
@@ -99,148 +77,218 @@ byron = User.create!(
 # ///////////////////////////////////
 
 # //////// Instrumental seeds ////////////
+# variable naming convention - primary artist, track name
+# naming convention - use underscores for spaces
 
-five_hundred_miles = Instrumental.create!(
-  title: "500 Miles",
-  artist: "Justin Timberlake",
-  genre: "Country",
-  duration: 194.4,
-  bpm: 94
+a1_always = Instrumental.create!(
+  title: "Always",
+  artist: "A1 ft Chris Brown & Ty Dolla Sign",
+  genre: "RnB",
+  duration: 53.760,
+  bpm: 71.510
 )
 puts "instrumental added"
 
-
-all_the_small_things = Instrumental.create!(
-  title: "All the Small Things",
-  artist: "Blink 182",
-  genre: "Pop Punk",
-  duration: 148.8,
-  bpm: 149
+kap_g_top_5 = Instrumental.create!(
+  title: "Top 5",
+  artist: "Kap G ft Playboi Carti",
+  genre: "Trap",
+  duration: 49.633,
+  bpm: 77.32
 )
 puts "instrumental added"
 
-lean_on = Instrumental.create!(
+major_lazer_lean_on = Instrumental.create!(
   title: "Lean On",
   artist: "Major Lazer",
-  genre: "Electronic",
-  duration: 153.6,
-  bpm: 98
+  genre: "Moombahton",
+  duration: 39.079,
+  bpm: 98.2
 )
 puts "instrumental added"
 
-closer = Instrumental.create!(
-  title: "Closer",
-  artist: "Chainsmokers",
-  genre: "Future Bass",
-  duration: 242.4,
-  bpm: 95
+saigon_relafriendship = Instrumental.create!(
+  title: "Relafriendship",
+  artist: "Saigon",
+  genre: "Hip Hop",
+  duration: 42.736,
+  bpm: 89.82
 )
 puts "instrumental added"
 
-seven_nation_army = Instrumental.create!(
-  title: "Seven Nation Army",
-  artist: "White Stripes",
-  genre: "Alternative Rock",
-  duration: 211.2,
-  bpm:124
+too_short_just_another_day = Instrumental.create!(
+  title: "Just Another Day",
+  artist: "Too Short",
+  genre: "G-Funk",
+  duration: 39.262,
+  bpm: 97.88
 )
 puts "instrumental added"
-
-simple_rap = Instrumental.create!(
-  title: "The Simple Rap Song",
-  artist: "Plague Doctor",
-  genre: "Trap",
-  duration: 153,
-  bpm: 130
-)
-puts "instrumental added"
-
-plastic_love = Instrumental.create!(
-  title: "Plastic Love",
-  artist: "Mariya Takeuchi",
-  genre: "City Pop",
-  duration: 270.6,
-  bpm: 102
-)
-puts "instrumental added"
-
-island_in_the_sun = Instrumental.create!(
-  title: "Island in the Sun",
-  artist: "Weezer",
-  genre: "Alternative Rock",
-  duration: 192,
-  bpm: 115
-)
-puts "instrumental added"
-
-everybody = Instrumental.create!(
-  title: "Everybody",
-  artist: "Backstreet Boys",
-  genre: "Pop",
-  duration: 207,
-  bpm: 108
-)
 
 puts "all instrumentals created"
 # /////////////////////////////////
 
 # /////////// Flashcards //////////////
+# naming convention - use underscore for spaces, same for variable name
+# naming convention - english word then japanese word for variable name
 
-# Hello - konnichiwa
-konnichiwa = Flashcard.create!(
+hello_konnichiwa = Flashcard.create!(
   english_word: "hello",
   japanese_word: "konnichiwa",
   category: "greetings"
 )
 
-# Good morning - ohayou gozaimasu
-ohayo = Flashcard.create!(
-  english_word: "goodmorning",
-  japanese_word: "ohayougozaimasu",
+good_morning_ohayou_gozaimasu = Flashcard.create!(
+  english_word: "good_morning",
+  japanese_word: "ohayou_gozaimasu",
   category: "greetings"
 )
-# Nice to meet you - hajimemashite
-hajimemashite = Flashcard.create!(
-  english_word: "nicetomeetyou",
+
+nice_to_meet_you_hajimemashite = Flashcard.create!(
+  english_word: "nice_to_meet_you",
   japanese_word: "hajimemashite",
   category: "greetings"
 )
-# Excuse me - sumimasen
-sumimasen = Flashcard.create!(
-  english_word: "excuseme",
+
+excuse_me_sumimasen = Flashcard.create!(
+  english_word: "excuse_me",
   japanese_word: "sumimasen",
   category: "greetings"
 )
-# I'm sorry - gomen nasai
-gomen = Flashcard.create!(
-  english_word: "imsorry",
+
+im_sorry_gomen_nasai = Flashcard.create!(
+  english_word: "im_sorry",
   japanese_word: "gomennasai",
   category: "greetings"
 )
-# Thank you - arigatou gozaimasu
-arigatou = Flashcard.create!(
+
+thank_you_arigatou_gozaimasu = Flashcard.create!(
   english_word: "thankyou",
-  japanese_word: "arigatougozaimasu",
+  japanese_word: "arigatou_gozaimasu",
   category: "greetings"
 )
-# Please - onegaishimasu
-onegai = Flashcard.create!(
+
+please_onegaishimasu = Flashcard.create!(
   english_word: "please",
   japanese_word: "onegaishimasu",
   category: "greetings"
 )
-# Good night - oyasumi nasai
-oyasumi = Flashcard.create!(
-  english_word: "goodnight",
-  japanese_word: "oyasuminasai",
+
+good_night_oyasumi_nasai = Flashcard.create!(
+  english_word: "good_night",
+  japanese_word: "oyasumi_nasai",
   category: "greetings"
+)
+
+red_aka = Flashcard.create!(
+  english_word: "red",
+  japanese_word: "aka",
+  category: "colors"
+)
+
+orange_orenji = Flashcard.create!(
+  english_word: "orange",
+  japanese_word: "orenji",
+  category: "colors"
+)
+
+yellow_kiiro = Flashcard.create!(
+  english_word: "yellow",
+  japanese_word: "kiiro",
+  category: "colors"
+)
+
+green_midori = Flashcard.create!(
+  english_word: "green",
+  japanese_word: "midori",
+  category: "colors"
+)
+
+blue_ao = Flashcard.create!(
+  english_word: "blue",
+  japanese_word: "ao",
+  category: "colors"
+)
+
+purple_murasaki = Flashcard.create!(
+  english_word: "purple",
+  japanese_word: "murasaki",
+  category: "colors"
+)
+
+black_kuro = Flashcard.create!(
+  english_word: "black",
+  japanese_word: "kuro",
+  category: "colors"
+)
+
+white_shiro = Flashcard.create!(
+  english_word: "White",
+  japanese_word: "shiro",
+  category: "colors"
+)
+
+monday_getsu_youbi = Flashcard.create!(
+  english_word: "Monday",
+  japanese_word: "getsu_youbi",
+  category: "days_of_the_week"
+)
+
+tuesday_ka_youbi = Flashcard.create!(
+  english_word: "Tuesday",
+  japanese_word: "ka_youbi",
+  category: "days_of_the_week"
+)
+
+wednesday_sui_youbi = Flashcard.create!(
+  english_word: "Wednesday",
+  japanese_word: "sui_youbi",
+  category: "days_of_the_week"
+)
+
+thursday_moku_youbi = Flashcard.create!(
+  english_word: "Thursday",
+  japanese_word: "moku_youbi",
+  category: "days_of_the_week"
+)
+
+friday_kin_youbi = Flashcard.create!(
+  english_word: "Friday",
+  japanese_word: "kin_youbi",
+  category: "days_of_the_week"
+)
+
+saturday_do_youbi = Flashcard.create!(
+  english_word: "Saturday",
+  japanese_word: "do_youbi",
+  category: "days_of_the_week"
+)
+
+sunday_nichi_youbi = Flashcard.create!(
+  english_word: "Sunday",
+  japanese_word: "nichi_youbi",
+  category: "days_of_the_week"
 )
 
 puts "Flash cards created"
 
 # /////// MemoryList /////////
-greetings_memory_list = MemoryList.create!(
-  name: "Greetings",
+my_greetings_memory_list = MemoryList.create!(
+  name: "My Favourite Greetings",
+  user: byron
+)
+
+puts "Memorylist created"
+
+my_colors_memory_list = MemoryList.create!(
+  name: "My Favourite Colors",
+  user: byron
+)
+
+puts "Memorylist created"
+
+my_days_of_the_week_memory_list = MemoryList.create!(
+  name: "My Favourite Days",
   user: byron
 )
 
@@ -252,38 +300,117 @@ puts "Memorylist created"
 # //////////// MemoryListFlashcards ////////////
 
 MemoryListFlashcard.create!(
-  flashcard: ohayo,
-  memory_list: greetings_memory_list
+  flashcard: good_morning_ohayou_gozaimasu,
+  memory_list: my_greetings_memory_list
 )
 
 MemoryListFlashcard.create!(
-  flashcard: hajimemashite,
-  memory_list: greetings_memory_list
+  flashcard: nice_to_meet_you_hajimemashite,
+  memory_list: my_greetings_memory_list
 )
 
 MemoryListFlashcard.create!(
-  flashcard: sumimasen,
-  memory_list: greetings_memory_list
+  flashcard: excuse_me_sumimasen,
+  memory_list: my_greetings_memory_list
 )
 
 MemoryListFlashcard.create!(
-  flashcard: gomen,
-  memory_list: greetings_memory_list
+  flashcard: im_sorry_gomen_nasai,
+  memory_list: my_greetings_memory_list
 )
 
 MemoryListFlashcard.create!(
-  flashcard: arigatou,
-  memory_list: greetings_memory_list
+  flashcard: thank_you_arigatou_gozaimasu,
+  memory_list: my_greetings_memory_list
 )
 
 MemoryListFlashcard.create!(
-  flashcard: onegai,
-  memory_list: greetings_memory_list
+  flashcard: please_onegaishimasu,
+  memory_list: my_greetings_memory_list
 )
 
 MemoryListFlashcard.create!(
-  flashcard: oyasumi,
-  memory_list: greetings_memory_list
+  flashcard: good_night_oyasumi_nasai,
+  memory_list: my_greetings_memory_list
+)
+
+puts "MemoryListFlashcards added"
+
+MemoryListFlashcard.create!(
+  flashcard: red_aka,
+  memory_list: my_colors_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: orange_orenji,
+  memory_list: my_colors_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: yellow_kiiro,
+  memory_list: my_colors_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: green_midori,
+  memory_list: my_colors_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: blue_ao,
+  memory_list: my_colors_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: purple_murasaki,
+  memory_list: my_colors_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: black_kuro,
+  memory_list: my_colors_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: white_shiro,
+  memory_list: my_colors_memory_list
+)
+
+puts "MemoryListFlashcards added"
+
+MemoryListFlashcard.create!(
+  flashcard: monday_getsu_youbi,
+  memory_list: my_days_of_the_week_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: tuesday_ka_youbi,
+  memory_list: my_days_of_the_week_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: wednesday_sui_youbi,
+  memory_list: my_days_of_the_week_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: thursday_moku_youbi,
+  memory_list: my_days_of_the_week_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: friday_kin_youbi,
+  memory_list: my_days_of_the_week_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: saturday_do_youbi,
+  memory_list: my_days_of_the_week_memory_list
+)
+
+MemoryListFlashcard.create!(
+  flashcard: sunday_nichi_youbi,
+  memory_list: my_days_of_the_week_memory_list
 )
 
 puts "MemoryListFlashcards added"
@@ -291,71 +418,49 @@ puts "MemoryListFlashcards added"
 # ///////// Compositions Seeds ////////////
 
 greetings_composition = Composition.create!(
-  name: "Greetings 1",
-  memory_list: greetings_memory_list,
-  instrumental: everybody,
+  name: "Greetings Funk",
+  memory_list: my_greetings_memory_list,
+  instrumental: too_short_just_another_day,
+  user: byron,
+  rep_count: 19
+)
+puts "composition added"
+
+Composition.create!(
+  name: "Greetings RnB",
+  memory_list: my_greetings_memory_list,
+  instrumental: a1_always,
+  user: byron,
+  rep_count: 13
+)
+puts "composition added"
+
+Composition.create!(
+  name: "Greetings Moombah",
+  memory_list: my_greetings_memory_list,
+  instrumental: major_lazer_lean_on,
+  user: byron,
+  rep_count: 11
+)
+puts "composition added"
+
+Composition.create!(
+  name: "Greetings Hip Hop",
+  memory_list: my_greetings_memory_list,
+  instrumental: saigon_relafriendship,
   user: byron,
   rep_count: 15
 )
-
 puts "composition added"
 
-greetings_composition = Composition.create!(
-  name: "Greetings 2",
-  memory_list: greetings_memory_list,
-  instrumental: everybody,
+Composition.create!(
+  name: "Greetings Trap",
+  memory_list: my_greetings_memory_list,
+  instrumental: kap_g_top_5,
   user: byron,
-  rep_count: 15
+  rep_count: 9
 )
-
 puts "composition added"
-greetings_composition = Composition.create!(
-  name: "Greetings 3",
-  memory_list: greetings_memory_list,
-  instrumental: everybody,
-  user: byron,
-  rep_count: 15
-)
-
-puts "composition added"
-greetings_composition = Composition.create!(
-  name: "Greetings 4",
-  memory_list: greetings_memory_list,
-  instrumental: everybody,
-  user: byron,
-  rep_count: 15
-)
-
-puts "composition added"
-greetings_composition = Composition.create!(
-  name: "Greetings 5",
-  memory_list: greetings_memory_list,
-  instrumental: everybody,
-  user: byron,
-  rep_count: 15
-)
-
-puts "composition added"
-greetings_composition = Composition.create!(
-  name: "Greetings 6",
-  memory_list: greetings_memory_list,
-  instrumental: everybody,
-  user: byron,
-  rep_count: 15
-)
-
-puts "composition added"
-greetings_composition = Composition.create!(
-  name: "Greetings 7",
-  memory_list: greetings_memory_list,
-  instrumental: everybody,
-  user: byron,
-  rep_count: 15
-)
-
-puts "composition added"
-
-
 
 # days_of_the_week_composition = Composition.create!(
 #   memory_list: "days of the week",

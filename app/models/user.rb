@@ -12,7 +12,6 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   def avg_scores
-
     return 0 unless compositions.count.positive?
     sum = 0
     counter = compositions.count;
