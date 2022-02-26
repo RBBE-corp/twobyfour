@@ -1,10 +1,53 @@
-<div class="playlists-card">
-  <% @playlists.each do |playlist| %>
-    <h2> <%= playlist.name %> </h2>
-    <%= link_to 'Playlist info', playlist_path(playlist) %>
-    <%= link_to  'Delete playlist', playlist_path(playlist), method: :delete %>
-  <% end %>
+
+<div class="playlists-wrapper">
+  <div class="container">
+
+  <%= button_tag 'Create new playlist', class: 'btn btn-primary',  data: {toggle: "modal", target: "#exampleModal"} %>
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" data-controller= "modal" data-modal-target="instance"
+ data-open-modal="<%= @playlist.errors.any?%>" id="exampleModal" tabindex="-1"
+  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Make your playlist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row d-flex justify-content-center">
+          <div class="col-4">
+          <%= simple_form_for(@playlist) do |f| %>
+          <%= f.input :name %>
+          <%= f.submit class: "btn btn-primary" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to 'Create new playlist', new_playlist_path, class: 'btn btn-primary' %>
-<%= link_to 'Back to profile', profile_path, class: 'btn btn-warning' %>
+    <div class="row">
+      <% @playlists.each do |playlist| %>
+      <div class="playlists-card">
+      <div class="image"><%= image_tag("playlist.png") %></div>
+      <div class="bottom-card">
+       <h2> <%= link_to playlist.name, playlist_path(playlist) %> </h2>
+        <%= link_to 'Delete playlist', playlist_path(playlist), method: :delete %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+</div>

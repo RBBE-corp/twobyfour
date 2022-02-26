@@ -2,14 +2,11 @@ class PlaylistsController < ApplicationController
   before_action :find_playlist, only: [:show, :edit, :update, :destroy]
 
   def index
+    @playlist = Playlist.new
     @playlists = Playlist.all
   end
 
   def show; end
-
-  def new
-    @playlist = Playlist.new
-  end
 
   def create
     @playlist = Playlist.new(playlist_params)
@@ -17,7 +14,8 @@ class PlaylistsController < ApplicationController
     if @playlist.save
       redirect_to playlists_path
     else
-      render :new
+      @playlists = Playlist.all
+      render :index
     end
   end
 
