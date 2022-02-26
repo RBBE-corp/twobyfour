@@ -223,49 +223,49 @@ black_kuro = Flashcard.create!(
 )
 
 white_shiro = Flashcard.create!(
-  english_word: "White",
+  english_word: "white",
   japanese_word: "shiro",
   category: "colors"
 )
 
 monday_getsu_youbi = Flashcard.create!(
-  english_word: "Monday",
+  english_word: "monday",
   japanese_word: "getsu_youbi",
   category: "days_of_the_week"
 )
 
 tuesday_ka_youbi = Flashcard.create!(
-  english_word: "Tuesday",
+  english_word: "tuesday",
   japanese_word: "ka_youbi",
   category: "days_of_the_week"
 )
 
 wednesday_sui_youbi = Flashcard.create!(
-  english_word: "Wednesday",
+  english_word: "wednesday",
   japanese_word: "sui_youbi",
   category: "days_of_the_week"
 )
 
 thursday_moku_youbi = Flashcard.create!(
-  english_word: "Thursday",
+  english_word: "thursday",
   japanese_word: "moku_youbi",
   category: "days_of_the_week"
 )
 
 friday_kin_youbi = Flashcard.create!(
-  english_word: "Friday",
+  english_word: "friday",
   japanese_word: "kin_youbi",
   category: "days_of_the_week"
 )
 
 saturday_do_youbi = Flashcard.create!(
-  english_word: "Saturday",
+  english_word: "saturday",
   japanese_word: "do_youbi",
   category: "days_of_the_week"
 )
 
 sunday_nichi_youbi = Flashcard.create!(
-  english_word: "Sunday",
+  english_word: "sunday",
   japanese_word: "nichi_youbi",
   category: "days_of_the_week"
 )
