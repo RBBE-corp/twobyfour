@@ -8,7 +8,6 @@ function pause(milliseconds) {
 export const playPause = (player) => {
   // retrieving audios and instrumental
   const subtitles = document.querySelector(".composition-subtitle-list");
-  console.log(subtitles);
   const instrumental = document.getElementById("instrumental");
   const sound = document.querySelectorAll(".audios");
   if (player.dataset.status == "paused") {
