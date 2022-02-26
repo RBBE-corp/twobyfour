@@ -158,12 +158,12 @@ excuse_me_sumimasen = Flashcard.create!(
 
 im_sorry_gomen_nasai = Flashcard.create!(
   english_word: "im_sorry",
-  japanese_word: "gomennasai",
+  japanese_word: "gomen_nasai",
   category: "greetings"
 )
 
 thank_you_arigatou_gozaimasu = Flashcard.create!(
-  english_word: "thankyou",
+  english_word: "thank_you",
   japanese_word: "arigatou_gozaimasu",
   category: "greetings"
 )

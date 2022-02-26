@@ -14,14 +14,14 @@
       </div>
       <div class="composition-subtitle">
         <ul class="composition-subtitle-list">
-          
+
         <% @composition.memory_list.flashcards.each do |flashcard| %>
-          
+
           <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= flashcard.english_word %></li>
           <li class="" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>"><%= flashcard.japanese_word %></li>
 
         <% end %>
-          
+
         </ul>
       </div>
     </div>
@@ -63,7 +63,7 @@
   </div>
   <div class="audio-mother-box">
     <audio>
-      <source src="<%= asset_path('instrumentals/inst_saigon_relafriendship.mp3') %>" type="audio/mpeg">
+      <source src="<%= asset_path("instrumentals/#{@composition.instrumental.title}.mp3") %>" type="audio/mpeg">
       <% @composition.memory_list.flashcards.each do |flashcard| %>
         <source id="<%="#{flashcard.english_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.english_word}.wav") %>" type="audio/mpeg">
         <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.japanese_word}.wav") %>" type="audio/mpeg">
@@ -71,4 +71,3 @@
     </audio>
   </div>
 </div>
-
