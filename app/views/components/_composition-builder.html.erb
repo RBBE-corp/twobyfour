@@ -3,7 +3,7 @@
   <h3>1. Name your memory list</h3>
   <%= simple_form_for(@memory_list) do |f| %>
     <%= f.input :name, label: "Memory list name" %>
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit "Create memory list", class: "btn btn-primary" %>
   </div>
 
     <h4>Available memory lists</h4>
@@ -13,6 +13,8 @@
       </div>
   <% end %>
 
+<%
+=begin %>
 <div class="add-flashcards">
   <h3>2. Add flashcards to your memory list</h3>
   <%= simple_form_for(@flashcard) do |f| %>
@@ -36,3 +38,5 @@
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>
+<%
+=end %>

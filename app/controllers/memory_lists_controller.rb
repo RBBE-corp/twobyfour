@@ -6,14 +6,18 @@ class MemoryListsController < ApplicationController
   end
 
   def new
+    @flashcard = Flashcard.new
+    @composition = Composition.new
     @memory_list = MemoryList.new
+    @memory_lists = MemoryList.all
   end
 
   def create
+    @memory_lists = MemoryList.all
     @memory_list = MemoryList.new(memory_list_params)
     @memory_list.user = current_user
     if @memory_list.save
-      redirect_to new_composition_path(@memory_list)
+      redirect_to memory_lists_path
       # redirect_to memory_list_path(@memory_list)
     else
       render :new
