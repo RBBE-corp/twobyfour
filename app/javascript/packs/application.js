@@ -21,18 +21,35 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import { filesPlayer } from '../components/files_player';
+import { playPause } from '../components/composition_player';
+import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+// document.addEventListener('turbolinks:load', () => {
+// }
+
+// filesPlayer();
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  const audio = document.querySelector('audio');
+
+  const audio = document.querySelector('.audio-mother-box');
   if ( audio ) {
     filesPlayer();
+    const player = document.querySelector('.player');  
+    player.addEventListener('click', (e) => {
+      playPause(player)
+    });
+    stopButtonClick();
   }
+    // check if the audio is playing
+
+  // if it is playing, stop it.
+
 
 });
 
