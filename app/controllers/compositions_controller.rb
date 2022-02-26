@@ -17,6 +17,7 @@ class CompositionsController < ApplicationController
   end
 
   def create
+    @instrumentals = Instrumental.all
     @composition = Composition.new(composition_params)
     @composition.user = current_user
     @composition.rep_count = 0
