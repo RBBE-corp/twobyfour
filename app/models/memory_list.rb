@@ -4,4 +4,8 @@ class MemoryList < ApplicationRecord
   has_many :memory_list_flashcards
   has_many :flashcards, through: :memory_list_flashcards
   validates :name, presence: true, uniqueness: true
+
+  def flashcards_not_in_memory_list
+    Flashcard.all.reject { |object| flashcards.pluck(:id).include?(object.id) }
+  end
 end

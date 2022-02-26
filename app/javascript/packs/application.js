@@ -25,8 +25,11 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { filesPlayer } from '../components/files_player';
+import { allowDrop, drag, drop } from '../components/draggable_card';
 
 // document.addEventListener('turbolinks:load', () => {
 // }
@@ -46,12 +49,14 @@ document.addEventListener('turbolinks:load', () => {
     });
     stopButtonClick();
   }
+
+  window.allowDrop = allowDrop
+  window.drag = drag
+  window.drop = drop
+  // window is a global object
     // check if the audio is playing
 
   // if it is playing, stop it.
-
-
 });
-
 
 import "controllers"
