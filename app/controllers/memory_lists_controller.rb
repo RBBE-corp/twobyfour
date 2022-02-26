@@ -13,7 +13,8 @@ class MemoryListsController < ApplicationController
     @memory_list = MemoryList.new(memory_list_params)
     @memory_list.user = current_user
     if @memory_list.save
-      redirect_to memory_list_path(@memory_list)
+      redirect_to new_composition_path(@memory_list)
+      # redirect_to memory_list_path(@memory_list)
     else
       render :new
     end

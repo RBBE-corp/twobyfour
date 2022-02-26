@@ -6,18 +6,22 @@ class FlashcardsController < ApplicationController
     @flashcards = Flashcard.all
   end
 
-  # def new
-  #   @flashcard = Flashcard.new
-  # end
+  def new
+    @flashcard = Flashcard.new
+  end
 
-  # def create
-  #   @flashcard = Flashcard.new(flashcard)
-  #   if @flashcard.save
-  #     redirect_to flashcard(@flashcard)
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @flashcard = Flashcard.new(flashcard)
+    # @flashcard.memory_list = MemoryList.find(params["flashcard"]["memory_list_ids"].last.to_i)
+    if @flashcard.save
+      memory_list = MemoryList.find(params["flashcard"]["memory_list_ids"].last.to_i)
+      MemoryListFlashcard.create!(flashcard: @flashcard, memory_list: memory_list)
+      # redirect_to flashcard(@flashcard)
+      redirect_to new_composition_path
+    # else
+    #   redirect_to new_composition_path(@flashcard)
+    end
+  end
 
   def show; end
 
@@ -31,15 +35,15 @@ class FlashcardsController < ApplicationController
   #   end
   # end
 
-  # def destroy
-  #   @flashcard.destroy
-  # end
+  def destroy
+    @flashcard.destroy
+  end
 
   private
 
-  # def flashcard
-  #   params.require(:flashcard).permit(:english_word, :japanese_word, :category)
-  # end
+  def flashcard
+    params.require(:flashcard).permit(:english_word, :japanese_word, :category)
+  end
 
   def find_flashcard
     @flashcard = Flashcard.find(params[:id])
