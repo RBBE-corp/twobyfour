@@ -23,14 +23,14 @@
                     <div class="flip-card-inner">
                       <div class="card-front">
                         <ul>
-                          <li class="list-group-item"><%= flashcard.english_word %></li>
-                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                          <li class="list-group-item"><%= underscore_remover(flashcard.english_word) %></li>
+                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
                         </ul >
                       </div>
                       <div class="card-back">
                         <ul>
-                          <li class="list-group-item"><%= flashcard.japanese_word %></li>
-                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                          <li class="list-group-item"><%= underscore_remover(flashcard.japanese_word) %></li>
+                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
                         </ul >
                       </div>
                     </div>
@@ -48,14 +48,14 @@
                     <div class="flip-card-inner">
                       <div class="card-front">
                         <ul>
-                          <li class="list-group-item"><%= flashcard.english_word %></li>
-                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                          <li class="list-group-item"><%= underscore_remover(flashcard.english_word) %></li>
+                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
                         </ul>
                       </div>
                       <div class="card-back">
                         <ul>
-                          <li class="list-group-item"><%= flashcard.japanese_word %></li>
-                          <li><strong>Category: </strong> <%= flashcard.category %></li>
+                          <li class="list-group-item"><%= underscore_remover(flashcard.japanese_word) %></li>
+                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
                         </ul>
                       </div>
                     <!--<%= render 'components/flashcard-add-form'  %>-->
