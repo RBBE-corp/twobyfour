@@ -27,6 +27,7 @@ import { filesPlayer } from '../components/files_player';
 import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
+import { savedCards } from '../components/draggable_card_save';
 
 // document.addEventListener('turbolinks:load', () => {
 // }
@@ -47,6 +48,14 @@ document.addEventListener('turbolinks:load', () => {
     stopButtonClick();
   }
 
+  const submitButton = document.querySelector('.submit-memory-list');
+  if (submitButton) {
+    console.log('inside submit button');
+    submitButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      savedCards();
+    });
+  }
   window.allowDrop = allowDrop
   window.drag = drag
   window.drop = drop

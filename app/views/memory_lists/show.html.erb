@@ -19,7 +19,7 @@
         <div class="flashcard-cards-holder flex-d justify-content-center" id="MemoryListFlashcardsBox" ondrop="drop(event)" ondragover="allowDrop(event)">
             <% if @memory_list.flashcards.present? %>
                 <% @memory_list.flashcards.each do |flashcard| %>
-                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>">
+                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
                     <div class="flip-card-inner">
                       <div class="card-front">
                         <ul>
@@ -44,7 +44,7 @@
           <h2 style="text-align:center;">All Flashcards</h2>
           <div class="flashcard-cards-holder flex-d justify-content-center" id="AllFlashcardsBox" ondrop="drop(event)" ondragover="allowDrop(event)">
               <% @flashcards_not_selected.each do |flashcard| %>
-                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>">
+                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
                     <div class="flip-card-inner">
                       <div class="card-front">
                         <ul>
@@ -68,6 +68,9 @@
 </div>
 
 <div style="text-align:center;">
+  <%= simple_form_for @memory_list, html: { class: "memory-list-form"}  do |f| %>
+    <%= f.submit 'submit', class: "submit-memory-list"  %>
+  <% end %>
   <p class="link-button m-3" ><%= link_to "Delete #{@memory_list.name} Memory List",
           memory_list_path(@memory_list),
           method: :delete,
