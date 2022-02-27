@@ -41,12 +41,57 @@ class MemoryListsController < ApplicationController
 
   def edit; end
 
-  def update
-    if @memory_list.update(memory_list_params)
-      redirect_to memory_list_path(@memory_list), notice: "Memory list created!"
+  # def update
+  #   # raise
+  #   if @memory_list.update(memory_list_params)
+  #     redirect_to memory_list_path(@memory_list), notice: "Memory list created!"
+  #   else
+  #     render :edit
+  #   end
+  # end
+
+   def update
+    # raise
+    puts params
+    if params["FlashcardID"].present?
+      flashcard_sorting
     else
-      render :edit
+      if @memory_list.update(memory_list_params)
+        redirect_to memory_list_path(@memory_list), notice: "Memory list created!"
+      else
+        render :edit
+      end
     end
+  end
+
+  def flashcard_sorting
+    arr = JSON.parse(params["FlashcardID"])
+    puts arr.first.to_i.class
+    new_arr = [];
+    # taking the array and changing the string to integer
+    arr.each { |string| new_arr << string.to_i}
+    puts new_arr.first.class
+    puts "not working"
+    # creating all the ids of the flashcards - not required? default rails convention?
+    flashcard = @memory_list.flashcard_ids
+    new_arr.each do |new_id|
+      unless flashcard.include? new_id
+        MemoryListFlashcard.create(
+          memory_list: @memory_list,
+          flashcard: Flashcard.find(new_id)
+        )
+      end
+    end
+    removed_flashcards = (flashcard - new_arr)
+    puts "----------------------------------------------"
+    puts "removed flashcards - #{removed_flashcards}"
+    removed_flashcards.each do |removed_flashcard|
+      # MemoryListFlashcard.where(memory_list: @memory_list).where(flashcard: Flashcard.find(removed_flashcard))
+      memory_list_flashcard = MemoryListFlashcard.where(["memory_list_id = ?  AND flashcard_id = ?", @memory_list.id, removed_flashcard])
+      puts memory_list_flashcard.first.id
+      memory_list_flashcard.first.destroy
+    end
+    # ball.destroy
   end
 
   def destroy
