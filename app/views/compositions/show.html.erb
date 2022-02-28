@@ -7,7 +7,7 @@
         </div>
         <div>
           <p>composition: <%= @composition.name %></p>
-          <p>instrumental: <%= @composition.instrumental.title %></p>
+          <p>instrumental: <%= underscore_remover(@composition.instrumental.title) %></p>
           <p><strong>Memorylist:</strong> <%= @composition.memory_list.name %></p>
 
         </div>
@@ -17,8 +17,8 @@
 
         <% @composition.memory_list.flashcards.each do |flashcard| %>
 
-          <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= flashcard.english_word %></li>
-          <li class="" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>"><%= flashcard.japanese_word %></li>
+          <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.english_word) %></li>
+          <li class="" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.japanese_word) %></li>
 
         <% end %>
 
