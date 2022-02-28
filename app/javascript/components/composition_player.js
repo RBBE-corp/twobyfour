@@ -1,4 +1,4 @@
-
+import {startOver} from '../components/composition_stop_player'
 // pause for js since it doesnot have ruby equivalent of sleep. and I don't know how to create white sound of specific length;
 function pause(milliseconds) {
   var dt = new Date();
@@ -28,9 +28,14 @@ export const playPause = (player) => {
       audio.onended = function () {
         if (index < sound.length-1 ) {
           index++;
-        } else if (index == sound.length - 1) {
+        } else if ((index == sound.length - 1) && loop.checked) {
           index = 0;
-        };
+          // subtitles.scrollLeft = document.getElementById(`${sound[0].dataset.id}`).offsetLeft;
+          // console.log(audio.offsetLeft);
+        } else {
+          startOver(instrumental, player, subtitles, sound[0].dataset.id);
+          return;
+        }
         subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
         instrumental.dataset.order = index;
         pause(1316);
