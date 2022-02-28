@@ -31,6 +31,7 @@
           <button class="stop-player mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
           <button class='player mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
         </div>
+        
         <div class="range-slider" data-controller="range-slider">
           <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
           <%# hello %>
@@ -47,6 +48,14 @@
                   data-range-slider-target= "play"></output> %>
         </div>
 
+      </div>
+      <div class="loop-box">
+        <span>loop </span>
+        
+        <label class="switch">
+          <input type="checkbox" id="loop-checker">
+          <span class="slider round"></span>
+        </label>
       </div>
       <div class="rep-counter">
         <p>reps</p>
@@ -71,3 +80,9 @@
     </audio>
   </div>
 </div>
+<script>
+  const loop = document.querySelector("#loop-checker");
+  loop.addEventListener("click", (event) => {
+    console.log(event.currentTarget);
+  });
+</script>
