@@ -17,14 +17,40 @@
     <input type="hidden" id="result" name="result" />
     <button id="submit">submit</button>
 </form>
-<%
-=end %>
 
-
-  <ul id ='memory-list-items'>
+<ul id ='memory-list-items'>
     <% @memory_lists.each do |memorylist| %>
     <li style="list-style:none">
       <div class="list-group-item"><%= memorylist.name %></div>
     </li>
 <% end %>
   </ul>
+
+<%
+=end %>
+
+  <div id="shared-lists" class="row">
+
+		<h4 class="col-20">Shared lists</h4>
+
+      <h5>Memory List</h5>
+			<div id="example2-left" class="list-group col">
+      <% @memory_lists.each do |memorylist| %>
+			  <div class="list-group-item"><%= memorylist.name %></div>
+      <% end %>
+			</div>
+
+        <h5>Instrumentals</h5>
+			<div id="example2-middle" class="list-group col">
+        <% @instrumentals.each do |instrumental| %>
+				<div class="list-group-item"><%= instrumental.title %></div>
+        <% end %>
+			</div>
+
+        <h5>Composition Create Form</h5>
+      <div id="example2-right" class="list-group col">
+				<%# <%# <div class="list-group-item tinted">Sample 1</div> %>
+				<div class="list-group-item tinted">Sample 2</div>
+			</div>
+</div>
+	<%# <div style="padding: 0" class="col-12"> %>
