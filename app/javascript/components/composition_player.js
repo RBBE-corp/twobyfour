@@ -5,6 +5,7 @@ function pause(milliseconds) {
   while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
 }
 
+let counter = 0;
 export const playPause = (player) => {
   // retrieving audios and instrumental
   const subtitles = document.querySelector(".composition-subtitle-list");
@@ -30,10 +31,25 @@ export const playPause = (player) => {
           index++;
         } else if ((index == sound.length - 1) && loop.checked) {
           index = 0;
+          counter++;
+          const url = window.location.pathname
+          const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+          fetch(`${url}/addrep`, {
+                method: 'PATCH',
+                headers: {'X-CSRF-Token': csrfToken},
+                })
+          console.log("fetch thing")
           // subtitles.scrollLeft = document.getElementById(`${sound[0].dataset.id}`).offsetLeft;
           // console.log(audio.offsetLeft);
         } else {
           startOver(instrumental, player, subtitles, sound[0].dataset.id);
+          const url = window.location.pathname
+          const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+          fetch(`${url}/addrep`, {
+                method: 'PATCH',
+                headers: {'X-CSRF-Token': csrfToken},
+                })
+          console.log("fetch thing")
           return;
         }
         subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;

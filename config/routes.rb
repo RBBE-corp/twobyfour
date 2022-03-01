@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/profile', to: "users#profile"
+  patch 'compositions/:id/addrep', to: "compositions#addrep"
+
 
   resources :playlists, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :playlist_compositions, only: [:new, :create]
