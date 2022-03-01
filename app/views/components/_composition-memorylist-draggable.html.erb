@@ -3,70 +3,22 @@
 
 <p>This is _composition-memorylist-draggable</p>
 
-<%#
-<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script> %>
 
-<%
-=begin %>
-<form action="" method="post">
-  <% @memory_lists.each do |memorylist| %>
-    <ul class="sortable" style="list-style:none">
-      <li id="<?=$i?>"><%= memorylist.name %></li>
-    </ul>
-  <% end %>
-    <input type="hidden" id="result" name="result" />
-    <button id="submit">submit</button>
-</form>
-
-<ul id ='memory-list-items'>
-    <% @memory_lists.each do |memorylist| %>
-    <li style="list-style:none">
-      <div class="list-group-item"><%= memorylist.name %></div>
-    </li>
-<% end %>
-  </ul>
-
-<%
-=end %>
-
-<form action="/compositions" method="post">
-  <div id="shared-lists" class="row">
-
-		<h4 class="col-20">Shared lists</h4>
-
-      <h5>Memory List</h5>
-			<div id="example2-left" class="list-group col">
-      <% @memory_lists.each do |memorylist| %>
-			  <div class="list-group-item"><%= memorylist.name %></div>
-      <% end %>
-			</div>
-
-        <h5>Instrumentals</h5>
-			<div id="example2-middle" class="list-group col">
-        <% @instrumentals.each do |instrumental| %>
-				<div class="list-group-item"><%= instrumental.title %></div>
-        <% end %>
-			</div>
-
-        <h5>Composition Create Form</h5>
-      <div id="example2-right" class="list-group col">
-				<%# <%# <div class="list-group-item tinted">Sample 1</div> %>
-				<div class="list-group-item tinted">Sample 2</div>
-			</div>
-</div>
-    <input type="hidden" id="result" name="result" />
-    <button id="submit">Create a composition</button>
-
-</form>
-
+  <p>Memorylists</p>
   <div id="A" class="list-group">
-    <div id= "1" class="list-group-item">foo</div>
-    <div id= "2" class="list-group-item">bar</div>
-    <div id= "3" class="list-group-item">baz</div>
-    <div id= "4" class="list-group-item">qux</div>
+     <% @memory_lists.each do |memorylist| %>
+    <div id="<%= memorylist.id %>" class="list-group-item"><%= memorylist.name %></div>
+    <% end %>
   </div>
 
-
+  <p>Instrumentals</p>
   <div id="B" class="list-group">
-    <div class="list-group-item">quux</div>
+     <% @instrumentals.each do |instrumental| %>
+    <div id="<%= instrumental.id %>" class="list-group-item"><%= instrumental.title %></div>
+    <% end %>
+  </div>
+
+  <p>Composition Builder</p>
+  <div id="C" class="list-group">
+    <div id="1" class="list-group-item">Something here</div>
   </div>
