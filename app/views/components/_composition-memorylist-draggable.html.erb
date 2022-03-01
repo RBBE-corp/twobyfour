@@ -29,6 +29,7 @@
 <%
 =end %>
 
+<form action="/compositions" method="post">
   <div id="shared-lists" class="row">
 
 		<h4 class="col-20">Shared lists</h4>
@@ -53,4 +54,7 @@
 				<div class="list-group-item tinted">Sample 2</div>
 			</div>
 </div>
-	<%# <div style="padding: 0" class="col-12"> %>
+    <input type="hidden" id="result" name="result" />
+    <button id="submit">Create a composition</button>
+
+</form>
