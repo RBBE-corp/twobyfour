@@ -1,9 +1,20 @@
 <%= simple_form_for(@composition) do |f| %>
   <%= f.input :name, label: "Composition name" %>
-  <%= f.input :memory_list_id %>
-  <%= f.input :instrumental_id %>
-  <%= f.submit class: "btn btn-primary" %>
+
+    <%# id="composition_memory_list_id" %>
+    <%= f.input :memory_list_id %>
+    <%# id="composition_instrumental_id" %>
+    <%= f.input :instrumental_id %>
+  <div id="insert"><%= f.submit class: "btn btn-primary" %></div>
 <% end %>
+
+
+<%# <button id="insert">Insert HTML</button>
+<button id="reset">Reset</button> %>
+
+<p>Some text, with a <code id="subject">code-formatted element</code> inside it.</p>
+
+
 
 <%
 =begin %>
@@ -15,3 +26,5 @@
 <% end %>
 <%
 =end %>
+
+<%# documentation: https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML %>
