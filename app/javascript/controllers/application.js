@@ -25,6 +25,7 @@ import Sortable from 'sortablejs';
 var A = document.getElementById('A')
 var B = document.getElementById('B')
 var C = document.getElementById('C')
+var D = document.getElementById('D')
 
 new Sortable.create(A, {
   swap: true,
@@ -79,7 +80,28 @@ new Sortable.create(C, {
   sort: true,
   onEnd: function (evt) {
     console.log([
-      evt.item.id,  // dragged HTMLElement
+      // evt.item.id,  // dragged HTMLElement
+      //       evt.to,    // target list
+      //       evt.from,  // previous list
+      //       evt.oldIndex,  // element's old index within old parent
+      //       evt.newIndex,  // element's new index within new parent
+      //       evt.oldDraggableIndex, // element's old index within old parent, only counting draggable elements
+      //       evt.newDraggableIndex, // element's new index within new parent, only counting draggable elements
+      //       evt.clone, // the clone element
+      //       evt.pullMode
+    ]);
+  }
+});
+
+new Sortable.create(D, {
+  swap: true,
+  group: {
+    name: "shared",
+  },
+  sort: true,
+  onEnd: function (evt) {
+    console.log([
+      // evt.item.id,  // dragged HTMLElement
       //       evt.to,    // target list
       //       evt.from,  // previous list
       //       evt.oldIndex,  // element's old index within old parent

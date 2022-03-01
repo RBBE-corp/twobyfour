@@ -1,6 +1,17 @@
 <%= simple_form_for(@composition) do |f| %>
   <%= f.input :name, label: "Composition name" %>
+  <%= f.input :memory_list_id %>
+  <%= f.input :instrumental_id %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+<%
+=begin %>
+<%= simple_form_for(@composition) do |f| %>
+  <%= f.input :name, label: "Composition name" %>
   <%= f.association :memory_list %>
   <%= f.association :instrumental, :label_method => lambda { |instrumental| "#{underscore_remover(instrumental.title)}"}  %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
+<%
+=end %>

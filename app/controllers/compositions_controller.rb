@@ -17,6 +17,7 @@ class CompositionsController < ApplicationController
   end
 
   def create
+    @memory_lists = MemoryList.all
     @instrumentals = Instrumental.all
     @composition = Composition.new(composition_params)
     @composition.user = current_user
