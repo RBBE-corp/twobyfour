@@ -50,8 +50,7 @@ class MemoryListsController < ApplicationController
   #   end
   # end
 
-   def update
-    # raise
+  def update
     puts params
     if params["FlashcardID"].present?
       flashcard_sorting
