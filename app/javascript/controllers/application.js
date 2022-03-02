@@ -115,10 +115,20 @@ new Sortable.create(D, {
   }
 });
 
+// Query Selector for Simple Form For //
+// Now we need to set two boxes that will catch the ids and "insert value" on drop //
+
+const insert = document.querySelector('#insert');
+insert.addEventListener('click', () => {
+  console.log("is working");
+  var memorylistinput = document.getElementById('composition_memory_list_id')
+  memorylistinput.value = '3';
+})
+
 
 // const insert = document.querySelector('#insert');
 // insert.addEventListener('click', () => {
-//   // subject is what gets inserted, so it needs to be the memorylist_id
+  //   // subject is what gets inserted, so it needs to be the memorylist_id
 //   const subject = document.querySelector('#subject');
 //   const positionSelect = document.querySelector('#position');
 //   subject.insertAdjacentHTML(positionSelect.value, '<strong>inserted text</strong>');
@@ -129,26 +139,7 @@ new Sortable.create(D, {
 //   document.location.reload();
 // });
 
-
-
-
-// const insert = document.querySelector('#insert');
-// insert.addEventListener('click', () => {
-//   // subject is what gets inserted, so it needs to be the memorylist_id
-//   const subject = document.querySelector('#subject');
-//   const positionSelect = document.querySelector('#composition_memory_list_id');
-//   subject.insertAdjacentHTML(positionSelect.value, '1');
-// });
-
 // const reset = document.querySelector('#reset');
 // reset.addEventListener('click', () => {
 //   document.location.reload();
 // });
-
-const insert = document.querySelector('#insert');
-insert.addEventListener('click', () => {
-  console.log("is working");
-  // var memorylistinput = document.querySelector('#composition_memory_list_id').value;
-  var memorylistinput = document.getElementById('composition_memory_list_id')
-  memorylistinput.value = '1';
-})
