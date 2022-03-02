@@ -117,6 +117,15 @@ new Sortable.create(D, {
 
 // Query Selector for Simple Form For //
 // Now we need to set two boxes that will catch the ids and "insert value" on drop //
+// Catcher list should only accept one sortable element
+// Memorylist sortable list and its catcher should be shared list 1 => output to simple form query
+// Instrumentals sortable list and its catcher should be shared list 2 => output to simple form query
+
+
+
+// The #insert should be div for catcher //
+// Use the drop event to triger the selector for id:
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/drop_event
 
 const insert = document.querySelector('#insert');
 insert.addEventListener('click', () => {
@@ -125,6 +134,12 @@ insert.addEventListener('click', () => {
   memorylistinput.value = '3';
 })
 
+const instrumental = document.querySelector('#insert');
+insert.addEventListener('click',() => {
+  console.log("instrumental insert is working")
+  var instrumentalinput = document.getElementById('composition_instrumental_id')
+  instrumentalinput.value = '500';
+})
 
 // const insert = document.querySelector('#insert');
 // insert.addEventListener('click', () => {
