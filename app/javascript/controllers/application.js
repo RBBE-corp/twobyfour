@@ -130,15 +130,25 @@ new Sortable.create(D, {
 // });
 
 
+
+
 // const insert = document.querySelector('#insert');
 // insert.addEventListener('click', () => {
 //   // subject is what gets inserted, so it needs to be the memorylist_id
 //   const subject = document.querySelector('#subject');
 //   const positionSelect = document.querySelector('#composition_memory_list_id');
-//   subject.insertAdjacentHTML(positionSelect.value, '<strong>inserted text</strong>');
+//   subject.insertAdjacentHTML(positionSelect.value, '1');
 // });
 
 // const reset = document.querySelector('#reset');
 // reset.addEventListener('click', () => {
 //   document.location.reload();
 // });
+
+const insert = document.querySelector('#insert');
+insert.addEventListener('click', () => {
+  console.log("is working");
+  // var memorylistinput = document.querySelector('#composition_memory_list_id').value;
+  var memorylistinput = document.getElementById('composition_memory_list_id')
+  memorylistinput.value = '1';
+})
