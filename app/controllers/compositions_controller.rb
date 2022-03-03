@@ -47,6 +47,10 @@ class CompositionsController < ApplicationController
     redirect_to compositions_path, notice: "Composition deleted!"
   end
 
+  def karaoke
+    @composition = Composition.last
+  end
+
   private
 
   def composition_params

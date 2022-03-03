@@ -1,0 +1,252 @@
+<div class="container pt-5">
+  <div class="composition-show-box">
+    <div class="composition-show-info">
+      <div class="composition-card-info">
+        <div class="png-playlist-count">
+          <%= image_tag 'playlist.png', width: "100px",alt: "playlist icon"%>
+        </div>
+        <div>
+          <p>composition: <%= @composition.name %></p>
+          <p>instrumental: <%= underscore_remover(@composition.instrumental.title) %></p>
+          <p><strong>Memorylist:</strong> <%= @composition.memory_list.name %></p>
+
+        </div>
+      </div>
+      <div class="composition-subtitle">
+        <ul class="composition-subtitle-list">
+
+        <% @composition.memory_list.flashcards.each do |flashcard| %>
+
+          <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.english_word) %></li>
+          <li class="" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.japanese_word) %></li>
+
+        <% end %>
+
+        </ul>
+      </div>
+    </div>
+    <div class="composition-show-joystick">
+      <div class="audio-controllers">
+        <div class="play-pause-stop">
+          <button class="pause mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
+          <button class='recorder mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
+        </div>
+        
+        <div class="range-slider" data-controller="range-slider">
+          <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
+          <%# hello %>
+          <input type="range"
+                name="customRange"
+                class="range-slider__range inline"
+                data-range-slider-target="range"
+                data-action="input->range-slider#updateValue"
+                value="0.5"
+                min="0"
+                max="1"
+                step="0.00000001">
+          <%# <output class="range-slider__value"
+                  data-range-slider-target= "play"></output> %>
+        </div>
+
+      </div>
+      <div class="loop-box">
+        <span>loop </span>
+        
+        <label class="switch">
+          <input type="checkbox" id="loop-checker">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="rep-counter">
+        <p>reps</p>
+        <strong>
+          <%= @composition.rep_count %>
+        </strong>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto mt-3" style="text-align:center;">
+    <%= link_to "Edit composition", edit_composition_path(@composition), class: 'btn  btn-sm btn-warning' %>
+    <%= link_to "Delete composition", composition_path(@composition), method: :delete, class: 'btn  btn-sm btn-danger' %>
+    <%= link_to "Back to My Compositions", compositions_path, class: 'btn  btn-sm btn-secondary' %>
+  </div>
+  <div class="audio-karoke-box">
+    <audio>
+      <source src="<%= asset_path("instrumentals/#{@composition.instrumental.title}.mp3") %>" type="audio/mpeg">
+      <% @composition.memory_list.flashcards.each do |flashcard| %>
+        <source id="<%="#{flashcard.english_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.english_word}.wav") %>" type="audio/mpeg">
+        <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.japanese_word}.wav") %>" type="audio/mpeg">
+      <% end %>
+    </audio>
+  </div>
+</div>
+<script>
+  filesPlayer();
+  function pause(milliseconds) {
+    var dt = new Date();
+    while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
+  }
+
+  const pauseBtn = document.querySelector('.pause');
+  const recorder = document.querySelector('.recorder');
+  recorder.addEventListener('click', () => {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+  .then(stream => {
+    // const mediaRecorder = new MediaRecorder(stream);
+    // mediaRecorder.start();
+
+    // const resume = document.querySelector('.resume');
+    // document.addEventListener('click', (e)=> {
+    //   console.log(e.currentTarget.textContent)
+    // mediaRecorder.resume();
+    // })
+
+    // pauseBtn.addEventListener('click', () => {
+    //   console.log("inside pause")
+    //   if(mediaRecorder.state == "recording") {
+    //     console.log("recording -> pause")
+    //     mediaRecorder.pause();
+    //     // recording paused
+    //   } else if(mediaRecorder.state == "paused") {
+    //     console.log("pause -> resume")
+    //     mediaRecorder.resume();
+    //     // resume recording
+    //   }
+    // });
+
+    // const recorder = document.querySelector(.recorder');
+
+
+    // const audioChunks = [];
+    // mediaRecorder.addEventListener("dataavailable", event => {
+    //   audioChunks.push(event.data);
+    // });
+
+    // mediaRecorder.addEventListener("stop", () => {
+    //   const audioBlob = new Blob(audioChunks, { 
+    //     'type': 'audio/mp3' 
+    //   });
+    //   const audioUrl = URL.createObjectURL(audioBlob);
+    //   // const audio = new Audio(audioUrl);
+    //   const audio = document.createElement('audio');
+    //   audio.src = audioUrl
+    //   audio.controls = true;
+    //   // resume.innerHTML += audio
+    //   document.body.appendChild(audio);
+    //   console.log("audioBlob " + audioBlob)
+    //   console.log("audioUrl " + audioUrl)
+    //   console.log("audio " + audio)
+    //   audio.play();
+    // });
+
+    const subtitles = document.querySelector(".composition-subtitle-list");
+    const instrumental = document.getElementById("instrumental");
+    const sound = document.querySelectorAll(".audios");
+    const mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.addEventListener("stop", () => {
+      const audioBlob = new Blob(audioChunks);
+      const audioUrl = URL.createObjectURL(audioBlob);
+      // const audio = new Audio(audioUrl);
+      const audio = document.createElement('audio');
+      audio.src = audioUrl
+      audio.controls = true;
+      // resume.innerHTML += audio
+      document.body.appendChild(audio);
+      console.log("audioBlob " + audioBlob)
+      console.log("audioUrl " + audioUrl)
+      console.log("audio " + audio)
+      audio.play();
+    });
+
+    const audioChunks = [];
+    mediaRecorder.addEventListener("dataavailable", event => {
+      audioChunks.push(event.data);
+    });
+
+      instrumental.play();
+      let index = parseInt(instrumental.dataset.order);
+      const audioPlayer = (index) => {
+        let audio = sound[index];
+        if ((mediaRecorder.state == "paused") && (index % 2 == 1)) {
+          // audio.volume = 0;
+          mediaRecorder.resume();
+        } else if (index == 1) {
+          mediaRecorder.start();  
+        } else if ((mediaRecorder.state == "recording") && (index % 2 == 0)) {
+          // audio.volume = .8;
+          mediaRecorder.pause();
+        }
+        console.log(audio.offsetLeft)
+        subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
+        // location.href = `#${audio.dataset.id}`;
+        audio.play();
+        audio.onended = function () {
+          if (index < sound.length-1 ) {
+            index++;
+          } else if (index == sound.length - 1) {
+            instrumental.loop = false;
+            instrumental.pause();
+            mediaRecorder.stop();
+            return
+
+          }
+          subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
+          instrumental.dataset.order = index;
+          pause(1316);
+          audioPlayer(index)
+        };
+      };
+      audioPlayer(index)
+  });
+  })
+
+
+
+
+
+  const playPause = (player) => {
+  // retrieving audios and instrumental
+
+
+  }
+
+  function filesPlayer() {
+    const audio = document.querySelector('audio');
+    const children = audio.children;
+    const sound = [];
+    const audioBox = document.createElement('div');
+    audioBox.classList.add("audio-box");
+  
+    const instrumental = new Audio();
+    instrumental.loop = true;
+    instrumental.id = "instrumental";
+    instrumental.dataset.order = 0;
+    //changes the instrumental in the wineow only
+    window.current_audio = instrumental;
+
+    // creating instrumental from first source
+    let srcl = document.createElement('source');
+    srcl.type = children[0].type;
+    srcl.src = children[0].src;
+    instrumental.appendChild(srcl);
+    // instrumental appended to audioBox
+    audioBox.appendChild(instrumental);
+    // creating all audio file except instrumental
+    for (let i = 1; i < children.length; i++) {
+      sound[i - 1] = new Audio();
+      let srcl = document.createElement('source');
+      srcl.type = children[i].type;
+      srcl.src = children[i].src
+      sound[i - 1].appendChild(srcl);
+      sound[i - 1].dataset.id = children[i].id; 
+      sound[i - 1].classList.add('audios');
+      // audios appended to audioBox
+      audioBox.appendChild(sound[i - 1]);
+    }
+    // finding motherBox (initial audio location)
+    const motherBox = document.querySelector('.audio-karoke-box');
+    // Clearing motherBox and appending new audio
+    motherBox.textContent = "";
+    motherBox.appendChild(audioBox);
+  }
+</script>

@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   end
   resources :memory_list_flashcards, only: [:destroy]
   resources :flashcards, only: [:index, :show, :create, :destroy]
+  get '/karaoke', to: "compositions#karaoke"
 end
