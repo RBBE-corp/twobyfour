@@ -29,6 +29,8 @@ var D = document.getElementById('D') //Instrumentals Catcher
  // A + C memorylist-shared
  // B + D instrumental-shared
 
+
+// Memorylist //
 new Sortable.create(A, {
   swap: true,
   group: {
@@ -50,7 +52,7 @@ new Sortable.create(A, {
   }
 });
 
-
+// Instrumentals //
 new Sortable.create(B, {
   swap: true,
   group: {
@@ -73,7 +75,7 @@ new Sortable.create(B, {
 });
 
 
-
+// Memorylist Catcher //
 new Sortable.create(C, {
   swap: true,
   group: {
@@ -96,6 +98,7 @@ new Sortable.create(C, {
   }
 });
 
+// Instrumentals Catcher //
 new Sortable.create(D, {
   swap: true,
   group: {
