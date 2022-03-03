@@ -46,7 +46,7 @@ export const playPause = (player) => {
                      repCounter.innerHTML= data;
                      }
                  })
-          console.log("fetch thing")
+          // console.log("fetch thing")
           // subtitles.scrollLeft = document.getElementById(`${sound[0].dataset.id}`).offsetLeft;
           // console.log(audio.offsetLeft);
         } else {
@@ -65,7 +65,7 @@ export const playPause = (player) => {
                      repCounter.innerHTML= data;
                      }
                  })
-          console.log("fetch thing")
+          // console.log("fetch thing")
           return;
         }
         subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
