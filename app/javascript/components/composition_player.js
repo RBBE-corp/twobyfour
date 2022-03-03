@@ -59,7 +59,7 @@ export const playPause = (player) => {
                 headers: {'X-CSRF-Token': csrfToken},
                 }).then(response => response.json())
                    .then((data) => {
-                    let repCounter = document.querySelector("#rep-count-id")
+                    const repCounter = document.querySelector("#rep-count-id")
                      console.log(repCounter.innerHTML)
                      if (repCounter) {
                      repCounter.innerHTML= data;
