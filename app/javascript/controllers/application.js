@@ -22,15 +22,17 @@ import Sortable from 'sortablejs';
 // var el = document.getElementById('memory-list-items');
 // var sortable = Sortable.create(el);
 
-var A = document.getElementById('A')
-var B = document.getElementById('B')
-var C = document.getElementById('C')
-var D = document.getElementById('D')
+var A = document.getElementById('A') //Memorylist
+var B = document.getElementById('B') //Instrumentals
+var C = document.getElementById('C') //Memorylist Catcher
+var D = document.getElementById('D') //Instrumentals Catcher
+ // A + C memorylist-shared
+ // B + D instrumental-shared
 
 new Sortable.create(A, {
   swap: true,
   group: {
-    name: "shared",
+    name: "memorylist-shared",
   },
   sort: true,
   onEnd: function (evt) {
@@ -52,7 +54,7 @@ new Sortable.create(A, {
 new Sortable.create(B, {
   swap: true,
   group: {
-    name: "shared",
+    name: "instrumental-shared",
   },
   sort: true,
   onEnd: function (evt) {
@@ -75,7 +77,7 @@ new Sortable.create(B, {
 new Sortable.create(C, {
   swap: true,
   group: {
-    name: "shared",
+    name: "memorylist-shared",
   },
   sort: true,
   onEnd: function (evt) {
@@ -97,7 +99,7 @@ new Sortable.create(C, {
 new Sortable.create(D, {
   swap: true,
   group: {
-    name: "shared",
+    name: "instrumental-shared",
   },
   sort: true,
   onEnd: function (evt) {
