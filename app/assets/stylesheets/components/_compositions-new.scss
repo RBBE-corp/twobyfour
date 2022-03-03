@@ -372,13 +372,41 @@
 
     .hidden {
       visibility: hidden;
+      margin: -50px;
+      padding: 0px;
     }
 
     .submit-button {
       border-radius: 16px;
       width: 260px;
       height: 86px;
-      background-color: #00C9FF;
+      background-color: #d3d3d3;
+      font-size: large;
+    }
+
+    .submit-button:hover {
+         background: linear-gradient(270deg, #32fdc9, #3287fd, #ea9dfb, #fbbb9d, #896df7, #c4c4c4, #ff2323, #dfdfdf, #f295e6, #95c503, #95c503, #00f2ff, #00f2ff);
+          background-size: 2600% 2600%;
+
+          -webkit-animation: AnimationName 12s ease infinite;
+          -moz-animation: AnimationName 12s ease infinite;
+          animation: AnimationName 12s ease infinite;
+      }
+
+      @-webkit-keyframes AnimationName {
+          0%{background-position:0% 99%}
+          50%{background-position:100% 2%}
+          100%{background-position:0% 99%}
+      }
+      @-moz-keyframes AnimationName {
+          0%{background-position:0% 99%}
+          50%{background-position:100% 2%}
+          100%{background-position:0% 99%}
+      }
+      @keyframes AnimationName {
+          0%{background-position:0% 99%}
+          50%{background-position:100% 2%}
+          100%{background-position:0% 99%}
     }
 
     .button-container {
@@ -387,3 +415,20 @@
       justify-content: center;
       padding: 16px;
     }
+
+
+.input-container {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.composition-name {
+  border-radius: 8px;
+  width: 400px;
+  color: black;
+  background-color: rgb(221, 221, 221);
+  box-shadow: 1px 1px 3px 3px#3b3b3b55;
+  padding: 16px;
+}

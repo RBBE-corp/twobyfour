@@ -19,7 +19,10 @@
 <div class="catcher-master-container">
 
 <%= simple_form_for(@composition) do |f| %>
-  <%= f.input :name, label: "Composition name" %>
+
+  <div class="input-container">
+  <div class="composition-name"><%= f.input :name, label: "Composition name" %></div>
+  </div>
     <%# id="composition_memory_list_id" %>
     <div class="hidden"><%= f.input :memory_list_id, error: 'You need to drag and drop a memory list' %></div>
     <%# id="composition_instrumental_id" %>
