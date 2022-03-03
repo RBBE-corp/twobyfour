@@ -1,5 +1,5 @@
 class CompositionsController < ApplicationController
-  before_action :find_composition, only: [:show, :edit, :update, :destroy]
+  before_action :find_composition, only: [:show, :edit, :update, :destroy, :addrep]
 
   def index
     @compositions = Composition.all
@@ -45,6 +45,13 @@ class CompositionsController < ApplicationController
   def destroy
     @composition.destroy
     redirect_to compositions_path, notice: "Composition deleted!"
+  end
+
+  def addrep
+    @composition.increment!(:rep_count)
+    respond_to do |format|
+      format.json { render json: @composition.rep_count }
+    end
   end
 
   private
