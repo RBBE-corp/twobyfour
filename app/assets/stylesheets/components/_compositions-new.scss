@@ -11,12 +11,23 @@
     padding: 20px;
     border-radius: 8px;
 
+     .spinning {
+       background-color: #a2a6a7;
+       padding: 16px;
+       margin: 8px;
+       border-radius: 16px;
+     }
+     .spinning:hover {
+       background-color: #eeff00;
+     }
+
+
     .playlist-card {
       margin-top: 8px;
       margin-bottom: 8px;
       word-break: break-all;
       width: 180px;
-      height: 220px;
+      height: auto;
       background-color: rgb(221, 221, 221);
       display: flex;
       border-radius: 16px;
@@ -43,9 +54,34 @@
   flex-direction: row;
   justify-content: center;
   width: auto;
-  // justify-content: space-around;
-  // gap: 10px 20px;
-}
+
+  // Shifting gradient //
+  // https://www.gradient-animator.com/ //
+
+    background: linear-gradient(270deg, #32fdc9, #3287fd, #ea9dfb, #fbbb9d, #896df7, #c4c4c4);
+    background-size: 1200% 1200%;
+
+        -webkit-animation: AnimationName 50s ease infinite;
+        -moz-animation: AnimationName 50s ease infinite;
+        animation: AnimationName 50s ease infinite;
+    }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+
 
 .speed-track-container {
   border-radius: 8px;
@@ -148,17 +184,31 @@
 
 
   //////Sortables/////
-  .catcher-container {
+  .memorylist-catcher-container {
+  align-items: center;
+  color: rgb(0, 0, 0);
   border-radius: 8px;
   margin: 20px;
-  width: 400px;
+  width: 500px;
   height: 200px;
   padding: 8px;
-  background-color: rgba(96, 97, 97, 0.959);
+  background-color: rgba(211, 211, 211, 0.959);
+  box-shadow: 1px 1px 9px 3px#c7c7c7;
+}
+
+  .instrumental-catcher-container {
+  color: black;
+  border-radius: 8px;
+  margin: 20px;
+  width: 500px;
+  height: auto;
+  padding: 8px;
+  background-color: rgba(211, 211, 211, 0.959);
   box-shadow: 1px 1px 9px 3px#c7c7c7;
 }
 
   .components-container {
+  background-position: center;
   border-radius: 8px;
   margin: 20px;
   width: 400px;
@@ -166,13 +216,13 @@
   padding: 8px;
   background-color: rgba(0, 132, 255, 0.959);
   box-shadow: 1px 1px 9px 3px#c7c7c7;
+  background-image: url("horizon.gif");
 }
 
 .composition-master-container {
   display: flex;
   border-radius: 8px;
   margin: 20px;
-  margin-top: 20px;
   width: auto;
   height: auto;
   padding: 8px;
@@ -182,18 +232,40 @@
 
 
 .catcher-master-container {
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   border-radius: 8px;
   margin: 20px;
   margin-top: 20px;
   width: auto;
   height: auto;
   padding: 8px;
-  background-color: rgba(9, 218, 245, 0.808);
   box-shadow: 1px 1px 9px 3px#c7c7c7;
-}
+  // Gradient //
+      background: linear-gradient(270deg, #32fdc9, #3287fd, #ea9dfb);
+        background-size: 600% 600%;
+
+        -webkit-animation: AnimationName 50s ease infinite;
+        -moz-animation: AnimationName 50s ease infinite;
+        animation: AnimationName 50s ease infinite;
+    }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
 
 
 .hidden-simple-form {
@@ -206,3 +278,94 @@
   background-color: rgba(104, 104, 104, 0.959);
   box-shadow: 1px 1px 9px 3px#c7c7c7;
 }
+
+// Inside Instrumental Catcher
+
+
+.instrumental-card-stats {
+  display: flex;
+  justify-content: center;
+}
+
+    .playlist-card {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      word-break: break-all;
+      width: 180px;
+      height: auto;
+      background-color: rgb(221, 221, 221);
+      display: flex;
+      border-radius: 16px;
+      flex-direction: column;
+      align-items: center;
+      color: rgb(65, 65, 65);
+      box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
+
+      img {
+        width: 80px;
+      }
+
+      .spinning {
+        background-color: #a2a6a7;
+        padding: 16px;
+        margin: 8px;
+        border-radius: 16px;
+      }
+      .spinning:hover {
+        background-color: #eeff00;
+      }
+    }
+
+    .playlist-card:hover {
+    background: #00C9FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+
+
+
+
+
+.placeholder-card-stats {
+  display: flex;
+  justify-content: center;
+}
+
+    .placeholder-card {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      word-break: break-all;
+      width: auto;
+      height: auto;
+      background-color: rgb(221, 221, 221);
+      display: flex;
+      border-radius: 16px;
+      color: rgb(65, 65, 65);
+      box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
+
+      img {
+        width: 400px;
+        height: 150px;
+        border-radius: 16px;
+      }
+
+      .visualizer {
+        background-color: #a2a6a7;
+        width: auto;
+        padding: 16px;
+        margin: 8px;
+        border-radius: 16px;
+      }
+      .spinning:hover {
+        background-color: #eeff00;
+      }
+    }
+
+    .placeholder-card:hover {
+    background: #00C9FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }

@@ -34,11 +34,13 @@ var instrumentalinput = document.getElementById('composition_instrumental_id')
 // Memorylist //
 new Sortable.create(A, {
   swap: true,
+  swapThreshold: 1,
   group: {
     name: "memorylist-shared",
   },
   sort: true,
   onEnd: function (evt) {
+
     memorylistinput.value = evt.item.id;
     console.log([
       evt.item.id,
@@ -49,6 +51,7 @@ new Sortable.create(A, {
 // Instrumentals //
 new Sortable.create(B, {
   swap: true,
+  swapThreshold: 1,
   group: {
     name: "instrumental-shared",
   },
@@ -64,6 +67,7 @@ new Sortable.create(B, {
 // Memorylist Catcher //
 new Sortable.create(C, {
   swap: true,
+  swapThreshold: 1,
   group: {
     name: "memorylist-shared",
   },
@@ -78,6 +82,7 @@ new Sortable.create(C, {
 // Instrumentals Catcher //
 new Sortable.create(D, {
   swap: true,
+  swapThreshold: 1,
   group: {
     name: "instrumental-shared",
   },

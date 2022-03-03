@@ -14,31 +14,37 @@
 
 <div class="catcher-master-container">
 
-  <div class="catcher-container">
+  <div class="memorylist-catcher-container">
     <div class="container">
       <div class="form-container">
         <p>Memory List Catcher</p>
           <div id="C" class="list-group">
-          <div id="1" class="list-group-item">Drop your memory list here</div>
+          <div id="#" class="list-group-item">Drop your memory list here</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="catcher-container">
+  <div class="instrumental-catcher-container">
     <div class="container">
       <div class="form-container">
         <p>Instrumental Catcher</p>
+
         <div id="D" class="list-group">
-          <div id="1" class="list-group-item">Drop your instrumental here</div>
+          <div id="#" class="placeholder"><%= render 'components/instrumental-placeholder', composition: @composition %></div>
         </div>
+
+
       </div>
     </div>
   </div>
-        <div class="hidden-simple-form">
-          <%= render 'components/compositions-form', composition: @composition %>
-        </div>
+  <div class="hidden-simple-form">
+    <%= render 'components/compositions-form', composition: @composition %>
+  </div>
 </div>
+
+<%
+=begin %>
 
 <div class="components-container">
   <div class="container">
@@ -50,6 +56,35 @@
           </div>
           <% end %>
       </div>
+    </div>
+  </div>
+</div>
+
+<%
+=end %>
+
+
+
+
+
+<div class="differentiator">
+  <div class ="instrumentals-card-container">
+  <div id="B" >
+        <% @instrumentals.each do |instrumental|%>
+        <div id="<%= instrumental.id %>" >
+            <div class="instrumental-card">
+              <div class="instrumental-card-stats">
+                <div class="playlist-card">
+                  <div class="spinning">
+                    <%= image_tag 'spinning.gif', alt: "playlist icon"%>
+                  </div>
+                  <p><strong><%= underscore_remover(instrumental.title) %></strong></p><p>by <%= instrumental.artist %></p>
+                  <p class="link-button"><%= link_to 'Sample the track', instrumental_path(instrumental), class: 'btn btn-secondary' %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
