@@ -1,29 +1,51 @@
+<div class="components-container">
+  <div class="container">
+    <div class="form-container">
+      <p>Memorylists</p>
+      <div id="A" class="list-group">
+          <% @memory_lists.each do |memorylist| %>
+          <div id="<%= memorylist.id %>" class="list-group-item"><%= memorylist.name %>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-
-<p>This is _composition-memorylist-draggable</p>
-
-
-  <p>Memorylists</p>
-  <div id="A" class="list-group">
-     <% @memory_lists.each do |memorylist| %>
-    <div id="<%= memorylist.id %>" class="list-group-item"><%= memorylist.name %></div>
-    <% end %>
+<div class="catcher-master-container">
+  <div class="catcher-container">
+    <div class="container">
+      <div class="form-container">
+        <p>Memory List Catcher</p>
+          <div id="C" class="list-group">
+          <div id="1" class="list-group-item">Drop your memory list here</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <p>Instrumentals</p>
-  <div id="B" class="list-group">
-     <% @instrumentals.each do |instrumental| %>
-    <div id="<%= instrumental.id %>" class="list-group-item"><%= instrumental.title %></div>
-    <% end %>
+  <div class="catcher-container">
+    <div class="container">
+      <div class="form-container">
+        <p>Instrumental Catcher</p>
+        <div id="D" class="list-group">
+          <div id="1" class="list-group-item">Drop your instrumental here</div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <p>Memory List Catcher</p>
-  <div id="C" class="list-group">
-    <div id="1" class="list-group-item">Drop your memory list here</div>
+<div class="components-container">
+  <div class="container">
+    <div class="form-container">
+      <p>Instrumentals</p>
+        <div id="B" class="list-group">
+          <% @instrumentals.each do |instrumental| %>
+          <div id="<%= instrumental.id %>" class="list-group-item"><%= instrumental.title %>
+          </div>
+          <% end %>
+      </div>
+    </div>
   </div>
-
-  <p>Instrumental Catcher</p>
-  <div id="D" class="list-group">
-    <div id="1" class="list-group-item">Drop your instrumental here</div>
-  </div>
+</div>

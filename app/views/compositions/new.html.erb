@@ -4,6 +4,8 @@
 
 <div class="master-box-memory-list">
 
+  <%
+=begin %>
   <div class="speed-track-container">
       <div class="container">
         <div class="form-container">
@@ -13,15 +15,16 @@
         </div>
       </div>
   </div>
+  <%
+=end %>
 
-    <div class="speed-track-container">
-      <div class="container">
-        <div class="form-container">
-            <h2>Sortable Memory List</h2>
-            <%= render 'components/composition-memorylist-draggable', composition: @composition %>
-        </div>
-      </div>
+<div class="composition-master-container">
+  <%= render 'components/composition-memorylist-draggable', composition: @composition %>
+  <div class="hidden-simple-form">
+     <%= render 'components/compositions-form', composition: @composition %>
   </div>
+
+</div>
 
 <%
 =begin %>
