@@ -6,12 +6,12 @@ speech = Google::Cloud::Speech.speech do |config|
 end
 
 # audio_file_path = "./app/assets/audio/flashcard_greetings/aka.wav"
-audio_file_path = "./Recording.m4a"
+audio_file_path = "./sample.flac"
 
 audio_file = File.binread audio_file_path
 config = {
-  language_code: 'ja-JP',
-  # encoding: :MP3,
+  language_code: 'en-US',
+  encoding: :FLAC,
   # sample_rate_hertz: 44100,
   audio_channel_count: 2,
   enable_separate_recognition_per_channel: true
