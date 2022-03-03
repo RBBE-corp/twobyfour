@@ -49,6 +49,9 @@ class CompositionsController < ApplicationController
 
   def addrep
     @composition.increment!(:rep_count)
+    respond_to do |format|
+      format.json { render json: @composition.rep_count }
+    end
   end
 
   private

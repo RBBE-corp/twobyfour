@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get '/profile', to: "users#profile"
   patch 'compositions/:id/addrep', to: "compositions#addrep"
 
-
   resources :playlists, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :playlist_compositions, only: [:new, :create]
   end

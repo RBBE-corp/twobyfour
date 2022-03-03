@@ -5,7 +5,7 @@ function pause(milliseconds) {
   while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
 }
 
-let counter = 0;
+// let counter = 0; //counter for debugging
 export const playPause = (player) => {
   // retrieving audios and instrumental
   const subtitles = document.querySelector(".composition-subtitle-list");
@@ -31,24 +31,40 @@ export const playPause = (player) => {
           index++;
         } else if ((index == sound.length - 1) && loop.checked) {
           index = 0;
-          counter++;
+          // counter++; //counter for debugging
+          //fetch request
           const url = window.location.pathname
           const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
           fetch(`${url}/addrep`, {
                 method: 'PATCH',
                 headers: {'X-CSRF-Token': csrfToken},
-                })
+          }).then(response => response.json())
+                   .then((data) => {
+                    let repCounter = document.querySelector("#rep-count-id")
+                     console.log(repCounter.innerHTML)
+                     if (repCounter) {
+                     repCounter.innerHTML= data;
+                     }
+                 })
           console.log("fetch thing")
           // subtitles.scrollLeft = document.getElementById(`${sound[0].dataset.id}`).offsetLeft;
           // console.log(audio.offsetLeft);
         } else {
           startOver(instrumental, player, subtitles, sound[0].dataset.id);
+          //fetch request
           const url = window.location.pathname
           const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
           fetch(`${url}/addrep`, {
                 method: 'PATCH',
                 headers: {'X-CSRF-Token': csrfToken},
-                })
+                }).then(response => response.json())
+                   .then((data) => {
+                    let repCounter = document.querySelector("#rep-count-id")
+                     console.log(repCounter.innerHTML)
+                     if (repCounter) {
+                     repCounter.innerHTML= data;
+                     }
+                 })
           console.log("fetch thing")
           return;
         }
