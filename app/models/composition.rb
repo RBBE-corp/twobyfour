@@ -1,5 +1,6 @@
 class Composition < ApplicationRecord
   validates :name, presence: true, uniqueness: true
+  validates :memory_list_id, :instrumental_id, presence: true
   validates :rep_count, numericality: true
   belongs_to :instrumental
   belongs_to :user

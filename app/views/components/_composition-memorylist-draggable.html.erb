@@ -1,3 +1,7 @@
+
+
+
+
 <div class="components-container">
   <div class="container">
     <div class="form-container">
@@ -14,12 +18,19 @@
 
 <div class="catcher-master-container">
 
+<%= simple_form_for(@composition) do |f| %>
+  <%= f.input :name, label: "Composition name" %>
+    <%# id="composition_memory_list_id" %>
+    <div class="hidden"><%= f.input :memory_list_id, error: 'You need to drag and drop a memory list' %></div>
+    <%# id="composition_instrumental_id" %>
+    <div class="hidden"><%= f.input :instrumental_id, error: 'You need to drag and drop an instrumental' %></div>
+
   <div class="memorylist-catcher-container">
     <div class="container">
       <div class="form-container">
         <p>Memory List Catcher</p>
           <div id="C" class="list-group">
-          <div id="#" class="list-group-item">Drop your memory list here</div>
+          <div id="#" class="placeholder"><%= render 'components/memorylist-placeholder', composition: @composition %></div>
         </div>
       </div>
     </div>
@@ -38,9 +49,8 @@
       </div>
     </div>
   </div>
-  <div class="hidden-simple-form">
-    <%= render 'components/compositions-form', composition: @composition %>
-  </div>
+        <div class="button-container"><%= f.submit class: "submit-button" %></div>
+      <% end %>
 </div>
 
 <%
