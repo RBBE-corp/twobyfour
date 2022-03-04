@@ -31,7 +31,7 @@
           <button class="stop-player mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
           <button class='player mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
         </div>
-        
+
         <div class="range-slider" data-controller="range-slider">
           <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
           <%# hello %>
@@ -51,7 +51,7 @@
       </div>
       <div class="loop-box">
         <span>loop </span>
-        
+
         <label class="switch">
           <input type="checkbox" id="loop-checker">
           <span class="slider round"></span>
@@ -60,7 +60,7 @@
       <div class="rep-counter">
         <p>reps</p>
         <strong>
-          <%= @composition.rep_count %>
+          <div id = "rep-count-id"><%= @composition.rep_count %></div>
         </strong>
       </div>
     </div>
