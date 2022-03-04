@@ -1,4 +1,11 @@
 
+.twobyfour {
+  position: absolute;
+  margin-top: 577px;
+  margin-left: 20px;
+}
+
+
 .differentiator {
 //  differentiator from main instrumental views
    font-family: Arial, Helvetica, sans-serif;
@@ -10,13 +17,30 @@
     align-items: center;
     padding: 20px;
     border-radius: 8px;
+    float:left;
+    overflow: auto;
+    height: 686px;
+    margin-top: 20px;
+    margin-right: 16px;
+    box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
+     .spinning {
+       background-color: #a2a6a7;
+       padding: 16px;
+       margin: 8px;
+       border-radius: 16px;
+     }
+     .spinning:hover {
+       background-color: #eeff00;
+     }
+
 
     .playlist-card {
       margin-top: 8px;
       margin-bottom: 8px;
       word-break: break-all;
       width: 180px;
-      height: 220px;
+      height: 263px;
       background-color: rgb(221, 221, 221);
       display: flex;
       border-radius: 16px;
@@ -25,6 +49,11 @@
       color: rgb(65, 65, 65);
       box-shadow: 1px 1px 3px 3px#3b3b3b55;
 
+      p {
+        line-height: 16px;
+        font-size: small;
+        width: 156px;
+      }
 
       img {
         width: 80px;
@@ -43,9 +72,34 @@
   flex-direction: row;
   justify-content: center;
   width: auto;
-  // justify-content: space-around;
-  // gap: 10px 20px;
-}
+
+  // Shifting gradient //
+  // https://www.gradient-animator.com/ //
+
+    background: linear-gradient(270deg, #32fdc9, #3287fd, #ea9dfb, #fbbb9d, #896df7, #c4c4c4);
+    background-size: 1200% 1200%;
+
+        -webkit-animation: AnimationName 50s ease infinite;
+        -moz-animation: AnimationName 50s ease infinite;
+        animation: AnimationName 50s ease infinite;
+    }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 99%}
+        50%{background-position:100% 2%}
+        100%{background-position:0% 99%}
+    }
+
 
 .speed-track-container {
   border-radius: 8px;
@@ -82,13 +136,13 @@
 }
 
 .flex-child {
-    flex: 1;
+    // flex: 1;
     margin: 3px;
 }
 
-.flex-child:first-child {
-    margin-right: 20px;
-}
+// .flex-child:first-child {
+//     margin-right: 20px;
+// }
 
   .memory-list-scroll {
     padding:24px;
@@ -145,3 +199,518 @@
     border-radius: 8px;
     margin-top: 20px;
   }
+
+
+  //////Sortables/////
+  .memorylist-catcher-container {
+  color: rgb(0, 0, 0);
+  border-radius: 8px;
+  margin: 20px;
+  width: 500px;
+  height: 142px;
+  padding: 8px;
+  background-color: rgba(211, 211, 211, 0.959);
+  box-shadow: 1px 1px 3px 3px#3b3b3b55;
+}
+
+  .instrumental-catcher-container {
+  color: black;
+  border-radius: 8px;
+  margin: 20px;
+  width: 500px;
+  height: auot;
+  padding: 8px;
+  background-color: rgba(211, 211, 211, 0.959);
+  box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+  .components-container {
+  background-position: center;
+  border-radius: 8px;
+  margin: 20px;
+  margin-right: 8px;
+  width: 400px;
+  height: 500px;
+  padding: 8px;
+  background-color: rgba(0, 132, 255, 0.959);
+  box-shadow: 1px 1px 9px 3px#c7c7c7;
+  background-image: url("horizon.gif");
+  float:left;
+  overflow: auto;
+
+  p {
+    color: white;
+  }
+
+  .list-group-item {
+    width: 353px;
+    height: auto;
+    min-height: 40px;
+    border: 3px solid rgb(238, 163, 232);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px #454545;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: linear-gradient(270deg, #8f17aa, #c64ee1, #ec8c5f);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 20s ease infinite;
+    -moz-animation: AnimationName 20s ease infinite;
+    animation: AnimationName 20s ease infinite;
+
+    .card-body {
+      background-color: #a8a8a8;;
+      margin-top: 8px;
+      border-radius: 8px;
+
+      .p-1 {
+          color: black;
+          background-color: white;
+          border-radius: 8px;
+          text-shadow: none;
+      }
+    }
+
+
+
+    a {
+      background-color: #4ed6ff;
+      margin-left: 285px;
+      margin-top: -32px;
+    }
+
+    a:hover {
+      background-color: #92FE9D;
+    }
+    p {
+      margin: -10px;
+    }
+}
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+  }
+
+}
+
+.composition-master-container {
+  display: flex;
+  border-radius: 8px;
+  margin: 20px;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  background-color: rgba(75, 75, 75, 0.959);
+  box-shadow: 1px 1px 9px 3px#c7c7c7;
+}
+
+
+.catcher-master-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  margin: 20px;
+  margin-top: 20px;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  box-shadow: 1px 1px 9px 3px#c7c7c7;
+  // Gradient //
+      background: linear-gradient(270deg, #8f17aa, #c64ee1, #f2a683, #5f94ec, #e55fec, #5fbfec);
+    background-size: 1200% 1200%;
+
+    -webkit-animation: AnimationName 34s ease infinite;
+    -moz-animation: AnimationName 34s ease infinite;
+    animation: AnimationName 34s ease infinite;
+}
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+
+
+.hidden-simple-form {
+  // visibility: hidden;
+  border-radius: 8px;
+  margin: 20px;
+  width: 400px;
+  height: 500px;
+  padding: 8px;
+  background-color: rgba(104, 104, 104, 0.959);
+  box-shadow: 1px 1px 9px 3px#c7c7c7;
+}
+
+
+
+//////// Inside Instrumental Catcher///////
+
+.instrumental-card-stats {
+}
+
+    .playlist-card {
+      word-break: break-all;
+      width: 180px;
+      height: 263px;
+      background-color: rgb(221, 221, 221);
+      display: flex;
+      border-radius: 16px;
+      align-items: center;
+      color: rgb(65, 65, 65);
+      box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
+       p {
+        line-height: 16px;
+        font-size: small;
+        width: 156px;
+      }
+
+
+      img {
+        width: 80px;
+      }
+
+      .spinning {
+        background-color: #a2a6a7;
+        padding: 16px;
+        margin: 8px;
+        border-radius: 16px;
+      }
+      .spinning:hover {
+        background-color: #eeff00;
+      }
+    }
+
+    .playlist-card:hover {
+    background: #00C9FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+
+
+
+
+
+.placeholder-card-stats {
+}
+    .placeholder-card {
+      word-break: break-all;
+      width: auto;
+      height: 200px;
+      background-color: rgb(221, 221, 221);
+      border-radius: 8px;
+      color: rgb(65, 65, 65);
+      box-shadow: 1px 1px 3px 3px#3b3b3b55;
+
+
+      img {
+        width: auto;
+        height: 100px;
+        border-radius: 8px;
+        border: 2px solid rgb(185, 185, 185);
+      }
+
+      .visualizer {
+        width: auto;
+        margin: 8px;
+        border-radius: 8px;
+      }
+      .spinning:hover {
+        background-color: #eeff00;
+      }
+    }
+
+    .placeholder-card:hover {
+    background: #00C9FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+
+    .hidden {
+      visibility: hidden;
+      margin: -50px;
+      padding: 0px;
+    }
+
+    .submit-button {
+      border-radius: 16px;
+      width: 260px;
+      height: 86px;
+      background-color: #d3d3d3;
+      font-size: large;
+    }
+
+    .submit-button:hover {
+         background: linear-gradient(270deg, #32fdc9, #3287fd, #ea9dfb, #fbbb9d, #896df7, #c4c4c4, #ff2323, #dfdfdf, #f295e6, #95c503, #95c503, #00f2ff, #00f2ff);
+          background-size: 2600% 2600%;
+
+          -webkit-animation: AnimationName 12s ease infinite;
+          -moz-animation: AnimationName 12s ease infinite;
+          animation: AnimationName 12s ease infinite;
+      }
+
+      @-webkit-keyframes AnimationName {
+          0%{background-position:0% 99%}
+          50%{background-position:100% 2%}
+          100%{background-position:0% 99%}
+      }
+      @-moz-keyframes AnimationName {
+          0%{background-position:0% 99%}
+          50%{background-position:100% 2%}
+          100%{background-position:0% 99%}
+      }
+      @keyframes AnimationName {
+          0%{background-position:0% 99%}
+          50%{background-position:100% 2%}
+          100%{background-position:0% 99%}
+    }
+
+
+.input-container {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.composition-name {
+  border-radius: 8px;
+  width: 500px;
+  color: black;
+  background-color: rgb(221, 221, 221);
+  box-shadow: 1px 1px 3px 3px#3b3b3b55;
+  padding: 16px;
+}
+
+
+.placeholder-box {
+  width: 361px;
+  background-color: #bebebe;
+  height: 64px;
+  border: solid #808080;
+  color: #141414;
+  border-radius: 8px;
+  margin-left: 50px;
+}
+
+
+.placeholder-box-instrumental {
+  width: 188px;
+  background-color: #bebebe;
+  height: 270px;
+  border: solid #808080;
+  color: #141414;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  // .list-group {
+  //   background-color: #00C9FF;
+  // }
+}
+
+
+.hidden-sortable {
+  visibility: hidden;
+  margin-top: 170px;
+  background-color: #00C9FF;
+}
+
+
+.visualizer {
+    width: auto;
+    margin-top: -17px;
+    margin-left: 23px;
+    margin-bottom: 20px;
+
+  img {
+    width: 209px;
+    height: 119px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    vertical-align: bottom;
+  }
+}
+
+    .button-container {
+        margin-left: 15px;
+        margin-top: 16px;
+    }
+
+
+
+.inner-container {
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #959595;
+  width: auto;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #ffffff;
+  box-shadow:
+    2px 2px 0.5em rgba(122, 122, 122, 0.55),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.9),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.34)
+  ;
+  border: 1px solid #dedede;
+  background:
+    -moz-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #454545 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -webkit-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #454545 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -o-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #454545 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #454545 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+}
+
+
+
+///// Memorylist Catcher Container //////
+.list-group-item {
+    width: 353px;
+    height: auto;
+    min-height: 40px;
+    border: 3px solid rgb(238, 163, 232);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px #454545;
+    margin-bottom: 8px;
+    border-radius: 16px;
+    background: linear-gradient(270deg, #8f17aa, #c64ee1, #ec8c5f);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 20s ease infinite;
+    -moz-animation: AnimationName 20s ease infinite;
+    animation: AnimationName 20s ease infinite;
+
+
+    a {
+      background-color: #4ed6ff;
+      margin-left: 285px;
+      margin-top: -32px;
+    }
+
+    a:hover {
+      background-color: #92FE9D;
+    }
+    p {
+      margin: -10px;
+    }
+
+    .card-body {
+      margin-top: 8px;
+      background-color: rgb(165, 165, 165);
+      border-radius: 8px;
+    }
+
+      .p-1 {
+          color: black;
+          background-color: white;
+          border-radius: 8px;
+          text-shadow: none;
+      }
+}
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+
+}

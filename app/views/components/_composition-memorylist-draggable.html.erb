@@ -1,0 +1,131 @@
+
+
+
+
+<div class="components-container">
+  <div class="container">
+    <div class="form-container">
+      <p>Memorylists</p>
+      <div id="A" class="list-group">
+          <% @memory_lists.each_with_index do |memorylist, index| %>
+          <div id="<%= memorylist.id %>" class="list-group-item"><%= memorylist.name %>
+              <p>
+                <a class="btn btn-secondary" data-toggle="collapse" href="#collapseExample<%= index %>" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+              </p>
+                   <div class="collapse" id="collapseExample<%= index %>">
+                    <div class="card card-body">
+                      <%# <div class="col-sm-8"> %>
+                        <% memorylist.flashcards.each do |flashcard| %>
+                            <div class="flex-container">
+                                <div class="flex-child">
+                                  <div class="border p-1"><%= underscore_remover(flashcard.english_word) %></div>
+                                </div>
+                                <div class="flex-child">=</div>
+                                <div class="flex-child">
+                                  <div class="border p-1"><%= underscore_remover(flashcard.japanese_word) %></div>
+                                </div>
+                            </div>
+                        <% end %>
+                      <%# </div> %>
+                    </div>
+                </div>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="twobyfour">
+  <%= image_tag 'twobyfour.png',  alt:"logo" %>
+</div>
+
+<div class="catcher-master-container">
+
+<%= simple_form_for(@composition) do |f| %>
+
+  <div class="input-container">
+  <div class="composition-name"><%= f.input :name, label: "Composition name" %></div>
+  </div>
+    <%# id="composition_memory_list_id" %>
+    <div class="hidden"><%= f.input :memory_list_id, error: 'You need to drag and drop a memory list' %></div>
+    <%# id="composition_instrumental_id" %>
+    <div class="hidden"><%= f.input :instrumental_id, error: 'You need to drag and drop an instrumental' %></div>
+
+  <div class="memorylist-catcher-container">
+    <div class="container">
+      <div class="form-container">
+        <p>Memory List Slot</p>
+          <div class="placeholder-box">
+            <div id="C" class="list-group">
+            <%# <div id="#" class="placeholder"><%= render 'components/memorylist-placeholder', composition: @composition %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instrumental-catcher-container">
+      <div class="inner-container">
+                <div class="placeholder-box-instrumental">
+                  <div id="D" class="list-group">
+                    <div class="hidden-sortable">Hidden</div>
+                  </div>
+                </div>
+        <div class="button-container">
+         <div class="visualizer">
+               <p>TwoByFour Comp Builder</p>
+
+              <%= image_tag 'visualizer2.gif', alt: "playlist icon"%>
+            </div>
+        <%= f.submit 'Create Composition ▶️', class: "submit-button" %>
+        </div>
+
+      </div>
+  </div>
+      <% end %>
+</div>
+
+<%
+=begin %>
+
+<div class="components-container">
+  <div class="container">
+    <div class="form-container">
+      <p>Instrumentals</p>
+        <div id="B" class="list-group">
+          <% @instrumentals.each do |instrumental| %>
+          <div id="<%= instrumental.id %>" class="list-group-item"><%= instrumental.title %>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%
+=end %>
+
+
+
+
+
+<div class="differentiator">
+  <div class ="instrumentals-card-container">
+  <div id="B" class="list-group">
+        <% @instrumentals.each do |instrumental|%>
+        <div class="instrumental-card" id="<%= instrumental.id %>" >
+              <div class="instrumental-card-stats">
+                <div class="playlist-card">
+                  <div class="spinning">
+                    <%= image_tag 'spinning.gif', alt: "playlist icon"%>
+                  </div>
+                  <p><strong><%= underscore_remover(instrumental.title) %></strong></p><p>by <%= instrumental.artist %></p>
+                  <p class="link-button"><%= link_to 'Sample the track', instrumental_path(instrumental), class: 'btn btn-secondary' %></p>
+                </div>
+              </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
