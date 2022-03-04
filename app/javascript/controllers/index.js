@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import Dropdown from "stimulus-dropdown"
+application.register("dropdown", Dropdown)
+
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
@@ -12,3 +15,6 @@ application.register("modal", ModalController)
 
 import RangeSliderController from "./range_slider_controller.js"
 application.register("range-slider", RangeSliderController)
+
+import FlashcardCategoryController from "./flashcard_category_controller.js"
+application.register("flashcard-category", FlashcardCategoryController)

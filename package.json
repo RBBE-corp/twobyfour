@@ -12,6 +12,7 @@
     "popper.js": "^1.16.1",
     "stimulus": "^3.0.1",
     "stimulus-carousel": "^4.0.0",
+    "stimulus-dropdown": "^2.0.0",
     "turbolinks": "^5.2.0",
     "unfetch": "^4.2.0",
     "webpack": "^4.46.0",

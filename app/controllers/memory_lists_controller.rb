@@ -37,6 +37,7 @@ class MemoryListsController < ApplicationController
     # end
     @flashcards_not_selected = @memory_list.flashcards_not_in_memory_list
     # raise
+    # hide everything not in the selected category
   end
 
   def edit; end
