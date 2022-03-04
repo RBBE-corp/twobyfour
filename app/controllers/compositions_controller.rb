@@ -51,6 +51,15 @@ class CompositionsController < ApplicationController
     @composition = Composition.last
   end
 
+  def checker
+    puts params
+    uploaded_file = params["blob"]
+    raw_string = uploaded_file.read
+    puts raw_string
+    raise
+  end
+
+
   private
 
   def composition_params

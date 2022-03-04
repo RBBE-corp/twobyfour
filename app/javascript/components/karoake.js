@@ -22,17 +22,21 @@ const karoakePlayer = () => {
     audio.dataset.type = audioBlob
     // resume.innerHTML += audio
     document.body.appendChild(audio);
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     // const data = new Int32Array(audioBlob);
+    const formData = new FormData()
+    formData.append("blob", audioBlob)
     console.log(audioBlob);
-    // fetch("/checker", {
-    //   method: "post",
-    //   body: audioBlob
-    //   });
+    fetch("/checker", {
+      method: "post",
+      headers: {'X-CSRF-Token': csrfToken},
+      body: formData
+      });
     // console.log("audioBlob buffer " + audioBlob.arrayBuffer())
-    audioBlob.arrayBuffer().then(arrayBuffer => {
+    // audioBlob.arrayBuffer().then(arrayBuffer => {
       // Do something with arrayBuffer
-      console.log(arrayBuffer);
-    });
+      // console.log(arrayBuffer);
+    // });
   });
   const audioChunks = [];
   mediaRecorder.addEventListener("dataavailable", event => {
