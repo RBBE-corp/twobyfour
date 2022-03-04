@@ -42,18 +42,23 @@
   </div>
 
   <div class="instrumental-catcher-container">
-    <div class="container">
-      <div class="form-container">
-        <p>Instrumental Slot</p>
-        <div class="placeholder-box-instrumental">
-          <div id="D" class="list-group">
-            <div class="hidden-sortable">Hidden</div>
-          </div>
+      <div class="inner-container">
+                <div class="placeholder-box-instrumental">
+                  <div id="D" class="list-group">
+                    <div class="hidden-sortable">Hidden</div>
+                  </div>
+                </div>
+        <div class="button-container">
+         <div class="visualizer">
+               <p>Instrumental Slot</p>
+
+              <%= image_tag 'visualizer2.gif', alt: "playlist icon"%>
+            </div>
+        <%= f.submit 'Create Composition ▶️', class: "submit-button" %>
         </div>
+
       </div>
-    </div>
   </div>
-        <div class="button-container"><%= f.submit class: "submit-button" %></div>
       <% end %>
 </div>
 
