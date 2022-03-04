@@ -28,7 +28,7 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
-import { karoakePlayer } from '../components/karoake';
+import { karaokePlayer } from '../components/karaoke';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -50,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
     // }
     const recorder = document.querySelector('.recorder');
     if (recorder) {
-      recorder.addEventListener('click', karoakePlayer);
+      recorder.addEventListener('click', karaokePlayer);
     }
   
   }

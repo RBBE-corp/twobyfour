@@ -5,7 +5,7 @@ import { pause } from "./composition_player";
 
 // import { Encoder } from 'libflacjs/lib/encoder';
 
-const karoakePlayer = () => {
+const karaokePlayer = () => {
   navigator.mediaDevices.getUserMedia({ audio: true })
 .then(stream => {
   const subtitles = document.querySelector(".composition-subtitle-list");
@@ -82,4 +82,4 @@ const karoakePlayer = () => {
   });
 }
 
-export { karoakePlayer };
+export { karaokePlayer };
