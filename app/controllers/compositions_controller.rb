@@ -60,8 +60,6 @@ class CompositionsController < ApplicationController
     raise
   end
 
-
-
   def addrep
     @composition.increment!(:rep_count)
     respond_to do |format|
