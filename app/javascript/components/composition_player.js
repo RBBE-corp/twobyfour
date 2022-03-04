@@ -5,8 +5,9 @@ function pause(milliseconds) {
   while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
 }
 
-
 const playPause = (player) => {
+
+// let counter = 0; //counter for debugging
 
   // retrieving audios and instrumental
   const subtitles = document.querySelector(".composition-subtitle-list");
