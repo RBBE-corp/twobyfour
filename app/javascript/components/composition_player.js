@@ -5,7 +5,7 @@ function pause(milliseconds) {
   while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
 }
 
-export const playPause = (player) => {
+const playPause = (player) => {
   // retrieving audios and instrumental
   const subtitles = document.querySelector(".composition-subtitle-list");
   const instrumental = document.getElementById("instrumental");
@@ -54,3 +54,5 @@ export const playPause = (player) => {
     });
   }
 }
+
+export { pause, playPause }

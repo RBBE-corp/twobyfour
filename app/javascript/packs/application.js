@@ -28,6 +28,7 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
+import { karoakePlayer } from '../components/karoake';
 
 // document.addEventListener('turbolinks:load', () => {
 // }
@@ -42,10 +43,20 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
     const player = document.querySelector('.player');
-    player.addEventListener('click', (e) => {
-      playPause(player)
-    });
-    stopButtonClick();
+    // const stopButton = document.querySelector('.stop-player');  
+    if (player) {
+      player.addEventListener('click', (e) => {
+        playPause(player)
+      });
+      stopButtonClick();
+    }
+    // if (stopButton) {
+    // }
+    const recorder = document.querySelector('.recorder');
+    if (recorder) {
+      recorder.addEventListener('click', karoakePlayer);
+    }
+  
   }
 
   const submitButton = document.querySelector('.submit-memory-list');
