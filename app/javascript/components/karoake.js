@@ -1,5 +1,10 @@
 import { pause } from "./composition_player";
 
+// import * as flacFactory from 'libflacjs';
+// const Flac = flacFactory();
+
+// import { Encoder } from 'libflacjs/lib/encoder';
+
 const karoakePlayer = () => {
   navigator.mediaDevices.getUserMedia({ audio: true })
 .then(stream => {
@@ -8,22 +13,25 @@ const karoakePlayer = () => {
   const sound = document.querySelectorAll(".audios");
   const mediaRecorder = new MediaRecorder(stream);
   mediaRecorder.addEventListener("stop", () => {
-    const audioBlob = new Blob(audioChunks);
+    const audioBlob = new Blob(audioChunks, { 'type' : 'audio/wav; codecs=MS_PCM' });
     const audioUrl = URL.createObjectURL(audioBlob);
     // const audio = new Audio(audioUrl);
     const audio = document.createElement('audio');
     audio.src = audioUrl
     audio.controls = true;
+    audio.dataset.type = audioBlob
     // resume.innerHTML += audio
     document.body.appendChild(audio);
-    audioBlob.arrayBuffer().then(data => {
-      let int32 = new Int32Array(data, 0, -1)
-      // console.log(int32);
-      console.log(int32);
-    });
+    // const data = new Int32Array(audioBlob);
+    console.log(audioBlob);
+    // fetch("/checker", {
+    //   method: "post",
+    //   body: audioBlob
+    //   });
     // console.log("audioBlob buffer " + audioBlob.arrayBuffer())
     audioBlob.arrayBuffer().then(arrayBuffer => {
       // Do something with arrayBuffer
+      console.log(arrayBuffer);
     });
   });
   const audioChunks = [];

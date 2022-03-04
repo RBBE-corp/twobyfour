@@ -30,10 +30,6 @@ import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
 import { karoakePlayer } from '../components/karoake';
 
-// document.addEventListener('turbolinks:load', () => {
-// }
-
-// filesPlayer();
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
