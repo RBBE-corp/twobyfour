@@ -31,10 +31,12 @@
   <div class="memorylist-catcher-container">
     <div class="container">
       <div class="form-container">
-        <p>Memory List Catcher</p>
-          <div id="C" class="list-group">
-          <div id="#" class="placeholder"><%= render 'components/memorylist-placeholder', composition: @composition %></div>
-        </div>
+        <p>Memory List Slot</p>
+          <div class="placeholder-box">
+            <div id="C" class="list-group">
+            <%# <div id="#" class="placeholder"><%= render 'components/memorylist-placeholder', composition: @composition %>
+            </div>
+          </div>
       </div>
     </div>
   </div>
@@ -42,13 +44,12 @@
   <div class="instrumental-catcher-container">
     <div class="container">
       <div class="form-container">
-        <p>Instrumental Catcher</p>
-
-        <div id="D" class="list-group">
-          <div id="#" class="placeholder"><%= render 'components/instrumental-placeholder', composition: @composition %></div>
+        <p>Instrumental Slot</p>
+        <div class="placeholder-box-instrumental">
+          <div id="D" class="list-group">
+            <div class="hidden-sortable">Hidden</div>
+          </div>
         </div>
-
-
       </div>
     </div>
   </div>
@@ -82,10 +83,9 @@
 
 <div class="differentiator">
   <div class ="instrumentals-card-container">
-  <div id="B" >
+  <div id="B" class="list-group">
         <% @instrumentals.each do |instrumental|%>
-        <div id="<%= instrumental.id %>" >
-            <div class="instrumental-card">
+        <div class="instrumental-card" id="<%= instrumental.id %>" >
               <div class="instrumental-card-stats">
                 <div class="playlist-card">
                   <div class="spinning">
@@ -95,7 +95,6 @@
                   <p class="link-button"><%= link_to 'Sample the track', instrumental_path(instrumental), class: 'btn btn-secondary' %></p>
                 </div>
               </div>
-            </div>
           </div>
         <% end %>
     </div>
