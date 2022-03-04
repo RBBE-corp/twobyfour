@@ -1,5 +1,5 @@
 class CompositionsController < ApplicationController
-  before_action :find_composition, only: [:show, :edit, :update, :destroy]
+  before_action :find_composition, only: [:show, :edit, :update, :destroy, :addrep]
 
   def index
     @compositions = Composition.all
@@ -47,6 +47,7 @@ class CompositionsController < ApplicationController
     redirect_to compositions_path, notice: "Composition deleted!"
   end
 
+
   def karaoke
     @composition = Composition.last
   end
@@ -57,6 +58,15 @@ class CompositionsController < ApplicationController
     raw_string = uploaded_file.read
     puts raw_string
     raise
+  end
+
+
+
+  def addrep
+    @composition.increment!(:rep_count)
+    respond_to do |format|
+      format.json { render json: @composition.rep_count }
+    end
   end
 
 

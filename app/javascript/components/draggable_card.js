@@ -6,11 +6,10 @@ function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
-  console.log("inside drop")
+function drop(ev, el) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+  el.appendChild(document.getElementById(data));
 }
 
 export { allowDrop, drag, drop }
