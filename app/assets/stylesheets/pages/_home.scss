@@ -35,9 +35,6 @@ header.home-hero video {
   }
 }
 
-.details-container {
-  margin-top: 68px;
-}
 
 .number{
   display: flex;
@@ -60,12 +57,10 @@ height: 100%;
 margin: 0;
 padding: 0;
 overflow-x: hidden;
-
-
 ///purple///
-background: #41295a;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *
+background: #000019;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to left, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *
 // background: #bdc3c7;  /* fallback for old browsers */
 // background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
 // background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -73,39 +68,44 @@ background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Fi
 
 .home-card{
   margin: 40px 40px 40px 40px;
-  height: 600px;
+  height: 400px;
   border-radius: 18px;
-  // Argon //
-  background: #03001e;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: white;
 
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  // Argon //
+  // background: #03001e;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .home-image {
   margin-top:48px;
 }
 .home-image img {
-width: 350px;
-height: 350px;
+width: 250px;
+height: 250px;
 animation-name: home-image;
 animation-duration: 3s;
 animation-iteration-count: infinite;
 animation-timing-function: ease-in-out;
 margin-left: 30px;
-margin-top: 5px;
+// margin-top: 5px;
+}
+
+#banner-image {
+width: 200px;
+height: 300px;
 }
 
 
-@keyframes home-image {
-  from {
-    transform: translate(0, 0px);
-  }
-  65% {
-    transform: translate(0, 15px);
-  }
-  to {
-    transform: translate(0, -0px);
-  }
-}
+// @keyframes home-image {
+//   from {
+//     transform: translate(0, 0px);
+//   }
+//   65% {
+//     transform: translate(0, 15px);
+//   }
+//   to {
+//     transform: translate(0, -0px);
+//   }
+// }

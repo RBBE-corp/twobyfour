@@ -168,7 +168,6 @@ GEM
     grpc (1.43.1-x86_64-linux)
       google-protobuf (~> 3.18)
       googleapis-common-protos-types (~> 1.0)
-    grpc-tools (0.14.1)
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -337,8 +336,6 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass
   google-cloud-speech (~> 1.2, >= 1.2.3)
-  grpc (~> 1.43, >= 1.43.1)
-  grpc-tools (~> 0.14.1.pre1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -363,4 +360,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.8
+   2.3.5
