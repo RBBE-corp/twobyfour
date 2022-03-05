@@ -13,20 +13,21 @@ const karaokePlayer = () => {
   const sound = document.querySelectorAll(".audios");
   const mediaRecorder = new MediaRecorder(stream);
   mediaRecorder.addEventListener("stop", () => {
-    const audioBlob = new Blob(audioChunks, { 'type' : 'audio/wav; codecs=MS_PCM' });
+    const audioBlob = new Blob(audioChunks, { type: 'audio/flac' });
     const audioUrl = URL.createObjectURL(audioBlob);
     // const audio = new Audio(audioUrl);
     const audio = document.createElement('audio');
-    audio.src = audioUrl
+    audio.src = audioUrl;
     audio.controls = true;
     audio.dataset.type = audioBlob
-    // resume.innerHTML += audio
     document.body.appendChild(audio);
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    // const data = new Int32Array(audioBlob);
     const formData = new FormData()
-    formData.append("blob", audioBlob)
-    console.log(audioBlob);
+    // formData.append("blob", audioBlob)
+    let file = new File([audioBlob], 'recording.flac');
+    formData.append('files.file', file);
+    // formData.append('data', JSON.stringify(data));
+    // console.log(audioBlob);
     fetch("/checker", {
       method: "post",
       headers: {'X-CSRF-Token': csrfToken},
