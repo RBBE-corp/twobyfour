@@ -1,6 +1,7 @@
 // Configuration for sortable js //
 import Sortable from 'sortablejs';
 
+export const sortable = () => {
 // Checking if library is loaded
 // document.addEventListener('turbolinks:load', () => {
 //   console.log("Sortable: ", Sortable);
@@ -90,7 +91,7 @@ new Sortable.create(D, {
     ]);
   }
 });
-
+}
 // How it works: JS sortable to fill in a form //
 // 1. Sortable.create makes a sortabls list
 // 2. Each sortable list can be linked to each other using the keyword group: { name: "#"}

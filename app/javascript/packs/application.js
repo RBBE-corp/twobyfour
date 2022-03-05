@@ -29,7 +29,7 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
-import { sortable } from '../components/composition_new.js';
+import { sortable } from '../components/composition_new';
 // document.addEventListener('turbolinks:load', () => {
 // }
 
