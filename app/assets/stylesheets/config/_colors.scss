@@ -8,3 +8,46 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+
+
+// Color Pallet (Composition New) //
+$mid-gray: #a8a8a8;
+$box-shadow: #3b3b3b55;
+$glow-box-shadow:#c7c7c7;
+$yellow-record-hover: #eeff00;
+$light-gray: rgb(221, 221, 221);
+$purple-gradient: linear-gradient(270deg, #8f17aa, #c64ee1, #ec8c5f);
+$small-button-accent: #4ed6ff;
+$container-gradient: linear-gradient(270deg, #8f17aa, #c64ee1, #f2a683, #5f94ec, #e55fec, #5fbfec);
+$master-container-gradient:linear-gradient(270deg, #32fdc9, #3287fd, #ea9dfb, #fbbb9d, #896df7, #c4c4c4);
+
+// Animated gradient can be generated from below
+// You can change the animation duration and colors
+// https://www.gradient-animator.com/
+
+// The following is the exact values I used:
+
+// .css-selector {
+//     background: linear-gradient(270deg, #8f17aa, #c64ee1, #f2a683, #5f94ec, #e55fec, #5fbfec);
+//     background-size: 1200% 1200%;
+
+//     -webkit-animation: AnimationName 34s ease infinite;
+//     -moz-animation: AnimationName 34s ease infinite;
+//     animation: AnimationName 34s ease infinite;
+// }
+
+// @-webkit-keyframes AnimationName {
+//     0%{background-position:0% 50%}
+//     50%{background-position:100% 50%}
+//     100%{background-position:0% 50%}
+// }
+// @-moz-keyframes AnimationName {
+//     0%{background-position:0% 50%}
+//     50%{background-position:100% 50%}
+//     100%{background-position:0% 50%}
+// }
+// @keyframes AnimationName {
+//     0%{background-position:0% 50%}
+//     50%{background-position:100% 50%}
+//     100%{background-position:0% 50%}
+// }
