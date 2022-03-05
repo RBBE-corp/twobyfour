@@ -1,5 +1,5 @@
 class MemoryList < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :compositions, dependent: :destroy
   has_many :memory_list_flashcards, dependent: :destroy
   has_many :flashcards, through: :memory_list_flashcards

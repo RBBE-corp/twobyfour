@@ -3,8 +3,8 @@
     <h1><strong><%= @memory_list.name %></strong></h1>
   </div>
   <div>
-    <img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
-    <!--<p class="link-button m-3"><%= link_to 'Edit List Name', edit_memory_list_path, class: 'btn btn-secondary' %></p>-->
+    <!--<img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
+    <p class="link-button m-3"><%= link_to 'Edit List Name', edit_memory_list_path, class: 'btn btn-secondary' %></p>-->
   </div>
   <div>
     <p><strong>List creator: </strong><%= @memory_list.user.username %></p>
@@ -16,6 +16,7 @@
   <div class="row">
       <div class="col-6">
         <h2 style="text-align:center;">Memory List Flashcards</h2>
+
         <div class="flashcard-cards-holder flex-d justify-content-center" id="MemoryListFlashcardsBox" ondrop="drop(event, this)" ondragover="allowDrop(event)">
             <% if @memory_list.flashcards.present? %>
                 <% @memory_list.flashcards.each do |flashcard| %>
@@ -42,22 +43,22 @@
 
       <div class="col-6">
           <h2 style="text-align:center;">All Flashcards</h2>
-          <div class="dropdown">
+          <div class="dropdown" style="text-align:center;">
 
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Category
             </button>
 
             <div class="dropdown-menu" id="category-dropdown" aria-labelledby="dropdownMenuButton" onchange="changeCategory()">
+              <a class="dropdown-item" id="all">All</a>
               <% Flashcard.flashcard_categories.each do | flashcard_category | %>
-                <a class="dropdown-item" id="dropdown-<%= flashcard_category %>" href="#"><%= flashcard_category %></a>
-
+                <a class="dropdown-item" id="<%= flashcard_category%>"><%= underscore_remover(flashcard_category) %></a>
               <% end %>
             </div>
           </div>
           <div class="flashcard-cards-holder flex-d justify-content-center" id="AllFlashcardsBox" ondrop="drop(event, this)" ondragover="allowDrop(event)">
               <% @flashcards_not_selected.each do |flashcard| %>
-                  <div class="<%= flashcard.category %> card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
+                  <div class="<%= flashcard.category %> card-flashcard flashcard-not-selected" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
                     <div class="flip-card-inner">
                       <div class="card-front">
                         <ul>
@@ -90,13 +91,3 @@
           data: { confirm: "Are you sure?" }, class: 'btn btn-secondary' %></p>
   <p class="link-button m-3"><%= link_to 'Back to Memory List Index', profile_path, class: 'btn btn-secondary' %></p>
 </div>
-
-
-<%# flashcard dropdown selects a category %>
-<%# category is captured by stimulus %>
-<%# flashcards_not_in_memory_list are all printed in one area%>
-<%# cards outside the category are HIDDEN %>
-
-
-
-<%# <script src="../../app/javascript/controllers/flashcard_category_dropdown.js"></script> %>

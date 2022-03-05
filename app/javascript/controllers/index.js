@@ -12,6 +12,3 @@ application.register("modal", ModalController)
 
 import RangeSliderController from "./range_slider_controller.js"
 application.register("range-slider", RangeSliderController)
-
-import FlashcardCategoryController from "./flashcard_category_controller.js"
-application.register("flashcard-category", FlashcardCategoryController)
