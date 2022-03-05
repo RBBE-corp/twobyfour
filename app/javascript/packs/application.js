@@ -8,11 +8,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -32,9 +30,8 @@ import { savedCards } from '../components/draggable_card_save';
 import { sortable } from '../components/composition_new';
 // document.addEventListener('turbolinks:load', () => {
 // }
-
-// filesPlayer();
-
+import { flashcardCategoryDropdown } from '../components/flashcard_category_dropdown';
+import { karaokePlayer } from '../components/karaoke';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -48,10 +45,20 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
     const player = document.querySelector('.player');
-    player.addEventListener('click', (e) => {
-      playPause(player)
-    });
-    stopButtonClick();
+    // const stopButton = document.querySelector('.stop-player');  
+    if (player) {
+      player.addEventListener('click', (e) => {
+        playPause(player)
+      });
+      stopButtonClick();
+    }
+    // if (stopButton) {
+    // }
+    const recorder = document.querySelector('.recorder');
+    if (recorder) {
+      recorder.addEventListener('click', karaokePlayer);
+    }
+  
   }
 
   const submitButton = document.querySelector('.submit-memory-list');
@@ -69,6 +76,7 @@ document.addEventListener('turbolinks:load', () => {
     // check if the audio is playing
 
   // if it is playing, stop it.
+  flashcardCategoryDropdown();
 });
 
 import "controllers"
