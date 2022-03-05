@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -28,15 +29,20 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
-
+import { sortable } from '../components/composition_new.js';
 // document.addEventListener('turbolinks:load', () => {
 // }
 
 // filesPlayer();
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  const sortablepage = document.querySelector('.master-box-memory-list');
+  if (sortablepage) {
+    sortable();
+  }
 
   const audio = document.querySelector('.audio-mother-box');
   if ( audio ) {
