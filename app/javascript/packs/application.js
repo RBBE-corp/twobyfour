@@ -61,6 +61,26 @@ document.addEventListener('turbolinks:load', () => {
 
   }
 
+  // Audio Sampler on Composition New
+  // const sampler = document.querySelector('.composition-master-container');
+  // if (sampler) {
+  const playButtons = document.querySelectorAll('.play-button');
+    playButtons.forEach(playButton => {
+        playButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          var instrumental = event.currentTarget.id;
+          var audio = event.path[1].children[1].currentSrc
+          console.log(event);
+          // query selector here for the audio tag
+          // selector audio.playing/ audio.pause or paused
+          //toggle for both
+          new Audio(audio).play()
+          console.log("You clicked play button");
+      });
+    // const stopButton = document.querySelector('.stop-player');
+    });
+
+
   const submitButton = document.querySelector('.submit-memory-list');
   if (submitButton) {
     console.log('inside submit button');

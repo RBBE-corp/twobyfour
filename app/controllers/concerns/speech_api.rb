@@ -13,8 +13,8 @@ module SpeechApi
 
     # audio_file = File.binread audio_file_path
     config = {
-      language_code: 'ja-JP',
-      enable_word_time_offsets: true
+      language_code: 'ja-JP'
+      # enable_word_time_offsets: true
       # encoding: :LINEAR16,
       # sample_rate_hertz: 44100,
       # audio_channel_count: 2
