@@ -28,11 +28,8 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
+import { karaokePlayer } from '../components/karaoke';
 
-// document.addEventListener('turbolinks:load', () => {
-// }
-
-// filesPlayer();
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -42,10 +39,20 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
     const player = document.querySelector('.player');
-    player.addEventListener('click', (e) => {
-      playPause(player)
-    });
-    stopButtonClick();
+    // const stopButton = document.querySelector('.stop-player');  
+    if (player) {
+      player.addEventListener('click', (e) => {
+        playPause(player)
+      });
+      stopButtonClick();
+    }
+    // if (stopButton) {
+    // }
+    const recorder = document.querySelector('.recorder');
+    if (recorder) {
+      recorder.addEventListener('click', karaokePlayer);
+    }
+  
   }
 
   const submitButton = document.querySelector('.submit-memory-list');

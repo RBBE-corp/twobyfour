@@ -48,12 +48,26 @@ class CompositionsController < ApplicationController
     redirect_to compositions_path, notice: "Composition deleted!"
   end
 
+
+  def karaoke
+    @composition = Composition.last
+  end
+
+  def checker
+    puts params
+    uploaded_file = params["blob"]
+    raw_string = uploaded_file.read
+    puts raw_string
+    raise
+  end
+
   def addrep
     @composition.increment!(:rep_count)
     respond_to do |format|
       format.json { render json: @composition.rep_count }
     end
   end
+
 
   private
 
