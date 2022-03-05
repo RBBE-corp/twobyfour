@@ -94,8 +94,7 @@ class MemoryListsController < ApplicationController
   end
 
   def destroy
-    @memory_list.destroy
-    # destroy is not working
+    @memory_list.destroy!
     redirect_to profile_path
   end
 
