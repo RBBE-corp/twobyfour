@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
     const player = document.querySelector('.player');
-    // const stopButton = document.querySelector('.stop-player');  
+    // const stopButton = document.querySelector('.stop-player');
     if (player) {
       player.addEventListener('click', (e) => {
         playPause(player)
@@ -58,7 +58,7 @@ document.addEventListener('turbolinks:load', () => {
     if (recorder) {
       recorder.addEventListener('click', karaokePlayer);
     }
-  
+
   }
 
   const submitButton = document.querySelector('.submit-memory-list');
@@ -76,7 +76,7 @@ document.addEventListener('turbolinks:load', () => {
     // check if the audio is playing
 
   // if it is playing, stop it.
-  flashcardCategoryDropdown();
+  // flashcardCategoryDropdown();
 });
 
 import "controllers"

@@ -68,7 +68,6 @@ class CompositionsController < ApplicationController
     end
   end
 
-
   private
 
   def composition_params
