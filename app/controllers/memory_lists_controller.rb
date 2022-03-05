@@ -36,7 +36,7 @@ class MemoryListsController < ApplicationController
     #   @memory_list.memory_list_flashcards.where.not(flashcard_id: flashcard.id)
     # end
     @flashcards_not_selected = @memory_list.flashcards_not_in_memory_list
-    # raise
+    # hide everything not in the selected category
   end
 
   def edit; end
@@ -95,7 +95,8 @@ class MemoryListsController < ApplicationController
 
   def destroy
     @memory_list.destroy
-    redirect_to memory_lists_path
+    # destroy is not working
+    redirect_to profile_path
   end
 
   private
