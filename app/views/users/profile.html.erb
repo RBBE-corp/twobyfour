@@ -13,9 +13,9 @@
   <%# nav for bootstrap tabs %>
   <nav>
     <div class="nav justify-content-between nav-tabs border-0 user-tabs" id="nav-tab" role="tablist">
-      <a class="active" id="nav-compositions-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-compositions" aria-selected="true">My Compositions</a>
-      <a class="" id="nav-playlists-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-playlists" aria-selected="false">My Playlists</a>
-      <a class="" id="nav-memorylists-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-memorylists" aria-selected="false">My Memory Lists</a>
+      <a class="active" id="nav-compositions-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-compositions" aria-selected="false">My Compositions</a>
+      <!--<a class="" id="nav-playlists-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-playlists" aria-selected="false">My Playlists</a>-->
+      <a class="" id="nav-memorylists-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-memorylists" aria-selected="true">My Memory Lists</a>
     </div>
   </nav>
 
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-playlists-tab">
+    <!--<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-playlists-tab">
       <div class="profile-tab-container">
         <div class="mx-5 pt-5">
           <%= link_to "Create your Playlist", playlists_path, class: 'btn btn-block btn-outline-primary' %>
@@ -55,7 +55,7 @@
           <% end %>
         </div>
       </div>
-    </div>
+    </div>-->
 
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-memorylists-tab">
       <div class="profile-tab-container">

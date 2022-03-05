@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/profile', to: "users#profile"
+  patch 'compositions/:id/addrep', to: "compositions#addrep"
 
   resources :playlists, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :playlist_compositions, only: [:new, :create]
@@ -19,4 +20,6 @@ Rails.application.routes.draw do
   end
   resources :memory_list_flashcards, only: [:destroy]
   resources :flashcards, only: [:index, :show, :create, :destroy]
+  get '/karaoke', to: "compositions#karaoke"
+  post '/checker', to: "compositions#checker"
 end

@@ -1,6 +1,30 @@
 <%= simple_form_for(@composition) do |f| %>
   <%= f.input :name, label: "Composition name" %>
+
+    <%# id="composition_memory_list_id" %>
+    <%= f.input :memory_list_id %>
+    <%# id="composition_instrumental_id" %>
+    <%= f.input :instrumental_id %>
+  <div id="#"><%= f.submit class: "btn btn-primary" %></div>
+<% end %>
+
+
+<%# Query selector test %>
+<%# <button id="insert">Insert HTML</button>
+<button id="reset">Reset</button>
+<p>Some text, with a <code id="subject">code-formatted element</code> inside it.</p>
+ %>
+
+<%# original simple form for %>
+<%
+=begin %>
+<%= simple_form_for(@composition) do |f| %>
+  <%= f.input :name, label: "Composition name" %>
   <%= f.association :memory_list %>
   <%= f.association :instrumental, :label_method => lambda { |instrumental| "#{underscore_remover(instrumental.title)}"}  %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
+<%
+=end %>
+
+<%# documentation: https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML %>
