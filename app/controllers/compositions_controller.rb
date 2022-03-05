@@ -1,6 +1,8 @@
 class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy, :addrep]
-
+  
+    include SpeechApi
+  
   def index
     @compositions = Composition.all
     @memory_list_flashcards = MemoryListFlashcard.all
@@ -55,10 +57,11 @@ class CompositionsController < ApplicationController
 
   def checker
     puts params
-    uploaded_file = params["blob"]
+    uploaded_file = params["files.file"]
     raw_string = uploaded_file.read
     puts raw_string
-    raise
+    # raise
+    apple(raw_string)
   end
 
   def addrep
