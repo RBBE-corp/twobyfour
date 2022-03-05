@@ -23,10 +23,7 @@ class FlashcardsController < ApplicationController
     end
   end
 
-  def show
-    # @flashcard_categories = Flashcard.select(:category).map(&:category).uniq
-    # @flashcards_by_category = Flashcard.where(category: category)
-  end
+  def show; end
 
   # def edit; end
 

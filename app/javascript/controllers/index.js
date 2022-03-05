@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import Dropdown from "stimulus-dropdown"
-application.register("dropdown", Dropdown)
-
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
