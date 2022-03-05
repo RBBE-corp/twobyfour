@@ -76,7 +76,7 @@ document.addEventListener('turbolinks:load', () => {
     // check if the audio is playing
 
   // if it is playing, stop it.
-  flashcardCategoryDropdown();
+  // flashcardCategoryDropdown();
 });
 
 import "controllers"

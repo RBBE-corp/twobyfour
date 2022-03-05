@@ -57,11 +57,27 @@ class CompositionsController < ApplicationController
 
   def checker
     puts params
-    uploaded_file = params["files.file"]
-    raw_string = uploaded_file.read
-    puts raw_string
+    responses = []
+    uploaded_file = params["files"]
+    # parsed_arr = JSON.parse(uploaded_file)
+    uploaded_file.each do |file|
+      raw_string = file.read
+      # puts raw_string
+      response = apple(raw_string)
+      if response.present?
+        alternatives = response.first.alternatives
+        alternatives.each do |alternative|
+          puts "Transcription: #{alternative.transcript}"
+          responses << alternative.transcript
+        end
+      else
+        responses << ""
+      end
+    end
+    p responses
+    
+    byebug
     # raise
-    apple(raw_string)
   end
 
   def addrep
