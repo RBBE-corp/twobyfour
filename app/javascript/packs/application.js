@@ -12,7 +12,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -28,15 +27,19 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
-
+import { sortable } from '../components/composition_new';
+// document.addEventListener('turbolinks:load', () => {
+// }
 import { flashcardCategoryDropdown } from '../components/flashcard_category_dropdown';
-
 import { karaokePlayer } from '../components/karaoke';
-
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  const sortablepage = document.querySelector('.master-box-memory-list');
+  if (sortablepage) {
+    sortable();
+  }
 
   const audio = document.querySelector('.audio-mother-box');
   if ( audio ) {
