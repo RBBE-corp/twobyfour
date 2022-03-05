@@ -28,6 +28,9 @@ import { playPause } from '../components/composition_player';
 import { stopButtonClick } from '../components/composition_stop_player';
 import { allowDrop, drag, drop } from '../components/draggable_card';
 import { savedCards } from '../components/draggable_card_save';
+
+import { flashcardCategoryDropdown } from '../components/flashcard_category_dropdown';
+
 import { karaokePlayer } from '../components/karaoke';
 
 
@@ -70,6 +73,7 @@ document.addEventListener('turbolinks:load', () => {
     // check if the audio is playing
 
   // if it is playing, stop it.
+  flashcardCategoryDropdown();
 });
 
 import "controllers"

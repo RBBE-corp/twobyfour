@@ -42,6 +42,19 @@
 
       <div class="col-6">
           <h2 style="text-align:center;">All Flashcards</h2>
+          <div class="dropdown">
+
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Category
+            </button>
+
+            <div class="dropdown-menu" id="category-dropdown" aria-labelledby="dropdownMenuButton" onchange="changeCategory()">
+              <% Flashcard.flashcard_categories.each do | flashcard_category | %>
+                <a class="dropdown-item" id="dropdown-<%= flashcard_category %>" href="#"><%= flashcard_category %></a>
+
+              <% end %>
+            </div>
+          </div>
           <div class="flashcard-cards-holder flex-d justify-content-center" id="AllFlashcardsBox" ondrop="drop(event, this)" ondragover="allowDrop(event)">
               <% @flashcards_not_selected.each do |flashcard| %>
                   <div class="<%= flashcard.category %> card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
