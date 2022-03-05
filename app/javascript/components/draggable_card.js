@@ -7,8 +7,8 @@ function drag(ev) {
 }
 
 function drop(ev, el) {
-  console.log(ev);
-  console.log(el.id);
+  // console.log(ev);
+  // console.log(el.id);
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   el.appendChild(document.getElementById(data));

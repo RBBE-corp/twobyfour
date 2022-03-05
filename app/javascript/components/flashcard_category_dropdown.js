@@ -5,10 +5,6 @@ export const flashcardCategoryDropdown = () => {
   flashcards.forEach(flashcard => {
     flashcard.addEventListener("click", changeCategory);
   })
-
-  // var e = document.getElementById("category-dropdown");
-  // var strUser = e.value;
-  // console.log(strUser);
 }
 
 // add onchange function
@@ -39,6 +35,7 @@ const changeCategory = (e) => {
   });
 }
 
+// This will display the current category on the button
 $(function () {
 
   $(".dropdown-menu").on('click', 'a', function () {
