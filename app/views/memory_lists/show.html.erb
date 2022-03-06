@@ -1,93 +1,54 @@
-<div class="banner">
-  <div>
-    <h1><strong><%= @memory_list.name %></strong></h1>
-  </div>
-  <div>
-    <!--<img class="profile-image" src="https://picsum.photos/200" alt="Place-holder-images">
-    <p class="link-button m-3"><%= link_to 'Edit List Name', edit_memory_list_path, class: 'btn btn-secondary' %></p>-->
-  </div>
-  <div>
-    <p><strong>List creator: </strong><%= @memory_list.user.username %></p>
-  </div>
 </div>
-
-<div class="container" style="padding-top:30px;">
-  <%# shows all the flashcards in the memory list %>
-  <div class="row">
-      <div class="col-6">
-        <h2 style="text-align:center;">Memory List Flashcards</h2>
-
-        <div class="flashcard-cards-holder flex-d justify-content-center" id="MemoryListFlashcardsBox" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-            <% if @memory_list.flashcards.present? %>
-                <% @memory_list.flashcards.each do |flashcard| %>
-                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
-                    <div class="flip-card-inner">
-                      <div class="card-front">
-                        <ul>
-                          <li class="list-group-item"><%= underscore_remover(flashcard.english_word) %></li>
-                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
-                        </ul >
-                      </div>
-                      <div class="card-back">
-                        <ul>
-                          <li class="list-group-item"><%= underscore_remover(flashcard.japanese_word) %></li>
-                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
-                        </ul >
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-            <%end%>
+  <div class="memorylist-master-container-show" style="text-align: center;">
+    <div class="container">
+    <%# shows all the flashcards in the memory list %>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-4" style="text-align: center;">
+          <h1><strong><%= @memory_list.name %></strong></h1>
+          <p><h2><strong>List creator: </strong></p>
+          <p><%= @memory_list.user.username %></h2></p>
         </div>
-      </div>
-
-      <div class="col-6">
-          <h2 style="text-align:center;">All Flashcards</h2>
-          <div class="dropdown" style="text-align:center;">
-
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Category
-            </button>
-
-            <div class="dropdown-menu" id="category-dropdown" aria-labelledby="dropdownMenuButton" onchange="changeCategory()">
-              <a class="dropdown-item" id="all">All</a>
-              <% Flashcard.flashcard_categories.each do | flashcard_category | %>
-                <a class="dropdown-item" id="<%= flashcard_category%>"><%= underscore_remover(flashcard_category) %></a>
-              <% end %>
-            </div>
-          </div>
-          <div class="flashcard-cards-holder flex-d justify-content-center" id="AllFlashcardsBox" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-              <% @flashcards_not_selected.each do |flashcard| %>
-                  <div class="<%= flashcard.category %> card-flashcard flashcard-not-selected" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
-                    <div class="flip-card-inner">
-                      <div class="card-front">
-                        <ul>
-                          <li class="list-group-item"><%= underscore_remover(flashcard.english_word) %></li>
-                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
-                        </ul>
+        <div class="col-8">
+          <h2 style="text-align:center;">Memory List Flashcards:</h2>
+          <div class="flashcard-cards-holder flex-d justify-content-center" style="grid-template-columns: auto auto auto auto;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+              <% if @memory_list.flashcards.present? %>
+                  <% @memory_list.flashcards.each do |flashcard| %>
+                    <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
+                      <div class="flip-card-inner">
+                        <div class="card-front">
+                          <ul>
+                            <li><h4><%= underscore_remover(flashcard.english_word) %></h4></li>
+                            <li><strong>Category:</strong></li>
+                            <li><h4><%= underscore_remover(flashcard.category) %></h4></li>
+                          </ul >
+                        </div>
+                        <div class="card-back">
+                          <ul>
+                            <li><h4><%= underscore_remover(flashcard.japanese_word) %></h4></li>
+                            <li><strong>Category:</strong></li>
+                            <li><h4><%= underscore_remover(flashcard.category) %></h4></li>
+                          </ul >
+                        </div>
                       </div>
-                      <div class="card-back">
-                        <ul>
-                          <li class="list-group-item"><%= underscore_remover(flashcard.japanese_word) %></li>
-                          <li><strong>Category: </strong> <%= underscore_remover(flashcard.category) %></li>
-                        </ul>
-                      </div>
-                    <!--<%= render 'components/flashcard-add-form'  %>-->
                     </div>
-                  </div>
-            <% end %>
+                  <% end %>
+              <%end%>
           </div>
-      </div>
-  </div>
-</div>
+        </div>
+    </div>
 
-<div style="text-align:center;">
-  <p class="link-button m-3"><%= simple_form_for @memory_list, html: { class: "memory-list-form"}  do |f| %>
-    <%= f.submit 'Save Changes', data: { confirm: 'Do you want to save changes to your list?' }, class: "submit-memory-list btn btn-secondary"  %>
-  <% end %></p>
-  <p class="link-button m-3" ><%= link_to "Delete #{@memory_list.name} Memory List",
-          memory_list_path(@memory_list),
-          method: :delete,
-          data: { confirm: "Are you sure?" }, class: 'btn btn-secondary' %></p>
-  <p class="link-button m-3"><%= link_to 'Back to Memory List Index', profile_path, class: 'btn btn-secondary' %></p>
+    <div class="row align-items-center justify-content-center">
+      <div style="text-align:center;">
+        <!--<p class="link-button m-3"><%= simple_form_for @memory_list, html: { class: "memory-list-form"}  do |f| %>
+          <%= f.submit 'Save Changes', data: { confirm: 'Do you want to save changes to your list?' }, class: "submit-memory-list btn btn-secondary"  %>
+        <% end %></p>-->
+        <p class="link-button m-3" ><%= link_to "Delete #{@memory_list.name} Memory List",
+                memory_list_path(@memory_list),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: 'btn btn-secondary' %></p>
+        <p class="link-button m-3"><%= link_to 'Back to Memory List Index', profile_path, class: 'btn btn-secondary' %></p>
+      </div>
+    </div>
+  </div>
+
 </div>
