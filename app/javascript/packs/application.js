@@ -74,21 +74,15 @@ document.addEventListener('turbolinks:load', () => {
           const playpause = document.getElementById("play-pause");
           console.log(playpause.dataset.status);
           var status = playpause.dataset.status;
-          // var instrumental = event.currentTarget.id;
-          var audio = event.path[1].children[1]
-          // console.log(event);
-          console.log(event.path[1].children[1])
-          // var audio = new Audio(audio);
+          var audio = event.path[1].children[1];
+
           console.log("You clicked play button");
           if (playpause.dataset.status == "playing") {
             audio.pause()
             playpause.dataset.status = "paused"
-            // must be reversed after the function runs its course
-            console.log("pausing")
           } else if (playpause.dataset.status == "paused") {
             audio.play()
             playpause.dataset.status = "playing"
-            console.log("playing")
           } else {
             audio.pause()
             playpause.dataset.status = "paused"
