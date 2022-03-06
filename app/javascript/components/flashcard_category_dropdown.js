@@ -18,8 +18,8 @@ const changeCategory = (e) => {
   var flashcards = document.querySelectorAll(".flashcard-not-selected");
   // var selectedCards = document.getElementsByClassName("memory-list-card");
   flashcards.forEach(flashcard => {
-    console.log(flashcard.className);
-    console.log(flashcard_category);
+    // console.log(flashcard.className);
+    // console.log(flashcard_category);
     if (!flashcard.className.includes("memory-list-card")) {
         if (flashcard_category == "all") {
           flashcard.classList.remove("d-none");
@@ -36,11 +36,12 @@ const changeCategory = (e) => {
 }
 
 // This will display the current category on the button
+// need to be more specific with the class name, changed from btn to dropdown-toggle
 $(function () {
 
   $(".dropdown-menu").on('click', 'a', function () {
-    $(".btn:first-child").text($(this).text());
-    $(".btn:first-child").val($(this).text());
+    $(".dropdown-toggle:first-child").text($(this).text());
+    $(".dropdown-toggle:first-child").val($(this).text());
   });
 
 });
