@@ -28,9 +28,9 @@ module SpeechApi
       results = response.results
 
       puts response
-      if results.present?
-        
-      end
+        # if results.present?
+          
+        # end
       # raise
       return results
   end

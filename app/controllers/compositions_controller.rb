@@ -52,6 +52,7 @@ class CompositionsController < ApplicationController
 
 
   def karaoke
+    # need to routes dynamic route for checker
     @composition = Composition.last
   end
 
@@ -59,22 +60,39 @@ class CompositionsController < ApplicationController
     puts params
     responses = []
     uploaded_file = params["files"]
+    # composition = Composition.find(params["id"])
+    composition = Composition.last
+    flashcards = composition.flashcards
     # parsed_arr = JSON.parse(uploaded_file)
-    uploaded_file.each do |file|
+    uploaded_file.each_with_index do |file, index|
       raw_string = file.read
       # puts raw_string
-      response = apple(raw_string)
+      responses = apple(raw_string)
       if response.present?
         alternatives = response.first.alternatives
         alternatives.each do |alternative|
-          puts "Transcription: #{alternative.transcript}"
-          responses << alternative.transcript
+          # puts "Transcription: #{alternative.transcript}"
+          equal_or_not = (alternative.transcript == flashcards[index].furigana_word)
+          responses << {
+            transcript: alternative.transcript,
+            word: flashcards[index].furigana_word,
+            matched: equal_or_not
+          }
+          # responses << alternative.transcript
         end
       else
-        responses << ""
+        responses << {
+          transcript: "",
+          word: flashcards[index].furigana_word,
+          matched: false
+        }
+        # responses << ""
       end
     end
-    p responses
+
+    puts responses
+    # Check with japanese word
+    scorer()
     
     byebug
     # raise
@@ -89,6 +107,18 @@ class CompositionsController < ApplicationController
 
 
   private
+
+  def scorer
+    # Score the composition
+    # create a instance of score with composition
+    # iterate through the responses
+
+    # check if the matched is true and add to the score
+
+
+
+    responses
+  end
 
   def composition_params
     params.require(:composition).permit(:name, :instrumental_id, :memory_list_id)
