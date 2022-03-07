@@ -10,6 +10,7 @@ class MemoryListsController < ApplicationController
     @composition = Composition.new
     @memory_list = MemoryList.new
     @memory_lists = MemoryList.all
+    @flashcards_not_selected = @memory_list.flashcards_not_in_memory_list
   end
 
   def create
@@ -17,8 +18,8 @@ class MemoryListsController < ApplicationController
     @memory_list = MemoryList.new(memory_list_params)
     @memory_list.user = current_user
     if @memory_list.save
-      redirect_to memory_lists_path
-      # redirect_to memory_list_path(@memory_list)
+      flashcard_sorting()
+      redirect_to memory_list_path(@memory_list)
     else
       render :new
     end
@@ -50,18 +51,18 @@ class MemoryListsController < ApplicationController
   #   end
   # end
 
-  def update
-    puts params
-    if params["FlashcardID"].present?
-      flashcard_sorting
-    else
-      if @memory_list.update(memory_list_params)
-        redirect_to memory_list_path(@memory_list), notice: "Memory list created!"
-      else
-        render :edit
-      end
-    end
-  end
+  # def update
+  #   puts params
+  #   if params["FlashcardID"].present?
+  #     flashcard_sorting
+  #   else
+  #     if @memory_list.update(memory_list_params)
+  #       redirect_to memory_list_path(@memory_list), notice: "Memory list created!"
+  #     else
+  #       render :edit
+  #     end
+  #   end
+  # end
 
   def flashcard_sorting
     arr = JSON.parse(params["FlashcardID"])
@@ -81,21 +82,20 @@ class MemoryListsController < ApplicationController
         )
       end
     end
-    removed_flashcards = (flashcard - new_arr)
-    puts "----------------------------------------------"
-    puts "removed flashcards - #{removed_flashcards}"
-    removed_flashcards.each do |removed_flashcard|
-      # MemoryListFlashcard.where(memory_list: @memory_list).where(flashcard: Flashcard.find(removed_flashcard))
-      memory_list_flashcard = MemoryListFlashcard.where(["memory_list_id = ?  AND flashcard_id = ?", @memory_list.id, removed_flashcard])
-      puts memory_list_flashcard.first.id
-      memory_list_flashcard.first.destroy
-    end
-    # ball.destroy
+    # removed_flashcards = (flashcard - new_arr)
+    # puts "----------------------------------------------"
+    # puts "removed flashcards - #{removed_flashcards}"
+    # removed_flashcards.each do |removed_flashcard|
+    #   # MemoryListFlashcard.where(memory_list: @memory_list).where(flashcard: Flashcard.find(removed_flashcard))
+    #   memory_list_flashcard = MemoryListFlashcard.where(["memory_list_id = ?  AND flashcard_id = ?", @memory_list.id, removed_flashcard])
+    #   puts memory_list_flashcard.first.id
+    #   memory_list_flashcard.first.destroy
+    # end
+    # # ball.destroy
   end
 
   def destroy
-    @memory_list.destroy
-    # destroy is not working
+    @memory_list.destroy!
     redirect_to profile_path
   end
 
