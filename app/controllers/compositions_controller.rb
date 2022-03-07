@@ -59,9 +59,12 @@ class CompositionsController < ApplicationController
   def checker
     responses = []
     uploaded_file = params["files"]
+  
+  
     # composition = Composition.find(params["id"])
     composition = Composition.last
 
+   
     # flashcards = composition.flashcards
     flashcards = [
       'こんにちは',
@@ -76,33 +79,42 @@ class CompositionsController < ApplicationController
       # puts raw_string
       result = apple(raw_string)
       if result.present?
-        p result
-        # byebug
+        # p result
+
         alternative = result.first.alternatives
         # puts "Transcription: #{alternative.first.transcript}"        
-        # byebug
+
+
         # equal_or_not = (alternative.transcript == flashcards[index].furigana_word)
         equal_or_not = (alternative.first.transcript == flashcards[index])
+  
+  
         responses << {
             transcript: alternative.first.transcript,
 
+
             # word: flashcards[index].furigana_word,
             word: flashcards[index],
+    
+    
             matched: equal_or_not
           }
         # responses << alternative.transcript
       else
         responses << {
           transcript: "",
+      
+      
           # word: flashcards[index].furigana_word,
           word: flashcards[index],
+     
+     
           matched: false
         }
         # responses << ""
       end
     end
 
-    # puts responses
     # Check with japanese word
     data = scorer(responses)
     
@@ -110,7 +122,7 @@ class CompositionsController < ApplicationController
     respond_to do |format|
       format.json { render :json => data}
     end
-    # raise
+
     # byebug
   end
 
