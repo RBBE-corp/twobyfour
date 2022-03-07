@@ -29,12 +29,12 @@
   padding: 20px;
 }
 
-#MemoryListFlashcardsBox {
+.memory-list-flashcards-box {
   grid-template-columns: auto auto;
   width: 300px;
 }
 
-#AllFlashcardsBox {
+.all-flashcards-box {
   grid-template-columns: auto auto auto auto;
   width: 600px;
 }
@@ -91,7 +91,7 @@
   // overflow: hidden;
   background: whitesmoke;
   color: #000;
-  padding-top: 30px;
+  padding-top: 20px;
   padding-right: 40px;
   z-index: 100;
 }
@@ -118,7 +118,7 @@
   background: #eeff00;
   color: #333;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 20px;
   padding-right: 40px;
   z-index: 10;
   transform: rotateY(180deg);
@@ -133,21 +133,21 @@
 // }
 
 .card-flashcard h4 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   color: black;
   margin: 0;
 
   border: #000;
   border-radius: 10px;
-  background-color: $purple-gradient;
-  padding: 10px;
+  // padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .card-flashcard li {
   font-family: $body-font;
-  padding: 5px;
-  font-weight: bold;
+  // padding: 1px;
   font-size: 12px;
   word-wrap: normal;
 
@@ -156,6 +156,17 @@
   // margin-top: 8px;
   text-align: center;
   list-style-type: none;
+}
+
+.card-flashcard .furigana {
+  padding: 5px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.card-flashcard .flashcard-category {
+  margin-top: 10px;
+  font-size: 10px;
 }
 
 .card-flashcard .card-flashcard-infos {
