@@ -77,6 +77,16 @@ document.addEventListener('turbolinks:load', () => {
 
   // if it is playing, stop it.
   // flashcardCategoryDropdown();
+
+
+  // hiding score container on click
+  const hideButton = document.querySelector(".hide-score-container");
+  if (hideButton) {
+    hideButton.addEventListener('click',() => {
+      document.querySelector('.karaoke-score-container').classList.remove('score-show');
+      document.querySelector('.karaoke-score-container').classList.add('score-hidden');
+    })
+  }
 });
 
 import "controllers"

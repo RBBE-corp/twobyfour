@@ -1,14 +1,32 @@
 .karaoke-main-container {
   position: relative;
+  
+  .matched-true {
+    background-color: rgba(0, 128, 0, 0.7);
+  }
+  
+  .matched-false {
+    background-color: rgba(255, 0, 0, 0.7);
+  }
 }
+.score-hidden {
+  bottom: 100%;
+  height: 0;
+}
+.score-show {
+  top: 0%;
+  height: calc(100vh - 84px);
+}
+// bottom: 100%;
 .karaoke-score-container {
   width: 100%;
-  height: calc(100vh - 84px);
+  overflow: hidden;
   background-color: rgba(230, 230, 250, 0.8);
   position: absolute;
   z-index: 100;
-  top: 0%;
   transition: top 2s ease-in-out;
+  transition: bottom 2s ease-in-out;
+  transition: height 2s ease-in-out;
   // centering child container
   display: flex;
   justify-content: center;
@@ -26,8 +44,6 @@
     }
 
     .row {
-      // height: 100%;
-      // padding: 
       justify-content: space-evenly;
       .col-5 {
         // width: 100px;
@@ -41,18 +57,22 @@
   }
 }
 
-.word-container {
+
+// firstcolumn
+
+.side-by-side {
   display: flex;
   padding: 8px;
   justify-content: space-evenly;
-  // background-color: aliceblue;
-  &:not(:first-child) {
-    
-    background-color: rgb(113, 224, 224);
+}
+
+
+.word-container {
+    // background-color: rgb(113, 224, 224);
     border-radius: 4px;
     // border-bottom: 1px solid rgb(75, 133, 125);
     margin: 8px;
-  }
+  // }
   .word-box {
     min-width: 80px;
     padding: 0px 8px;
@@ -64,6 +84,7 @@
   }
 }
 
+// second column
 .score-box {
   padding: 8px;
   height: 100%;

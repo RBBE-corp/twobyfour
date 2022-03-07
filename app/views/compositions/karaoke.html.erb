@@ -1,23 +1,25 @@
 <div class="karaoke-main-container">
   <%# Hidden score correction %>
-  <div class="karaoke-score-container py-5">
+  <div class="karaoke-score-container score-hidden py-5">
     <div class="karaoke-score-box">
       <h3 class="text-center">Corrections</h3>
       <div class="row p-3">
-        <div class="col-5">
-          <div class="word-container">
+        <div class="col-5 first-column">
+          <div class="side-by-side">
             <strong>japanese word</strong>
             <strong>Your transcript</strong>
           </div>
-          <% 8.times do %>
-            <div class="word-container">
-              <div class="transcript-word word-box no-info"></div>
-              <=>
-              <div class="furigana-word word-box no-info"></div>
-            </div>
-          <% end %>
+          <div class="words-box">
+            <% 4.times do %>
+              <div class="word-container side-by-side">
+                <div class="furigana-word word-box no-info"></div>
+                <=>
+                <div class="transcript-word word-box no-info"></div>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="col-5">
+        <div class="col-5 second-column">
           <div class="score-box">
             <h4><strong>Score</strong></h4>
             <div class="score-info">
@@ -31,7 +33,7 @@
               </p>
               </p>
             </div>
-            <button>Go back and practice again.</button>
+            <button class="btn btn-sm btn-primary hide-score-container">Go back and practice again.</button>
           </div>
         
         </div>

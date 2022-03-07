@@ -1,4 +1,5 @@
 // import { pause } from "./composition_player";
+import { lightUpTheScore } from "./karaoke_score_popup.js";
 // pause for js since it doesnot have ruby equivalent of sleep. and I don't know how to create white sound of specific length;
 function pause(milliseconds) {
   var dt = new Date();
@@ -31,6 +32,8 @@ const karaokePlayer = () => {
       // formData.append("blob", audioBlob)
       // let file = new File([audioBlob], 'recording.flac');
       // blobs.push(file);
+      
+      // Multiple files  
       formData.append('files[]', audioBlob);
       console.log(...formData);
       if (instrumental.dataset.order == "last") {
@@ -44,6 +47,7 @@ const karaokePlayer = () => {
         }).then(response => response.json())
         .then(data => {
           console.log(data)
+          lightUpTheScore(data);
         });
       }
     }, false);
