@@ -73,19 +73,25 @@ document.addEventListener('turbolinks:load', () => {
           event.preventDefault();
           const playpause = document.getElementById("play-pause");
           console.log(playpause.dataset.status);
-          var status = playpause.dataset.status;
           var audio = event.path[1].children[1];
-
           console.log("You clicked play button");
+          console.log(playButton.innerHTML);
+
           if (playpause.dataset.status == "playing") {
-            audio.pause()
-            playpause.dataset.status = "paused"
+            audio.pause();
+            playpause.dataset.status = "paused";
+            console.log(playButton.className);
+            playButton.className = 'play-button fas fa-play'
+
           } else if (playpause.dataset.status == "paused") {
-            audio.play()
-            playpause.dataset.status = "playing"
+            audio.play();
+            playpause.dataset.status = "playing";
+            playButton.className = 'play-button fas fa-pause'
+
           } else {
-            audio.pause()
-            playpause.dataset.status = "paused"
+            audio.pause();
+            playpause.dataset.status = "paused";
+            playButton.className = 'play-button fas fa-pause'
           }
       });
     });
