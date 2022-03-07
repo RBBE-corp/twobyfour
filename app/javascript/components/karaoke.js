@@ -34,12 +34,16 @@ const karaokePlayer = () => {
       formData.append('files[]', audioBlob);
       console.log(...formData);
       if (instrumental.dataset.order == "last") {
+        instrumental.dataset.order = 0;
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         console.log(...formData);
         fetch("/checker", {
           method: "post",
           headers: {'X-CSRF-Token': csrfToken},
           body: formData
+        }).then(response => response.json())
+        .then(data => {
+          console.log(data)
         });
       }
     }, false);
