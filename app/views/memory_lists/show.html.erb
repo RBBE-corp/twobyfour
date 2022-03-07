@@ -18,15 +18,13 @@
                         <div class="card-front">
                           <ul>
                             <li><h4><%= underscore_remover(flashcard.english_word) %></h4></li>
-                            <li><strong>Category:</strong></li>
-                            <li><h4><%= underscore_remover(flashcard.category) %></h4></li>
+                            <li>(<%= underscore_remover(flashcard.category) %>)</li>
                           </ul >
                         </div>
                         <div class="card-back">
                           <ul>
                             <li><h4><%= underscore_remover(flashcard.japanese_word) %></h4></li>
-                            <li><strong>Category:</strong></li>
-                            <li><h4><%= underscore_remover(flashcard.category) %></h4></li>
+                            <li class="furigana"><%= flashcard.furigana %></li>
                           </ul >
                         </div>
                       </div>

@@ -135,138 +135,161 @@ puts "all instrumentals created"
 hello_konnichiwa = Flashcard.create!(
   english_word: "hello",
   japanese_word: "konnichiwa",
+  furigana: "こんにちは",
   category: "greetings"
 )
 
 good_morning_ohayou_gozaimasu = Flashcard.create!(
   english_word: "good_morning",
   japanese_word: "ohayou_gozaimasu",
+  furigana: "おはようございます",
   category: "greetings"
 )
 
 nice_to_meet_you_hajimemashite = Flashcard.create!(
   english_word: "nice_to_meet_you",
   japanese_word: "hajimemashite",
+  furigana: "初めまして",
   category: "greetings"
 )
 
 excuse_me_sumimasen = Flashcard.create!(
   english_word: "excuse_me",
   japanese_word: "sumimasen",
+  furigana: "すみません",
   category: "greetings"
 )
 
 im_sorry_gomen_nasai = Flashcard.create!(
   english_word: "im_sorry",
   japanese_word: "gomen_nasai",
+  furigana: "ごめんなさい",
   category: "greetings"
 )
 
 thank_you_arigatou_gozaimasu = Flashcard.create!(
   english_word: "thank_you",
   japanese_word: "arigatou_gozaimasu",
+  furigana: "ありがとうございます",
   category: "greetings"
 )
 
 please_onegaishimasu = Flashcard.create!(
   english_word: "please",
   japanese_word: "onegaishimasu",
+  furigana: "お願いします",
   category: "greetings"
 )
 
 good_night_oyasumi_nasai = Flashcard.create!(
   english_word: "good_night",
   japanese_word: "oyasumi_nasai",
+  furigana: "おやすみなさい",
   category: "greetings"
 )
 
 red_aka = Flashcard.create!(
   english_word: "red",
   japanese_word: "aka",
+  furigana: "赤",
   category: "colors"
 )
 
 orange_orenji = Flashcard.create!(
   english_word: "orange",
   japanese_word: "orenji",
+  furigana: "オレンジ",
   category: "colors"
 )
 
 yellow_kiiro = Flashcard.create!(
   english_word: "yellow",
   japanese_word: "kiiro",
+  furigana: "黄色",
   category: "colors"
 )
 
 green_midori = Flashcard.create!(
   english_word: "green",
   japanese_word: "midori",
+  furigana: "緑",
   category: "colors"
 )
 
 blue_ao = Flashcard.create!(
   english_word: "blue",
   japanese_word: "ao",
+  furigana: "青",
   category: "colors"
 )
 
 purple_murasaki = Flashcard.create!(
   english_word: "purple",
   japanese_word: "murasaki",
+  furigana: "紫",
   category: "colors"
 )
 
 black_kuro = Flashcard.create!(
   english_word: "black",
   japanese_word: "kuro",
+  furigana: "黒",
   category: "colors"
 )
 
 white_shiro = Flashcard.create!(
   english_word: "white",
   japanese_word: "shiro",
+  furigana: "白",
   category: "colors"
 )
 
 monday_getsu_youbi = Flashcard.create!(
   english_word: "monday",
   japanese_word: "getsu_youbi",
+  furigana: "月曜日",
   category: "days_of_the_week"
 )
 
 tuesday_ka_youbi = Flashcard.create!(
   english_word: "tuesday",
   japanese_word: "ka_youbi",
+  furigana: "火曜日",
   category: "days_of_the_week"
 )
 
 wednesday_sui_youbi = Flashcard.create!(
   english_word: "wednesday",
   japanese_word: "sui_youbi",
+  furigana: "水曜日",
   category: "days_of_the_week"
 )
 
 thursday_moku_youbi = Flashcard.create!(
   english_word: "thursday",
   japanese_word: "moku_youbi",
+  furigana: "木曜日",
   category: "days_of_the_week"
 )
 
 friday_kin_youbi = Flashcard.create!(
   english_word: "friday",
   japanese_word: "kin_youbi",
+  furigana: "金曜日",
   category: "days_of_the_week"
 )
 
 saturday_do_youbi = Flashcard.create!(
   english_word: "saturday",
   japanese_word: "do_youbi",
+  furigana: "土曜日",
   category: "days_of_the_week"
 )
 
 sunday_nichi_youbi = Flashcard.create!(
   english_word: "sunday",
   japanese_word: "nichi_youbi",
+  furigana: "日曜日",
   category: "days_of_the_week"
 )
 
