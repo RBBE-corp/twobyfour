@@ -25,13 +25,14 @@ const karaokePlayer = () => {
 
       //Creating audio element appending to document 
 
-      // const audioUrl = URL.createObjectURL(audioBlob);
+      const audioUrl = URL.createObjectURL(audioBlob);
       // const audio = new Audio(audioUrl);
-      // const audio = document.createElement('audio');
-      // audio.src = audioUrl;
-      // audio.controls = true;
-      // audio.dataset.type = audioBlob
-      // document.body.appendChild(audio);
+      const audio = document.createElement('audio');
+      audio.src = audioUrl;
+      audio.controls = true;
+      audio.dataset.type = audioBlob
+      document.body.appendChild(audio);
+      
       // formData.append("blob", audioBlob)
 
       // Making file from audio . Don't need it right now.
@@ -47,15 +48,15 @@ const karaokePlayer = () => {
         instrumental.dataset.order = 0;
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         console.log(...formData);
-        fetch(`${window.location.href}`, {
-          method: "post",
-          headers: {'X-CSRF-Token': csrfToken},
-          body: formData
-        }).then(response => response.json())
-        .then(data => {
-          console.log(data)
-          lightUpTheScore(data);
-        });
+        // fetch(`${window.location.href}`, {
+        //   method: "post",
+        //   headers: {'X-CSRF-Token': csrfToken},
+        //   body: formData
+        // }).then(response => response.json())
+        // .then(data => {
+        //   console.log(data)
+        //   lightUpTheScore(data);
+        // });
       }
     }, false);
   }
@@ -132,7 +133,7 @@ const karaokePlayer = () => {
       // pause(1316);
       subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
       instrumental.dataset.order = index;
-      pause(2316);
+      pause(1316);
       audioPlayer(index, mediaRecorder)
     };
   };
