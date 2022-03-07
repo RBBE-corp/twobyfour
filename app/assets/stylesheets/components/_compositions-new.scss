@@ -1,4 +1,6 @@
 
+
+
 .twobyfour {
   position: absolute;
   margin-top: 577px;
@@ -374,7 +376,9 @@
 
 //////// Inside Instrumental Catcher///////
 
+.master-box-memory-list {
 .instrumental-card-stats {
+  display: flex;
 }
 
     .playlist-card {
@@ -383,6 +387,7 @@
       height: 263px;
       background-color: rgb(221, 221, 221);
       display: flex;
+      flex-direction: column;
       border-radius: 16px;
       align-items: center;
       color: rgb(65, 65, 65);
@@ -415,7 +420,6 @@
     background: -webkit-linear-gradient(to bottom, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-
 
 
 
@@ -713,4 +717,83 @@
         50%{background-position:100% 50%}
         100%{background-position:0% 50%}
 
+}
+
+.play-button {
+  width: 50px;
+  height: 40px;
+  border-radius: 8px;
+  color: rgb(31, 31, 31);
+  text-shadow: 1px 1px 0 #c5c5c5;
+  border: 1px solid #dedede;
+  background:
+    -moz-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #b8b8b8 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -webkit-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #c2c2c2 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -o-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #d6d6d6 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #a5a5a5 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+}
+
+.play-button:hover {
+  color: rgb(7, 243, 255);
+  text-shadow: 2px 1px black;
+}
 }
