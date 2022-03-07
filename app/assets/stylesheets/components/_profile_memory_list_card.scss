@@ -37,11 +37,11 @@ $slide-change-timing: 4; // percentage of total animation cycle
   }
   .flashcard-collection {
     display: flex;
-    height: 80px;
+    height: 100px;
     align-items: center;
     justify-content: center;
     width: 100%;
-    filter: blur(2px) grayscale(80%);;
+    // filter: blur(2px) grayscale(80%);;
     position: relative;
     overflow: hidden;
     // background-color: gray;
@@ -60,7 +60,7 @@ $slide-change-timing: 4; // percentage of total animation cycle
   width: 150px;
   height: 40%;
   margin: 0 16px;
-  animation: carousel-animate-vertical $animation-timing linear infinite;    
+  animation: carousel-animate-vertical $animation-timing linear infinite;
 }
 
 // @for $i from 1 to ($carousel-items) {
