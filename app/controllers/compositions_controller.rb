@@ -53,7 +53,7 @@ class CompositionsController < ApplicationController
 
   def karaoke
     # need to routes dynamic route for checker
-    @composition = Composition.last
+    @composition = Composition.find(params["composition_id"])
   end
 
   def checker
@@ -61,16 +61,16 @@ class CompositionsController < ApplicationController
     uploaded_file = params["files"]
   
   
-    # composition = Composition.find(params["id"])
+    composition = Composition.find(params["composition_id"])
     composition = Composition.last
 
    
-    # flashcards = composition.flashcards
-    flashcards = [
-      'こんにちは',
-      'ありがとうございます',
-      '緑'
-    ]
+    flashcards = composition.flashcards
+    # flashcards = [
+    #   'こんにちは',
+    #   'ありがとうございます',
+    #   '緑'
+    # ]
 
 
     # parsed_arr = JSON.parse(uploaded_file)
@@ -85,16 +85,16 @@ class CompositionsController < ApplicationController
         # puts "Transcription: #{alternative.first.transcript}"        
 
 
-        # equal_or_not = (alternative.transcript == flashcards[index].furigana_word)
-        equal_or_not = (alternative.first.transcript == flashcards[index])
+        equal_or_not = (alternative.first.transcript == flashcards[index].furigana)
+        # equal_or_not = (alternative.first.transcript == flashcards[index])
   
   
         responses << {
             transcript: alternative.first.transcript,
 
 
-            # word: flashcards[index].furigana_word,
-            word: flashcards[index],
+            word: flashcards[index].furigana,
+            # word: flashcards[index],
     
     
             matched: equal_or_not
@@ -105,7 +105,7 @@ class CompositionsController < ApplicationController
           transcript: "",
       
       
-          # word: flashcards[index].furigana_word,
+          word: flashcards[index].furigana,
           word: flashcards[index],
      
      

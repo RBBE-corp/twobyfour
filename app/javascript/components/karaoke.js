@@ -20,27 +20,34 @@ const karaokePlayer = () => {
     mediaRec.addEventListener("stop", () => {
       console.log("stopping");
       const audioBlob = new Blob(audioChunks, { type: 'audio/flac' });
-      // audioChunks = []; 
+      // audioChunks = []; reseting length of audio to 0/blank
       audioChunks.length = 0;
-      const audioUrl = URL.createObjectURL(audioBlob);
+
+      //Creating audio element appending to document 
+
+      // const audioUrl = URL.createObjectURL(audioBlob);
       // const audio = new Audio(audioUrl);
-      const audio = document.createElement('audio');
-      audio.src = audioUrl;
-      audio.controls = true;
-      audio.dataset.type = audioBlob
-      document.body.appendChild(audio);
+      // const audio = document.createElement('audio');
+      // audio.src = audioUrl;
+      // audio.controls = true;
+      // audio.dataset.type = audioBlob
+      // document.body.appendChild(audio);
       // formData.append("blob", audioBlob)
+
+      // Making file from audio . Don't need it right now.
       // let file = new File([audioBlob], 'recording.flac');
       // blobs.push(file);
       
       // Multiple files  
       formData.append('files[]', audioBlob);
       console.log(...formData);
+
+      // fetch if only last recording
       if (instrumental.dataset.order == "last") {
         instrumental.dataset.order = 0;
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         console.log(...formData);
-        fetch("/checker", {
+        fetch(`${window.location.href}`, {
           method: "post",
           headers: {'X-CSRF-Token': csrfToken},
           body: formData
