@@ -26,13 +26,16 @@ const karaokePlayer = (event) => {
 
       //Creating audio element appending to document 
 
-      const audioUrl = URL.createObjectURL(audioBlob);
-      // const audio = new Audio(audioUrl);
-      const audio = document.createElement('audio');
-      audio.src = audioUrl;
-      audio.controls = true;
-      audio.dataset.type = audioBlob
-      document.body.appendChild(audio);
+      // const audioUrl = URL.createObjectURL(audioBlob);
+      
+      /* Use either one of below 2 */
+      // // const audio = new Audio(audioUrl);
+      // const audio = document.createElement('audio');
+
+      // audio.src = audioUrl;
+      // audio.controls = true;
+      // audio.dataset.type = audioBlob
+      // document.body.appendChild(audio);
       
       // formData.append("blob", audioBlob)
 
@@ -47,14 +50,16 @@ const karaokePlayer = (event) => {
       // fetch if only last recording
       if (instrumental.dataset.order == "last") {
 
-        // resetting everything
-        event.currentTarget.style.color = "initial";
-        event.currentTarget.style.cursor = "pointer";
+        // resetting button and audio to start.
+        const recorder = document.querySelector('.recorder');
+        recorder.style.color = "initial";
+        recorder.style.cursor = "pointer";
         instrumental.dataset.order = 0;
+        // Rails csrfToken
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         // console.log(...formData);
         
-        // Starting showing karaoke score box 
+        // Starting showing karaoke score box and loading effect.
         const scoreContainer = document.querySelector('.karaoke-score-container');
         scoreContainer.classList.remove('score-hidden');
         scoreContainer.classList.add('score-show');
@@ -120,26 +125,22 @@ const karaokePlayer = (event) => {
         subtitles.style.scrollBehavior = 'smooth';
         audio.volume = 0;
         mediaRecorder.start();
-        console.log(`starting ${index}`)
+        console.log(`starting ${index}`);
         // pause(1000);
-        console.log("----------------------------------------------------------------")
+        console.log("----------------------------------------------------------------");
 
       }
     }
     
     // event listener for audio. Fires up after audio finishes playing.
     audio.onended = function () {
-
-      // Condition for scroll effect
-      if (index < sound.length - 2) {
-        subtitles.scrollLeft = document.getElementById(`${sound[index + 1].dataset.id}`).offsetLeft;
-      } else {
-        subtitles.scrollLeft = document.getElementById('last-flashcard').offsetLeft;
+      if (mediaRecorder.state == "inactive") {
+        pause(1000);
       }
-      
       // Checker if audio is the last one or not.
       if (index < sound.length - 1 ) {
         index++;
+        subtitles.scrollLeft = document.getElementById(`${sound[index].dataset.id}`).offsetLeft;
       } else {
         instrumental.loop = false;
         index = 0;
@@ -152,7 +153,7 @@ const karaokePlayer = (event) => {
           instrumental.dataset.order = "last"
           instrumental.currentTime = 0;
           mediaRecorder.stop();
-          console.log("----------------------------------------------------------------")
+          console.log("----------------------------------------------------------------");
           return
         }
       }
