@@ -71,21 +71,26 @@ const karaokePlayer = () => {
 
   instrumental.play();
   let index = parseInt(instrumental.dataset.order);
+  // subtitles.style.scrollBehavior = 'auto';
   const audioPlayer = (index) => {
+    // pause(1316)
     let audio = sound[index];
+    // console.log("sliding huwaaaaaa waaaaaaa iiiiiiiiiiiiiii"); 
+
     console.log("----------------------------------------------------------------")
-    subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft; 
     if (index == 1) {
+      // subtitles.style.scrollBehavior = 'auto';
       audio.volume = 0;
       mediaRecorder.start();
       // console.log(` first start${index}`)\
       console.log("recording start")  
       console.log("----------------------------------------------------------------")
-      pause(1000);
+      // pause(1000);
     }
     if (index > 1 ) {
       
       if ((mediaRecorder.state == "recording")) {
+        // subtitles.style.scrollBehavior = 'auto';
 
         audio.volume = 1;
         // console.log(mediaRecorder.state)
@@ -95,34 +100,39 @@ const karaokePlayer = () => {
         console.log("----------------------------------------------------------------")
 
       } else if ((mediaRecorder.state == "inactive")) {
-
+        subtitles.style.scrollBehavior = 'smooth';
         audio.volume = 0;
         mediaRecorder.start();
         console.log(`starting ${index}`)
-        pause(1000);
+        // pause(1000);
         console.log("----------------------------------------------------------------")
 
       }
     }
     // if (index < sound.length - 1) {
-    //  }
-    // location.href = `#${audio.dataset.id}`;
-    audio.play();
+      //  }
+      // location.href = `#${audio.dataset.id}`;
     audio.onended = function () {
-    
+      if (index < sound.length - 2) {
+        subtitles.scrollLeft = document.getElementById(`${sound[index + 1].dataset.id}`).offsetLeft;
+      } else {
+        subtitles.scrollLeft = document.getElementById('last-flashcard').offsetLeft;
+      }
+      
       if (index < sound.length - 1 ) {
         index++;
       } else {
         instrumental.loop = false;
-        instrumental.pause();
         // mediaRecorder.stop();
         index = 0;
-        instrumental.currentTime = 0;
-        instrumental.dataset.order = "last"
+        subtitles.scrollLeft = document.getElementById(`${sound[index].dataset.id}`).offsetLeft;  
         if ((mediaRecorder.state == "recording")) {
-          
+          pause(1000);
           // console.log(mediaRecorder.state)
           console.log(`stopping ${index}`)
+          instrumental.pause();
+          instrumental.dataset.order = "last"
+          instrumental.currentTime = 0;
           mediaRecorder.stop();
           // lastFetch(fetcher);
           console.log("----------------------------------------------------------------")
@@ -130,12 +140,16 @@ const karaokePlayer = () => {
         }
       }
       
+      // pause(1000);
       // pause(1316);
-      subtitles.scrollLeft = document.getElementById(`${audio.dataset.id}`).offsetLeft;
+      
       instrumental.dataset.order = index;
-      pause(1316);
       audioPlayer(index, mediaRecorder)
     };
+    // if (mediaRecorder.state == "recording") pause(1000) ;
+
+    audio.play();
+    // subtitles.scrollLeft = document.getElementById(`${sound[index + 1].dataset.id}`).offsetLeft;
   };
   audioPlayer(index, mediaRecorder)
   });

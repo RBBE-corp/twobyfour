@@ -52,3 +52,4 @@
   //= link flashcard_greetings/kin_youbi.wav
   //= link flashcard_greetings/do_youbi.wav
   //= link flashcard_greetings/nichi_youbi.wav
+  //= link flashcard_greetings/fourseconds.m4a
