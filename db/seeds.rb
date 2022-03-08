@@ -570,5 +570,5 @@ puts "score added"
 # )
 # puts "score added"
 
-puts "Database Seeded!"
+# puts "Database Seeded!"
 # //////////////////////////////////
