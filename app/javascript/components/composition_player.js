@@ -12,6 +12,8 @@ const playPause = (player) => {
   // retrieving audios and instrumental
   const subtitles = document.querySelector(".composition-subtitle-list");
   const instrumental = document.getElementById("instrumental");
+  const loop = document.getElementById("loop-checker");
+  instrumental.loop = loop.checked;
   const sound = document.querySelectorAll(".audios");
   if (player.dataset.status == "paused") {
     player.dataset.status = "playing";
