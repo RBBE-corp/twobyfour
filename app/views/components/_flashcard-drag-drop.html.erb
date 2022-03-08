@@ -1,0 +1,80 @@
+<div class="container flashcard-sorting-master">
+  <%# shows all the flashcards in the memory list %>
+  <div class="row align-items-center justify-content-center">
+      <div class="col-4">
+        <h2 style="text-align: center;">Memory List Flashcards:</h2>
+        <div class="row align-items-center justify-content-center" style="">
+          <h2 style="text-align: center;"><%= @memory_list.flashcards.count.to_i %>/8</h2>
+        </div>
+        <div class="flashcard-cards-holder memory-list-flashcards-box flex-d justify-content-center" id="MemoryListFlashcardsBox" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+            <% if @memory_list.flashcards.present? %>
+                <% @memory_list.flashcards.each do |flashcard| %>
+                  <div class="card-flashcard" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
+                    <div class="flip-card-inner">
+                      <div class="card-front">
+                        <ul>
+                          <li><h4><%= underscore_remover(flashcard.english_word) %></h4></li>
+                          <%# <li><strong>Category:</strong></li> %>
+                          <li class="flashcard-category">(<%= underscore_remover(flashcard.category) %>)</li>
+                        </ul >
+                      </div>
+                      <div class="card-back">
+                        <ul>
+                          <li><h4><%= underscore_remover(flashcard.japanese_word) %></h4></li>
+                          <li class="furigana"><%= flashcard.furigana %></li>
+                          <%# <li><strong>Category:</strong></li> %>
+                          <!--<li class="flashcard-category">(<%= underscore_remover(flashcard.category) %>)</li>-->
+                        </ul >
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+            <%end%>
+        </div>
+      </div>
+
+      <div class="col-8">
+          <h2 style="text-align:center;">All Flashcards:</h2>
+          <div class="dropdown" style="text-align:center;">
+            <div class="row" style="margin: 30px">
+              <h3 class="col-3">Select Category:</h3>
+              <div class="col-9">
+                <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Category
+                </button>
+                <div class="dropdown-menu" id="category-dropdown" aria-labelledby="dropdownMenuButton" onchange="changeCategory()">
+                  <a class="dropdown-item" id="all">All</a>
+                  <% Flashcard.flashcard_categories.each do | flashcard_category | %>
+                    <a class="dropdown-item" id="<%= flashcard_category%>"><%= underscore_remover(flashcard_category) %></a>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flashcard-cards-holder all-flashcards-box flex-d justify-content-center" id="AllFlashcardsBox" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+              <% @flashcards_not_selected.each do |flashcard| %>
+                  <div class="<%= flashcard.category %> card-flashcard flashcard-not-selected" style="max-width: 18rem;" draggable="true" ondragstart="drag(event)" id="drag<%=flashcard.id%>" data-id="<%= flashcard.id%>">
+                    <div class="flip-card-inner">
+                      <div class="card-front">
+                        <ul>
+                          <li><h4><%= underscore_remover(flashcard.english_word) %></h4></li>
+                          <%# <li><strong>Category:</strong></li> %>
+                          <li class="flashcard-category">(<%= underscore_remover(flashcard.category) %>)</li>
+                        </ul>
+                      </div>
+                      <div class="card-back">
+                        <ul>
+                          <li><h4><%= underscore_remover(flashcard.japanese_word) %></h4></li>
+                          <li class="furigana"><%= flashcard.furigana %></li>
+                          <%# <li><strong>Category:</strong></li> %>
+                          <!--<li class="flashcard-category">(<%= underscore_remover(flashcard.category) %>)</li>-->
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
+            <% end %>
+          </div>
+      </div>
+  </div>
+</div>

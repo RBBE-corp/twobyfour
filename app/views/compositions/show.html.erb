@@ -73,6 +73,7 @@
     <%= link_to "", edit_composition_path(@composition), class: 'bi bi-pencil-square' %>
     <%= link_to "", composition_path(@composition), method: :delete, class: 'bi bi-trash3-fill' %>
     <%= link_to "", profile_path, class: 'bi bi-back' %>
+    <%= link_to "Karaoke", composition_karaoke_path(@composition), class: 'btn btn-sm btn-primary' %>
     </div>
 
   </div>
@@ -86,9 +87,3 @@
     </audio>
   </div>
 </div>
-<script>
-  const loop = document.querySelector("#loop-checker");
-  loop.addEventListener("click", (event) => {
-    console.log(event.currentTarget);
-  });
-</script>

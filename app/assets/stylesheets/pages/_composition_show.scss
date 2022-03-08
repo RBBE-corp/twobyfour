@@ -119,14 +119,20 @@
     overflow: hidden;
     overflow-y:hidden;
     scroll-behavior: smooth;
-
     padding: 0;
+    
     li {
       font-size: 3em;
       display: flex;
       justify-content: center;
       align-items: center;
       min-width: 100%;
+      
+      &.user-turn {
+        color: rgba(21, 231, 21, 0.651);
+        font-size: 3.5em;
+      }
     }
+    
   }
 }

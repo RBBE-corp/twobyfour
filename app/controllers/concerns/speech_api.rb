@@ -13,12 +13,12 @@ module SpeechApi
 
     # audio_file = File.binread audio_file_path
     config = {
-      language_code: 'ja-JP'
-      # enable_word_time_offsets: true
+      language_code: 'ja-JP',
+      # enable_word_time_offsets: true,
       # encoding: :LINEAR16,
       # sample_rate_hertz: 44100,
       # audio_channel_count: 2
-      # enable_separate_recognition_per_channel: true
+      enable_separate_recognition_per_channel: true
     }
       audio = { content: audio_file }
 
@@ -27,13 +27,12 @@ module SpeechApi
       response = speech.recognize config: config, audio: audio
       results = response.results
 
-      puts response
-
-      alternatives = results.first.alternatives
-      alternatives.each do |alternative|
-        puts "Transcription: #{alternative.transcript}"
-      end
-      raise
+      # puts response
+        # if results.present?
+          
+        # end
+      # raise
+      return results
   end
 
 end
