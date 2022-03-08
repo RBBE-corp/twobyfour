@@ -1,4 +1,6 @@
 
+
+
 .twobyfour {
   position: absolute;
   margin-top: 577px;
@@ -51,7 +53,7 @@
 
       p {
         line-height: 16px;
-        font-size: small;
+        font-size: 15px;
         width: 156px;
       }
 
@@ -374,7 +376,9 @@
 
 //////// Inside Instrumental Catcher///////
 
+.master-box-memory-list {
 .instrumental-card-stats {
+  display: flex;
 }
 
     .playlist-card {
@@ -383,6 +387,7 @@
       height: 263px;
       background-color: rgb(221, 221, 221);
       display: flex;
+      flex-direction: column;
       border-radius: 16px;
       align-items: center;
       color: rgb(65, 65, 65);
@@ -390,7 +395,7 @@
 
        p {
         line-height: 16px;
-        font-size: small;
+        font-size: 15px;
         width: 156px;
       }
 
@@ -415,7 +420,6 @@
     background: -webkit-linear-gradient(to bottom, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-
 
 
 
@@ -469,31 +473,72 @@
       height: 86px;
       background-color: #d3d3d3;
       font-size: large;
+       border: 2px solid #7c7c7c;
+  background:
+    -moz-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -webkit-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -o-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
     }
 
     .submit-button:hover {
-         background: linear-gradient(270deg, #32fdc9, #3287fd, #ea9dfb, #fbbb9d, #896df7, #c4c4c4, #ff2323, #dfdfdf, #f295e6, #95c503, #95c503, #00f2ff, #00f2ff);
-          background-size: 2600% 2600%;
+      color: #00C9FF;
 
-          -webkit-animation: AnimationName 12s ease infinite;
-          -moz-animation: AnimationName 12s ease infinite;
-          animation: AnimationName 12s ease infinite;
-      }
-
-      @-webkit-keyframes AnimationName {
-          0%{background-position:0% 99%}
-          50%{background-position:100% 2%}
-          100%{background-position:0% 99%}
-      }
-      @-moz-keyframes AnimationName {
-          0%{background-position:0% 99%}
-          50%{background-position:100% 2%}
-          100%{background-position:0% 99%}
-      }
-      @keyframes AnimationName {
-          0%{background-position:0% 99%}
-          50%{background-position:100% 2%}
-          100%{background-position:0% 99%}
     }
 
 
@@ -541,9 +586,16 @@
 
 .hidden-sortable {
   visibility: hidden;
-  margin-top: 170px;
+  margin-top: 180px;
   background-color: #00C9FF;
 }
+
+.hidden-sortable-memory {
+  visibility: hidden;
+  margin-top: 26px;
+  background-color: #00C9FF;
+}
+
 
 
 .visualizer {
@@ -671,6 +723,7 @@
     animation: AnimationName 20s ease infinite;
 
 
+
     a {
       background-color: #4ed6ff;
       margin-left: 285px;
@@ -682,6 +735,7 @@
     }
     p {
       margin: -10px;
+      font-size: 15px;
     }
 
     .card-body {
@@ -698,6 +752,11 @@
       }
 }
 
+.list-group-item:hover {
+  color: #cfcfcf;
+}
+
+
     @-webkit-keyframes AnimationName {
         0%{background-position:0% 50%}
         50%{background-position:100% 50%}
@@ -712,5 +771,88 @@
         0%{background-position:0% 50%}
         50%{background-position:100% 50%}
         100%{background-position:0% 50%}
+
+}
+
+.play-button {
+  width: 50px;
+  height: 40px;
+  border-radius: 8px;
+  color: rgb(31, 31, 31);
+  text-shadow: 1px 1px 0 #c5c5c5;
+  border: 1px solid #dedede;
+  background:
+    -moz-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #b8b8b8 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -webkit-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #c2c2c2 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  -o-linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #d6d6d6 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+  background:
+  linear-gradient(
+    -72deg,
+    #dedede,
+    #ffffff 16%,
+    #dedede 21%,
+    #ffffff 24%,
+    #a5a5a5 27%,
+    #dedede 36%,
+    #ffffff 45%,
+    #ffffff 60%,
+    #dedede 72%,
+    #ffffff 80%,
+    #dedede 84%,
+    #a1a1a1
+  );
+
+}
+
+.play-button:hover {
+  color: rgb(7, 243, 255);
+  text-shadow: 2px 1px black;
+  box-shadow: 1px 1px 3px 3px#36d7ff55;
+}
+
 
 }

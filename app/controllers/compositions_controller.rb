@@ -1,8 +1,8 @@
 class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy, :addrep]
-  
+
     include SpeechApi
-  
+
   def index
     @compositions = Composition.all
     @memory_list_flashcards = MemoryListFlashcard.all
@@ -47,7 +47,7 @@ class CompositionsController < ApplicationController
 
   def destroy
     @composition.destroy
-    redirect_to compositions_path, notice: "Composition deleted!"
+    redirect_to profile_path, notice: "Composition deleted!"
   end
 
 
@@ -136,7 +136,6 @@ class CompositionsController < ApplicationController
   # def chart
   #   @data = Composition.group_by_day(:created_at).sum(:rep_count)
   # end
-
   private
 
   def scorer(responses)

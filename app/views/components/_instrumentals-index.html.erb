@@ -6,7 +6,7 @@
         <div class="instrumental-card-stats">
           <div class="playlist-card">
             <div class="spinning">
-            <%= image_tag 'spinning.gif', alt: "playlist icon"%>
+              <%= image_tag 'spinning.gif', alt: "playlist icon"%>
             </div>
             <p><strong><%= underscore_remover(instrumental.title) %></strong></p><p>by <%= instrumental.artist %></p>
             <p class="link-button"><%= link_to 'Sample the track', instrumental_path(instrumental), class: 'btn btn-secondary' %></p>
