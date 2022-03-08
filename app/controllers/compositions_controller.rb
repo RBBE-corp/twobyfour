@@ -68,6 +68,9 @@ class CompositionsController < ApplicationController
     end
   end
 
+  # def chart
+  #   @data = Composition.group_by_day(:created_at).sum(:rep_count)
+  # end
 
   private
 

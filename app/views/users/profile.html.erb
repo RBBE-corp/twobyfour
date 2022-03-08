@@ -6,42 +6,51 @@
             <img src="https://i.pravatar.cc/150?img=68?u=a042581f4e29026704d" class="avatar-md" alt="Free unsplash image">
           <h4>Hi <strong><%= current_user.username %></strong>!</h4>
           <h4> Welcome back. </h4>
-          <p class="text-secondary"><em><%= current_user.email %></em></p>
-          <p class="text-secondary"><strong class="mr-2">Avg score</strong><em><%=current_user.avg_scores %></em></p>
+          <div class="text-secondary"><em><%= current_user.email %></em></div>
+          <div class= "bottom-of">
+            <div class="user-score-box">
+              <p class="text-secondary-score"><strong class="mr-2">Avg score</strong><em><%=current_user.avg_scores %></em></p>
+                <div class="user-score-box-img"><%= image_tag("music-note.svg") %></div>
+            </div>
+          </div>
         </div>
       </div>
 
        <div class="col-6">
-         <div class="graph"></div>
+         <div class="graph">
+          <%# <%= line_chart Composition.group_by_day(:created_at).sum(:rep_count) %>
+         </div>
        </div>
        <div class="col-1">
          <div class="review-box">
-         <h4>Review</h4>
+         <h4>Review Compositions</h4>
          <div class="review-image">
-          <%=image_tag("medal.svg") %>
-          <p>Last created </p>
-          <%=image_tag("mic.svg") %>
-          <p>Least reps</p>
-         </div>
-         </div>
+          <div class="image-icon">
+            <%= link_to @compositions.last do %>
+             <p>Last created</p>
+              <%=image_tag("icon-wave.svg") %>
+          </div>
+            <% end %>
+          <div class="image-icon">
+            <%= link_to @composition do %>
+             <p>Least reps </p>
+              <%=image_tag("icon-mic.svg") %>
+            <% end %>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="mascot">
        </div>
-       <div class="mascot">
-       <%= image_tag("profile_character.svg") %>
-       </div>
-    </div>
-
-
-
-
+      </div>
 
   <div class="row">
     <div class="col-6">
       <div class="composition-container">
         <div class="mx-5 pt-5">
-        <div class = "icon"> <%= link_to "Compose your Song", new_composition_path %></div>
-
-        <div class = "profile-button">
-        </div>
+          <%= link_to new_composition_path do %>
+            <div class = "icon">Compose your Song +</div>
+          <% end %>
         </div>
         <div class="compositions-box">
           <TABLE style="width: 100%" CELLPADDING=”8px″>
@@ -50,7 +59,7 @@
               <TH>Title</TH>
               <TH class="rep">Rep.</TH>
               <%# <TH>Duration</TH> %>
-              <TH>Instrumental</TH>
+              <TH>Memory list</TH>
             </TR>
               <% @compositions.each_with_index do |composition, index| %>
                 <%= render 'components/composition-card', composition: composition, index: index %>
@@ -63,8 +72,10 @@
     <div class="col-6">
       <div class="list-container">
         <div class="mx-5 pt-5">
-          <div class = "icon">  <%= link_to "Personalize your list", new_memory_list_path%> </div>
-            <%= link_to "Personalize your list", new_memory_list_path, class: 'btn btn-block btn-outline-primary' %>
+          <%= link_to new_memory_list_path do %>
+          <div class= "icon">Make your memory list + </div>
+          <% end %>
+            <%# <%= link_to "Personalize your list", new_memory_list_path, class: 'btn btn-block btn-outline-primary' %>
         </div>
         <div class="row px-5 pt-5 justify-content-between">
         <% @memory_lists.each do |memory_list| %>
@@ -73,11 +84,7 @@
         </div>
       </div>
     </div>
-      <%# </div>
-    </div> %>
-    <%# </div> %>
   </div>
-
 </div>
 
 </div>

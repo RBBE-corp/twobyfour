@@ -19,7 +19,7 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-
+import "chartkick/chart.js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { filesPlayer } from '../components/files_player';
@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
     const player = document.querySelector('.player');
-    // const stopButton = document.querySelector('.stop-player');  
+    // const stopButton = document.querySelector('.stop-player');
     if (player) {
       player.addEventListener('click', (e) => {
         playPause(player)
@@ -58,7 +58,7 @@ document.addEventListener('turbolinks:load', () => {
     if (recorder) {
       recorder.addEventListener('click', karaokePlayer);
     }
-  
+
   }
 
   const submitButton = document.querySelector('.submit-memory-list');
