@@ -1,15 +1,16 @@
-// import { pause } from "./composition_player";
-import { lightUpTheScore } from "./karaoke_score_popup.js";
 // pause for js since it doesnot have ruby equivalent of sleep. and I don't know how to create white sound of specific length;
-function pause(milliseconds) {
-  var dt = new Date();
-  while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
-}
+import { pause } from "./composition_player";
+import { lightUpTheScore } from "./karaoke_score_popup.js";
 
-const karaokePlayer = () => {
-  const blobs = [];
+
+const karaokePlayer = (event) => {
+  event.currentTarget.style.color = "red";
+  event.currentTarget.style.cursor = "wait";
+
   const audioChunks = [];
   const formData = new FormData()
+
+  // Asking user for access to microphone.
   navigator.mediaDevices.getUserMedia({ audio: true })
 .then(stream => {
   const subtitles = document.querySelector(".composition-subtitle-list");
@@ -35,45 +36,61 @@ const karaokePlayer = () => {
       
       // formData.append("blob", audioBlob)
 
-      // Making file from audio . Don't need it right now.
+      // Making file from audio . Don't need it for now.
       // let file = new File([audioBlob], 'recording.flac');
       // blobs.push(file);
       
-      // Multiple files  
+      // appending Multiple files  
       formData.append('files[]', audioBlob);
       console.log(...formData);
 
       // fetch if only last recording
       if (instrumental.dataset.order == "last") {
+
+        // resetting everything
+        event.currentTarget.style.color = "initial";
+        event.currentTarget.style.cursor = "pointer";
         instrumental.dataset.order = 0;
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        console.log(...formData);
-        // fetch(`${window.location.href}`, {
-        //   method: "post",
-        //   headers: {'X-CSRF-Token': csrfToken},
-        //   body: formData
-        // }).then(response => response.json())
-        // .then(data => {
-        //   console.log(data)
-        //   lightUpTheScore(data);
-        // });
+        // console.log(...formData);
+        
+        // Starting showing karaoke score box 
+        const scoreContainer = document.querySelector('.karaoke-score-container');
+        scoreContainer.classList.remove('score-hidden');
+        scoreContainer.classList.add('score-show');
+        fetch(`${window.location.href}`, {
+          method: "post",
+          headers: {'X-CSRF-Token': csrfToken},
+          body: formData
+        }).then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // do all the appending
+          lightUpTheScore(data);
+        });
       }
     }, false);
   }
+
+  // Made function out of event Listener 'stop' for mediaRecorder. No need to do this in this case.
   onStop(mediaRecorder);
   const dataAvailable = (mediaRec) => {
     mediaRec.addEventListener("dataavailable", (event) => {
       audioChunks.push(event.data);
     });
   }
-
+  
+  // Made function out of event Listener 'dataavailable' for mediaRecorder. No need to do this in this case.
   dataAvailable(mediaRecorder);
 
   instrumental.play();
   let index = parseInt(instrumental.dataset.order);
   // subtitles.style.scrollBehavior = 'auto';
   const audioPlayer = (index) => {
+
+    //Check with team about below pause line. 
     // pause(1316)
+    
     let audio = sound[index];
     // console.log("sliding huwaaaaaa waaaaaaa iiiiiiiiiiiiiii"); 
 
@@ -109,48 +126,50 @@ const karaokePlayer = () => {
 
       }
     }
-    // if (index < sound.length - 1) {
-      //  }
-      // location.href = `#${audio.dataset.id}`;
+    
+    // event listener for audio. Fires up after audio finishes playing.
     audio.onended = function () {
+
+      // Condition for scroll effect
       if (index < sound.length - 2) {
         subtitles.scrollLeft = document.getElementById(`${sound[index + 1].dataset.id}`).offsetLeft;
       } else {
         subtitles.scrollLeft = document.getElementById('last-flashcard').offsetLeft;
       }
       
+      // Checker if audio is the last one or not.
       if (index < sound.length - 1 ) {
         index++;
       } else {
         instrumental.loop = false;
-        // mediaRecorder.stop();
         index = 0;
         subtitles.scrollLeft = document.getElementById(`${sound[index].dataset.id}`).offsetLeft;  
-        if ((mediaRecorder.state == "recording")) {
+        if (mediaRecorder.state == "recording") {
           pause(1000);
-          // console.log(mediaRecorder.state)
-          console.log(`stopping ${index}`)
+          
+          // resetting everything and stopping the recorder.
           instrumental.pause();
           instrumental.dataset.order = "last"
           instrumental.currentTime = 0;
           mediaRecorder.stop();
-          // lastFetch(fetcher);
           console.log("----------------------------------------------------------------")
           return
         }
       }
-      
+      // Don't need this. Just for reference.
       // pause(1000);
       // pause(1316);
-      
+
+      // Runs if not end
       instrumental.dataset.order = index;
       audioPlayer(index, mediaRecorder)
     };
-    // if (mediaRecorder.state == "recording") pause(1000) ;
 
+    // playing the audio
     audio.play();
-    // subtitles.scrollLeft = document.getElementById(`${sound[index + 1].dataset.id}`).offsetLeft;
   };
+
+  // first call for audioPlayer
   audioPlayer(index, mediaRecorder)
   });
 }
