@@ -43,6 +43,7 @@
 
   <%# Karaoke box %>
   <div class="container pt-5">
+    <h3 class="text-center"><strong>Karaoke Bar</strong></h3>
     <div class="composition-show-box">
       <div class="composition-show-info">
         <div class="composition-card-info">
@@ -62,9 +63,10 @@
           <% @composition.memory_list.flashcards.each do |flashcard| %>
 
             <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.english_word) %></li>
-            <li class="" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.japanese_word) %></li>
+            <li class="user-turn" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>">Your Turn</li>
 
           <% end %>
+            <%# <li class="user-turn" id="last-flashcard">Your Turn</li> %>
 
           </ul>
         </div>
@@ -72,8 +74,7 @@
       <div class="composition-show-joystick">
         <div class="audio-controllers">
           <div class="play-pause-stop">
-            <button class="pause mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
-            <button class='recorder mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
+            <button class='recorder mx-3'><i class="fa fa-play" aria-hidden="true"></i></button>
           </div>
           
           <div class="range-slider" data-controller="range-slider">
@@ -93,14 +94,6 @@
           </div>
 
         </div>
-        <div class="loop-box">
-          <span>loop </span>
-          
-          <label class="switch">
-            <input type="checkbox" id="loop-checker">
-            <span class="slider round"></span>
-          </label>
-        </div>
         <div class="rep-counter">
           <p>reps</p>
           <strong>
@@ -110,37 +103,16 @@
       </div>
     </div>
     <div class="mx-auto mt-3" style="text-align:center;">
-      <%= link_to "Edit composition", edit_composition_path(@composition), class: 'btn  btn-sm btn-warning' %>
-      <%= link_to "Delete composition", composition_path(@composition), method: :delete, class: 'btn  btn-sm btn-danger' %>
-      <%= link_to "Back to My Compositions", compositions_path, class: 'btn  btn-sm btn-secondary' %>
+      <%= link_to "Back to Compositions", composition_path(@composition), class: 'btn  btn-sm btn-secondary' %>
     </div>
     <div class="audio-mother-box">
       <audio>
         <source src="<%= asset_path("instrumentals/#{@composition.instrumental.title}.mp3") %>" type="audio/mpeg">
         <% @composition.memory_list.flashcards.each do |flashcard| %>
           <source id="<%="#{flashcard.english_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.english_word}.wav") %>" type="audio/mpeg">
-          <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.japanese_word}.wav") %>" type="audio/mpeg">
+          <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/fourseconds.m4a") %>" type="audio/mpeg">
         <% end %>
       </audio>
     </div>
   </div>
 </div>
-<script>
-  // filesPlayer();
-  function pause(milliseconds) {
-    var dt = new Date();
-    while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
-  }
-
-  const pauseBtn = document.querySelector('.pause');
-  
-
-
-
-
-  const playPause = (player) => {
-    // retrieving audios and instrumental
-
-
-  }
-</script>

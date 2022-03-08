@@ -66,6 +66,7 @@
     </div>
   </div>
   <div class="mx-auto mt-3" style="text-align:center;">
+    <%= link_to "Karaoke", composition_karaoke_path(@composition), class: 'btn btn-sm btn-primary' %>
     <%= link_to "Edit composition", edit_composition_path(@composition), class: 'btn  btn-sm btn-warning' %>
     <%= link_to "Delete composition", composition_path(@composition), method: :delete, class: 'btn  btn-sm btn-danger' %>
     <%= link_to "Back to My Compositions", compositions_path, class: 'btn  btn-sm btn-secondary' %>
@@ -80,9 +81,3 @@
     </audio>
   </div>
 </div>
-<script>
-  const loop = document.querySelector("#loop-checker");
-  loop.addEventListener("click", (event) => {
-    console.log(event.currentTarget);
-  });
-</script>
