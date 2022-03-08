@@ -35,37 +35,35 @@ header.home-hero video {
   }
 }
 
-.details-container {
-  margin-top: 68px;
-}
-
 .number{
   display: flex;
   flex-direction: column;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   justify-content: center;
   align-items: center;
   position: relative;
   border: 1px solid #794DC5;
-  border-radius: 18px;
-  left: 24px;
-  bottom: -18px;
+  border-radius: 28px;
+  left: 10px;
+  bottom: -11px;
+  margin-bottom:28px;
   color: #794DC5;
+   h2 {
+     font-weight: 12 !important;
+   }
 }
 
 .home-wrapper {
- width: 100%;
+width: 100%;
 height: 100%;
 margin: 0;
 padding: 0;
 overflow-x: hidden;
-
-
 ///purple///
-background: #41295a;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *
+background: #000019;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to left, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *
 // background: #bdc3c7;  /* fallback for old browsers */
 // background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
 // background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -73,39 +71,43 @@ background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Fi
 
 .home-card{
   margin: 40px 40px 40px 40px;
-  height: 600px;
-  border-radius: 18px;
+  height: 350px;
+  border-radius: 12px;
+  background: white;
   // Argon //
-  background: #03001e;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  // background: #03001e;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .home-image {
   margin-top:48px;
 }
 .home-image img {
-width: 350px;
-height: 350px;
+width: 150px;
+height: 150px;
 animation-name: home-image;
 animation-duration: 3s;
 animation-iteration-count: infinite;
 animation-timing-function: ease-in-out;
 margin-left: 30px;
-margin-top: 5px;
+// margin-top: 5px;
+}
+
+#banner-image {
+width: 200px;
+height: 300px;
 }
 
 
-@keyframes home-image {
-  from {
-    transform: translate(0, 0px);
-  }
-  65% {
-    transform: translate(0, 15px);
-  }
-  to {
-    transform: translate(0, -0px);
-  }
-}
+// @keyframes home-image {
+//   from {
+//     transform: translate(0, 0px);
+//   }
+//   65% {
+//     transform: translate(0, 15px);
+//   }
+//   to {
+//     transform: translate(0, -0px);
+//   }
+// }

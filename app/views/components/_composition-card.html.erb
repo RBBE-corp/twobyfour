@@ -6,6 +6,6 @@
     <% end %>
   </TD>
   <TD class="rep"><%= composition.rep_count %></TD>
-  <TD><%= composition.instrumental.duration_in_min %></TD>
-  <TD><%= underscore_remover(composition.instrumental.title) %></TD>
+  <%# <TD><%= composition.instrumental.duration_in_min</TD>  %>
+  <TD><%= underscore_remover(composition.memory_list.name) %></TD>
 </TR>
