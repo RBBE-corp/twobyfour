@@ -8,4 +8,7 @@ class Composition < ApplicationRecord
   has_many :playlist_compositions, dependent: :destroy
   belongs_to :memory_list
   has_many :scores, dependent: :destroy
+
+  # getting all the flascards
+  has_many :flashcards, through: :memory_list
 end

@@ -18,14 +18,18 @@ export const savedCards = () => {
   // console.log(FlashcardsIDHolder);
   let formData = new FormData();
   formData.append('FlashcardID', JSON.stringify(FlashcardsIDHolder));
-  // console.log(...formData);
+  let memoryListNameInput = memoryListToSave.querySelector("input[type='text']");
+  // console.log(memoryListNameInput);
+  formData.append(memoryListNameInput.name, memoryListNameInput.value);
+  console.log(...formData);
   // to see the inside of form data
   // Patch request
   console.log(memoryListToSave.action);
   fetch(memoryListToSave.action, {
-    method: 'PATCH',
+    method: 'POST',
+    // method: 'PATCH', THIS IS FOR WHEN WE WANT TO EDIT LATER
     headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken() },
     // accept the JSON file, Token is rails authenticity,
     body: formData
-  })
+  }).then(response => response.json).then(data => console.log("working"));
 };

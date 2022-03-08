@@ -1,15 +1,27 @@
-<div class="memorylist-master-container">
+<div class="container memorylist-master-container" style="margin-top: 30px margin-bottom: 50px">
+  <div class="composition-builder-container" style="justify-content: center;">
+    <div class="row align-items-center justify-content-center" style="padding: 30px;">
+        <h1>Memory List Maker</h1>
+    </div>
+    <div class="row align-items-center justify-content-center">
+      <h2>1. Drag and Drop Flashcards into Your Memory List:</h2>
+      <%= render 'components/flashcard-drag-drop', memory_list: @memory_list %>
+    </div>
 
-  <div class="compsition-builder-container">
-      <div class="form-container">
-
-          <h1>Memory List Builder</h1>
-          <p>You can use the memory list builder to create your personalized memory list!</p>
-          <div class="container">
-            <%= render 'components/composition-builder' %>
-          </div>
-
+    <div class="row align-items-center justify-content-center">
+      <h2>2. Write a Name for Your Memory List:</h2>
+      <div>
+        <div class="name-your-memory-list" style="text-align: center;">
+          <%= simple_form_for @memory_list, html: { class: "memory-list-form"}  do |f| %>
+            <%= f.input :name, label: "New Memory List Name:" %>
+            <%= f.submit 'Create New Memory List', data: { confirm: 'Do You Want to Save Your New List?' }, class: "submit-memory-list btn btn-primary"  %>
+          <% end %>
+        </div>
       </div>
-  <p class="link-button"><%= link_to 'Back', profile_path, class: 'btn btn-primary' %></p>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+        <p><%= link_to 'Return to Profile Without Saving', profile_path, class: 'btn btn-primary' %></p>
+    </div>
   </div>
 </div>

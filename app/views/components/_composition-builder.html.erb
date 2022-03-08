@@ -1,16 +1,22 @@
 
-  <div class="name-your-memory-list">
-  <h3>1. Name your memory list</h3>
-  <%= simple_form_for(@memory_list) do |f| %>
-    <%= f.input :name, label: "Memory list name" %>
-    <%= f.submit "Create memory list", class: "btn btn-primary" %>
+<div>
+  <div class="name-your-memory-list" style="text-align: center;">
+    <%= simple_form_for @memory_list, html: { class: "memory-list-form"}  do |f| %>
+      <%= f.input :name, label: "New Memory List Name:" %>
+      <%= f.submit 'Create New Memory List', data: { confirm: 'Do You Want to Save Your New List?' }, class: "submit-memory-list btn btn-primary"  %>
+    <% end %>
   </div>
+</div>
 
-    <h4>Available memory lists</h4>
+<!--<%= simple_form_for(@memory_list) do |f| %>
+    <%= f.input :name, label: "Write a Name for your Memory List:" %>
+    <%= f.submit "Create memory list", class: "btn btn-primary" %>-->
+
+    <!--<h4>Available memory lists</h4>
     <p>Newly added memory lists will appear here.</p>
       <div class="memory-list-scroll">
       <%= render 'components/memory-lists-index' %>
-      </div>
+      </div>-->
   <% end %>
 
 <%
