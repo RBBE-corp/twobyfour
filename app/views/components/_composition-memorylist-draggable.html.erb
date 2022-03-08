@@ -1,7 +1,7 @@
 <div class="components-container">
   <div class="container">
     <div class="form-container">
-      <p>Memory lists</p>
+      <p>Memory Lists</p>
       <div id="A" class="list-group">
           <% @memory_lists.each_with_index do |memorylist, index| %>
           <div id="<%= memorylist.id %>" class="list-group-item"><%= memorylist.name %>
@@ -51,7 +51,7 @@
   <div class="memorylist-catcher-container">
     <div class="container">
       <div class="form-container">
-        <p>Memory List Slot</p>
+        <p>Drag and Drop a Memory List</p>
           <div class="placeholder-box">
             <div id="C" class="list-group">
              <div class="hidden-sortable-memory">Hidden</div>
