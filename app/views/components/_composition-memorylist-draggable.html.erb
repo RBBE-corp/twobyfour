@@ -1,7 +1,3 @@
-
-
-
-
 <div class="components-container">
   <div class="container">
     <div class="form-container">
@@ -58,6 +54,7 @@
         <p>Memory List Slot</p>
           <div class="placeholder-box">
             <div id="C" class="list-group">
+             <div class="hidden-sortable-memory">Hidden</div>
             <%# <div id="#" class="placeholder"><%= render 'components/memorylist-placeholder', composition: @composition %>
             </div>
           </div>
@@ -78,7 +75,7 @@
 
               <%= image_tag 'visualizer2.gif', alt: "playlist icon"%>
             </div>
-        <div class="button-compose fas fa-music"><%= f.submit 'Create Composition', class: "submit-button" %></div>
+              <%= f.submit 'Create Composition', class: "submit-button" %></div>
         </div>
 
       </div>

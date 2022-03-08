@@ -586,9 +586,16 @@
 
 .hidden-sortable {
   visibility: hidden;
-  margin-top: 170px;
+  margin-top: 180px;
   background-color: #00C9FF;
 }
+
+.hidden-sortable-memory {
+  visibility: hidden;
+  margin-top: 26px;
+  background-color: #00C9FF;
+}
+
 
 
 .visualizer {
@@ -831,6 +838,7 @@
     #dedede 84%,
     #a1a1a1
   );
+
 }
 
 .play-button:hover {
