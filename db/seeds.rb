@@ -52,8 +52,8 @@ puts "......"
 
 byron = User.create!(
   password: "123456",
-  email: "byron@gmail.com",
-  username: "Byron Lee"
+  email: "erika@gmail.com",
+  username: "Erika Kawashima"
 )
 
 # reona = User.create!(
