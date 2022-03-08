@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   if ( audio ) {
     filesPlayer();
     const player = document.querySelector('.player');
-    // const stopButton = document.querySelector('.stop-player');  
+    // const stopButton = document.querySelector('.stop-player');
     if (player) {
       player.addEventListener('click', (e) => {
         playPause(player)
@@ -58,8 +58,44 @@ document.addEventListener('turbolinks:load', () => {
     if (recorder) {
       recorder.addEventListener('click', karaokePlayer);
     }
-  
+
   }
+
+  // Audio Sampler on Composition New
+  // const sampler = document.querySelector('.composition-master-container');
+  // if (sampler) {
+
+
+  const playButtons = document.querySelectorAll('.play-button');
+    playButtons.forEach(playButton => {
+
+        playButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          const playpause = document.getElementById("play-pause");
+          console.log(playpause.dataset.status);
+          var audio = event.path[1].children[1];
+          console.log("You clicked play button");
+          console.log(playButton.innerHTML);
+
+          if (playpause.dataset.status == "playing") {
+            audio.pause();
+            playpause.dataset.status = "paused";
+            console.log(playButton.className);
+            playButton.className = 'play-button fas fa-play'
+
+          } else if (playpause.dataset.status == "paused") {
+            audio.play();
+            playpause.dataset.status = "playing";
+            playButton.className = 'play-button fas fa-pause'
+
+          } else {
+            audio.pause();
+            playpause.dataset.status = "paused";
+            playButton.className = 'play-button fas fa-pause'
+          }
+      });
+    });
+
 
   const submitButton = document.querySelector('.submit-memory-list');
   if (submitButton) {

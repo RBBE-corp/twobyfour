@@ -1,13 +1,30 @@
+.composition-controller {
+   background-color: blueviolet;
+   border-radius: 16px;
+  a {
+    color: rgb(231, 231, 231);
+    font-size: 50px;
+    padding: 20px;
+    text-shadow: 1px 1px 1px black;
+  }
+
+  a:hover {
+    color: rgb(176, 176, 176);
+  }
+}
+
 .composition-show-box {
   background-color: white;
   padding: 16px 32px;
   box-sizing: border-box;
   border-radius: 24px;
+
   .composition-show-info {
     border-radius: 16px;
     display: flex;
     background-color: aliceblue;
-    
+
+
     .composition-card-info {
       // background-color: antiquewhite;
       text-align: center;
@@ -15,11 +32,15 @@
       margin-right: 24px;
       p {
         text-align: left;
-        white-space: nowrap
+        white-space: nowrap;
       }
     }
   }
 }
+
+
+
+
 
 .composition-show-joystick {
   margin: 16px auto 0;
@@ -76,6 +97,7 @@
   border-radius: 50%;
   border: none;
   // font-size: 2em;
+
 }
 
 
@@ -84,7 +106,7 @@
   min-height: 100%;
   overflow:hidden;
   position:relative;
-  
+
   ul {
     display: flex;
     width: 100%;

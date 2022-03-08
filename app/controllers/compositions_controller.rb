@@ -1,8 +1,8 @@
 class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy, :addrep]
-  
+
     include SpeechApi
-  
+
   def index
     @compositions = Composition.all
     @memory_list_flashcards = MemoryListFlashcard.all
@@ -47,7 +47,7 @@ class CompositionsController < ApplicationController
 
   def destroy
     @composition.destroy
-    redirect_to compositions_path, notice: "Composition deleted!"
+    redirect_to profile_path, notice: "Composition deleted!"
   end
 
 
@@ -132,7 +132,6 @@ class CompositionsController < ApplicationController
       format.json { render json: @composition.rep_count }
     end
   end
-
 
   private
 

@@ -1,11 +1,7 @@
-
-
-
-
 <div class="components-container">
   <div class="container">
     <div class="form-container">
-      <p>Memorylists</p>
+      <p>Memory Lists</p>
       <div id="A" class="list-group">
           <% @memory_lists.each_with_index do |memorylist, index| %>
           <div id="<%= memorylist.id %>" class="list-group-item"><%= memorylist.name %>
@@ -45,7 +41,7 @@
 <%= simple_form_for(@composition) do |f| %>
 
   <div class="input-container">
-  <div class="composition-name"><%= f.input :name, label: "Composition name" %></div>
+  <div class="composition-name"><%= f.input :name, label: "Name your Composition" %></div>
   </div>
     <%# id="composition_memory_list_id" %>
     <div class="hidden"><%= f.input :memory_list_id, error: 'You need to drag and drop a memory list' %></div>
@@ -55,9 +51,10 @@
   <div class="memorylist-catcher-container">
     <div class="container">
       <div class="form-container">
-        <p>Memory List Slot</p>
+        <p>Drag and Drop a Memory List</p>
           <div class="placeholder-box">
             <div id="C" class="list-group">
+             <div class="hidden-sortable-memory">Hidden</div>
             <%# <div id="#" class="placeholder"><%= render 'components/memorylist-placeholder', composition: @composition %>
             </div>
           </div>
@@ -78,7 +75,7 @@
 
               <%= image_tag 'visualizer2.gif', alt: "playlist icon"%>
             </div>
-        <%= f.submit 'Create Composition ▶️', class: "submit-button" %>
+              <%= f.submit 'Create Composition', class: "submit-button" %></div>
         </div>
 
       </div>
@@ -121,7 +118,19 @@
                     <%= image_tag 'spinning.gif', alt: "playlist icon"%>
                   </div>
                   <p><strong><%= underscore_remover(instrumental.title) %></strong></p><p>by <%= instrumental.artist %></p>
-                  <p class="link-button"><%= link_to 'Sample the track', instrumental_path(instrumental), class: 'btn btn-secondary' %></p>
+
+                 <%# Track sample %>
+                 <div class="audio-controllers">
+                    <div class="play-pause-stop" id="play-pause" data-status="paused" >
+                      <%# <button class="stop-player mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
+                      <button class='player mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button> %>
+                          <button class="play-button fas fa-play" id="<%= instrumental.title %>"></button>
+                        <audio id="<%= instrumental.title %>">
+                          <source src="<%= asset_path("instrumentals/#{instrumental.title}.mp3") %>" type="audio/mpeg">
+                        </audio>
+                    </div>
+                 </div>
+
                 </div>
               </div>
           </div>

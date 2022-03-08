@@ -12,3 +12,4 @@ application.register("modal", ModalController)
 
 import RangeSliderController from "./range_slider_controller.js"
 application.register("range-slider", RangeSliderController)
+
