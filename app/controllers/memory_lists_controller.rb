@@ -23,7 +23,7 @@ class MemoryListsController < ApplicationController
       redirect_to memory_list_path(@memory_list)
       # redirect_to action: :show, id: @memory_list.id
     else
-      render :new
+      redirect_to new_memory_list_path
     end
   end
 

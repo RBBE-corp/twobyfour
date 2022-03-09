@@ -31,5 +31,14 @@ export const savedCards = () => {
     headers: { "Accept": "application/JSON,text/html", 'X-CSRF-Token': csrfToken() },
     // accept the JSON file, Token is rails authenticity,
     body: formData
-  }).then(response => response.json).then(data => window.location.href = "/profile");
+  }).then(response => {
+    console.log(response)
+    if (response.url.includes("/memory_lists/new")) {
+      console.log("Please, Enter the name of memory list")
+    } else {
+        //   window.location.href = "/profile"
+      window.location.href = response.url
+    }
+  });
+  // .then(data => console.log("composition show or profile") );
 };
