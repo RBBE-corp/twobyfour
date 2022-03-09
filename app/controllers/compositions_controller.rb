@@ -106,7 +106,7 @@ class CompositionsController < ApplicationController
       
       
           word: flashcards[index].furigana,
-          word: flashcards[index],
+          # word: flashcards[index],
      
      
           matched: false
@@ -157,15 +157,19 @@ class CompositionsController < ApplicationController
     # add points to score
     score.score = points
 
-    # create json with score and infoes as key
-    data = {
-      score: score.score,
-      infoes: responses  
-    }
+    # save the score instance
+    if score.save
 
+      # create json with score and infoes as key
+      data = {
+        score: score.score,
+        infoes: responses  
+      }
+
+    end
     # send the json to fetch
-
     
+    data
 
   end
 
