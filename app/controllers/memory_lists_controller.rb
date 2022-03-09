@@ -23,7 +23,10 @@ class MemoryListsController < ApplicationController
       redirect_to memory_list_path(@memory_list)
       # redirect_to action: :show, id: @memory_list.id
     else
-      render :new
+      respond_to do |format|
+        format.json { render json: @memory_list.errors.messages }
+      end
+      # redirect_to new_memory_list_path
     end
   end
 

@@ -14,7 +14,10 @@
         <div class="name-your-memory-list" style="text-align: center;">
           <%= simple_form_for @memory_list, html: { class: "memory-list-form"}  do |f| %>
             <%= f.input :name, label: "New Memory List Name:" %>
-            <%= f.submit 'Create New Memory List', data: { confirm: 'Do You Want to Save Your New List?' }, class: "submit-memory-list btn btn-primary"  %>
+            <div class="error-messages text-center"></div>
+            <%# Incase you want to have pop-up %>
+            <%#= f.submit 'Create New Memory List', data: { confirm: 'Do You Want to Save Your New List?' }, class: "submit-memory-list btn btn-primary"  %>
+            <%= f.submit 'Create New Memory List', class: "submit-memory-list btn btn-primary"  %>
           <% end %>
         </div>
       </div>
