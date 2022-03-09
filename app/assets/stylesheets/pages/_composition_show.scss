@@ -25,7 +25,7 @@
 }
 
 .composition-show-box {
-  background-color: white;
+  background-color: $blue;
   padding: 16px 32px;
   box-sizing: border-box;
   border-radius: 16px;
@@ -34,8 +34,8 @@
     margin-top: 16px;
     border-radius: 16px;
     display: flex;
-    background-color: #5c9bff;
-
+    background-color: rgb(255, 255, 255);
+      box-shadow: 1px 1px 3px 3px#3b3b3b55;
 
     .composition-card-info {
       border-bottom-left-radius: 16px;
@@ -49,20 +49,51 @@
         border-radius: 16px;
         padding: 8px;
         margin: 8px;
+
+        .needle {
+          // background-color: #fffefe;
+          width: 200px;
+          position: relative;
+          z-index: 1;
+          margin-top: 8px;
+
+        }
+
+        .needle:hover {
+          transform-origin: top right;
+          transform: rotate(15deg);
+          // animation-delay: 2s;
+          // -webkit-transform:rotate(10deg);
+          // -moz-transform: rotate(180deg);
+          // -ms-transform: rotate(180deg);
+          // -o-transform: rotate(180deg);
+          // transform: rotate(180deg);
+        }
+
         .instrumental-inner-text {
           background-color: white;
           padding: 24px;
           border-radius: 16px;
           line-height: 80%;
+          position: relative;
+          margin-top: -19px;
 
           bdi {
             color: $blue;
             font-weight: bold;
+            margin-right: 8px;
+            font-size: large;
           }
 
         }
         .spinning {
-          margin: 16px;
+          margin-top: 36px;
+          margin-left: 42px;
+          box-shadow: 1px 1px 3px 3px#3b3b3b55;
+          border-radius: 50%;
+          position: absolute;
+          z-index: 1;
+
         }
       }
 

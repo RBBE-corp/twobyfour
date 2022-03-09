@@ -11,10 +11,11 @@
 
         <div class="instrumental-info">
            <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon", class: "spinning"%>
+           <%= image_tag 'needle.png', class: "needle" %>
             <div class="instrumental-inner-text">
-            <p><bdi>Composition:</bdi> <%= @composition.name %></p>
-            <p><bdi>Instrumental:</bdi> <%= underscore_remover(@composition.instrumental.title) %></p>
-            <p><bdi>Memorylist:</bdi> <%= @composition.memory_list.name %></p>
+            <p><bdi><i class="bi bi-mic-fill"></i></bdi><%= @composition.name %></p>
+            <p><bdi><i class="bi bi-music-note"></i></bdi><%= underscore_remover(@composition.instrumental.title) %></p>
+            <p><bdi><i class="fas fa-brain"></i></bdi><%= @composition.memory_list.name %></p>
             </div>
         </div>
 
