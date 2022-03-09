@@ -21,24 +21,27 @@ export const savedCards = () => {
   let memoryListNameInput = memoryListToSave.querySelector("input[type='text']");
   // console.log(memoryListNameInput);
   formData.append(memoryListNameInput.name, memoryListNameInput.value);
-  console.log(...formData);
+  // console.log(...formData);
   // to see the inside of form data
   // Patch request
-  console.log(memoryListToSave.action);
+  // console.log(memoryListToSave.action);
   fetch(memoryListToSave.action, {
     method: 'POST',
     // method: 'PATCH', THIS IS FOR WHEN WE WANT TO EDIT LATER
-    headers: { "Accept": "application/JSON,text/html", 'X-CSRF-Token': csrfToken() },
     // accept the JSON file, Token is rails authenticity,
+    // headers: { "Accept": "application/JSON", 'X-CSRF-Token': csrfToken() },
+    headers: { 'X-CSRF-Token': csrfToken() },
     body: formData
   }).then(response => {
     console.log(response)
-    if (response.url.includes("/memory_lists/new")) {
-      console.log("Please, Enter the name of memory list")
+    if (response.redirected) {
+        window.location.href = response.url
     } else {
-        //   window.location.href = "/profile"
-      window.location.href = response.url
+      return response.json();
     }
+  })
+  .then(data =>{    
+      console.log(data);
+      document.querySelector(".error-messages.text-center").innerHTML = `Memory list name ${data.name[0]}`;
   });
-  // .then(data => console.log("composition show or profile") );
 };
