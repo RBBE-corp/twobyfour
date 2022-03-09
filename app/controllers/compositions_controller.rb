@@ -116,14 +116,14 @@ class CompositionsController < ApplicationController
     end
 
     # Check with japanese word
-    data = scorer(responses)
+    data = scorer(responses, composition)
     
     p data
+    # byebug
     respond_to do |format|
       format.json { render :json => data}
     end
 
-    # byebug
   end
 
   def addrep
@@ -138,17 +138,17 @@ class CompositionsController < ApplicationController
   # end
   private
 
-  def scorer(responses)
+  def scorer(responses, composition)
     # Score the composition
     points = 0;
     
     # create a instance of score with composition
-    score = Score.new(composition: @composition)
+    score = Score.new(composition: composition)
     
     # iterate through the responses
     responses.each do |status|
       # check if the matched is true and add to the score
-      p status
+      # p status
       # byebug
       points += 1 if status[:matched]
     end
@@ -158,6 +158,7 @@ class CompositionsController < ApplicationController
     score.score = points
 
     # save the score instance
+    # byebug
     if score.save
 
       # create json with score and infoes as key
@@ -165,11 +166,12 @@ class CompositionsController < ApplicationController
         score: score.score,
         infoes: responses  
       }
-
     end
+
+
     # send the json to fetch
-    
     data
+    
 
   end
 
