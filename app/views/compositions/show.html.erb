@@ -6,14 +6,18 @@
     <div class="composition-show-info">
       <div class="composition-card-info">
         <div class="png-playlist-count">
-          <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon"%>
-        </div>
-        <div>
-          <p>composition: <%= @composition.name %></p>
-          <p>instrumental: <%= underscore_remover(@composition.instrumental.title) %></p>
-          <p><strong>Memorylist:</strong> <%= @composition.memory_list.name %></p>
 
         </div>
+
+        <div class="instrumental-info">
+           <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon", class: "spinning"%>
+            <div class="instrumental-inner-text">
+            <p><bdi>Composition:</bdi> <%= @composition.name %></p>
+            <p><bdi>Instrumental:</bdi> <%= underscore_remover(@composition.instrumental.title) %></p>
+            <p><bdi>Memorylist:</bdi> <%= @composition.memory_list.name %></p>
+            </div>
+        </div>
+
       </div>
 
       <div class="composition-subtitle">
@@ -77,7 +81,7 @@
   </div>
   <div class="mx-auto mt-3" style="text-align:center;">
 
- <%= link_to "Karaoke", composition_karaoke_path(@composition), class: 'btn btn-sm btn-primary' %>
+ <%= link_to "Memory Test!", composition_karaoke_path(@composition), class: 'btn btn-sm btn-primary' %>
 
   </div>
   <div class="audio-mother-box">
@@ -89,4 +93,5 @@
       <% end %>
     </audio>
   </div>
+</div>
 </div>
