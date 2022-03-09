@@ -106,7 +106,7 @@ class CompositionsController < ApplicationController
       
       
           word: flashcards[index].furigana,
-          word: flashcards[index],
+          # word: flashcards[index],
      
      
           matched: false
@@ -116,14 +116,14 @@ class CompositionsController < ApplicationController
     end
 
     # Check with japanese word
-    data = scorer(responses)
+    data = scorer(responses, composition)
     
     p data
+    # byebug
     respond_to do |format|
       format.json { render :json => data}
     end
 
-    # byebug
   end
 
   def addrep
@@ -138,17 +138,17 @@ class CompositionsController < ApplicationController
   # end
   private
 
-  def scorer(responses)
+  def scorer(responses, composition)
     # Score the composition
     points = 0;
     
     # create a instance of score with composition
-    score = Score.new(composition: @composition)
+    score = Score.new(composition: composition)
     
     # iterate through the responses
     responses.each do |status|
       # check if the matched is true and add to the score
-      p status
+      # p status
       # byebug
       points += 1 if status[:matched]
     end
@@ -157,14 +157,20 @@ class CompositionsController < ApplicationController
     # add points to score
     score.score = points
 
-    # create json with score and infoes as key
-    data = {
-      score: score.score,
-      infoes: responses  
-    }
+    # save the score instance
+    # byebug
+    if score.save
+
+      # create json with score and infoes as key
+      data = {
+        score: score.score,
+        infoes: responses  
+      }
+    end
+
 
     # send the json to fetch
-
+    data
     
 
   end
