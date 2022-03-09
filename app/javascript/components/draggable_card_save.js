@@ -28,8 +28,8 @@ export const savedCards = () => {
   fetch(memoryListToSave.action, {
     method: 'POST',
     // method: 'PATCH', THIS IS FOR WHEN WE WANT TO EDIT LATER
-    headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken() },
+    headers: { "Accept": "application/JSON,text/html", 'X-CSRF-Token': csrfToken() },
     // accept the JSON file, Token is rails authenticity,
     body: formData
-  }).then(response => response.json).then(data => console.log("working"));
+  }).then(response => response.json).then(data => window.location.href = "/profile");
 };

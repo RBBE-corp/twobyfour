@@ -18,8 +18,10 @@ class MemoryListsController < ApplicationController
     @memory_list = MemoryList.new(memory_list_params)
     @memory_list.user = current_user
     if @memory_list.save
+      # binding.pry
       flashcard_sorting()
       redirect_to memory_list_path(@memory_list)
+      # redirect_to action: :show, id: @memory_list.id
     else
       render :new
     end
