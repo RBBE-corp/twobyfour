@@ -45,8 +45,8 @@ header.home-hero video {
   position: relative;
   border: 1px solid #794DC5;
   border-radius: 28px;
-  left: 10px;
-  bottom: -11px;
+  left: -8px;
+  bottom: 6px;
   margin-bottom:28px;
   color: #794DC5;
    h2 {
@@ -74,6 +74,8 @@ background: #000019;  /* fallback for old browsers */
   height: 350px;
   border-radius: 12px;
   background: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding:18px;
   // Argon //
   // background: #03001e;  /* fallback for old browsers */
   // background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
@@ -86,28 +88,25 @@ background: #000019;  /* fallback for old browsers */
 .home-image img {
 width: 150px;
 height: 150px;
-animation-name: home-image;
-animation-duration: 3s;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out;
-margin-left: 30px;
-// margin-top: 5px;
 }
 
 #banner-image {
 width: 200px;
 height: 300px;
+img {
+  filter: drop-shadow(10px 5px 118px #d5e2f7);
 }
 
+}
 
-// @keyframes home-image {
-//   from {
-//     transform: translate(0, 0px);
-//   }
-//   65% {
-//     transform: translate(0, 15px);
-//   }
-//   to {
-//     transform: translate(0, -0px);
-//   }
-// }
+.text-container {
+padding: 48px;
+background-color:#F650AA;
+border-radius:18px;
+display:block;
+}
+
+.details-container {
+background-color: #000019;
+padding:28px;
+}

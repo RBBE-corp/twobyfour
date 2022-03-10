@@ -4,21 +4,22 @@ text-decoration: none;
 
 .profile-wrapper{
 background-color: #21202e;
-  div {
-  text-align: center;
-  }
 
-  .graph{
-  height: 450px;
-  width: 550px;
-  border-radius: 18px;
-  margin-top:18px;
-  background:#F751aa;
-  padding-left: 19px;
-  padding-right: 19px;
-  padding-top: 19px;
-  margin-left: 44px;
-  }
+div {
+text-align: center;
+}
+
+.graph{
+height: 450px;
+width: 550px;
+border-radius: 18px;
+margin-top:18px;
+background:#F751aa;
+padding-left: 19px;
+padding-right: 19px;
+padding-top: 19px;
+margin-left: 44px;
+}
 
   .review-box {
   background-color: #21202e;
@@ -29,6 +30,7 @@ background-color: #21202e;
   height: 450px;
   width: 250px;
   border-radius: 18px;
+
     .review-image img {
     width: 90px;
     height: 90px;
@@ -45,9 +47,12 @@ background-color: #21202e;
 
   .image-icon {
   background: white;
-/* width: 100px; */
   border-radius: 18px;
   width: 130px;
+  }
+
+  .image-icon:hover {
+  background-color: #EAF0FA;
   }
 
  .user-info  {
@@ -58,16 +63,15 @@ background-color: #21202e;
     background-color: #00001C;
     background-color: #9886ff;
     text-align: center;
-    // border-radius: 18px;
     padding: 28px;
     border-radius: 18px;
     margin-top: 18px;
     img {
-    filter: drop-shadow(10px 5px 50px #4444dd);
-    height: 200px;
+      filter: drop-shadow(10px 5px 24px #D5E2F7);
+      height: 150px;
+      margin-bottom: 18px;
+      }
     }
-    }
-
     }
     // transform: translate(-50%, -50%);
     .user-score-box {
@@ -111,11 +115,16 @@ font-size: 13px;
 text-align: 'center';
 justify-content: center;
 align-items: center;
+z-index: 100;
+margin-bottom:28px;
  a:-webkit-any-link {
  color: white;
  }
 }
 
+.icon:hover{
+background: #624ff2;
+}
 .profile-button {
 background: #333;
 border: 1px solid #333;
@@ -137,7 +146,7 @@ color:black !important;
 .bottom-of {
 background: white;
 margin-top: 18px;
-padding: 28px;
+padding: 18px;
 padding-left: 14px;
 border-radius: 18px;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -184,15 +193,23 @@ padding: 12px;
 .profile-list {
 display: flex;
 justify-content: space-between;
+:first-child {
+  padding-top: 58px;
+}
+
 }
 
 .profile-list-group-item {
 // width:300px;
 // height: 100px;
+
+a:-webkit-any-link {
+color: #9886fe;
+}
 border-radius: 18px;
 padding:28px;
 width:400px;
-margin-bottom: 28px;
+margin-bottom: 18px;
 padding: 30px;
 border-radius: 30px;
 background: #ffffff;
@@ -221,7 +238,17 @@ border-radius: 18px;
 display:flex;
 }
 
+#profile-memory-list{
+margin-top: 38px;
+}
+
 #users-chart {
   padding:8px !important;
   border-radius: 18px !important;
+}
+
+.profile-list-group-item:hover {
+  a:-webkit-any-link {
+  color: #624ff2;
+}
 }

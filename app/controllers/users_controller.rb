@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def profile
-    @compositions = current_user.compositions.page(params[:page]).per(3)
+    @compositions = current_user.compositions
     @playlists = current_user.playlists
     @scores = current_user.scores.order(created_at: :desc)
     @memory_lists = current_user.memory_lists

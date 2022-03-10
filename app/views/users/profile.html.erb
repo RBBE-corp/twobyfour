@@ -5,14 +5,14 @@
         <div class="user-info">
             <%# <img src="https://i.pravatar.cc/150?img=68?u=a042581f4e29026704d" class="avatar-md" alt="Free unsplash image"> %>
           <%=image_tag("profile-character.svg") %>
-          <h4>Hi <strong><%= current_user.username %></strong>!</h4>
-          <h4> Welcome </h4>
+          <h4>Hi <strong><%= current_user.username %></strong></h4>
+          <h4>Welcome!</h4>
           <div class="text-secondary"><em><%= current_user.email %></em></div>
           <div class= "bottom-of">
-            <div class="user-score-box">
+           <p class="text-secondary-score">Average Score <%= @average_score %></p>
+            <%# <div class="user-score-box">
               <p class="text-secondary-score"><strong class="mr-2">Avg score</strong><em><%= @average_score %></em></p>
-                <div class="user-score-box-img">vagva</div>
-            </div>
+            <%# </div> %>
           </div>
         </div>
       </div>
@@ -22,12 +22,12 @@
          <div class="inner-graph">
           <%= line_chart @data, colors: [["#9583F9"]], id: "users-chart",  width: "450px", height: "300px" %>
           </div>
-          <h4 class="graph-title"> Daily scores </h4>
+          <h4 class="graph-title"><strong>Daily scores</strong></h4>
          </div>
        </div>
        <div class="col-3">
          <div class="review-box">
-         <h4>Newest compositions</h4>
+         <h4><strong>Newest Compositions</strong></h4>
          <div class="review-image">
             <%= link_to @compositions.last do %>
             <div class="image-icon">
@@ -45,14 +45,12 @@
           </div>
         </div>
       </div>
-      <div class="mascot">
-    </div>
   </div>
 
   <div class="row">
     <div class="col-6">
       <div class="composition-container">
-        <div class="mx-5 pt-5">
+        <div class="mx-5 pt-5" style="position: absolute;top: 10px; left: 10px">
           <%= link_to new_composition_path do %>
             <div class = "icon">Build your composition +</div>
           <% end %>
@@ -77,13 +75,13 @@
 
     <div class="col-6">
       <div class="list-container">
-        <div class="mx-5 pt-5">
+        <div class="mx-5 pt-5" style="position: absolute;top: 10px; left: 10px">
           <%= link_to new_memory_list_path do %>
           <div class= "icon">Build your memory list + </div>
           <% end %>
             <%# <%= link_to "Personalize your list", new_memory_list_path, class: 'btn btn-block btn-outline-primary' %>
-        </div>
-        <div class="row px-5 pt-5 justify-content-around">
+          </div>
+           <div class="row px-5 pt-5 justify-content-around">
         <%# <% @memory_lists.each do |memory_list| %>
           <%# <%= render 'components/memory-list-card', memory_list: memory_list %>
         <%# <% end %>
@@ -91,10 +89,10 @@
           <% @memory_lists.each_with_index do |memorylist, index| %>
           <div id="<%= memorylist.id %>" class="profile-list-group-item"><%= link_to memorylist.name, memorylist %>
               <%# <p> %>
-              <a class="" data-toggle="collapse" href="#collapseExample<%= index %>" role="button" aria-expanded="false" aria-controls="collapseExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-</svg></a>
-              <%# </p> %>
+              <a class="" data-toggle="collapse" href="#collapseExample<%= index %>" role="button" aria-expanded="false" aria-controls="collapseExample"><br><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg></a>
+                <%# </p> %>
                    <div class="collapse" id="collapseExample<%= index %>">
                     <div class="card card-body">
                       <%# <div class="col-sm-8"> %>
@@ -112,10 +110,10 @@
                       <%# </div> %>
                     </div>
                 </div>
-          </div>
-          <% end %>
-      </div>
+             </div>
+           <% end %>
         </div>
+      </div>
 
       </div>
     </div>
