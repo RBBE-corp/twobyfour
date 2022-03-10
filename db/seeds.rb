@@ -587,6 +587,20 @@ Score.create!(
 )
 puts "score added"
 
+Score.create!(
+  score: 2,
+  composition: Composition.order(Arel.sql('RANDOM()')).first,
+  created_at: Faker::Date.between(from: 1.week.ago, to: Date.today)
+)
+puts "score added"
+
+Score.create!(
+  score: 2,
+  composition: Composition.order(Arel.sql('RANDOM()')).first,
+  created_at: Faker::Date.between(from: 1.day.ago, to: Date.today)
+)
+puts "score added"
+
 # Score.create!(
 #   score: 20,
 #   composition: days_of_the_week_composition
