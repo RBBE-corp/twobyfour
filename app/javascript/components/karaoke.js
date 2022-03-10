@@ -16,6 +16,7 @@ const karaokePlayer = (event) => {
   const subtitles = document.querySelector(".composition-subtitle-list");
   const instrumental = document.getElementById("instrumental");
   const sound = document.querySelectorAll(".audios");
+  instrumental.loop = true;
   let mediaRecorder = new MediaRecorder(stream);
   function onStop(mediaRec) {
     mediaRec.addEventListener("stop", () => {

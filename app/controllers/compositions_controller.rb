@@ -62,7 +62,7 @@ class CompositionsController < ApplicationController
   
   
     composition = Composition.find(params["composition_id"])
-    composition = Composition.last
+    # composition = Composition.last
 
    
     flashcards = composition.flashcards
@@ -83,8 +83,7 @@ class CompositionsController < ApplicationController
 
         alternative = result.first.alternatives
         # puts "Transcription: #{alternative.first.transcript}"        
-
-
+        # byebug
         equal_or_not = (alternative.first.transcript == flashcards[index].furigana)
         # equal_or_not = (alternative.first.transcript == flashcards[index])
   
