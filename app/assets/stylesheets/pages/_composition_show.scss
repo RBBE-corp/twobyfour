@@ -1,7 +1,20 @@
 .composition-show-master-container {
   background-color: $dark-purple;
   padding: 36px;
-}
+
+
+    h3 {
+    font-family: Helvetica, sans-serif;
+    background-color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 20px;
+    height: auto;
+    margin-bottom: -1px;
+  }
+
+
+
 
 
 .composition-controller {
@@ -28,7 +41,9 @@
   background-color: $blue;
   padding: 16px 32px;
   box-sizing: border-box;
-  border-radius: 16px;
+  // border-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 
   .composition-show-info {
     margin-top: 16px;
@@ -244,13 +259,23 @@
   }
 }
 
-
+}
 
 ////////// Memory Test Side /////
 
 .karaoke-master-container {
   background-color: $dark-purple;
   padding: 36px;
+
+  h3 {
+    font-family: Helvetica, sans-serif;
+    background-color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 20px;
+    height: auto;
+    margin-bottom: -1px;
+  }
 
 
 
@@ -278,7 +303,8 @@
   background-color: $red;
   padding: 16px 32px;
   box-sizing: border-box;
-  border-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 
   .composition-show-info {
     margin-top: 16px;
