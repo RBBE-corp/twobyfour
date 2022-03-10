@@ -135,11 +135,19 @@
 
 .flex-container {
     display: flex;
+    justify-content: center;
 }
 
 .flex-child {
     // flex: 1;
+    min-width: 46%;
     margin: 3px;
+}
+
+.flex-child-equal {
+   margin-top: 7px;
+   padding-left: 6px;
+   padding-right: 6px;
 }
 
 // .flex-child:first-child {
