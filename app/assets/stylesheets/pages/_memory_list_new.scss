@@ -64,34 +64,42 @@
   background: white;
 }
 
-.memorylist-master-container .btn {
-    padding: 14px 24px;
-    border: 0 none;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+// .memorylist-master-container .btn {
+//     padding: 14px 24px;
+//     border: 0 none;
+//     font-weight: 700;
+//     letter-spacing: 1px;
+//     text-transform: uppercase;
 
-    // font-family: $headers-font;
-  // margin: 50;
-  // color: white;
-  // text-shadow: 0px 0px 3px $mid-gray;
-  // font-size: 16px;
+//     // font-family: $headers-font;
+//   // margin: 50;
+//   // color: white;
+//   // text-shadow: 0px 0px 3px $mid-gray;
+//   // font-size: 16px;
+// }
+
+// .memorylist-master-container .btn:focus, .btn:active:focus, .btn.active:focus {
+//     outline: 0 none;
+// }
+
+.memorylist-master-container .nav-btn {
+    display: flex;
+    background: #F751AA;
+    color: #fefefe;
+    border-radius: 30px;
+    width: 180px;
+    height: 50px;
+    font-size: 13px;
+    text-align: 'center';
+    justify-content: center;
+    align-items: center;
 }
 
-.memorylist-master-container .btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
-}
+// .memorylist-master-container .nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open > .dropdown-toggle.nav-btn {
+//     background: #33a6cc;
+// }
 
-.memorylist-master-container .btn-primary {
-    background: #0099cc;
-    color: #ffffff;
-}
-
-.memorylist-master-container .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
-}
-
-.memorylist-master-container .btn-primary:active, .btn-primary.active {
-    background: #007299;
-    box-shadow: none;
-}
+// .memorylist-master-container .nav-btn:active, .nav-btn.active {
+//     background: #007299;
+//     box-shadow: none;
+// }
