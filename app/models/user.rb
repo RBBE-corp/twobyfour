@@ -21,4 +21,8 @@ class User < ApplicationRecord
     end
     (sum / counter).round(2)
   end
+
+  def average_score
+  @average_score = current_user.scores.average(:score)
+  end
 end
