@@ -70,9 +70,9 @@ background: #21202e;  /* fallback for old browsers */
 }
 
 .home-card{
-  margin: 40px 40px 40px 40px;
+  // margin: 40px 40px 40px 40px;
   height: 350px;
-  width:250px;
+  // width:250px;
   border-radius: 12px;
   background: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -113,4 +113,8 @@ h1 {
 .details-container {
 background-color: #000019;
 padding:28px;
+}
+
+.home-button {
+  border-radius: 13px;
 }

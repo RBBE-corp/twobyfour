@@ -31,6 +31,10 @@ margin-left: 44px;
   width: 250px;
   border-radius: 18px;
 
+  h4 {
+    color:white;
+  }
+
     .review-image img {
     width: 90px;
     height: 90px;
@@ -215,8 +219,11 @@ box-shadow: 0 35px 68px 0 rgba(136,174,222,0.42),
 .inner-graph {
 background-color: white;
 border-radius: 18px;
-
 }
+.graph-title h4 {
+  color: white !important;
+}
+
 
 .mic-icon img {
   width: 100px;

@@ -78,9 +78,9 @@ class CompositionsController < ApplicationController
       raw_string = file.read
       # puts raw_string
       result = apple(raw_string)
+      english_word = flashcards[index].english_word
       if result.present?
         # p result
-
         alternative = result.first.alternatives
         # puts "Transcription: #{alternative.first.transcript}"
         # byebug
@@ -92,8 +92,10 @@ class CompositionsController < ApplicationController
             transcript: alternative.first.transcript,
 
 
-            word: flashcards[index].furigana,
+            furigana: flashcards[index].furigana,
             # word: flashcards[index],
+
+            english_word: underscore_remover(flashcards[index].english_word),
 
 
             matched: equal_or_not
@@ -107,6 +109,7 @@ class CompositionsController < ApplicationController
           word: flashcards[index].furigana,
           # word: flashcards[index],
 
+          english_word: underscore_remover(flashcards[index].english_word),
 
           matched: false
         }
