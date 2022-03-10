@@ -1,118 +1,125 @@
-<div class="karaoke-main-container">
-  <%# Hidden score correction %>
-  <div class="karaoke-score-container score-hidden py-5">
-    <div class="karaoke-score-box">
-      <h3 class="text-center">Corrections</h3>
-      <div class="row p-3">
-        <div class="col-5 first-column">
-          <div class="side-by-side">
-            <strong>japanese word</strong>
-            <strong>Your transcript</strong>
-          </div>
-          <div class="words-box">
-            <% 4.times do %>
-              <div class="word-container side-by-side">
-                <div class="furigana-word word-box no-info"></div>
-                <=>
-                <div class="transcript-word word-box no-info"></div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="col-5 second-column">
-          <div class="score-box">
-            <h4><strong>Score</strong></h4>
-            <div class="score-info">
-              <p class="score">
-                <strong> <span class="update-score">0 / 0</span> Correct </strong>      
-              </p>
-              <p>
-              <p class="score-message">
-                Your are doing awesome.</br>
-                Pratice makes your Japanese perfect.
-              </p>
-              </p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <div class="karaoke-main-container">
+<div class="karaoke-master-container">
+    <%# Hidden score correction %>
+    <div class="karaoke-score-container score-hidden py-5">
+      <div class="karaoke-score-box">
+        <h3 class="text-center">Corrections</h3>
+        <div class="row p-3">
+          <div class="col-5 first-column">
+            <div class="side-by-side">
+              <strong>japanese word</strong>
+              <strong>Your transcript</strong>
             </div>
-            <button class="btn btn-sm btn-primary hide-score-container">Go back and practice again.</button>
+            <div class="words-box">
+              <% 4.times do %>
+                <div class="word-container side-by-side">
+                  <div class="furigana-word word-box no-info"></div>
+                  <=>
+                  <div class="transcript-word word-box no-info"></div>
+                </div>
+              <% end %>
+            </div>
           </div>
-        
+          <div class="col-5 second-column">
+            <div class="score-box">
+              <h4><strong>Score</strong></h4>
+              <div class="score-info">
+                <p class="score">
+                  <strong> <span class="update-score">0 / 0</span> Correct </strong>
+                </p>
+                <p>
+                <p class="score-message">
+                  Your are doing awesome.</br>
+                  Pratice makes your Japanese perfect.
+                </p>
+                </p>
+              </div>
+              <button class="btn btn-sm btn-primary hide-score-container">Go back and practice again.</button>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <%# Karaoke box %>
-  <div class="container pt-5">
-    <h3 class="text-center"><strong>Karaoke Bar</strong></h3>
-    <div class="composition-show-box">
-      <div class="composition-show-info">
-        <div class="composition-card-info">
-          <div class="png-playlist-count">
-            <%= image_tag 'playlist.png', width: "100px",alt: "playlist icon"%>
+    <%# Karaoke box %>
+    <div class="container pt-5">
+      <h3 class="text-center"><strong>Memory Test</strong></h3>
+      <div class="composition-show-box">
+        <div class="composition-show-info">
+          <div class="composition-card-info">
+            <div class="png-playlist-count">
+
+            </div>
+                      <div class="instrumental-info">
+            <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon", class: "spinning"%>
+            <%= image_tag 'needle.png', class: "needle" %>
+              <div class="instrumental-inner-text">
+              <p><bdi><i class="bi bi-mic-fill"></i></bdi><%= @composition.name %></p>
+              <p><bdi><i class="bi bi-music-note"></i></bdi><%= underscore_remover(@composition.instrumental.title) %></p>
+              <p><bdi><i class="fas fa-brain"></i></bdi><%= @composition.memory_list.name %></p>
+              </div>
           </div>
-          <div>
-            <p>composition: <%= @composition.name %></p>
-            <p>instrumental: <%= underscore_remover(@composition.instrumental.title) %></p>
-            <p><strong>Memorylist:</strong> <%= @composition.memory_list.name %></p>
+          </div>
+          <div class="composition-subtitle">
+            <ul class="composition-subtitle-list">
 
+            <% @composition.memory_list.flashcards.each do |flashcard| %>
+
+              <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.english_word) %></li>
+              <li class="user-turn" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>">Your Turn</li>
+
+            <% end %>
+              <%# <li class="user-turn" id="last-flashcard">Your Turn</li> %>
+
+            </ul>
           </div>
         </div>
-        <div class="composition-subtitle">
-          <ul class="composition-subtitle-list">
+        <div class="composition-show-joystick">
+          <div class="audio-controllers">
+            <div class="play-pause-stop">
+              <button class='recorder mx-3'><i class="fa fa-play" aria-hidden="true"></i></button>
+            </div>
 
+            <div class="range-slider" data-controller="range-slider">
+              <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
+              <%# hello %>
+              <input type="range"
+                    name="customRange"
+                    class="range-slider__range inline"
+                    data-range-slider-target="range"
+                    data-action="input->range-slider#updateValue"
+                    value="0.5"
+                    min="0"
+                    max="1"
+                    step="0.00000001">
+              <%# <output class="range-slider__value"
+                      data-range-slider-target= "play"></output> %>
+            </div>
+
+          </div>
+          <div class="rep-counter">
+            <p>reps</p>
+            <strong>
+              <%= @composition.rep_count %>
+            </strong>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto mt-3" style="text-align:center;">
+        <%= link_to "Back to Compositions", composition_path(@composition), class: 'btn  btn-sm btn-secondary' %>
+      </div>
+      <div class="audio-mother-box">
+        <audio>
+          <source src="<%= asset_path("instrumentals/#{@composition.instrumental.title}.mp3") %>" type="audio/mpeg">
           <% @composition.memory_list.flashcards.each do |flashcard| %>
-
-            <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.english_word) %></li>
-            <li class="user-turn" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>">Your Turn</li>
-
+            <source id="<%="#{flashcard.english_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.english_word}.wav") %>" type="audio/mpeg">
+            <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/fourseconds.m4a") %>" type="audio/mpeg">
           <% end %>
-            <%# <li class="user-turn" id="last-flashcard">Your Turn</li> %>
-
-          </ul>
-        </div>
+        </audio>
       </div>
-      <div class="composition-show-joystick">
-        <div class="audio-controllers">
-          <div class="play-pause-stop">
-            <button class='recorder mx-3'><i class="fa fa-play" aria-hidden="true"></i></button>
-          </div>
-          
-          <div class="range-slider" data-controller="range-slider">
-            <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
-            <%# hello %>
-            <input type="range"
-                  name="customRange"
-                  class="range-slider__range inline"
-                  data-range-slider-target="range"
-                  data-action="input->range-slider#updateValue"
-                  value="0.5"
-                  min="0"
-                  max="1"
-                  step="0.00000001">
-            <%# <output class="range-slider__value"
-                    data-range-slider-target= "play"></output> %>
-          </div>
-
-        </div>
-        <div class="rep-counter">
-          <p>reps</p>
-          <strong>
-            <%= @composition.rep_count %>
-          </strong>
-        </div>
-      </div>
-    </div>
-    <div class="mx-auto mt-3" style="text-align:center;">
-      <%= link_to "Back to Compositions", composition_path(@composition), class: 'btn  btn-sm btn-secondary' %>
-    </div>
-    <div class="audio-mother-box">
-      <audio>
-        <source src="<%= asset_path("instrumentals/#{@composition.instrumental.title}.mp3") %>" type="audio/mpeg">
-        <% @composition.memory_list.flashcards.each do |flashcard| %>
-          <source id="<%="#{flashcard.english_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.english_word}.wav") %>" type="audio/mpeg">
-          <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/fourseconds.m4a") %>" type="audio/mpeg">
-        <% end %>
-      </audio>
     </div>
   </div>
 </div>

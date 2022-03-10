@@ -42,6 +42,15 @@
     </div>
     <div class="composition-show-joystick">
       <div class="audio-controllers">
+      <div class="loop-box">
+        <span>Loop</span>
+
+
+        <label class="switch">
+          <input type="checkbox" id="loop-checker">
+          <span class="slider round"></span>
+        </label>
+      </div>
         <div class="play-pause-stop">
           <button class="stop-player mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
           <button class='player mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
@@ -64,14 +73,7 @@
         </div>
 
       </div>
-      <div class="loop-box">
-        <span>loop </span>
 
-        <label class="switch">
-          <input type="checkbox" id="loop-checker">
-          <span class="slider round"></span>
-        </label>
-      </div>
       <div class="rep-counter">
         <p>reps</p>
         <strong>
@@ -80,9 +82,8 @@
       </div>
     </div>
   </div>
-  <div class="mx-auto mt-3" style="text-align:center;">
-
- <%= link_to "Memory Test!", composition_karaoke_path(@composition), class: 'btn btn-sm btn-primary' %>
+  <div class="memory-test-button" style="text-align:center;">
+<%= link_to "Memory Test!", composition_karaoke_path(@composition), class: 'memorytest-text' %>
 
   </div>
   <div class="audio-mother-box">
