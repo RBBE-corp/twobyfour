@@ -19,6 +19,8 @@ function drop(ev, el) {
     // if the card is going out of the memory list, add a class
     document.getElementById(data).classList.add("flashcard-not-selected");
   }
+  const MemoryListFlashcard = document.getElementById("MemoryListFlashcardsBox").children.length;
+  document.querySelector(".memorylist-cards-counter").innerHTML = MemoryListFlashcard;
 }
 
 export { allowDrop, drag, drop }
