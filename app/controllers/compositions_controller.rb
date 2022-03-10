@@ -59,12 +59,12 @@ class CompositionsController < ApplicationController
   def checker
     responses = []
     uploaded_file = params["files"]
-  
-  
+
+
     composition = Composition.find(params["composition_id"])
     # composition = Composition.last
 
-   
+
     flashcards = composition.flashcards
     # flashcards = [
     #   'こんにちは',
@@ -82,12 +82,12 @@ class CompositionsController < ApplicationController
       if result.present?
         # p result
         alternative = result.first.alternatives
-        # puts "Transcription: #{alternative.first.transcript}"        
+        # puts "Transcription: #{alternative.first.transcript}"
         # byebug
         equal_or_not = (alternative.first.transcript == flashcards[index].furigana)
         # equal_or_not = (alternative.first.transcript == flashcards[index])
-  
-  
+
+
         responses << {
             transcript: alternative.first.transcript,
 
@@ -97,20 +97,20 @@ class CompositionsController < ApplicationController
 
             english_word: underscore_remover(flashcards[index].english_word),
 
-    
+
             matched: equal_or_not
           }
         # responses << alternative.transcript
       else
         responses << {
           transcript: "",
-      
-      
+
+
           word: flashcards[index].furigana,
           # word: flashcards[index],
-     
+
           english_word: underscore_remover(flashcards[index].english_word),
-     
+
           matched: false
         }
         # responses << ""
@@ -119,7 +119,7 @@ class CompositionsController < ApplicationController
 
     # Check with japanese word
     data = scorer(responses, composition)
-    
+
     p data
     # byebug
     respond_to do |format|
@@ -135,18 +135,15 @@ class CompositionsController < ApplicationController
     end
   end
 
-  # def chart
-  #   @data = Composition.group_by_day(:created_at).sum(:rep_count)
-  # end
   private
 
   def scorer(responses, composition)
     # Score the composition
     points = 0;
-    
+
     # create a instance of score with composition
     score = Score.new(composition: composition)
-    
+
     # iterate through the responses
     responses.each do |status|
       # check if the matched is true and add to the score
@@ -154,7 +151,7 @@ class CompositionsController < ApplicationController
       # byebug
       points += 1 if status[:matched]
     end
-    
+
 
     # add points to score
     score.score = points
@@ -166,14 +163,14 @@ class CompositionsController < ApplicationController
       # create json with score and infoes as key
       data = {
         score: score.score,
-        infoes: responses  
+        infoes: responses
       }
     end
 
 
     # send the json to fetch
     data
-    
+
 
   end
 

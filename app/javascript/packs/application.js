@@ -19,7 +19,9 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-// import "chartkick/chart.js";
+import "chartkick/chart.js";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { filesPlayer } from '../components/files_player';
