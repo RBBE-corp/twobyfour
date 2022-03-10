@@ -72,6 +72,7 @@ background: #21202e;  /* fallback for old browsers */
 .home-card{
   margin: 40px 40px 40px 40px;
   height: 350px;
+  width:250px;
   border-radius: 12px;
   background: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -101,9 +102,12 @@ img {
 
 .text-container {
 padding: 48px;
-background-color:#F650AA;
+background-color: #8d68ce;
 border-radius:18px;
 display:block;
+h1 {
+  color:white;
+}
 }
 
 .details-container {
