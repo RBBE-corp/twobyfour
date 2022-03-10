@@ -82,14 +82,8 @@ class CompositionsController < ApplicationController
         # p result
 
         alternative = result.first.alternatives
-<<<<<<< HEAD
         # puts "Transcription: #{alternative.first.transcript}"
-
-
-=======
-        # puts "Transcription: #{alternative.first.transcript}"        
         # byebug
->>>>>>> origin/master
         equal_or_not = (alternative.first.transcript == flashcards[index].furigana)
         # equal_or_not = (alternative.first.transcript == flashcards[index])
 
@@ -111,15 +105,9 @@ class CompositionsController < ApplicationController
 
 
           word: flashcards[index].furigana,
-<<<<<<< HEAD
-          word: flashcards[index],
-
-
-=======
           # word: flashcards[index],
-     
-     
->>>>>>> origin/master
+
+
           matched: false
         }
         # responses << ""
@@ -127,13 +115,8 @@ class CompositionsController < ApplicationController
     end
 
     # Check with japanese word
-<<<<<<< HEAD
-    data = scorer(responses)
-
-=======
     data = scorer(responses, composition)
-    
->>>>>>> origin/master
+
     p data
     # byebug
     respond_to do |format|
@@ -156,13 +139,8 @@ class CompositionsController < ApplicationController
     points = 0;
 
     # create a instance of score with composition
-<<<<<<< HEAD
-    score = Score.new(composition: @composition)
-
-=======
     score = Score.new(composition: composition)
-    
->>>>>>> origin/master
+
     # iterate through the responses
     responses.each do |status|
       # check if the matched is true and add to the score
@@ -175,17 +153,6 @@ class CompositionsController < ApplicationController
     # add points to score
     score.score = points
 
-<<<<<<< HEAD
-    # create json with score and infoes as key
-    data = {
-      score: score.score,
-      infoes: responses
-    }
-
-    # send the json to fetch
-
-
-=======
     # save the score instance
     # byebug
     if score.save
@@ -193,15 +160,14 @@ class CompositionsController < ApplicationController
       # create json with score and infoes as key
       data = {
         score: score.score,
-        infoes: responses  
+        infoes: responses
       }
     end
 
 
     # send the json to fetch
     data
-    
->>>>>>> origin/master
+
 
   end
 
