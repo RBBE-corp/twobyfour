@@ -9,14 +9,14 @@
         <div class="row p-3">
           <div class="col-5 first-column">
             <div class="side-by-side">
-              <strong>japanese word</strong>
-              <strong>Your transcript</strong>
+              <strong>Japanese Word</strong>
+              <strong>Your Transcript</strong>
             </div>
             <div class="words-box">
               <% 4.times do %>
                 <div class="word-container no-info side-by-side">
                   <div class="furigana-word word-box"></div>
-                  <=>
+                  <i class="fas fa-arrows-alt-h"></i>
                   <div class="transcript-word word-box"></div>
                 </div>
               <% end %>
@@ -31,7 +31,7 @@
                 </p>
                 <p>
                 <p class="score-message">
-                  Your are doing awesome.</br>
+                  Your are doing AMAZING! 🎉🎉🎉</br>
                   Pratice makes your Japanese perfect.
                 </p>
                 </p>
@@ -45,7 +45,7 @@
 
     <%# Karaoke box %>
     <div class="container pt-5">
-      <h3 class="text-center"><strong>Memory Test</strong></h3>
+      <h3 class="title">Memory Test</h3>
       <div class="composition-show-box">
         <div class="composition-show-info">
           <div class="composition-card-info">
@@ -108,7 +108,9 @@
         </div>
       </div>
       <div class="mx-auto mt-3" style="text-align:center;">
-        <%= link_to "Back to Compositions", composition_path(@composition), class: 'btn  btn-sm btn-secondary' %>
+        <div class="memory-test-button" style="text-align:center;">
+        <%= link_to "Back to Practice", composition_path(@composition), class: 'memorytest-text' %>
+        </div>
       </div>
       <div class="audio-mother-box">
         <audio>

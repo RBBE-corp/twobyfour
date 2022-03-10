@@ -1,10 +1,10 @@
 .karaoke-main-container {
   position: relative;
-  
+
   .matched-true {
-    background-color: green;
+    background-color: rgb(0, 200, 0);
   }
-  
+
   .matched-false {
     background-color: red;
   }
@@ -72,9 +72,8 @@
     width: 60%;
     height: auto;
     border-radius: 40px;
-    background-color: rgba(255, 0, 0, 0.7);
-    padding: 16px 0 0;
-    
+    background-color: $blue;
+
     h3 {
       font-weight: bold;
     }
@@ -83,7 +82,7 @@
       justify-content: space-evenly;
       .col-5 {
         // width: 100px;
-        height: 460px;
+        height: auto;
         border-radius: 20px;
         &:first-child {
           background-color: rgba(240, 248, 255, 0.8);
@@ -110,14 +109,19 @@
     margin: 8px;
   // }
   .word-box {
-    min-width: 80px;
+    line-height: 46px;
+    text-align: center;
+    border-radius: 8px;
+    min-width: 136px;
+    min-height: 40px;
     padding: 0px 8px;
     font-size: .9em;
-    min-height: 100%;
     // height: 24px;
-    line-height: 24px;
     background-color: rgba(255, 255, 255, 0.836);
   }
+   i {
+     margin-top: 12px;
+   }
 }
 
 // second column
@@ -132,7 +136,7 @@
   h4 {
     color: rgb(65, 110, 103);
   }
-  
+
   .score-info {
     padding: 24px 0;
 
