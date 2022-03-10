@@ -1,0 +1,5 @@
+meta_product_name: "TwoByFour"
+meta_title: "TwoByFour - Beats Into Your Brain"
+meta_description: "Edutainment Karaoke"
+meta_image: "logov2 og-image.png" # should exist in `app/assets/images/`
+twitter_account: "@twobyfourapp"   # required for Twitter Cards
