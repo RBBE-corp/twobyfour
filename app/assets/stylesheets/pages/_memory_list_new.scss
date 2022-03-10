@@ -1,38 +1,42 @@
-// .memorylist-master-container body {
-//   background: $master-container-gradient;
-// }
+.memorylist-master-container-body {
+  background: #21202e;
+  // height: 1200px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 
 .memorylist-master-container {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  // margin-top: 30px;
+  // margin-bottom: 30px;
   padding: 30px;
   display: flex;
   justify-content: center;
   border-radius: 20px;
-  box-shadow: 10px 10px 5px $dark-gray;
+  // box-shadow: 10px 10px 5px $dark-gray;
 
-  background: #41295a;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #9886FF;
+  // background: #41295a;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to left, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .memorylist-master-container h1 {
   font-family: $headers-font;
-  color: white;
+  color: black;
   text-shadow: 1px 1px 3px $mid-gray;
   font-size: 48px;
   font-weight: bold;
 
   padding: 30px;
-  box-shadow: 2px 2px 5px $glow-box-shadow;
+  box-shadow: 2px 2px 5px $dark-gray;
   border-radius: 10px;
   // background: #03001e;
-  background: rgba(3, 0, 31, 0.5);
+  background: white;
 }
 
 .memorylist-master-container h2 {
   font-family: $headers-font;
-  color: white;
+  color: black;
   text-shadow: 0px 0px 3px $mid-gray;
   font-size: 32px;
   font-weight: bold;
@@ -40,7 +44,7 @@
 
 .memorylist-master-container h3 {
   font-family: $headers-font;
-  color: white;
+  color: black;
   text-shadow: 0px 0px 3px $mid-gray;
   font-size: 16px;
   font-weight: bold;
@@ -49,15 +53,15 @@
 .name-your-memory-list {
   font-family: $headers-font;
   margin: 20px;
-  color: white;
+  color: black;
   text-shadow: 0px 0px 3px $mid-gray;
-  box-shadow: 2px 2px 5px $glow-box-shadow;
+  box-shadow: 2px 2px 5px $dark-gray;
   border-radius: 10px;
 
   font-size: 16px;
   font-weight: bold;
   // background: #03001e;
-  background: rgba(3, 0, 31, 0.5);
+  background: white;
 }
 
 .memorylist-master-container .btn {

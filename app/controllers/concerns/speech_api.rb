@@ -2,8 +2,10 @@ require "google/cloud/speech/v1"
 
 module SpeechApi
   def apple(audio_file)
+    credentials = JSON.parse(ENV['SPEECH_API'])
+    p credentials
     speech = ::Google::Cloud::Speech::V1::Speech::Client.new do |config|
-      config.credentials = "./credentials.json"
+      config.credentials = credentials
     end
 
     # audio_file_path = "./app/assets/audio/flashcard_greetings/aka.wav"
