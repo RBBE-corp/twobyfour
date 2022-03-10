@@ -2,11 +2,11 @@
   position: relative;
   
   .matched-true {
-    background-color: rgba(0, 128, 0, 0.7);
+    background-color: green;
   }
   
   .matched-false {
-    background-color: rgba(255, 0, 0, 0.7);
+    background-color: red;
   }
 }
 
@@ -34,6 +34,7 @@
   50%{background-position:24% 100%}
   100%{background-position:77% 0%}
 }
+
 
 .recorder {
   width: 64px;
