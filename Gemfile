@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
+gem 'faker'
 gem 'google-cloud-speech', '~> 1.2', '>= 1.2.3'
 # gem 'grpc', '~> 1.43', '>= 1.43.1'
 # gem 'grpc-tools', '~> 0.14.1.pre1'

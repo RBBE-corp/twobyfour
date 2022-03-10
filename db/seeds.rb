@@ -50,7 +50,7 @@ puts "......"
 
 # ////// User Seeds ////////
 
-byron = User.create!(
+erika = User.create!(
   password: "123456",
   email: "erika@gmail.com",
   username: "Erika Kawashima"
@@ -298,21 +298,21 @@ puts "Flash cards created"
 # /////// MemoryList /////////
 my_greetings_memory_list = MemoryList.create!(
   name: "My Favourite Greetings",
-  user: byron
+  user: erika
 )
 
 puts "Memorylist created"
 
 my_colors_memory_list = MemoryList.create!(
   name: "My Favourite Colors",
-  user: byron
+  user: erika
 )
 
 puts "Memorylist created"
 
 my_days_of_the_week_memory_list = MemoryList.create!(
   name: "My Favourite Days",
-  user: byron
+  user: erika
 )
 
 puts "Memorylist created"
@@ -444,8 +444,9 @@ greetings_composition = Composition.create!(
   name: "Greetings Funk",
   memory_list: my_greetings_memory_list,
   instrumental: too_short_just_another_day,
-  user: byron,
-  rep_count: 19
+  user: erika,
+  rep_count: 19,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
 )
 puts "composition added"
 
@@ -453,8 +454,9 @@ Composition.create!(
   name: "Greetings RnB",
   memory_list: my_greetings_memory_list,
   instrumental: a1_always,
-  user: byron,
-  rep_count: 13
+  user: erika,
+  rep_count: 13,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
 )
 puts "composition added"
 
@@ -462,8 +464,9 @@ Composition.create!(
   name: "Greetings Moombah",
   memory_list: my_greetings_memory_list,
   instrumental: major_lazer_lean_on,
-  user: byron,
-  rep_count: 11
+  user: erika,
+  rep_count: 11,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
 )
 puts "composition added"
 
@@ -471,8 +474,9 @@ Composition.create!(
   name: "Greetings Hip Hop",
   memory_list: my_greetings_memory_list,
   instrumental: saigon_relafriendship,
-  user: byron,
-  rep_count: 15
+  user: erika,
+  rep_count: 15,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
 )
 puts "composition added"
 
@@ -480,15 +484,16 @@ Composition.create!(
   name: "Greetings Trap",
   memory_list: my_greetings_memory_list,
   instrumental: kap_g_top_5,
-  user: byron,
-  rep_count: 9
+  user: erika,
+  rep_count: 9,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
 )
 puts "composition added"
 
 # days_of_the_week_composition = Composition.create!(
 #   memory_list: "days of the week",
 #   instrumental: closer,
-#   user: byron,
+#   user: erika,
 #   rep_count: 10
 # )
 # puts "composition added"
@@ -496,7 +501,7 @@ puts "composition added"
 # verbs_composition = Composition.create!(
 #   memory_list: "verbs",
 #   instrumental: all_the_small_things,
-#   user: byron,
+#   user: erika,
 #   rep_count: 20
 # )
 
@@ -509,19 +514,19 @@ puts "playlist"
 
 greetings_playlist = Playlist.create!(
   name: "Greetings",
-  user: byron
+  user: erika
 )
 puts "playlist added"
 
 # days_of_the_week_playlist = Playlist.create!(
 #   name: "Days of the Week",
-#   user: byron
+#   user: erika
 # )
 # puts "playlist added"
 
 # verbs_playlist = Playlist.create!(
 #   name: "Japanese Verbs",
-#   user: byron
+#   user: erika
 # )
 # puts "playlist added"
 
@@ -531,7 +536,7 @@ puts "playlist added"
 
 PlaylistComposition.create!(
   composition: greetings_composition,
-  playlist: greetings_playlist
+  playlist: greetings_playlist,
 )
 
 # PlaylistComposition.create!(
@@ -554,7 +559,31 @@ puts "playlist compositions created"
 
 Score.create!(
   score: 5,
-  composition: greetings_composition
+  composition: Composition.order(Arel.sql('RANDOM()')).first,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
+)
+puts "score added"
+
+
+Score.create!(
+  score: 3,
+  composition: Composition.order(Arel.sql('RANDOM()')).first,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
+)
+puts "score added"
+
+
+Score.create!(
+  score: 7,
+  composition: Composition.order(Arel.sql('RANDOM()')).first,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
+)
+puts "score added"
+
+Score.create!(
+  score: 2,
+  composition: Composition.order(Arel.sql('RANDOM()')).first,
+  created_at: Faker::Date.between(from: 1.month.ago, to: Date.today)
 )
 puts "score added"
 
