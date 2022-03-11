@@ -259,6 +259,40 @@ font-size: xx-large;
 padding-top: 18px;
 }
 
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
 .flex-child-profile{
+    min-width: 46%;
+    margin: 3px;
+  .p-1 {
+    background-color: rgb(246, 246, 246);
+    border-radius: 8px;
+
+  }
 
 }
+
+  .equal-sign {
+  min-width: 16px;
+  margin-top: 7px;
+  color: white;
+  text-shadow: 1px 1px 2px #454545;
+}
+
+
+.collapse {
+  .card {
+    background-color: #d4d4d4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 16px;
+  }
+  }
