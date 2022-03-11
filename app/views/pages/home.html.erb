@@ -12,7 +12,7 @@
             <h1 class= "d-block font-weight-bold">TwoByFour</h1>
                 <p class="lead text-secondary my-5">Beats Into Your Brain! <br> Learn through the power of music with Two By Four</p>
                 <% if user_signed_in? %>
-                  <%= link_to "Start learning", new_composition_path, class: "home-button btn btn-outline-light btn-lg border" %>
+                  <%= link_to "Start learning", profile_path, class: "home-button btn btn-outline-light btn-lg border" %>
                 <% else %>
                   <%= link_to "Start today", new_user_registration_path, class: "home-button btn btn-outline-light btn-lg border"%>
                 <% end %>
