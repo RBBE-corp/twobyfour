@@ -92,7 +92,7 @@ class CompositionsController < ApplicationController
             transcript: alternative.first.transcript,
 
 
-            furigana: flashcards[index].furigana,
+            japanese_word: underscore_remover(flashcards[index].japanese_word),
             # word: flashcards[index],
 
             english_word: underscore_remover(flashcards[index].english_word),
@@ -106,7 +106,7 @@ class CompositionsController < ApplicationController
           transcript: "",
 
 
-          word: flashcards[index].furigana,
+          japanese_word: underscore_remover(flashcards[index].japanese_word),
           # word: flashcards[index],
 
           english_word: underscore_remover(flashcards[index].english_word),

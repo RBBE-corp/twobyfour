@@ -9,15 +9,27 @@
         <div class="row p-3">
           <div class="col-5 first-column">
             <div class="side-by-side">
-              <strong>Japanese Word</strong>
+              <strong>Word</strong>
               <strong>Your Transcript</strong>
             </div>
             <div class="words-box">
               <% 4.times do %>
                 <div class="word-container no-info side-by-side">
-                  <div class="furigana-word word-box"></div>
+                  <div class="furigana-word word-box">
+                    <%# English word %>
+                    <div class="inner-furigana-word">
+                      <div class="front-furigana">
+                        
+                      </div>
+                      <div class="back-furigana">
+                        
+                      </div>
+                    </div>
+                  </div>
                   <i class="fas fa-arrows-alt-h"></i>
-                  <div class="transcript-word word-box"></div>
+                  <div class="transcript-word word-box">
+                    
+                  </div>
                 </div>
               <% end %>
             </div>
