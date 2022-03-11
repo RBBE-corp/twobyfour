@@ -9,7 +9,7 @@
           <h4>Welcome!</h4>
           <div class="text-secondary"><em><%= current_user.email %></em></div>
           <div class= "bottom-of">
-           <p class="text-secondary-score">Average Score <div class= "score"><%= @average_score %></div></p>
+           <p class="text-secondary-score">Average Score <div class= "score"><%= @average_score.round(2) %></div></p>
             <%# <div class="user-score-box">
               <p class="text-secondary-score"><strong class="mr-2">Avg score</strong><em><%= @average_score %></em></p>
             <%# </div> %>
