@@ -164,6 +164,8 @@
 }
 
 
+
+
 // second column
 .score-box {
   padding: 8px;
@@ -179,6 +181,10 @@
 
   .score-info {
     padding: 24px 0;
+
+    p {
+      margin-bottom: 3rem;
+    }
 
     .score{
       margin-bottom: 16px;
