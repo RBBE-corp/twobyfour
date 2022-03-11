@@ -16,7 +16,7 @@ export const lightUpTheScore = (data) => {
                             ${result.english_word}
                           </div>
                           <div class="back-furigana">
-                            ${result.furigana}
+                            ${result.japanese_word}
                           </div>
                         </div>
                       </div>
