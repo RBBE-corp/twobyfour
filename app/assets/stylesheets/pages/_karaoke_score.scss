@@ -109,15 +109,21 @@
     margin: 8px;
   // }
   .word-box {
-    line-height: 46px;
     text-align: center;
     border-radius: 8px;
     min-width: 136px;
     min-height: 40px;
+    overflow-wrap: break-word;
+    // line-height: 40px;
     padding: 0px 8px;
     font-size: .9em;
     // height: 24px;
     background-color: rgba(255, 255, 255, 0.836);
+  }
+  .transcript-word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
    i {
      margin-top: 12px;
@@ -135,15 +141,20 @@
     transform-style: preserve-3d;
     transition: transform .8s ease-in-out;
     .front-furigana, .back-furigana {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
       width: 100%;
+      // min-width: 130px;
+      word-break: break-all;
       height: 100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
     }
     .back-furigana {
       transform: rotateX(180deg);
-      font-size: 0.8em;
+      font-size: 0.9em;
     }
   }
   &:hover .inner-furigana-word {

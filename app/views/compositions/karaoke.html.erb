@@ -3,7 +3,7 @@
   <div class="karaoke-main-container">
 <div class="karaoke-master-container">
     <%# Hidden score correction %>
-    <div class="karaoke-score-container score-hidden py-5">
+    <div class="karaoke-score-container score-show py-5">
       <div class="karaoke-score-box">
         <h3 class="text-center">Corrections</h3>
         <div class="row p-3">
@@ -16,7 +16,15 @@
               <% 4.times do %>
                 <div class="word-container no-info side-by-side">
                   <div class="furigana-word word-box">
-                    English word
+                    <%# English word %>
+                    <div class="inner-furigana-word">
+                      <div class="front-furigana">
+                        ${resu
+                      </div>
+                      <div class="back-furigana">
+                        ${result.furiganaasfasfsdaf}
+                      </div>
+                    </div>
                   </div>
                   <i class="fas fa-arrows-alt-h"></i>
                   <div class="transcript-word word-box">
