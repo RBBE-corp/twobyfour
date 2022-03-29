@@ -29,17 +29,37 @@
          <div class="review-box">
          <div class = "title-compo"><h4><strong>Newest Compositions</strong></h4></div>
          <div class="review-image">
-            <%= link_to @compositions.last do %>
-            <div class="image-icon">
-              <p>Last created:</p>
-              <%=  @composition.name %>
-              </div>
-            <% end %>
-            <%= link_to @composition do %>
+            
+            <% if @compositions.last.present? %>
+              <%= link_to @compositions.last do %>
               <div class="image-icon">
-              <p>Least reps: </p>
-              <%= @composition.name %>
-            </div>
+                <p>Last created:</p>
+                  <%=  @compositions.last.name %>
+                </div>
+              <% end %>
+            <% else %>
+                <%= link_to new_composition_path do %>
+              <div class="image-icon">
+                <p>Last created:</p>
+                  <%=  "No Composition" %>
+                </div>
+              <% end %>
+            <% end %>
+            
+            <% unless @composition.nil? %>
+              <%= link_to @composition do %>
+              <div class="image-icon">
+                <p>Least reps:</p>
+                  <%=  @composition.name %>
+                </div>
+              <% end %>
+            <% else %>
+                <%= link_to new_composition_path do %>
+              <div class="image-icon">
+                <p>Last created:</p>
+                  <%=  "No Composition" %>
+                </div>
+              <% end %>
             <% end %>
           <%=image_tag("wave.svg") %>
           </div>
