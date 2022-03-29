@@ -16,14 +16,14 @@ class CompositionsController < ApplicationController
     @instrumentals = Instrumental.all
 
     # User memory list
-    @memory_lists = current_user.memory_lists
+    @memory_lists = MemoryList.first(3).concat current_user.memory_lists
     
     # @memory_list = MemoryList.find(params[id])
   end
-
+  
   def create
     # @memory_lists = MemoryList.all
-    @memory_lists = current_user.memory_lists
+    @memory_lists = MemoryList.first(3).concat current_user.memory_lists
     @instrumentals = Instrumental.all
     @composition = Composition.new(composition_params)
     @composition.user = current_user
