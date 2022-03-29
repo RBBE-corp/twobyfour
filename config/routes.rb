@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :instrumentals, only: [:index, :show]
 
-  resources :compositions do
+  resources :compositions, except: [:index] do
     resources :score, only: [:new, :create]
     get '/karaoke', to: "compositions#karaoke"
     post '/karaoke', to: "compositions#checker"

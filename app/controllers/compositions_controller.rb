@@ -1,12 +1,12 @@
 class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy, :addrep]
 
-    include SpeechApi
+  include SpeechApi
 
-  def index
-    @compositions = Composition.all
-    @memory_list_flashcards = MemoryListFlashcard.all
-  end
+  # def index
+  #   @compositions = Composition.all
+  #   @memory_list_flashcards = MemoryListFlashcard.all
+  # end
 
   def new
     @memory_list_flashcard = MemoryListFlashcard.new
@@ -14,12 +14,16 @@ class CompositionsController < ApplicationController
     @composition = Composition.new
     @memory_list = MemoryList.new
     @instrumentals = Instrumental.all
-    @memory_lists = MemoryList.all
+
+    # User memory list
+    @memory_lists = MemoryList.first(3).concat current_user.memory_lists
+    
     # @memory_list = MemoryList.find(params[id])
   end
-
+  
   def create
-    @memory_lists = MemoryList.all
+    # @memory_lists = MemoryList.all
+    @memory_lists = MemoryList.first(3).concat current_user.memory_lists
     @instrumentals = Instrumental.all
     @composition = Composition.new(composition_params)
     @composition.user = current_user
