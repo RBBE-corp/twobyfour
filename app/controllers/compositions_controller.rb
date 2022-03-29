@@ -1,12 +1,12 @@
 class CompositionsController < ApplicationController
   before_action :find_composition, only: [:show, :edit, :update, :destroy, :addrep]
 
-    include SpeechApi
+  include SpeechApi
 
-  def index
-    @compositions = Composition.all
-    @memory_list_flashcards = MemoryListFlashcard.all
-  end
+  # def index
+  #   @compositions = Composition.all
+  #   @memory_list_flashcards = MemoryListFlashcard.all
+  # end
 
   def new
     @memory_list_flashcard = MemoryListFlashcard.new
