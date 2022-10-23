@@ -11,8 +11,8 @@
 
       <div class="row align-items-center justify-content-center">
         <%# <h2>2. Write a Name for Your Memory List:</h2> %>
-        <div>
-          <div class="name-your-memory-list" style="text-align: center;">
+        <div class="col-8 col-sm-10 mx-auto">
+          <div class="name-your-memory-list w-auto" style="text-align: center;">
             <%= simple_form_for @memory_list, html: { class: "memory-list-form"}  do |f| %>
               <%= f.input :name, label: "New Memory List Name:" %>
               <div class="error-messages text-center"></div>
