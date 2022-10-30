@@ -1,41 +1,44 @@
-
-
-
 <%# <%= link_to "Back to My Compositions", compositions_path, class: 'btn btn-secondary' %>
 <div class="master-box-memory-list">
   <%
 =begin %>
   <div class="speed-track-container">
-      <div class="container">
-        <div class="form-container">
-            <h2>Composition Builder</h2>
-            <p> You can use the composition builder to create a track from existing memory lists.</p>
-            <%= render 'components/compositions-form', composition: @composition %>
-        </div>
+    <div class="container">
+      <div class="form-container">
+        <h2>Composition Builder</h2>
+        <p> You can use the composition builder to create a track from existing memory lists.</p>
+        <%= render 'components/compositions-form', composition: @composition %>
       </div>
+    </div>
   </div>
   <%
 =end %>
-
-<div class="composition-master-container">
-  <%= render 'components/composition-memorylist-draggable', composition: @composition %>
-</div>
-
-<%
-=begin %>
- <div class="compsition-builder-container">
-    <div class="form-container">
-
-        <h1>Composition Builder</h1>
-        <p>You can use the composition builder to create your own flashcards and memory list, which can be combined to create your own composition!</p>
-        <div class="container">
-          <%= render 'components/composition-builder' %>
-        </div>
-
+  <%# This is going to be shown for mobile devices %>
+  <div class="speed-track-container d-lg-none">
+    <div class="container">
+      <div class="form-container">
+        <h2>Composition Builder</h2>
+        <p> You can use the composition builder to create a track from existing memory lists.</p>
+        <%= render 'components/compositions-form', composition: @composition %>
+      </div>
     </div>
- </div>
-<%
+  </div>
+  <%# Desktop view %>
+  <div class="composition-master-container d-none d-lg-flex">
+    <%= render 'components/composition-memorylist-draggable', composition: @composition %>
+  </div>
+  <%# We don't need this.  %>
+  <%
+=begin %>
+  <div class="compsition-builder-container">
+    <div class="form-container">
+      <h1>Composition Builder</h1>
+      <p>You can use the composition builder to create your own flashcards and memory list, which can be combined to create your own composition!</p>
+      <div class="container">
+        <%= render 'components/composition-builder' %>
+      </div>
+    </div>
+  </div>
+  <%
 =end %>
-
-
 </div>

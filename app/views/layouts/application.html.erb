@@ -4,7 +4,6 @@
     <%# <title>TwoByFour - Beats Into Your Brain</title> %>
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
-
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />
@@ -12,7 +11,6 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
-
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
@@ -20,15 +18,11 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
-
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%# Favicon %>
     <%= favicon_link_tag %>
     <%# <link rel="apple-touch-icon" sizes="57x57" href="/app/assets/images/favicon/apple-icon-57x57.png">
@@ -48,16 +42,14 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff"> %>
-
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="main-body">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>

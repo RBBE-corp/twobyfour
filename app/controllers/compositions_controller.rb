@@ -26,6 +26,8 @@ class CompositionsController < ApplicationController
     @memory_lists = MemoryList.first(3).concat current_user.memory_lists
     @instrumentals = Instrumental.all
     @composition = Composition.new(composition_params)
+    p @composition
+    byebug
     @composition.user = current_user
     @composition.rep_count = 0
     if @composition.save
