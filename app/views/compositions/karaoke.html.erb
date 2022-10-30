@@ -3,11 +3,11 @@
   <div class="karaoke-main-container">
 <div class="karaoke-master-container">
     <%# Hidden score correction %>
-    <div class="karaoke-score-container score-hidden py-5">
+    <div class="karaoke-score-container score-hidden d-block py-5">
       <div class="karaoke-score-box">
         <h3 class="text-center">Corrections</h3>
         <div class="row p-3">
-          <div class="col-5 first-column">
+          <div class="col-12 col-sm-10 col-md-5 first-column">
             <div class="side-by-side">
               <strong>Word</strong>
               <strong>Your Transcript</strong>
@@ -34,7 +34,7 @@
               <% end %>
             </div>
           </div>
-          <div class="col-5 second-column">
+          <div class="col-12 col-sm-10 col-md-5 second-column">
             <div class="score-box">
               <h4><strong>Score</strong></h4>
               <div class="score-info">
@@ -65,8 +65,8 @@
 
             </div>
                       <div class="instrumental-info">
-            <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon", class: "spinning"%>
-            <%= image_tag 'needle.png', class: "needle" %>
+            <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon", class: "spinning d-none d-lg-block"%>
+            <%= image_tag 'needle.png', class: "needle d-none d-lg-block" %>
               <div class="instrumental-inner-text">
               <p><bdi><i class="bi bi-mic-fill"></i></bdi><%= @composition.name %></p>
               <p><bdi><i class="bi bi-music-note"></i></bdi><%= underscore_remover(@composition.instrumental.title) %></p>

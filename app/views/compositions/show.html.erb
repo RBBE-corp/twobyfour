@@ -1,98 +1,93 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
 <div class="composition-show-master-container">
-<div class="container pt-5">
- <h3 class="title">Practice Mode</h3>
-  <div class="composition-show-box">
-    <div class="composition-show-info">
-      <div class="composition-card-info">
-        <div class="png-playlist-count">
-
-        </div>
-
-        <div class="instrumental-info">
-           <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon", class: "spinning"%>
-           <%= image_tag 'needle.png', class: "needle" %>
+  <div class="container pt-5">
+    <h3 class="title">Practice Mode</h3>
+    <div class="composition-show-box">
+      <div class="composition-show-info">
+        <div class="composition-card-info">
+          <div class="png-playlist-count">
+          </div>
+          <div class="instrumental-info">
+            <%= image_tag 'spinning.gif', width: "100px",alt: "playlist icon", class: "spinning  d-none d-lg-block"%>
+            <%= image_tag 'needle.png', class: "needle  d-none d-lg-block" %>
             <div class="instrumental-inner-text">
-            <p><bdi><i class="bi bi-mic-fill"></i></bdi><%= @composition.name %></p>
-            <p><bdi><i class="bi bi-music-note"></i></bdi><%= underscore_remover(@composition.instrumental.title) %></p>
-            <p><bdi><i class="fas fa-brain"></i></bdi><%= @composition.memory_list.name %></p>
+              <p><bdi><i class="bi bi-mic-fill"></i></bdi><%= @composition.name %></p>
+              <p><bdi><i class="bi bi-music-note"></i></bdi><%= underscore_remover(@composition.instrumental.title) %></p>
+              <p><bdi><i class="fas fa-brain"></i></bdi><%= @composition.memory_list.name %></p>
             </div>
+          </div>
         </div>
-
-      </div>
-
-      <div class="composition-subtitle">
-        <ul class="composition-subtitle-list">
-        <% @composition.memory_list.flashcards.each do |flashcard| %>
-
-          <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.english_word) %></li>
-
-          <li class="" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.japanese_word) %></li>
-
-        <% end %>
-
-
-        </ul>
-      </div>
+        <div class="composition-subtitle">
+          <ul class="composition-subtitle-list">
+            <% @composition.memory_list.flashcards.each do |flashcard| %>
+              <li class="" id="<%="#{flashcard.english_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.english_word) %></li>
+              <li class="" id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>"><%= underscore_remover(flashcard.japanese_word) %></li>
+            <% end %>
+          </ul>
+        </div>
         <div class="composition-controller">
-            <%# <%= link_to "", edit_composition_path(@composition), class: 'bi bi-pencil-square' %>
-            <%= link_to "", composition_path(@composition), method: :delete, class: 'bi bi-trash3-fill' %>
-            <%= link_to "", profile_path, class: 'bi bi-arrow-left-circle-fill' %>
-            </div>
-    </div>
-    <div class="composition-show-joystick">
-      <div class="audio-controllers">
-      <div class="loop-box">
-        <span>Loop</span>
-        <label class="switch">
-          <input type="checkbox" id="loop-checker">
-          <span class="slider round"></span>
-        </label>
-      </div>
-        <div class="play-pause-stop">
-          <button class="stop-player mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
-          <button class='player mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
+          <%# <%= link_to "", edit_composition_path(@composition), class: 'bi bi-pencil-square' %>
+          <%= link_to "", composition_path(@composition), method: :delete, class: 'bi bi-trash3-fill' %>
+          <%= link_to "", profile_path, class: 'bi bi-arrow-left-circle-fill' %>
         </div>
-
-        <div class="range-slider" data-controller="range-slider">
-          <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
-          <%# hello %>
-          <input type="range"
+      </div>
+      <div class="composition-show-joystick">
+        <div class="audio-controllers">
+          <div class="loop-box d-none d-md-block">
+            <span>Loop</span>
+            <label class="switch">
+              <input type="checkbox" id="loop-checker">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="play-pause-stop">
+            <button class="stop-player mr-3"><i class="fa fa-stop" aria-hidden="true"></i></button>
+            <button class='player mx-3' data-status="paused"><i class="fa fa-play" aria-hidden="true"></i></button>
+          </div>
+          <div class="range-slider" data-controller="range-slider">
+            <label for="customRange"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
+            <%# hello %>
+            <input type="range"
                 name="customRange"
                 class="range-slider__range inline"
                 data-range-slider-target="range"
                 data-action="input->range-slider#updateValue"
-                value="0.5"
-                min="0"
-                max="1"
-                step="0.00000001">
-          <%# <output class="range-slider__value"
+            value="0.5"
+            min="0"
+            max="1"
+            step="0.00000001">
+            <%# <output class="range-slider__value"
                   data-range-slider-target= "play"></output> %>
+          </div>
         </div>
-
-      </div>
-
-      <div class="rep-counter">
-        <p>reps</p>
-        <strong>
-          <div id = "rep-count-id"><%= @composition.rep_count %></div>
-        </strong>
+        <div class="counter-box">
+          <div class="loop-box d-md-none">
+            <span>Loop</span>
+            <label class="switch">
+              <input type="checkbox" id="loop-checker">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="rep-counter">
+            <p>reps</p>
+            <strong>
+              <div id = "rep-count-id"><%= @composition.rep_count %></div>
+            </strong>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="memory-test-button" style="text-align:center;">
+      <%= link_to "Memory Test!", composition_karaoke_path(@composition), class: 'memorytest-text' %>
+    </div>
+    <div class="audio-mother-box">
+      <audio>
+        <source src="<%= asset_path("instrumentals/#{@composition.instrumental.title}.mp3") %>" type="audio/mpeg">
+        <% @composition.memory_list.flashcards.each do |flashcard| %>
+          <source id="<%="#{flashcard.english_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.english_word}.wav") %>" type="audio/mpeg">
+          <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.japanese_word}.wav") %>" type="audio/mpeg">
+        <% end %>
+      </audio>
+    </div>
   </div>
-  <div class="memory-test-button" style="text-align:center;">
-<%= link_to "Memory Test!", composition_karaoke_path(@composition), class: 'memorytest-text' %>
-
-  </div>
-  <div class="audio-mother-box">
-    <audio>
-      <source src="<%= asset_path("instrumentals/#{@composition.instrumental.title}.mp3") %>" type="audio/mpeg">
-      <% @composition.memory_list.flashcards.each do |flashcard| %>
-        <source id="<%="#{flashcard.english_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.english_word}.wav") %>" type="audio/mpeg">
-        <source id="<%="#{flashcard.japanese_word}-#{flashcard.id}"%>" src="<%= asset_path("flashcard_greetings/#{flashcard.japanese_word}.wav") %>" type="audio/mpeg">
-      <% end %>
-    </audio>
-  </div>
-</div>
 </div>

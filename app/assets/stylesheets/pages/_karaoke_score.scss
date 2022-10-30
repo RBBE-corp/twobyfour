@@ -73,6 +73,8 @@
     height: auto;
     border-radius: 40px;
     background-color: $blue;
+    margin-left: auto;
+    margin-right: auto;
 
     h3 {
       font-weight: bold;
@@ -203,5 +205,11 @@
     left: 50%;
     width: 60%;
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 800px) {
+  .karaoke-score-container .karaoke-score-box {
+    width: 100%;
   }
 }

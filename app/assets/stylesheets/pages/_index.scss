@@ -7,3 +7,9 @@
 @import "memory_list_new";
 @import "memory_list_show";
 @import "memory_list_index";
+
+.main-body {
+  min-height: calc(100vh - 56px - 8rem);
+  display: flex;
+  flex-direction: column;
+}
