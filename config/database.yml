@@ -82,6 +82,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  # database: twobyfour_production
-  # username: twobyfour
-  # password: <%= ENV['TWOBYFOUR_DATABASE_PASSWORD'] %>
+  database: twobyfour123
+  username: twobyfour123_user
+  password: <%= ENV['TWOBYFOUR_DATABASE_PASSWORD'] %>
